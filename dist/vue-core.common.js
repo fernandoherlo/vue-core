@@ -195,7 +195,7 @@ function () {
         if (authResult && authResult.accessToken && authResult.idToken) {
           _this.setSession(authResult);
 
-          EventBus.$emit('goRouter', 'dashboardcore');
+          EventBus.$emit('goRouter', 'dashboardcore', true);
         } else if (err) {
           EventBus.$emit('goRouter', 'homecore');
           alert("Error: ".concat(err.error, ". Check the console for further details."));
@@ -739,8 +739,12 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
     this.$EventBus.$on('authChange', function (authState) {
       _this.authenticated = authState.authenticated;
     });
-    this.$EventBus.$on('goRouter', function (route) {
-      _this.$router.push(route);
+    this.$EventBus.$on('goRouter', function (route, force) {
+      _this.$router.push(route, function () {
+        if (force) {
+          window.reload();
+        }
+      });
     });
     this.$EventBus.$on('apiGet', function (url, callback) {
       _this.$api.get(url, callback);
