@@ -41,7 +41,6 @@ export default {
         commit('RECEIVE_' +  options.mTypeNamePl, { items })
         commit('RECEIVE_LOAD_PARTIAL',  options.displayName)
         resolve()
-        console.log('LOAD')
       }
       EventBus.$emit('apiGet', options.url, _callback)
     })

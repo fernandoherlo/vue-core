@@ -20,9 +20,8 @@ export default class ApiService {
     this.$http.axios(options).then(function (response) {
       // Return items
       _callback(response.data)
-    }, function (response) {
+    }, function (/*response*/) {
       // Fail
-      console.log(response)
     })
   }
 
@@ -42,12 +41,10 @@ export default class ApiService {
     }
     this.$http.axios(options).then(function (response) {
       // CallBack
-      _callback(true)
-      console.log(response)
+      _callback(response.data)
       // -----
-    }, function (response) {
+    }, function (/*response*/) {
       // Fail
-      console.log(response)
     })
   }
 
@@ -67,9 +64,8 @@ export default class ApiService {
     this.$http.axios(options).then(function (response) {
       // CallBack
       _callback(response.data.id)
-    }, function (response) {
+    }, function (/*response*/) {
       // Fail
-      console.log(response)
     })
   }
 
@@ -84,11 +80,9 @@ export default class ApiService {
     }
     this.$http.axios(options).then(function (response) {
       // CallBack
-      _callback(true)
-      console.log(response)
-    }, function (response) {
+      _callback(response.data)
+    }, function (/*response*/) {
       // Fail
-      console.log(response)
     })
   }
 }

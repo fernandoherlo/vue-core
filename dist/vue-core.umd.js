@@ -331,6 +331,414 @@ var http_HttpService = function HttpService($auth) {
 };
 
 
+// CONCATENATED MODULE: ./src/services/api.js
+
+
+
+/*
+|--------------------------------------------------------------------------
+| $api
+|--------------------------------------------------------------------------
+|
+*/
+var api_ApiService =
+/*#__PURE__*/
+function () {
+  function ApiService($http) {
+    _classCallCheck(this, ApiService);
+
+    this.$http = $http;
+  } // GET ALL
+  // ******************
+
+
+  _createClass(ApiService, [{
+    key: "get",
+    value: function get(url, _callback) {
+      var options = {
+        url: url,
+        method: 'GET'
+      };
+      this.$http.axios(options).then(function (response) {
+        // Return items
+        _callback(response.data);
+      }, function ()
+      /*response*/
+      {// Fail
+      });
+    } // UPDATE
+    // ******************
+
+  }, {
+    key: "update",
+    value: function update(url, item, _callback) {
+      // Data
+      var data = {}; // Fields
+
+      for (var propertyName in item) {
+        data[propertyName] = item[propertyName];
+      }
+
+      var options = {
+        url: url + '/' + item.id,
+        method: 'POST',
+        data: data
+      };
+      this.$http.axios(options).then(function (response) {
+        // CallBack
+        _callback(response.data); // -----
+
+      }, function ()
+      /*response*/
+      {// Fail
+      });
+    } // SAVE
+
+  }, {
+    key: "save",
+    value: function save(url, item, _callback) {
+      // Data
+      var data = {}; // Fields
+
+      for (var propertyName in item) {
+        data[propertyName] = item[propertyName];
+      }
+
+      var options = {
+        url: url,
+        method: 'POST',
+        data: data
+      };
+      this.$http.axios(options).then(function (response) {
+        // CallBack
+        _callback(response.data.id);
+      }, function ()
+      /*response*/
+      {// Fail
+      });
+    } // DELETE
+
+  }, {
+    key: "delete",
+    value: function _delete(url, item, _callback, wait) {
+      if (wait) {// Alert wait
+      }
+
+      var options = {
+        url: url + '/' + item.id,
+        method: 'DELETE'
+      };
+      this.$http.axios(options).then(function (response) {
+        // CallBack
+        _callback(response.data);
+      }, function ()
+      /*response*/
+      {// Fail
+      });
+    }
+  }]);
+
+  return ApiService;
+}();
+
+
+// CONCATENATED MODULE: ./src/vuex/modules/load.js
+
+
+var _mutations;
+
+/*
+|--------------------------------------------------------------------------
+| Initial state
+|--------------------------------------------------------------------------
+|
+*/
+var load_state = {
+  load: false,
+  msg: '',
+  now: 0,
+  count: 0
+  /*
+  |--------------------------------------------------------------------------
+  | Getters
+  |--------------------------------------------------------------------------
+  |
+  */
+
+};
+var getters = {
+  load: function load(state) {
+    return state.load;
+  },
+  loadMsg: function loadMsg(state) {
+    return state.msg;
+  }
+  /*
+  |--------------------------------------------------------------------------
+  | Actions
+  |--------------------------------------------------------------------------
+  |
+  */
+
+};
+var actions = {
+  // eslint-disable-next-line
+  loadBaseData: function loadBaseData(_ref, modules) {
+    var dispatch = _ref.dispatch,
+        commit = _ref.commit;
+    // Init
+    dispatch('initLoad', modules.length); // Load
+
+    var load = function load(i) {
+      if (i === modules.length) {
+        // Complete
+        dispatch('completeLoad');
+      } else {
+        dispatch(modules[i]).then(function () {
+          // Next
+          i++;
+          load(i);
+        });
+      }
+    }; // Init
+
+
+    var i = 0;
+    load(i);
+  },
+  initLoad: function initLoad(_ref2, count) {
+    var commit = _ref2.commit;
+    commit('RECEIVE_LOAD_INIT', count);
+  },
+  completeLoad: function completeLoad(_ref3) {
+    var commit = _ref3.commit;
+    commit('RECEIVE_LOAD_END', '<strong>Completado</strong>');
+    setTimeout(function () {
+      commit('RECEIVE_LOAD');
+    }, 300);
+  }
+};
+/*
+|--------------------------------------------------------------------------
+| Mutations
+|--------------------------------------------------------------------------
+|
+*/
+
+var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', function RECEIVE_LOAD(state) {
+  state.load = true;
+}), _defineProperty(_mutations, 'RECEIVE_LOAD_INIT', function RECEIVE_LOAD_INIT(state, count) {
+  state.count = count;
+}), _defineProperty(_mutations, 'RECEIVE_LOAD_PARTIAL', function RECEIVE_LOAD_PARTIAL(state, msg) {
+  state.now++;
+  state.msg += '<small>' + msg + ' <strong>(' + state.now + '/' + state.count + ')</strong></small>';
+}), _defineProperty(_mutations, 'RECEIVE_LOAD_END', function RECEIVE_LOAD_END(state, msg) {
+  state.msg += '<small>' + msg + ' <strong>(' + state.now + '/' + state.count + ')</strong></small>';
+}), _mutations);
+/*
+|--------------------------------------------------------------------------
+| load.js
+|--------------------------------------------------------------------------
+|
+*/
+
+/* harmony default export */ var load = ({
+  state: load_state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+// CONCATENATED MODULE: ./src/vuex/getters.js
+
+
+/*
+|--------------------------------------------------------------------------
+| CORE vuex getters
+|--------------------------------------------------------------------------
+|
+*/
+/* harmony default export */ var vuex_getters = ({
+  core: function core(state, options) {
+    var _ref;
+
+    // mTypeNamePl, mTypeName
+    return _ref = {}, _defineProperty(_ref, 'all' + options.mTypeNamePl, function (state) {
+      return state.all;
+    }), _defineProperty(_ref, options.mTypeName, function (state) {
+      return state.item;
+    }), _ref;
+  }
+});
+// CONCATENATED MODULE: ./src/vuex/actions.js
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Import core
+|--------------------------------------------------------------------------
+|
+*/
+
+/*
+|--------------------------------------------------------------------------
+| CORE vuex actions
+|--------------------------------------------------------------------------
+|
+*/
+
+/* harmony default export */ var vuex_actions = ({
+  core: function core(options) {
+    var _ref6;
+
+    //mTypeNamePl, mTypeName, url, displayName
+    var self = this;
+    return _ref6 = {}, _defineProperty(_ref6, 'getAll' + options.mTypeNamePl, function (_ref) {
+      var commit = _ref.commit;
+      return self.getBaseAll(commit, options);
+    }), _defineProperty(_ref6, 'get' + options.mTypeName, function (_ref2, id) {
+      var commit = _ref2.commit;
+      return self.getItem(commit, options, id);
+    }), _defineProperty(_ref6, 'update' + options.mTypeName, function (_ref3, item) {
+      var commit = _ref3.commit;
+      return self.updateItem(commit, options, item);
+    }), _defineProperty(_ref6, 'save' + options.mTypeName, function (_ref4, item) {
+      var commit = _ref4.commit;
+      return self.saveItem(commit, options, item);
+    }), _defineProperty(_ref6, 'delete' + options.mTypeName, function (_ref5, item) {
+      var commit = _ref5.commit;
+      return self.deleteItem(commit, options, item);
+    }), _ref6;
+  },
+  // GET ALL
+  getBaseAll: function getBaseAll(commit, options) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      var _callback = function _callback(items) {
+        commit('RECEIVE_' + options.mTypeNamePl, {
+          items: items
+        });
+        commit('RECEIVE_LOAD_PARTIAL', options.displayName);
+        resolve();
+      };
+
+      EventBus.$emit('apiGet', options.url, _callback);
+    });
+  },
+  // GET ITEM
+  getItem: function getItem(commit, options, id) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      commit('GET_' + options.mTypeName, {
+        id: id
+      });
+      resolve();
+    });
+  },
+  // UPDATE ITEM
+  updateItem: function updateItem(commit, options, item) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      var _callback = function _callback(status) {
+        commit('UPDATE_' + options.mTypeName, {
+          status: status,
+          item: item
+        });
+        resolve();
+      };
+
+      EventBus.$emit('apiUpdate', options.url, item, _callback);
+    });
+  },
+  // SAVE ITEM
+  saveItem: function saveItem(commit, options, item) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      var _callback = function _callback(statusId) {
+        commit('SAVE_' + options.mTypeName, {
+          statusId: statusId,
+          item: item
+        });
+        resolve();
+      };
+
+      EventBus.$emit('apiSave', options.url, item, _callback);
+    });
+  },
+  // DELETE ITEM
+  deleteItem: function deleteItem(commit, options, item) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      var _callback = function _callback(status) {
+        commit('DELETE_' + options.mTypeName, {
+          status: status,
+          item: item
+        });
+        resolve();
+      };
+
+      EventBus.$emit('apiDelete', options.url, item, _callback);
+    });
+  }
+});
+// CONCATENATED MODULE: ./src/vuex/mutations.js
+
+
+/*
+|--------------------------------------------------------------------------
+| CORE vuex mutations
+|--------------------------------------------------------------------------
+|
+*/
+/* harmony default export */ var vuex_mutations = ({
+  core: function core(state, options) {
+    // mTypeNamePl, mTypeName
+    var self = this;
+    return _defineProperty({}, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
+      var items = _ref.items;
+      self.getAll(state, items);
+    });
+  },
+  getAll: function getAll(state, items) {
+    state.all = items;
+  } // getItem (state, id) {
+  //   state.item = state.all.filter(item => item.id === id)[0]
+  // },
+  // updateItem (state, status, item) {
+  //   if (status) {
+  //     var index = state.all.indexOf(state.item)
+  //     var clone = utils.clone(item)
+  //     // ---
+  //     // state.all[index] = clone
+  //     // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
+  //     state.all.splice(index, 1)
+  //     state.all.push(clone)
+  //   }
+  // },
+  // saveItem (state, statusId, item) {
+  //   if (statusId) {
+  //     // Set id
+  //     item.id = statusId
+  //     var clone = utils.clone(item)
+  //     // ---
+  //     // state.all[index] = clone
+  //     // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
+  //     state.all.push(clone)
+  //   }
+  // },
+  // deleteItem (state, status, item) {
+  //   if (status) {
+  //     var index = state.all.indexOf(item)
+  //     state.all.splice(index, 1)
+  //   }
+  // }
+
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=5466962c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner"},[_vm._v("\n  Loading...\n")])}
 var staticRenderFns = []
@@ -479,12 +887,27 @@ var component = normalizeComponent(
  * @name VueJS VueCore (vue-core)
  * @description Library for Vue.js 2.0
  */
+// Services
 
+
+
+ // Vuex
+
+
+
+
+ // Views
 
 
 var $core = {
   AuthService: auth,
   HttpService: http_HttpService,
+  ApiService: api_ApiService,
+  EventBus: EventBus,
+  VuexLoad: load,
+  VuexGetters: vuex_getters,
+  VuexActions: vuex_actions,
+  VuexMutations: vuex_mutations,
   Callback: Callback
 };
 /* harmony default export */ var build = ($core);
