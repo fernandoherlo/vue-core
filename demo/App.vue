@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-
+    <router-link :to="{ name: 'Comments'}">Comments</router-link> \ 
+    <router-link :to="{ name: 'Comment', params: { id: 3 }}">Comment 2</router-link>
     <h2 v-html="loadMsg"></h2>
     <h4 v-if="authenticated">
         You are logged in!  <a @click="logout()">Log out</a>

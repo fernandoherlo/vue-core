@@ -3,10 +3,10 @@ import coreActions from '@/vuex/actions'
 import coreMutations from '@/vuex/mutations'
 
 const options = {
-  displayName: 'test',
+  displayName: 'comments',
   url: 'https://jsonplaceholder.typicode.com/comments',
-  mTypeName: 'TEST',
-  mTypeNamePl: 'TESTS'
+  mTypeName: 'COMMENT',
+  mTypeNamePl: 'COMMENTS'
 }
 
 // initial state

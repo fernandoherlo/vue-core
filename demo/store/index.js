@@ -14,7 +14,7 @@ import Vuex from 'vuex'
 |
 */
 import load from '@/vuex/modules/load'
-import test from './modules/test'
+import comments from './modules/comments'
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ const debug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store({
   modules: {
     load,
-    test
+    comments
   },
   strict: debug
 })

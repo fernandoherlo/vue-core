@@ -10,10 +10,10 @@ export default {
     return {
       ['RECEIVE_' + options.mTypeNamePl] (state, { items }) {
         self.getAll(state, items)
-      }
-      // ['GET_' + options.mTypeName] (state, { id }) {
-      //   self.getItem(state, id)
-      // },
+      },
+      ['GET_' + options.mTypeName] (state, { id }) {
+        self.getItem(state, id)
+      },
       // ['UPDATE_' + options.mTypeName] (state, { status, item }) {
       //   self.updateItem(state, status, item)
       // },
@@ -28,10 +28,10 @@ export default {
 
   getAll (state, items) {
     state.all = items
-  }
-  // getItem (state, id) {
-  //   state.item = state.all.filter(item => item.id === id)[0]
-  // },
+  },
+  getItem (state, id) {
+    state.item = state.all.filter(item => item.id === id)[0]
+  },
   // updateItem (state, status, item) {
   //   if (status) {
   //     var index = state.all.indexOf(state.item)

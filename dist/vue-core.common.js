@@ -539,7 +539,11 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   actions: actions,
   mutations: mutations
 });
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
+var es6_object_assign = __webpack_require__("91GP");
+
 // CONCATENATED MODULE: ./src/vuex/getters.js
+
 
 
 /*
@@ -557,6 +561,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
       return state.all;
     }), _defineProperty(_ref, options.mTypeName, function (state) {
       return state.item;
+    }), _defineProperty(_ref, 'clone' + options.mTypeName, function (state) {
+      return Object.assign({}, state.item);
     }), _ref;
   }
 });
@@ -688,47 +694,26 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
 */
 /* harmony default export */ var vuex_mutations = ({
   core: function core(state, options) {
+    var _ref3;
+
     // mTypeNamePl, mTypeName
     var self = this;
-    return _defineProperty({}, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
+    return _ref3 = {}, _defineProperty(_ref3, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
       var items = _ref.items;
       self.getAll(state, items);
-    });
+    }), _defineProperty(_ref3, 'GET_' + options.mTypeName, function (state, _ref2) {
+      var id = _ref2.id;
+      self.getItem(state, id);
+    }), _ref3;
   },
   getAll: function getAll(state, items) {
     state.all = items;
-  } // getItem (state, id) {
-  //   state.item = state.all.filter(item => item.id === id)[0]
-  // },
-  // updateItem (state, status, item) {
-  //   if (status) {
-  //     var index = state.all.indexOf(state.item)
-  //     var clone = utils.clone(item)
-  //     // ---
-  //     // state.all[index] = clone
-  //     // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
-  //     state.all.splice(index, 1)
-  //     state.all.push(clone)
-  //   }
-  // },
-  // saveItem (state, statusId, item) {
-  //   if (statusId) {
-  //     // Set id
-  //     item.id = statusId
-  //     var clone = utils.clone(item)
-  //     // ---
-  //     // state.all[index] = clone
-  //     // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
-  //     state.all.push(clone)
-  //   }
-  // },
-  // deleteItem (state, status, item) {
-  //   if (status) {
-  //     var index = state.all.indexOf(item)
-  //     state.all.splice(index, 1)
-  //   }
-  // }
-
+  },
+  getItem: function getItem(state, id) {
+    state.item = state.all.filter(function (item) {
+      return item.id === id;
+    })[0];
+  }
 });
 // CONCATENATED MODULE: ./src/mixins/events.js
 // EVENTS
@@ -1235,6 +1220,17 @@ module.exports = function (target, src, safe) {
 
 /***/ }),
 
+/***/ "4R4u":
+/***/ (function(module, exports) {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+
+/***/ }),
+
 /***/ "5oMp":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1269,6 +1265,17 @@ module.exports = function (O, D) {
   var S;
   return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
 };
+
+
+/***/ }),
+
+/***/ "91GP":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__("XKFU");
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__("czNK") });
 
 
 /***/ }),
@@ -1456,6 +1463,20 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = Axios;
+
+
+/***/ }),
+
+/***/ "DVgA":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys = __webpack_require__("zhAb");
+var enumBugKeys = __webpack_require__("4R4u");
+
+module.exports = Object.keys || function keys(O) {
+  return $keys(O, enumBugKeys);
+};
 
 
 /***/ }),
@@ -1811,6 +1832,14 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("Q2Ig")))
+
+/***/ }),
+
+/***/ "JiEa":
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
+
 
 /***/ }),
 
@@ -2260,6 +2289,18 @@ module.exports = function settle(resolve, reject, response) {
 
 /***/ }),
 
+/***/ "S/j/":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__("vhPU");
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+
+/***/ }),
+
 /***/ "SlkY":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2382,6 +2423,14 @@ module.exports = function dispatchRequest(config) {
     return Promise.reject(reason);
   });
 };
+
+
+/***/ }),
+
+/***/ "UqcF":
+/***/ (function(module, exports) {
+
+exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
@@ -2778,6 +2827,44 @@ module.exports = function (exec, skipClosing) {
 
 /***/ }),
 
+/***/ "YTvA":
+/***/ (function(module, exports, __webpack_require__) {
+
+var shared = __webpack_require__("VTer")('keys');
+var uid = __webpack_require__("ylqs");
+module.exports = function (key) {
+  return shared[key] || (shared[key] = uid(key));
+};
+
+
+/***/ }),
+
+/***/ "Ymqv":
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__("LZWt");
+// eslint-disable-next-line no-prototype-builtins
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+
+/***/ }),
+
+/***/ "aCFj":
+/***/ (function(module, exports, __webpack_require__) {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__("Ymqv");
+var defined = __webpack_require__("vhPU");
+module.exports = function (it) {
+  return IObject(defined(it));
+};
+
+
+/***/ }),
+
 /***/ "aagx":
 /***/ (function(module, exports) {
 
@@ -2803,6 +2890,62 @@ module.exports = function (it, S) {
   if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
   if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
   throw TypeError("Can't convert object to primitive value");
+};
+
+
+/***/ }),
+
+/***/ "czNK":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys = __webpack_require__("DVgA");
+var gOPS = __webpack_require__("JiEa");
+var pIE = __webpack_require__("UqcF");
+var toObject = __webpack_require__("S/j/");
+var IObject = __webpack_require__("Ymqv");
+var $assign = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__("eeVq")(function () {
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line no-undef
+  var S = Symbol();
+  var K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function (k) { B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+  var T = toObject(target);
+  var aLen = arguments.length;
+  var index = 1;
+  var getSymbols = gOPS.f;
+  var isEnum = pIE.f;
+  while (aLen > index) {
+    var S = IObject(arguments[index++]);
+    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+  } return T;
+} : $assign;
+
+
+/***/ }),
+
+/***/ "d/Gc":
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__("RYi7");
+var max = Math.max;
+var min = Math.min;
+module.exports = function (index, length) {
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
 };
 
 
@@ -3535,6 +3678,18 @@ module.exports = function (C, x) {
 
 /***/ }),
 
+/***/ "vhPU":
+/***/ (function(module, exports) {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+
+/***/ }),
+
 /***/ "w0Vi":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3591,6 +3746,36 @@ module.exports = function parseHeaders(headers) {
   });
 
   return parsed;
+};
+
+
+/***/ }),
+
+/***/ "w2a5":
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__("aCFj");
+var toLength = __webpack_require__("ne8i");
+var toAbsoluteIndex = __webpack_require__("d/Gc");
+module.exports = function (IS_INCLUDES) {
+  return function ($this, el, fromIndex) {
+    var O = toIObject($this);
+    var length = toLength(O.length);
+    var index = toAbsoluteIndex(fromIndex, length);
+    var value;
+    // Array#includes uses SameValueZero equality algorithm
+    // eslint-disable-next-line no-self-compare
+    if (IS_INCLUDES && el != el) while (length > index) {
+      value = O[index++];
+      // eslint-disable-next-line no-self-compare
+      if (value != value) return true;
+    // Array#indexOf ignores holes, Array#includes - not
+    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+      if (O[index] === el) return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
 };
 
 
@@ -4011,6 +4196,30 @@ var id = 0;
 var px = Math.random();
 module.exports = function (key) {
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+
+/***/ }),
+
+/***/ "zhAb":
+/***/ (function(module, exports, __webpack_require__) {
+
+var has = __webpack_require__("aagx");
+var toIObject = __webpack_require__("aCFj");
+var arrayIndexOf = __webpack_require__("w2a5")(false);
+var IE_PROTO = __webpack_require__("YTvA")('IE_PROTO');
+
+module.exports = function (object, names) {
+  var O = toIObject(object);
+  var i = 0;
+  var result = [];
+  var key;
+  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while (names.length > i) if (has(O, key = names[i++])) {
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
 };
 
 
