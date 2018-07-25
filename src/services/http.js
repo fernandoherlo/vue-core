@@ -17,7 +17,7 @@ export default class HttpService {
     this.$auth = $auth
     this.axios = Axios.create({
       timeout: 720000, // 720 segundos
-      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('idToken') }
+      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('id_token') }
     })
 
     this.axios.interceptors.response.use(
