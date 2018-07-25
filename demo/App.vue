@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+
+    <h2 v-html="loadMsg"></h2>
     <h4 v-if="authenticated">
         You are logged in!  <a @click="logout()">Log out</a>
     </h4>
@@ -11,32 +13,26 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { modules } from './store/modules'
+import events from '@/mixins/events'
+
 export default {
   name: 'App',
+  mixins: [events],
   data () {
-    this.$auth.EventsVue.$on('authChange', authState => {
-      this.authenticated = authState.authenticated
-    })
-    this.$auth.EventsVue.$on('goRouter', route => {
-      this.$router.replace(route)
-    })
     return {
       auth: this.$auth,
       authenticated: this.$auth.authenticated
     }
   },
+  computed: mapGetters({
+    isLoading: 'load',
+    loadMsg: 'loadMsg'
+  }),
   created () {
-    var options = {
-      url: 'https://jsonplaceholder.typicode.com/posts/1',
-      method: 'GET'
-    }
-    this.$http.axios(options).then(function (response) {
-      var data = response
-      console.log(data)
-    }, function (response) {
-      var data = response
-      console.log(data)
-    })
+    // LOAD MODULES STORE
+    this.$store.dispatch('loadBaseData', modules)
   },
   methods: {
     login: function () {

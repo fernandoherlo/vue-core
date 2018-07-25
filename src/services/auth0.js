@@ -1,10 +1,9 @@
-import Vue from 'vue'
 import auth0 from 'auth0-js'
+import { EventBus } from '@/services/event-bus.js';
 
 export default class AuthService {
 
   authenticated = this.isAuthenticated()
-  EventsVue = new Vue({})
 
   constructor () {
     this.login = this.login.bind(this)
@@ -30,9 +29,9 @@ export default class AuthService {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult)
-        this.EventsVue.$emit('goRouter', 'dashboardcore')
+        EventBus.$emit('goRouter', 'dashboardcore')
       } else if (err) {
-        this.EventsVue.$emit('goRouter', 'homecore')
+        EventBus.$emit('goRouter', 'homecore')
         alert(`Error: ${err.error}. Check the console for further details.`)
       }
     })
@@ -46,7 +45,7 @@ export default class AuthService {
     localStorage.setItem('access_token', authResult.accessToken)
     localStorage.setItem('id_token', authResult.idToken)
     localStorage.setItem('expires_at', expiresAt)
-    this.EventsVue.$emit('authChange', { authenticated: true })
+    EventBus.$emit('authChange', { authenticated: true })
   }
 
   logout () {
@@ -55,9 +54,9 @@ export default class AuthService {
     localStorage.removeItem('id_token')
     localStorage.removeItem('expires_at')
     this.userProfile = null
-    this.EventsVue.$emit('authChange', false)
+    EventBus.$emit('authChange', false)
     // navigate to the home route
-    this.EventsVue.$emit('goRouter', 'homecore')
+    EventBus.$emit('goRouter', 'homecore')
   }
 
   isAuthenticated () {

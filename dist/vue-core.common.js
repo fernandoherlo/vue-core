@@ -142,13 +142,16 @@ function _defineProperty(obj, key, value) {
 
   return obj;
 }
+// EXTERNAL MODULE: ./node_modules/auth0-js/dist/auth0.min.esm.js
+var auth0_min_esm = __webpack_require__("sK8x");
+
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("i7/w");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
-// EXTERNAL MODULE: ./node_modules/auth0-js/dist/auth0.min.esm.js
-var auth0_min_esm = __webpack_require__("sK8x");
+// CONCATENATED MODULE: ./src/services/event-bus.js
 
+var EventBus = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a();
 // CONCATENATED MODULE: ./src/services/auth0.js
 
 
@@ -163,8 +166,6 @@ function () {
     _classCallCheck(this, AuthService);
 
     _defineProperty(this, "authenticated", this.isAuthenticated());
-
-    _defineProperty(this, "EventsVue", new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({}));
 
     this.login = this.login.bind(this);
     this.setSession = this.setSession.bind(this);
@@ -194,10 +195,9 @@ function () {
         if (authResult && authResult.accessToken && authResult.idToken) {
           _this.setSession(authResult);
 
-          _this.EventsVue.$emit('goRouter', 'dashboardcore');
+          EventBus.$emit('goRouter', 'dashboardcore');
         } else if (err) {
-          _this.EventsVue.$emit('goRouter', 'homecore');
-
+          EventBus.$emit('goRouter', 'homecore');
           alert("Error: ".concat(err.error, ". Check the console for further details."));
         }
       });
@@ -210,7 +210,7 @@ function () {
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
-      this.EventsVue.$emit('authChange', {
+      EventBus.$emit('authChange', {
         authenticated: true
       });
     }
@@ -222,9 +222,9 @@ function () {
       localStorage.removeItem('id_token');
       localStorage.removeItem('expires_at');
       this.userProfile = null;
-      this.EventsVue.$emit('authChange', false); // navigate to the home route
+      EventBus.$emit('authChange', false); // navigate to the home route
 
-      this.EventsVue.$emit('goRouter', 'homecore');
+      EventBus.$emit('goRouter', 'homecore');
     }
   }, {
     key: "isAuthenticated",
