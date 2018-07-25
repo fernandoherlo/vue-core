@@ -910,27 +910,21 @@ var component = normalizeComponent(
  // Views
 
 
-var $core = {
-  AuthService: services_auth,
-  HttpService: services_http,
-  ApiService: services_api,
-  EventBus: EventBus,
-  VuexLoad: load,
-  VuexGetters: vuex_getters,
-  VuexActions: vuex_actions,
-  VuexMutations: vuex_mutations,
-  Events: events,
-  Callback: Callback
-};
-/* harmony default export */ var build = ($core);
 
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.prototype.$core = $core;
-}
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "auth", function() { return services_auth; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "http", function() { return services_http; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "api", function() { return services_api; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "EventBus", function() { return EventBus; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "VuexLoad", function() { return load; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "VuexGetters", function() { return vuex_getters; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "VuexActions", function() { return vuex_actions; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "VuexMutations", function() { return vuex_mutations; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "Events", function() { return events; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "Callback", function() { return Callback; });
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (build);
+/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (/* Cannot get final name for export "default" in "./build/index.js" (known exports: , known reexports: auth http api EventBus VuexLoad VuexGetters VuexActions VuexMutations Events Callback) */ undefined);
 
 
 

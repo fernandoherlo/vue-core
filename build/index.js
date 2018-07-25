@@ -3,10 +3,11 @@
  * @description Library for Vue.js 2.0
  */
  // Services
-import AuthService from '@/services/auth'
-import HttpService from '@/services/http'
-import ApiService from '@/services/api'
+import auth from '@/services/auth'
+import http from '@/services/http'
+import api from '@/services/api'
 import { EventBus } from '@/services/event-bus.js';
+
 // Vuex
 import VuexLoad from '@/vuex/modules/load'
 import VuexGetters from '@/vuex/getters'
@@ -17,21 +18,15 @@ import Events from '@/mixins/events'
 // Views
 import Callback from '@/views/Callback'
 
-var $core = {
-	AuthService,
-	HttpService,
-	ApiService,
-	EventBus,
-	VuexLoad,
-	VuexGetters,
-	VuexActions,
-	VuexMutations,
-	Events,
-	Callback
-}
-
-export default $core
-
-if (typeof window !== 'undefined' && window.Vue) {
-    window.Vue.prototype.$core = $core
+export {
+  auth,
+  http,
+  api,
+  EventBus,
+  VuexLoad,
+  VuexGetters,
+  VuexActions,
+  VuexMutations,
+  Events,
+  Callback
 }
