@@ -7,7 +7,7 @@ export default {
     this.$EventBus.$on('goRouter', (route, force) => {
       this.$router.push(route, function (){
         if (force){
-          window.reload()
+          window.location.reload(true)
         }
       })
     })

@@ -751,7 +751,7 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
     this.$EventBus.$on('goRouter', function (route, force) {
       _this.$router.push(route, function () {
         if (force) {
-          window.reload();
+          window.location.reload(true);
         }
       });
     });
