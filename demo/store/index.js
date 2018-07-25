@@ -14,7 +14,7 @@ import Vuex from 'vuex'
 |
 */
 import load from '@/vuex/modules/load'
-import comments from './modules/comments'
+import comments from '../components/Comments/store'
 
 /*
 |--------------------------------------------------------------------------

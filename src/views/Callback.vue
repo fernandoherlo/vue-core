@@ -1,18 +1,22 @@
 <template>
-  <div class="spinner">
-    Loading...
+  <div>
+    Callback
   </div>
 </template>
 
 <script>
-export default {
-  name: 'callback',
-  props: ['auth'],
-  data () {
-    this.auth.handleAuthentication()
-    return {}
+  export default {
+    name: 'callback',
+    props: ['auth'],
+    data () {
+      if (!this.$auth.authenticated) {
+        this.$auth.handleAuthentication()
+      }else{
+        this.$router.push('/dashboard')
+      }
+      return {}
+    }
   }
-}
 </script>
 
 <style>

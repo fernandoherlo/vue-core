@@ -5,6 +5,18 @@
 |
 */
 import Axios from 'axios'
+import Vue from 'vue'
+
+/*
+|--------------------------------------------------------------------------
+| axios
+|--------------------------------------------------------------------------
+|
+*/
+let axios = Axios.create({
+  timeout: 720000, // 720 segundos
+  headers: { 'Authorization': 'Bearer ' + localStorage.getItem('id_token') }
+})
 
 /*
 |--------------------------------------------------------------------------
@@ -12,37 +24,16 @@ import Axios from 'axios'
 |--------------------------------------------------------------------------
 |
 */
-export default class HttpService {
-  constructor ($auth) {
-    this.$auth = $auth
-    this.axios = Axios.create({
-      timeout: 720000, // 720 segundos
-      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('id_token') }
-    })
+let http = new Vue({
+  data () {
+    return {
+      axios: axios
+    }
+  }
+})
 
-    this.axios.interceptors.response.use(
-      function (response) {
-        return Promise.resolve(response)
-      },
-      function (error) {
-        if (error.response.status === 401) {
-          $auth.logout()
-        }
-        return Promise.reject(error)
-      }
-    )
-
-    this.axios.interceptors.request.use(
-      function (request) {
-        // Check Auth
-        if (!$auth.authenticated) {
-          $auth.logout()
-        }
-        return request
-      },
-      function (error) {
-        return Promise.reject(error)
-      }
-    )
+export default {
+  install: function(Vue) {
+    Vue.prototype.$http = http
   }
 }

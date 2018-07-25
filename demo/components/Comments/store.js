@@ -4,7 +4,7 @@ import coreMutations from '@/vuex/mutations'
 
 const options = {
   displayName: 'comments',
-  url: 'https://jsonplaceholder.typicode.com/comments',
+  url: process.env.VUE_APP_API_URL +  '/comments',
   mTypeName: 'COMMENT',
   mTypeNamePl: 'COMMENTS'
 }

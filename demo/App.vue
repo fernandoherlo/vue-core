@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <router-link :to="{ name: 'Comments'}">Comments</router-link> \ 
-    <router-link :to="{ name: 'Comment', params: { id: 3 }}">Comment 2</router-link>
+    <router-link :to="{ name: 'comments'}">Comments</router-link> 
     <h2 v-html="loadMsg"></h2>
     <h4 v-if="authenticated">
-        You are logged in!  <a @click="logout()">Log out</a>
+        You are logged in!  <a @click="$auth.logout()">Log out</a>
     </h4>
     <h4 v-if="!authenticated">
-      You are not logged in! Please <a @click="login()">Log In</a> to continue.
+      You are not logged in! Please <a @click="$auth.login()">Log In</a> to continue.
     </h4>
     <router-view :auth="auth" :authenticated="authenticated"></router-view>
   </div>
@@ -34,14 +33,6 @@ export default {
   created () {
     // LOAD MODULES STORE
     this.$store.dispatch('loadBaseData', modules)
-  },
-  methods: {
-    login: function () {
-      this.$auth.login()
-    },
-    logout: function () {
-      this.$auth.logout()
-    }
   }
 }
 </script>

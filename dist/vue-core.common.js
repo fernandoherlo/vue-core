@@ -105,43 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 var setPublicPath = __webpack_require__("HrLf");
 
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/classCallCheck.js
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/createClass.js
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/defineProperty.js
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
 // EXTERNAL MODULE: ./node_modules/auth0-js/dist/auth0.min.esm.js
 var auth0_min_esm = __webpack_require__("sK8x");
 
@@ -149,97 +112,82 @@ var auth0_min_esm = __webpack_require__("sK8x");
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("i7/w");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
-// CONCATENATED MODULE: ./src/services/event-bus.js
-
-var EventBus = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a();
 // CONCATENATED MODULE: ./src/services/auth0.js
+/*
+|--------------------------------------------------------------------------
+| Import npm
+|--------------------------------------------------------------------------
+|
+*/
 
 
+/*
+|--------------------------------------------------------------------------
+| auth0
+|--------------------------------------------------------------------------
+|
+*/
 
-
-
-
-var auth0_AuthService =
-/*#__PURE__*/
-function () {
-  function AuthService(processEnv) {
-    _classCallCheck(this, AuthService);
-
-    _defineProperty(this, "authenticated", this.isAuthenticated());
-
-    this.login = this.login.bind(this);
-    this.setSession = this.setSession.bind(this);
-    this.logout = this.logout.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
-    this.auth0 = new auth0_min_esm["a" /* default */].WebAuth({
-      domain: processEnv.VUE_APP_AUTH0_DOMAIN,
-      clientID: processEnv.VUE_APP_AUTH0_CLIENT_ID,
-      redirectUri: processEnv.VUE_APP_AUTH0_CALLBACK_URL,
-      audience: "https://".concat(processEnv.VUE_APP_AUTH0_DOMAIN, "/userinfo"),
-      responseType: 'token id_token',
-      scope: 'openid'
-    });
-  }
-
-  _createClass(AuthService, [{
-    key: "login",
-    value: function login() {
-      this.auth0.authorize();
+var webAuth = new auth0_min_esm["a" /* default */].WebAuth({
+  domain: "nanocis.eu.auth0.com",
+  clientID: "4IHKkrHbY5IildZvchIUJWly4776u7k4",
+  redirectUri: "http://localhost:8081/callback",
+  audience: "https://".concat("nanocis.eu.auth0.com", "/userinfo"),
+  responseType: 'token id_token',
+  scope: 'openid'
+});
+var auth = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
+  computed: {
+    authenticated: function authenticated() {
+      return this.isAuthenticated();
     }
-  }, {
-    key: "handleAuthentication",
-    value: function handleAuthentication() {
+  },
+  methods: {
+    login: function login() {
+      webAuth.authorize();
+    },
+    handleAuthentication: function handleAuthentication() {
       var _this = this;
 
-      this.auth0.parseHash(function (err, authResult) {
+      webAuth.parseHash(function (err, authResult) {
         if (authResult && authResult.accessToken && authResult.idToken) {
-          _this.setSession(authResult);
+          _this.setSession(authResult); // Reload window
 
-          EventBus.$emit('goRouter', 'dashboardcore', true);
+
+          window.location.reload(true);
         } else if (err) {
-          EventBus.$emit('goRouter', 'homecore');
           alert("Error: ".concat(err.error, ". Check the console for further details."));
+          webAuth.authorize();
         }
       });
-    }
-  }, {
-    key: "setSession",
-    value: function setSession(authResult) {
+    },
+    setSession: function setSession(authResult) {
       // Set the time that the access token will expire at
       var expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
-      EventBus.$emit('authChange', {
-        authenticated: true
-      });
-    }
-  }, {
-    key: "logout",
-    value: function logout() {
+    },
+    logout: function logout() {
       // Clear access token and ID token from local storage
       localStorage.removeItem('access_token');
       localStorage.removeItem('id_token');
       localStorage.removeItem('expires_at');
-      this.userProfile = null;
-      EventBus.$emit('authChange', false); // navigate to the home route
-
-      EventBus.$emit('goRouter', 'homecore');
-    }
-  }, {
-    key: "isAuthenticated",
-    value: function isAuthenticated() {
+      webAuth.authorize();
+    },
+    isAuthenticated: function isAuthenticated() {
       // Check whether the current time is past the
       // access token's expiry time
       var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
       return new Date().getTime() < expiresAt;
     }
-  }]);
-
-  return AuthService;
-}();
-
-
+  }
+});
+/* harmony default export */ var auth0 = ({
+  install: function install(Vue) {
+    Vue.prototype.$auth = auth;
+  }
+});
 // CONCATENATED MODULE: ./src/services/auth.js
 /*
 |--------------------------------------------------------------------------
@@ -262,19 +210,55 @@ function () {
 |
 */
 
-var auth_$auth = auth0_AuthService;
-/* harmony default export */ var auth = (auth_$auth);
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("VRzm");
-
+var $auth = auth0;
+/* harmony default export */ var services_auth = ($auth);
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var axios = __webpack_require__("vDqi");
 var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 
 // CONCATENATED MODULE: ./src/services/http.js
+/*
+|--------------------------------------------------------------------------
+| Import npm
+|--------------------------------------------------------------------------
+|
+*/
 
 
+/*
+|--------------------------------------------------------------------------
+| axios
+|--------------------------------------------------------------------------
+|
+*/
 
+var http_axios = axios_default.a.create({
+  timeout: 720000,
+  // 720 segundos
+  headers: {
+    'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+  }
+});
+/*
+|--------------------------------------------------------------------------
+| $http
+|--------------------------------------------------------------------------
+|
+*/
+
+var http = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
+  data: function data() {
+    return {
+      axios: http_axios
+    };
+  }
+});
+/* harmony default export */ var services_http = ({
+  install: function install(Vue) {
+    Vue.prototype.$http = http;
+  }
+});
+// CONCATENATED MODULE: ./src/services/api.js
 /*
 |--------------------------------------------------------------------------
 | Import npm
@@ -284,68 +268,16 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 
 /*
 |--------------------------------------------------------------------------
-| $http
-|--------------------------------------------------------------------------
-|
-*/
-
-var http_HttpService = function HttpService($auth) {
-  _classCallCheck(this, HttpService);
-
-  this.$auth = $auth;
-  this.axios = axios_default.a.create({
-    timeout: 720000,
-    // 720 segundos
-    headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('id_token')
-    }
-  });
-  this.axios.interceptors.response.use(function (response) {
-    return Promise.resolve(response);
-  }, function (error) {
-    if (error.response.status === 401) {
-      $auth.logout();
-    }
-
-    return Promise.reject(error);
-  });
-  this.axios.interceptors.request.use(function (request) {
-    // Check Auth
-    if (!$auth.authenticated) {
-      $auth.logout();
-    }
-
-    return request;
-  }, function (error) {
-    return Promise.reject(error);
-  });
-};
-
-
-// CONCATENATED MODULE: ./src/services/api.js
-
-
-
-/*
-|--------------------------------------------------------------------------
 | $api
 |--------------------------------------------------------------------------
 |
 */
-var api_ApiService =
-/*#__PURE__*/
-function () {
-  function ApiService($http) {
-    _classCallCheck(this, ApiService);
 
-    this.$http = $http;
-  } // GET ALL
-  // ******************
-
-
-  _createClass(ApiService, [{
-    key: "get",
-    value: function get(url, _callback) {
+var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
+  methods: {
+    // GET ALL
+    // ******************
+    get: function get(url, _callback) {
       var options = {
         url: url,
         method: 'GET'
@@ -354,15 +286,13 @@ function () {
         // Return items
         _callback(response.data);
       }, function ()
-      /*response*/
+      /*err*/
       {// Fail
       });
-    } // UPDATE
+    },
+    // UPDATE
     // ******************
-
-  }, {
-    key: "update",
-    value: function update(url, item, _callback) {
+    update: function update(url, item, _callback) {
       // Data
       var data = {}; // Fields
 
@@ -383,11 +313,9 @@ function () {
       /*response*/
       {// Fail
       });
-    } // SAVE
-
-  }, {
-    key: "save",
-    value: function save(url, item, _callback) {
+    },
+    // SAVE
+    save: function save(url, item, _callback) {
       // Data
       var data = {}; // Fields
 
@@ -407,11 +335,9 @@ function () {
       /*response*/
       {// Fail
       });
-    } // DELETE
-
-  }, {
-    key: "delete",
-    value: function _delete(url, item, _callback, wait) {
+    },
+    // DELETE
+    delete: function _delete(url, item, _callback, wait) {
       if (wait) {// Alert wait
       }
 
@@ -427,12 +353,31 @@ function () {
       {// Fail
       });
     }
-  }]);
+  }
+});
+/* harmony default export */ var services_api = ({
+  install: function install(Vue) {
+    Vue.prototype.$api = api;
+  }
+});
+// CONCATENATED MODULE: ./src/services/event-bus.js
 
-  return ApiService;
-}();
+var EventBus = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a();
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/defineProperty.js
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
 
-
+  return obj;
+}
 // CONCATENATED MODULE: ./src/vuex/modules/load.js
 
 
@@ -503,7 +448,7 @@ var actions = {
   },
   completeLoad: function completeLoad(_ref3) {
     var commit = _ref3.commit;
-    commit('RECEIVE_LOAD_END', '<strong>Completado</strong>');
+    commit('RECEIVE_LOAD_END', '<strong>Load complete</strong>');
     setTimeout(function () {
       commit('RECEIVE_LOAD');
     }, 300);
@@ -566,6 +511,9 @@ var es6_object_assign = __webpack_require__("91GP");
     }), _ref;
   }
 });
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("VRzm");
+
 // CONCATENATED MODULE: ./src/vuex/actions.js
 
 
@@ -620,7 +568,7 @@ var es6_object_assign = __webpack_require__("91GP");
         resolve();
       };
 
-      EventBus.$emit('apiGet', options.url, _callback);
+      EventBus.$emit('apiGet', options.url, _callback); // options.$api.get(options.url, _callback)
     });
   },
   // GET ITEM
@@ -686,6 +634,7 @@ var es6_object_assign = __webpack_require__("91GP");
 // CONCATENATED MODULE: ./src/vuex/mutations.js
 
 
+
 /*
 |--------------------------------------------------------------------------
 | CORE vuex mutations
@@ -694,17 +643,29 @@ var es6_object_assign = __webpack_require__("91GP");
 */
 /* harmony default export */ var vuex_mutations = ({
   core: function core(state, options) {
-    var _ref3;
+    var _ref6;
 
     // mTypeNamePl, mTypeName
     var self = this;
-    return _ref3 = {}, _defineProperty(_ref3, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
+    return _ref6 = {}, _defineProperty(_ref6, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
       var items = _ref.items;
       self.getAll(state, items);
-    }), _defineProperty(_ref3, 'GET_' + options.mTypeName, function (state, _ref2) {
+    }), _defineProperty(_ref6, 'GET_' + options.mTypeName, function (state, _ref2) {
       var id = _ref2.id;
       self.getItem(state, id);
-    }), _ref3;
+    }), _defineProperty(_ref6, 'UPDATE_' + options.mTypeName, function (state, _ref3) {
+      var status = _ref3.status,
+          item = _ref3.item;
+      self.updateItem(state, status, item);
+    }), _defineProperty(_ref6, 'SAVE_' + options.mTypeName, function (state, _ref4) {
+      var statusId = _ref4.statusId,
+          item = _ref4.item;
+      self.saveItem(state, statusId, item);
+    }), _defineProperty(_ref6, 'DELETE_' + options.mTypeName, function (state, _ref5) {
+      var status = _ref5.status,
+          item = _ref5.item;
+      self.deleteItem(state, status, item);
+    }), _ref6;
   },
   getAll: function getAll(state, items) {
     state.all = items;
@@ -713,6 +674,34 @@ var es6_object_assign = __webpack_require__("91GP");
     state.item = state.all.filter(function (item) {
       return item.id === id;
     })[0];
+  },
+  updateItem: function updateItem(state, status, item) {
+    if (status) {
+      var index = state.all.indexOf(state.item);
+      var clone = Object.assign({}, item); // ---
+      // state.all[index] = clone
+      // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
+
+      state.all.splice(index, 1);
+      state.all.push(clone);
+    }
+  },
+  saveItem: function saveItem(state, statusId, item) {
+    if (statusId) {
+      // Set id
+      item.id = statusId;
+      var clone = Object.assign({}, item); // ---
+      // state.all[index] = clone
+      // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
+
+      state.all.push(clone);
+    }
+  },
+  deleteItem: function deleteItem(state, status, item) {
+    if (status) {
+      var index = state.all.indexOf(item);
+      state.all.splice(index, 1);
+    }
   }
 });
 // CONCATENATED MODULE: ./src/mixins/events.js
@@ -721,16 +710,16 @@ var es6_object_assign = __webpack_require__("91GP");
   created: function created() {
     var _this = this;
 
-    this.$EventBus.$on('authChange', function (authState) {
-      _this.authenticated = authState.authenticated;
-    });
-    this.$EventBus.$on('goRouter', function (route, force) {
-      _this.$router.push(route, function () {
-        if (force) {
-          window.location.reload(true);
-        }
-      });
-    });
+    // this.$EventBus.$on('authChange', authState => {
+    //   this.authenticated = authState.authenticated
+    // })
+    // this.$EventBus.$on('goRouter', (route, force) => {
+    //   this.$router.push(route, function (){
+    //     if (force){
+    //       window.location.reload(true)
+    //     }
+    //   })
+    // })
     this.$EventBus.$on('apiGet', function (url, callback) {
       _this.$api.get(url, callback);
     });
@@ -745,12 +734,12 @@ var es6_object_assign = __webpack_require__("91GP");
     });
   }
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=5466962c&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner"},[_vm._v("\n  Loading...\n")])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=c39486ae&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._v("\n  Callback\n")])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/Callback.vue?vue&type=template&id=5466962c&
+// CONCATENATED MODULE: ./src/views/Callback.vue?vue&type=template&id=c39486ae&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=script&lang=js&
 //
@@ -763,7 +752,12 @@ var staticRenderFns = []
   name: 'callback',
   props: ['auth'],
   data: function data() {
-    this.auth.handleAuthentication();
+    if (!this.$auth.authenticated) {
+      this.$auth.handleAuthentication();
+    } else {
+      this.$router.push('/dashboard');
+    }
+
     return {};
   }
 });
@@ -908,9 +902,9 @@ var component = normalizeComponent(
 
 
 var $core = {
-  AuthService: auth,
-  HttpService: http_HttpService,
-  ApiService: api_ApiService,
+  AuthService: services_auth,
+  HttpService: services_http,
+  ApiService: services_api,
   EventBus: EventBus,
   VuexLoad: load,
   VuexGetters: vuex_getters,

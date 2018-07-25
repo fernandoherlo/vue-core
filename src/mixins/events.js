@@ -1,16 +1,16 @@
 // EVENTS
 export default {
   created () {
-    this.$EventBus.$on('authChange', authState => {
-      this.authenticated = authState.authenticated
-    })
-    this.$EventBus.$on('goRouter', (route, force) => {
-      this.$router.push(route, function (){
-        if (force){
-          window.location.reload(true)
-        }
-      })
-    })
+    // this.$EventBus.$on('authChange', authState => {
+    //   this.authenticated = authState.authenticated
+    // })
+    // this.$EventBus.$on('goRouter', (route, force) => {
+    //   this.$router.push(route, function (){
+    //     if (force){
+    //       window.location.reload(true)
+    //     }
+    //   })
+    // })
     this.$EventBus.$on('apiGet', (url, callback) => {
       this.$api.get(url, callback)
     })

@@ -43,6 +43,7 @@ export default {
         resolve()
       }
       EventBus.$emit('apiGet', options.url, _callback)
+      // options.$api.get(options.url, _callback)
     })
   },
   // GET ITEM

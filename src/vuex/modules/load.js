@@ -54,7 +54,7 @@ const actions = {
     commit('RECEIVE_LOAD_INIT', count)
   },
   completeLoad ({ commit }) {
-    commit('RECEIVE_LOAD_END', '<strong>Completado</strong>')
+    commit('RECEIVE_LOAD_END', '<strong>Load complete</strong>')
     setTimeout(() => {
       commit('RECEIVE_LOAD')
     }, 300)
