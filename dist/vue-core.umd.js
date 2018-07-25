@@ -171,7 +171,7 @@ var EventBus = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a();
 var auth0_AuthService =
 /*#__PURE__*/
 function () {
-  function AuthService() {
+  function AuthService(processEnv) {
     _classCallCheck(this, AuthService);
 
     _defineProperty(this, "authenticated", this.isAuthenticated());
@@ -181,10 +181,10 @@ function () {
     this.logout = this.logout.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.auth0 = new auth0_min_esm["a" /* default */].WebAuth({
-      domain: "nanocis.eu.auth0.com",
-      clientID: "4IHKkrHbY5IildZvchIUJWly4776u7k4",
-      redirectUri: "http://localhost:8081/callback",
-      audience: "https://".concat("nanocis.eu.auth0.com", "/userinfo"),
+      domain: processEnv.VUE_APP_AUTH0_DOMAIN,
+      clientID: processEnv.VUE_APP_AUTH0_CLIENT_ID,
+      redirectUri: processEnv.VUE_APP_AUTH0_CALLBACK_URL,
+      audience: "https://".concat(processEnv.VUE_APP_AUTH0_DOMAIN, "/userinfo"),
       responseType: 'token id_token',
       scope: 'openid'
     });

@@ -15,7 +15,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 // Services
-const $auth = new AuthService()
+const $auth = new AuthService(process.env)
 Vue.prototype.$auth = $auth
 const $http = new HttpService($auth)
 Vue.prototype.$http = $http
