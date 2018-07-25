@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomeCore from '../components/HomeCore'
-import DashboardCore from '../components/DashboardCore'
-import Callback from '@/components/Callback'
+import HomeCore from '../views/HomeCore'
+import DashboardCore from '../views/DashboardCore'
+import Callback from '@/views/Callback'
 // Use
 Vue.use(Router)
 // Routes

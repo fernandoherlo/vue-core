@@ -4,7 +4,7 @@
  */
 import AuthService from '@/services/auth'
 import HttpService from '@/services/http'
-import Callback from '@/components/Callback'
+import Callback from '@/views/Callback'
 
 var $core = {
 	AuthService,
