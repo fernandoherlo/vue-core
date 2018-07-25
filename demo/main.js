@@ -10,13 +10,12 @@ import App from './App.vue'
 // ---
 
 // Config
-import APP_CONFIG from './config/app'
 Vue.config.productionTip = false
 
 // Services
-var $auth = new AuthService(APP_CONFIG)
+var $auth = new AuthService()
 Vue.prototype.$auth = $auth
-var $http = new HttpService(APP_CONFIG, $auth)
+var $http = new HttpService($auth)
 Vue.prototype.$http = $http
 
 new Vue({

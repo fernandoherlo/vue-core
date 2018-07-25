@@ -13,7 +13,7 @@ import Axios from 'axios'
 |
 */
 export default class HttpService {
-  constructor (APP_CONFIG, $auth) {
+  constructor ($auth) {
     this.$auth = $auth
     this.axios = Axios.create({
       timeout: 720000, // 720 segundos

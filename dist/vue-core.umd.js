@@ -168,7 +168,7 @@ var auth0_min_esm = __webpack_require__("sK8x");
 var auth0_AuthService =
 /*#__PURE__*/
 function () {
-  function AuthService(APP_CONFIG) {
+  function AuthService() {
     _classCallCheck(this, AuthService);
 
     _defineProperty(this, "authenticated", this.isAuthenticated());
@@ -180,10 +180,10 @@ function () {
     this.logout = this.logout.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.auth0 = new auth0_min_esm["a" /* default */].WebAuth({
-      domain: APP_CONFIG.AUTH0_DOMAIN,
-      clientID: APP_CONFIG.AUTH0_CLIENT_ID,
-      redirectUri: APP_CONFIG.AUTH0_CALLBACK_URL,
-      audience: "https://".concat(APP_CONFIG.AUTH0_DOMAIN, "/userinfo"),
+      domain: "nanocis.eu.auth0.com",
+      clientID: "4IHKkrHbY5IildZvchIUJWly4776u7k4",
+      redirectUri: "http://localhost:8081/callback",
+      audience: "https://".concat("nanocis.eu.auth0.com", "/userinfo"),
       responseType: 'token id_token',
       scope: 'openid'
     });
@@ -298,7 +298,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 |
 */
 
-var http_HttpService = function HttpService(APP_CONFIG, $auth) {
+var http_HttpService = function HttpService($auth) {
   _classCallCheck(this, HttpService);
 
   this.$auth = $auth;

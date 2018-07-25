@@ -6,17 +6,17 @@ export default class AuthService {
   authenticated = this.isAuthenticated()
   EventsVue = new Vue({})
 
-  constructor (APP_CONFIG) {
+  constructor () {
     this.login = this.login.bind(this)
     this.setSession = this.setSession.bind(this)
     this.logout = this.logout.bind(this)
     this.isAuthenticated = this.isAuthenticated.bind(this)
   
     this.auth0 = new auth0.WebAuth({
-      domain: APP_CONFIG.AUTH0_DOMAIN,
-      clientID: APP_CONFIG.AUTH0_CLIENT_ID,
-      redirectUri: APP_CONFIG.AUTH0_CALLBACK_URL,
-      audience: `https://${APP_CONFIG.AUTH0_DOMAIN}/userinfo`,
+      domain: process.env.VUE_APP_AUTH0_DOMAIN,
+      clientID: process.env.VUE_APP_AUTH0_CLIENT_ID,
+      redirectUri: process.env.VUE_APP_AUTH0_CALLBACK_URL,
+      audience: `https://${process.env.VUE_APP_AUTH0_DOMAIN}/userinfo`,
       responseType: 'token id_token',
       scope: 'openid'
     })
