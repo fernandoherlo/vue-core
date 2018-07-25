@@ -5,7 +5,7 @@ export default {
       this.authenticated = authState.authenticated
     })
     this.$EventBus.$on('goRouter', route => {
-      this.$router.replace(route)
+      this.$router.push(route)
     })
     this.$EventBus.$on('apiGet', (url, callback) => {
       this.$api.get(url, callback)
