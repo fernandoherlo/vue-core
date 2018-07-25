@@ -739,6 +739,36 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   // }
 
 });
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
+var es6_regexp_replace = __webpack_require__("pIFo");
+
+// CONCATENATED MODULE: ./src/mixins/events.js
+
+// EVENTS
+/* harmony default export */ var events = ({
+  created: function created() {
+    var _this = this;
+
+    this.$EventBus.$on('authChange', function (authState) {
+      _this.authenticated = authState.authenticated;
+    });
+    this.$EventBus.$on('goRouter', function (route) {
+      _this.$router.replace(route);
+    });
+    this.$EventBus.$on('apiGet', function (url, callback) {
+      _this.$api.get(url, callback);
+    });
+    this.$EventBus.$on('apiUpdate', function (url, item, callback) {
+      _this.$api.update(url, item, callback);
+    });
+    this.$EventBus.$on('apiSave', function (url, item, callback) {
+      _this.$api.save(url, item, callback);
+    });
+    this.$EventBus.$on('apiDelete', function (url, item, callback) {
+      _this.$api.delete(url, item, callback);
+    });
+  }
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=5466962c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner"},[_vm._v("\n  Loading...\n")])}
 var staticRenderFns = []
@@ -896,6 +926,8 @@ var component = normalizeComponent(
 
 
 
+ // Mixins
+
  // Views
 
 
@@ -908,6 +940,7 @@ var $core = {
   VuexGetters: vuex_getters,
   VuexActions: vuex_actions,
   VuexMutations: vuex_mutations,
+  Events: events,
   Callback: Callback
 };
 /* harmony default export */ var build = ($core);
@@ -1651,6 +1684,42 @@ module.exports = function (it) {
     : ARG ? cof(O)
     // ES3 arguments fallback
     : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+};
+
+
+/***/ }),
+
+/***/ "IU+Z":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var hide = __webpack_require__("Mukb");
+var redefine = __webpack_require__("KroJ");
+var fails = __webpack_require__("eeVq");
+var defined = __webpack_require__("vhPU");
+var wks = __webpack_require__("K0xU");
+
+module.exports = function (KEY, length, exec) {
+  var SYMBOL = wks(KEY);
+  var fns = exec(defined, SYMBOL, ''[KEY]);
+  var strfn = fns[0];
+  var rxfn = fns[1];
+  if (fails(function () {
+    var O = {};
+    O[SYMBOL] = function () { return 7; };
+    return ''[KEY](O) != 7;
+  })) {
+    redefine(String.prototype, KEY, strfn);
+    hide(RegExp.prototype, SYMBOL, length == 2
+      // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
+      // 21.2.5.11 RegExp.prototype[@@split](string, limit)
+      ? function (string, arg) { return rxfn.call(string, this, arg); }
+      // 21.2.5.6 RegExp.prototype[@@match](string)
+      // 21.2.5.9 RegExp.prototype[@@search](string)
+      : function (string) { return rxfn.call(string, this); }
+    );
+  }
 };
 
 
@@ -3249,6 +3318,25 @@ module.exports = navigator && navigator.userAgent || '';
 
 /***/ }),
 
+/***/ "pIFo":
+/***/ (function(module, exports, __webpack_require__) {
+
+// @@replace logic
+__webpack_require__("IU+Z")('replace', 2, function (defined, REPLACE, $replace) {
+  // 21.1.3.14 String.prototype.replace(searchValue, replaceValue)
+  return [function replace(searchValue, replaceValue) {
+    'use strict';
+    var O = defined(this);
+    var fn = searchValue == undefined ? undefined : searchValue[REPLACE];
+    return fn !== undefined
+      ? fn.call(searchValue, O, replaceValue)
+      : $replace.call(String(O), searchValue, replaceValue);
+  }, $replace];
+});
+
+
+/***/ }),
+
 /***/ "pbhE":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3506,6 +3594,18 @@ module.exports = function (C, x) {
   var resolve = promiseCapability.resolve;
   resolve(x);
   return promiseCapability.promise;
+};
+
+
+/***/ }),
+
+/***/ "vhPU":
+/***/ (function(module, exports) {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
 };
 
 

@@ -12,6 +12,8 @@ import VuexLoad from '@/vuex/modules/load'
 import VuexGetters from '@/vuex/getters'
 import VuexActions from '@/vuex/actions'
 import VuexMutations from '@/vuex/mutations'
+// Mixins
+import Events from '@/mixins/events'
 // Views
 import Callback from '@/views/Callback'
 
@@ -24,6 +26,7 @@ var $core = {
 	VuexGetters,
 	VuexActions,
 	VuexMutations,
+	Events,
 	Callback
 }
 
