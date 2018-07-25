@@ -1,6 +1,6 @@
 {
   "name": "@fernandoherlo/vue-core",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "serve": "vue-cli-service serve 'demo/main'",
     "build": "vue-cli-service build --target lib --name vue-core 'build'",
