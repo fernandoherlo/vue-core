@@ -1,6 +1,16 @@
 {
   "name": "@fernandoherlo/vue-core",
   "version": "0.2.4",
+  "author": "Fernando Herlo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fernandoherlo/vue-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fernandoherlo/vue-core/issues"
+  },
+  "homepage": "https://github.com/fernandoherlo/vue-core#readme",
+  "license" : "MIT",
   "scripts": {
     "serve": "vue-cli-service serve 'demo/main'",
     "build": "vue-cli-service build --target lib --name vue-core 'build'",
