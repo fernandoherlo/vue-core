@@ -306,7 +306,7 @@ var http_HttpService = function HttpService($auth) {
     timeout: 720000,
     // 720 segundos
     headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+      'Authorization': 'Bearer ' + localStorage.getItem('id_token')
     }
   });
   this.axios.interceptors.response.use(function (response) {
