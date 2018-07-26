@@ -1,3 +1,9 @@
+/*
+|--------------------------------------------------------------------------
+| CONFIG component
+|--------------------------------------------------------------------------
+|
+*/
 export default {
   coreExtendVuex: 'COMMENT',
   coreExtendVuexPl: 'COMMENTS',
@@ -5,22 +11,34 @@ export default {
   coreExtendScopePl: 'comments',
   coreExtendMenu: '',
   displayName: 'Comments',
-  // List makes
-  list: {
-    // Vue-table
-    columns: ['id', 'name', 'actions'],
-    options: {
-      orderBy: {
-        column: 'name',
-        ascending: true
+  // Table
+  table: {
+    columns: [
+      {
+        label: 'ID',
+        field: 'id',
+        type: 'number',
+        sortable: false
       },
-      sortable: ['name'],
-      compileTemplates: true,
-      headings: {
-        id: 'ID',
-        name: 'Name',
-        actions: 'Actions'
+      {
+        label: 'Name',
+        field: 'name',
+        type: 'string',
+        filterOptions: {
+          enabled: true
+        }
       }
+    ],
+    lineNumbers: true,
+    sortOptions: {
+      enabled: true,
+      initialSortBy: {
+        field: 'name',
+        type: 'asc'
+      }
+    },
+    searchOptions: {
+      enabled: true
     }
   },
   // Delete make

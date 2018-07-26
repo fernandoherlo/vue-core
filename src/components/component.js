@@ -10,31 +10,32 @@ export default {
   coreExtendScope: 'item',
   coreExtendScopePl: 'items',
   displayName: 'Item',
-  // List makes
-  list: {
-    // Vue-table
-    columns: ['id', 'name', 'actions'],
-    options: {
-      orderBy: {
-        column: 'name',
-        ascending: true
+  // Table
+  table: {
+    columns: [
+      {
+        label: 'ID',
+        field: 'id',
+        type: 'number',
+        sortable: false
       },
-      sortable: ['name'],
-      compileTemplates: true,
-      headings: {
-        id: 'ID',
-        name: 'Name',
-        actions: 'Actions'
+      {
+        label: 'Name',
+        field: 'name',
+        type: 'string'
       }
-      // templates: {
-      //   actions: 'table-edit-delete-core'
-      // }
+    ],
+    lineNumbers: true,
+    sortOptions: {
+      enabled: true,
+      initialSortBy: {
+        field: 'name',
+        type: 'asc'
+      }
+    },
+    searchOptions: {
+      enabled: true
     }
-    // // Css
-    // columnClassListOn: 'col-sm-7',
-    // columnClassListOff: 'col-sm-12',
-    // columnClassManageOn: 'col-sm-5',
-    // columnClassManageOff: 'col-sm-0'
   },
   // Delete make
   delete: {

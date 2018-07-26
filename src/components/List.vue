@@ -8,6 +8,14 @@
 import CoreComponent from '@/components/Core'
 import componentConfig from '@/components/component'
 
+/*
+|--------------------------------------------------------------------------
+| vue-good-table
+|--------------------------------------------------------------------------
+|
+*/
+import { VueGoodTable } from 'vue-good-table';
+// import 'vue-good-table/dist/vue-good-table.css'
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +25,9 @@ import componentConfig from '@/components/component'
 */
 export default {
   extends: CoreComponent,
+  components: {
+    VueGoodTable,
+  },
   data () {
     return {
       items: [],
@@ -46,16 +57,13 @@ export default {
 
 <template>
   <div>
-    LIST CORE
-    <a @click="__newItem()">New</a>
-    <ul>
-      <li v-for="item in itemsVuex" v-bind:key="item.id">
-        {{ item.name }} <a @click="__delete(item.id)">[X]</a> <a @click="__edit(item.id)">[==]</a>
-      </li>
-    </ul>
+    <div slot="header">
+      <h2><slot>{{ config.displayName }}</slot></h2>
+    </div>
+    <a class="btn btn-primary" @click="__newItem()">New</a>
+    <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover"></vue-good-table>
   </div>
 </template>
-
 
 <style lang="sass">
 </style>

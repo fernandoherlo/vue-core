@@ -20,7 +20,8 @@
   "dependencies": {
     "auth0-js": "^9.7.3",
     "axios": "^0.18.0",
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vue-good-table": "^2.11.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.5",
