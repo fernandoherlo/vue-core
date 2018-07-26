@@ -10,6 +10,10 @@ export default {
   coreExtendScope: 'item',
   coreExtendScopePl: 'items',
   displayName: 'Item',
+  // Name bottoms
+  buttonNewName: 'New',
+  buttonEditName: 'Edit',
+  buttonDeleteName: 'Delete',
   // Table
   table: {
     columns: [
@@ -23,6 +27,12 @@ export default {
         label: 'Name',
         field: 'name',
         type: 'string'
+      },
+      {
+        label: 'Actions',
+        field: 'id',
+        type: 'number',
+        sortable: false
       }
     ],
     lineNumbers: true,

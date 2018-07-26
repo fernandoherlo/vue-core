@@ -11,6 +11,10 @@ export default {
   coreExtendScopePl: 'comments',
   coreExtendMenu: '',
   displayName: 'Comments',
+  // Name bottoms
+  buttonNewName: 'New',
+  buttonEditName: 'Edit',
+  buttonDeleteName: 'Delete',
   // Table
   table: {
     columns: [
@@ -27,6 +31,12 @@ export default {
         filterOptions: {
           enabled: true
         }
+      },
+      {
+        label: 'Actions',
+        field: 'id',
+        type: 'number',
+        sortable: false
       }
     ],
     lineNumbers: true,

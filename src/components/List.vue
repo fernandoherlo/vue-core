@@ -15,7 +15,6 @@ import componentConfig from '@/components/component'
 |
 */
 import { VueGoodTable } from 'vue-good-table';
-// import 'vue-good-table/dist/vue-good-table.css'
 
 /*
 |--------------------------------------------------------------------------
@@ -57,11 +56,21 @@ export default {
 
 <template>
   <div>
-    <div slot="header">
-      <h2><slot>{{ config.displayName }}</slot></h2>
+    <div class="header">
+      <h2>{{ config.displayName }}</h2>
     </div>
-    <a class="btn btn-primary" @click="__newItem()">New</a>
-    <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover"></vue-good-table>
+    <a class="btn btn-primary" @click="__newItem()">{{ config.buttonNewName }}</a>
+    <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
+      <template slot="table-row" slot-scope="props">
+        <span v-if="props.column.label === 'Actions'">
+          <a class="btn btn-primary" @click="__edit(props.row.id)">{{ config.buttonEditName }}</a>
+          <a class="btn btn-danger" @click="__delete(props.row.id)">{{ config.buttonDeleteName }}</a>
+        </span>
+        <span v-else>
+          {{ props.formattedRow[props.column.field] }}
+        </span>
+      </template>
+    </vue-good-table>
   </div>
 </template>
 
