@@ -108,10 +108,6 @@ var setPublicPath = __webpack_require__("HrLf");
 // EXTERNAL MODULE: ./node_modules/auth0-js/dist/auth0.min.esm.js
 var auth0_min_esm = __webpack_require__("sK8x");
 
-// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
-var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("i7/w");
-var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
-
 // CONCATENATED MODULE: ./src/services/auth0.js
 /*
 |--------------------------------------------------------------------------
@@ -120,7 +116,6 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 |
 */
 
-
 /*
 |--------------------------------------------------------------------------
 | auth0
@@ -128,63 +123,63 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 |
 */
 
-var webAuth = new auth0_min_esm["a" /* default */].WebAuth({
-  domain: "nanocis.eu.auth0.com",
-  clientID: "4IHKkrHbY5IildZvchIUJWly4776u7k4",
-  redirectUri: "http://localhost:8081/callback",
-  audience: "https://".concat("nanocis.eu.auth0.com", "/userinfo"),
-  responseType: 'token id_token',
-  scope: 'openid'
-});
-var auth = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
-  computed: {
-    authenticated: function authenticated() {
-      return this.isAuthenticated();
-    }
-  },
-  methods: {
-    login: function login() {
-      webAuth.authorize();
-    },
-    handleAuthentication: function handleAuthentication() {
-      var _this = this;
-
-      webAuth.parseHash(function (err, authResult) {
-        if (authResult && authResult.accessToken && authResult.idToken) {
-          _this.setSession(authResult); // Reload window
-
-
-          window.location.reload(true);
-        } else if (err) {
-          alert("Error: ".concat(err.error, ". Check the console for further details."));
-          webAuth.authorize();
-        }
-      });
-    },
-    setSession: function setSession(authResult) {
-      // Set the time that the access token will expire at
-      var expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
-      localStorage.setItem('access_token', authResult.accessToken);
-      localStorage.setItem('id_token', authResult.idToken);
-      localStorage.setItem('expires_at', expiresAt);
-    },
-    logout: function logout() {
-      // Clear access token and ID token from local storage
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('id_token');
-      localStorage.removeItem('expires_at');
-      webAuth.authorize();
-    },
-    isAuthenticated: function isAuthenticated() {
-      // Check whether the current time is past the
-      // access token's expiry time
-      var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-      return new Date().getTime() < expiresAt;
-    }
-  }
-});
 /* harmony default export */ var auth0 = ({
-  install: function install(Vue) {
+  install: function install(Vue, options) {
+    var webAuth = new auth0_min_esm["a" /* default */].WebAuth({
+      domain: options.config.VUE_APP_AUTH0_DOMAIN,
+      clientID: options.config.VUE_APP_AUTH0_CLIENT_ID,
+      redirectUri: options.config.VUE_APP_AUTH0_CALLBACK_URL,
+      audience: "https://".concat(options.config.VUE_APP_AUTH0_DOMAIN, "/userinfo"),
+      responseType: 'token id_token',
+      scope: 'openid'
+    });
+    var auth = new Vue({
+      computed: {
+        authenticated: function authenticated() {
+          return this.isAuthenticated();
+        }
+      },
+      methods: {
+        login: function login() {
+          webAuth.authorize();
+        },
+        handleAuthentication: function handleAuthentication() {
+          var _this = this;
+
+          webAuth.parseHash(function (err, authResult) {
+            if (authResult && authResult.accessToken && authResult.idToken) {
+              _this.setSession(authResult); // Reload window
+
+
+              window.location.reload(true);
+            } else if (err) {
+              alert("Error: ".concat(err.error, ". Check the console for further details."));
+              webAuth.authorize();
+            }
+          });
+        },
+        setSession: function setSession(authResult) {
+          // Set the time that the access token will expire at
+          var expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
+          localStorage.setItem('access_token', authResult.accessToken);
+          localStorage.setItem('id_token', authResult.idToken);
+          localStorage.setItem('expires_at', expiresAt);
+        },
+        logout: function logout() {
+          // Clear access token and ID token from local storage
+          localStorage.removeItem('access_token');
+          localStorage.removeItem('id_token');
+          localStorage.removeItem('expires_at');
+          webAuth.authorize();
+        },
+        isAuthenticated: function isAuthenticated() {
+          // Check whether the current time is past the
+          // access token's expiry time
+          var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+          return new Date().getTime() < expiresAt;
+        }
+      }
+    });
     Vue.prototype.$auth = auth;
   }
 });
@@ -215,6 +210,10 @@ var $auth = auth0;
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var axios = __webpack_require__("vDqi");
 var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
+
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
+var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("i7/w");
+var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
 // CONCATENATED MODULE: ./src/services/http.js
 /*

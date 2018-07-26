@@ -18,7 +18,7 @@ Vue.config.productionTip = false
 const $EventBus = EventBus
 Vue.prototype.$EventBus = $EventBus
 
-Vue.use(auth)
+Vue.use(auth, {config: process.env})
 Vue.use(http)
 Vue.use(api)
 
