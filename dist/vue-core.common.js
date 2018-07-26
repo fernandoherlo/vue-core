@@ -957,12 +957,15 @@ var Core_component = normalizeComponent(
 )
 
 /* harmony default export */ var Core = (Core_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=685f5153&
-var Editvue_type_template_id_685f5153_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}}),(!_vm.isNew)?_c('a',{staticClass:"btn btn-raised btn-success",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_vm._v("Update")]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn btn-raised btn-success",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_vm._v("Save")]):_vm._e()]):_vm._e()}
-var Editvue_type_template_id_685f5153_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=7db784bd&
+var Editvue_type_template_id_7db784bd_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}}),(!_vm.isNew)?_c('a',{staticClass:"btn btn-raised btn-success",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_vm._v("Update")]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn btn-raised btn-success",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_vm._v("Save")]):_vm._e()]):_vm._e()}
+var Editvue_type_template_id_7db784bd_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=685f5153&
+// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=7db784bd&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
+var es6_regexp_replace = __webpack_require__("pIFo");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Form.vue?vue&type=template&id=8616dd94&scoped=true&
 var Formvue_type_template_id_8616dd94_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('form',{staticClass:"form-only"},[_vm._v("\n  Form...\n")])}
@@ -1077,6 +1080,8 @@ var Form_component = normalizeComponent(
   }
 });
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=script&lang=js&
+
+
 /*
 |--------------------------------------------------------------------------
 | Import npm
@@ -1143,7 +1148,7 @@ var Form_component = normalizeComponent(
       var _this = this;
 
       this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then(function () {
-        _this.$router.push({
+        _this.$router.replace({
           name: _this.config.coreExtendScope,
           params: {
             id: _this.itemVuex.id
@@ -1169,8 +1174,8 @@ var Editvue_type_style_index_0_lang_sass_ = __webpack_require__("PD18");
 
 var Edit_component = normalizeComponent(
   components_Editvue_type_script_lang_js_,
-  Editvue_type_template_id_685f5153_render,
-  Editvue_type_template_id_685f5153_staticRenderFns,
+  Editvue_type_template_id_7db784bd_render,
+  Editvue_type_template_id_7db784bd_staticRenderFns,
   false,
   null,
   null,
@@ -15031,6 +15036,42 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "IU+Z":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var hide = __webpack_require__("Mukb");
+var redefine = __webpack_require__("KroJ");
+var fails = __webpack_require__("eeVq");
+var defined = __webpack_require__("vhPU");
+var wks = __webpack_require__("K0xU");
+
+module.exports = function (KEY, length, exec) {
+  var SYMBOL = wks(KEY);
+  var fns = exec(defined, SYMBOL, ''[KEY]);
+  var strfn = fns[0];
+  var rxfn = fns[1];
+  if (fails(function () {
+    var O = {};
+    O[SYMBOL] = function () { return 7; };
+    return ''[KEY](O) != 7;
+  })) {
+    redefine(String.prototype, KEY, strfn);
+    hide(RegExp.prototype, SYMBOL, length == 2
+      // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
+      // 21.2.5.11 RegExp.prototype[@@split](string, limit)
+      ? function (string, arg) { return rxfn.call(string, this, arg); }
+      // 21.2.5.6 RegExp.prototype[@@match](string)
+      // 21.2.5.9 RegExp.prototype[@@search](string)
+      : function (string) { return rxfn.call(string, this); }
+    );
+  }
+};
+
+
+/***/ }),
+
 /***/ "Iw71":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19222,6 +19263,25 @@ var global = __webpack_require__("dyZX");
 var navigator = global.navigator;
 
 module.exports = navigator && navigator.userAgent || '';
+
+
+/***/ }),
+
+/***/ "pIFo":
+/***/ (function(module, exports, __webpack_require__) {
+
+// @@replace logic
+__webpack_require__("IU+Z")('replace', 2, function (defined, REPLACE, $replace) {
+  // 21.1.3.14 String.prototype.replace(searchValue, replaceValue)
+  return [function replace(searchValue, replaceValue) {
+    'use strict';
+    var O = defined(this);
+    var fn = searchValue == undefined ? undefined : searchValue[REPLACE];
+    return fn !== undefined
+      ? fn.call(searchValue, O, replaceValue)
+      : $replace.call(String(O), searchValue, replaceValue);
+  }, $replace];
+});
 
 
 /***/ }),
