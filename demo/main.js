@@ -11,6 +11,16 @@ import { EventBus } from '@/services/event-bus.js';
 import App from './App.vue'
 // ---
 
+/*
+|--------------------------------------------------------------------------
+| Components
+|--------------------------------------------------------------------------
+|
+*/
+import Comments from './components/Comments'
+// --
+Vue.use(Comments)
+
 // Config
 Vue.config.productionTip = false
 

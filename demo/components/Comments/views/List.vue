@@ -2,7 +2,7 @@
 // CORE COMPONENT
 import CoreComponentList from '@/components/List'
 // LOCAL CONFIG
-import localConfig from './component'
+import localConfig from '../config/component'
 
 // Extend
 export default {

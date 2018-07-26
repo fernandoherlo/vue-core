@@ -2,7 +2,7 @@
 // CORE COMPONENT
 import CoreComponentEdit from '@/components/Edit'
 // LOCAL CONFIG
-import localConfig from './component'
+import localConfig from '../config/component'
 // Form
 import Form from './Form'
 

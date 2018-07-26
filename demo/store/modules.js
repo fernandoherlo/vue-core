@@ -1,4 +1,2 @@
 // Modules
-export const modules = [
-  'getAllCOMMENTS'
-]
+export const modules = []

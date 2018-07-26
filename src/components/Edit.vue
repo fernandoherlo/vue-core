@@ -64,7 +64,7 @@ export default {
     },
     __save () {
       this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then(() => {
-        this.$router.push({name: this.config.coreExtendScope, params: { id: this.itemVuex.id }})
+        this.$router.replace({name: this.config.coreExtendScope, params: { id: this.itemVuex.id }})
       })
     },
   }

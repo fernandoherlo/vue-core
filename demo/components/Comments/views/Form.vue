@@ -2,7 +2,7 @@
 // CORE COMPONENT
 import CoreComponentForm from '@/components/Form'
 // LOCAL CONFIG
-import localConfig from './component'
+import localConfig from '../config/component'
 
 // Extend
 export default {
