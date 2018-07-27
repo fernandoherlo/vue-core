@@ -14,7 +14,7 @@ export default {
   buttonNewName: 'New',
   buttonEditName: 'Edit',
   buttonDeleteName: 'Delete',
-  buttonBackName: 'Back',
+  buttonBackName: 'Back <icon name="user-alt"></icon>',
   buttonSaveName: 'Save',
   buttonUpdateName: 'Update',
   // Table
