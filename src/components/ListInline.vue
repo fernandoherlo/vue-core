@@ -33,9 +33,14 @@ export default {
       config: componentConfig
     }
   },
+  created () {
+    // Data
+    this.itemID = parseInt(this.$route.params.id)
+    this.$store.dispatch('getByParent' + this.config.coreExtendVuex, this.itemID)
+  },
   computed: {
     itemsVuex () {
-      return this.$store.getters['all' + this.config.coreExtendVuexPl]
+      return this.$store.getters['allByParent' + this.config.coreExtendVuexPl]
     }
   },
   methods: {
