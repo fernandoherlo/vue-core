@@ -14,6 +14,9 @@ export default {
   buttonNewName: 'New',
   buttonEditName: 'Edit',
   buttonDeleteName: 'Delete',
+  buttonBackName: 'Back',
+  buttonSaveName: 'Save',
+  buttonUpdateName: 'Update',
   // Table
   table: {
     columns: [

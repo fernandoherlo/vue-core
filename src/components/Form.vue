@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <form class="form-only">
+  <form>
     Form...
   </form>
 </template>
