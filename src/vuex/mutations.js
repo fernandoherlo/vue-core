@@ -11,6 +11,9 @@ export default {
       ['RECEIVE_' + options.mTypeNamePl] (state, { items }) {
         self.getAll(state, items)
       },
+      ['GET_BY_PARENT_' + options.mTypeNamePl] (state, { id_parent }) {
+        self.getAllByParent(state, id_parent)
+      },
       ['GET_' + options.mTypeName] (state, { id }) {
         self.getItem(state, id)
       },
@@ -28,6 +31,9 @@ export default {
 
   getAll (state, items) {
     state.all = items
+  },
+  getAllByParent (state, id_parent) {
+    state.allByParent = state.all.filter(item => item.id_parent === id_parent)
   },
   getItem (state, id) {
     state.item = state.all.filter(item => item.id === id)[0]

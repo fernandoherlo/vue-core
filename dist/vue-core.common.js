@@ -505,6 +505,8 @@ var es6_object_assign = __webpack_require__("91GP");
     // mTypeNamePl, mTypeName
     return _ref = {}, _defineProperty(_ref, 'all' + options.mTypeNamePl, function (state) {
       return state.all;
+    }), _defineProperty(_ref, 'allByParent' + options.mTypeNamePl, function (state) {
+      return state.allByParent;
     }), _defineProperty(_ref, options.mTypeName, function (state) {
       return state.item;
     }), _defineProperty(_ref, 'clone' + options.mTypeName, function (state) {
@@ -535,26 +537,29 @@ var es6_promise = __webpack_require__("VRzm");
 
 /* harmony default export */ var vuex_actions = ({
   core: function core(options) {
-    var _ref6;
+    var _ref7;
 
     //mTypeNamePl, mTypeName, url, displayName
     var self = this;
-    return _ref6 = {}, _defineProperty(_ref6, 'getAll' + options.mTypeNamePl, function (_ref) {
+    return _ref7 = {}, _defineProperty(_ref7, 'getAll' + options.mTypeNamePl, function (_ref) {
       var commit = _ref.commit;
       return self.getBaseAll(commit, options);
-    }), _defineProperty(_ref6, 'get' + options.mTypeName, function (_ref2, id) {
+    }), _defineProperty(_ref7, 'getByParent' + options.mTypeNamePl, function (_ref2, id_parent) {
       var commit = _ref2.commit;
-      return self.getItem(commit, options, id);
-    }), _defineProperty(_ref6, 'update' + options.mTypeName, function (_ref3, item) {
+      return self.getByParent(commit, options, id_parent);
+    }), _defineProperty(_ref7, 'get' + options.mTypeName, function (_ref3, id) {
       var commit = _ref3.commit;
-      return self.updateItem(commit, options, item);
-    }), _defineProperty(_ref6, 'save' + options.mTypeName, function (_ref4, item) {
+      return self.getItem(commit, options, id);
+    }), _defineProperty(_ref7, 'update' + options.mTypeName, function (_ref4, item) {
       var commit = _ref4.commit;
-      return self.saveItem(commit, options, item);
-    }), _defineProperty(_ref6, 'delete' + options.mTypeName, function (_ref5, item) {
+      return self.updateItem(commit, options, item);
+    }), _defineProperty(_ref7, 'save' + options.mTypeName, function (_ref5, item) {
       var commit = _ref5.commit;
+      return self.saveItem(commit, options, item);
+    }), _defineProperty(_ref7, 'delete' + options.mTypeName, function (_ref6, item) {
+      var commit = _ref6.commit;
       return self.deleteItem(commit, options, item);
-    }), _ref6;
+    }), _ref7;
   },
   // GET ALL
   getBaseAll: function getBaseAll(commit, options) {
@@ -570,6 +575,17 @@ var es6_promise = __webpack_require__("VRzm");
       };
 
       EventBus.$emit('apiGet', options.url, _callback); // options.$api.get(options.url, _callback)
+    });
+  },
+  // GET ITEM
+  getByParent: function getByParent(commit, options, id_parent) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      commit('GET_BY_PARENT_' + options.mTypeNamePl, {
+        id_parent: id_parent
+      });
+      resolve();
     });
   },
   // GET ITEM
@@ -644,32 +660,40 @@ var es6_promise = __webpack_require__("VRzm");
 */
 /* harmony default export */ var vuex_mutations = ({
   core: function core(state, options) {
-    var _ref6;
+    var _ref7;
 
     // mTypeNamePl, mTypeName
     var self = this;
-    return _ref6 = {}, _defineProperty(_ref6, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
+    return _ref7 = {}, _defineProperty(_ref7, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
       var items = _ref.items;
       self.getAll(state, items);
-    }), _defineProperty(_ref6, 'GET_' + options.mTypeName, function (state, _ref2) {
-      var id = _ref2.id;
+    }), _defineProperty(_ref7, 'GET_BY_PARENT_' + options.mTypeNamePl, function (state, _ref2) {
+      var id_parent = _ref2.id_parent;
+      self.getAllByParent(state, id_parent);
+    }), _defineProperty(_ref7, 'GET_' + options.mTypeName, function (state, _ref3) {
+      var id = _ref3.id;
       self.getItem(state, id);
-    }), _defineProperty(_ref6, 'UPDATE_' + options.mTypeName, function (state, _ref3) {
-      var status = _ref3.status,
-          item = _ref3.item;
-      self.updateItem(state, status, item);
-    }), _defineProperty(_ref6, 'SAVE_' + options.mTypeName, function (state, _ref4) {
-      var statusId = _ref4.statusId,
+    }), _defineProperty(_ref7, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
+      var status = _ref4.status,
           item = _ref4.item;
-      self.saveItem(state, statusId, item);
-    }), _defineProperty(_ref6, 'DELETE_' + options.mTypeName, function (state, _ref5) {
-      var status = _ref5.status,
+      self.updateItem(state, status, item);
+    }), _defineProperty(_ref7, 'SAVE_' + options.mTypeName, function (state, _ref5) {
+      var statusId = _ref5.statusId,
           item = _ref5.item;
+      self.saveItem(state, statusId, item);
+    }), _defineProperty(_ref7, 'DELETE_' + options.mTypeName, function (state, _ref6) {
+      var status = _ref6.status,
+          item = _ref6.item;
       self.deleteItem(state, status, item);
-    }), _ref6;
+    }), _ref7;
   },
   getAll: function getAll(state, items) {
     state.all = items;
+  },
+  getAllByParent: function getAllByParent(state, id_parent) {
+    state.allByParent = state.all.filter(function (item) {
+      return item.id_parent === id_parent;
+    });
   },
   getItem: function getItem(state, id) {
     state.item = state.all.filter(function (item) {
