@@ -6,7 +6,7 @@
 |
 */
 import CoreComponent from '@/components/Core'
-import componentConfig from '@/components/componentInline'
+import componentConfig from '@/components/component'
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +29,15 @@ export default {
   },
   data () {
     return {
-      itemID: 0,
+      itemIDParent: 0,
       items: [],
       config: componentConfig
     }
   },
   created () {
     // Data
-    this.itemID = parseInt(this.$route.params.id)
-    this.$store.dispatch('getByParent' + this.config.coreExtendVuexPl, this.itemID)
+    this.itemIDParent = parseInt(this.$route.params.id)
+    this.$store.dispatch('getByParent' + this.config.coreExtendVuexPl, this.itemIDParent)
   },
   computed: {
     itemsVuex () {
@@ -46,10 +46,10 @@ export default {
   },
   methods: {
     __newItem () {
-      this.$router.push({name: this.config.coreExtendScope + '-new'})
+      this.$router.push({name: this.config.coreExtendScope + '-new', params: { id_parent: this.itemIDParent }})
     },
     __edit (id) {
-      this.$router.push({name: this.config.coreExtendScope, params: { id: id }})
+      this.$router.push({name: this.config.coreExtendScope, params: { id: id, id_parent: this.itemIDParent }})
     },
     __delete (id) {
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {

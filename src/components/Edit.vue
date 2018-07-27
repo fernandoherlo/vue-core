@@ -28,6 +28,7 @@ export default {
   data () {
     return {
       itemID: 0,
+      itemIDParent: 0,
       Form: Form,
       extrasForm: {},
       isNew: false,
@@ -40,6 +41,10 @@ export default {
     // Data
     this.itemID = parseInt(this.$route.params.id)
     this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
+    // Inline
+    if (this.config.inline) {
+      this.itemIDParent = parseInt(this.$route.params.id_parent)
+    }
     // Created children
     this.__created ()
   },
@@ -77,7 +82,8 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
-      <router-link class="btn back" :to="{ name: config.coreExtendScopePl }"><span v-html="config.buttonBackName"></span></router-link>
+      <router-link v-if="!config.inline" class="btn back" :to="{ name: config.coreExtendScopePl }"><span v-html="config.buttonBackName"></span></router-link>
+      <router-link v-if="config.inline" class="btn back" :to="{ name: config.coreExtendScopeParent, params: { id: this.itemIDParent } }"><span v-html="config.buttonBackName"></span></router-link>
       <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0"><span v-html="config.buttonUpdateName"></span></a>
       <a v-if="isNew" class="btn save" @click="__save()" tabindex="0"><span v-html="config.buttonSaveName"></span></a>
     </div>
