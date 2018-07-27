@@ -983,12 +983,12 @@ var Core_component = normalizeComponent(
 )
 
 /* harmony default export */ var Core = (Core_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/nano/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=73dc84e2&
-var Editvue_type_template_id_73dc84e2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[(!_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopePl }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopeParent, params: { id: this.itemIDParent } }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(!_vm.isNew)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonUpdateName)}})]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonSaveName)}})]):_vm._e()],1),(_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
-var Editvue_type_template_id_73dc84e2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/nano/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=475dca50&
+var Editvue_type_template_id_475dca50_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[(!_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopePl }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopeParent, params: { id: this.itemIDParent } }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(!_vm.isNew)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonUpdateName)}})]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonSaveName)}})]):_vm._e()],1),(_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
+var Editvue_type_template_id_475dca50_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=73dc84e2&
+// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=475dca50&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
 var es6_regexp_replace = __webpack_require__("pIFo");
@@ -1132,6 +1132,11 @@ var Form_component = normalizeComponent(
     __save: function __save() {
       var _this = this;
 
+      // Inline
+      if (this.config.inline) {
+        this.itemVuex.id_parent = this.itemIDParent;
+      }
+
       this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then(function () {
         _this.$router.replace({
           name: _this.config.coreExtendScope,
@@ -1159,8 +1164,8 @@ var Editvue_type_style_index_0_lang_sass_ = __webpack_require__("PD18");
 
 var Edit_component = normalizeComponent(
   components_Editvue_type_script_lang_js_,
-  Editvue_type_template_id_73dc84e2_render,
-  Editvue_type_template_id_73dc84e2_staticRenderFns,
+  Editvue_type_template_id_475dca50_render,
+  Editvue_type_template_id_475dca50_staticRenderFns,
   false,
   null,
   null,
