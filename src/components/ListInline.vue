@@ -29,6 +29,7 @@ export default {
   },
   data () {
     return {
+      itemID: 0,
       items: [],
       config: componentConfig
     }
@@ -36,7 +37,7 @@ export default {
   created () {
     // Data
     this.itemID = parseInt(this.$route.params.id)
-    this.$store.dispatch('getByParent' + this.config.coreExtendVuex, this.itemID)
+    this.$store.dispatch('getByParent' + this.config.coreExtendVuexPl, this.itemID)
   },
   computed: {
     itemsVuex () {
