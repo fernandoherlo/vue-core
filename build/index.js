@@ -21,6 +21,7 @@ import Core from '@/components/Core'
 import Edit from '@/components/Edit'
 import Form from '@/components/Form'
 import List from '@/components/List'
+import ListInline from '@/components/ListInline'
 import New from '@/components/New'
 
 export {
@@ -38,5 +39,6 @@ export {
   Edit,
   Form,
   List,
+  ListInline,
   New
 }
