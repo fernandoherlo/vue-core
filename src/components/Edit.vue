@@ -77,9 +77,9 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
-      <router-link class="btn btn-info" :to="{ name: config.coreExtendScopePl }">{{ config.buttonBackName }}</router-link>
-      <a v-if="!isNew" class="btn btn-primary" @click="__update()" tabindex="0">{{ config.buttonUpdateName }}</a>
-      <a v-if="isNew" class="btn btn-primary" @click="__save()" tabindex="0">{{ config.buttonSaveName }}</a>
+      <router-link class="btn back" :to="{ name: config.coreExtendScopePl }">{{ config.buttonBackName }}</router-link>
+      <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0">{{ config.buttonUpdateName }}</a>
+      <a v-if="isNew" class="btn save" @click="__save()" tabindex="0">{{ config.buttonSaveName }}</a>
     </div>
     <div class="form" v-if="itemsVuex && itemVuex">
       <div :is="config.coreExtendScopePl + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>

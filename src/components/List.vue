@@ -60,13 +60,13 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
-      <a class="btn btn-primary new" @click="__newItem()">{{ config.buttonNewName }}</a>
+      <a class="btn new" @click="__newItem()">{{ config.buttonNewName }}</a>
     </div>
     <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.label === 'Actions'">
-          <a class="btn btn-primary" @click="__edit(props.row.id)">{{ config.buttonEditName }}</a>
-          <a class="btn btn-danger" @click="__delete(props.row.id)">{{ config.buttonDeleteName }}</a>
+          <a class="btn edit" @click="__edit(props.row.id)">{{ config.buttonEditName }}</a>
+          <a class="btn delete" @click="__delete(props.row.id)">{{ config.buttonDeleteName }}</a>
         </span>
         <span v-else>
           {{ props.formattedRow[props.column.field] }}
