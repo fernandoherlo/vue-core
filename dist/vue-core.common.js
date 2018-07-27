@@ -447,10 +447,12 @@ var actions = {
   },
   completeLoad: function completeLoad(_ref3) {
     var commit = _ref3.commit;
-    commit('RECEIVE_LOAD_END', '<strong>Load complete</strong>');
+    setTimeout(function () {
+      commit('RECEIVE_LOAD_END', '<strong>Load complete</strong>');
+    }, 500);
     setTimeout(function () {
       commit('RECEIVE_LOAD');
-    }, 300);
+    }, 1500);
   }
 };
 /*
@@ -1184,12 +1186,12 @@ var Edit_component = normalizeComponent(
 )
 
 /* harmony default export */ var Edit = (Edit_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=3a2c6b44&
-var Listvue_type_template_id_3a2c6b44_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('a',{staticClass:"btn btn-primary",on:{"click":function($event){_vm.__newItem()}}},[_vm._v(_vm._s(_vm.config.buttonNewName))]),_c('vue-good-table',{attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.label === 'Actions')?_c('span',[_c('a',{staticClass:"btn btn-primary",on:{"click":function($event){_vm.__edit(props.row.id)}}},[_vm._v(_vm._s(_vm.config.buttonEditName))]),_c('a',{staticClass:"btn btn-danger",on:{"click":function($event){_vm.__delete(props.row.id)}}},[_vm._v(_vm._s(_vm.config.buttonDeleteName))])]):_c('span',[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+"\n      ")])]}}])})],1)}
-var Listvue_type_template_id_3a2c6b44_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=3e823276&
+var Listvue_type_template_id_3e823276_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn btn-primary new",on:{"click":function($event){_vm.__newItem()}}},[_vm._v(_vm._s(_vm.config.buttonNewName))])]),_c('vue-good-table',{attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.label === 'Actions')?_c('span',[_c('a',{staticClass:"btn btn-primary",on:{"click":function($event){_vm.__edit(props.row.id)}}},[_vm._v(_vm._s(_vm.config.buttonEditName))]),_c('a',{staticClass:"btn btn-danger",on:{"click":function($event){_vm.__delete(props.row.id)}}},[_vm._v(_vm._s(_vm.config.buttonDeleteName))])]):_c('span',[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+"\n      ")])]}}])})],1)}
+var Listvue_type_template_id_3e823276_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/List.vue?vue&type=template&id=3a2c6b44&
+// CONCATENATED MODULE: ./src/components/List.vue?vue&type=template&id=3e823276&
 
 // EXTERNAL MODULE: ./node_modules/diacriticless/diacriticless.js
 var diacriticless = __webpack_require__("pSmn");
@@ -11781,8 +11783,8 @@ var Listvue_type_style_index_0_lang_sass_ = __webpack_require__("eMnu");
 
 var List_component = normalizeComponent(
   components_Listvue_type_script_lang_js_,
-  Listvue_type_template_id_3a2c6b44_render,
-  Listvue_type_template_id_3a2c6b44_staticRenderFns,
+  Listvue_type_template_id_3e823276_render,
+  Listvue_type_template_id_3e823276_staticRenderFns,
   false,
   null,
   null,

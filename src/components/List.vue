@@ -55,11 +55,13 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="List">
     <div class="header">
       <h2>{{ config.displayName }}</h2>
     </div>
-    <a class="btn btn-primary" @click="__newItem()">{{ config.buttonNewName }}</a>
+    <div class="actions">
+      <a class="btn btn-primary new" @click="__newItem()">{{ config.buttonNewName }}</a>
+    </div>
     <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.label === 'Actions'">

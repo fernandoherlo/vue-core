@@ -40,4 +40,5 @@ export default {
 </script>
 
 <style lang="scss">
+  @import './assets/app.scss';
 </style>

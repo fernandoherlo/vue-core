@@ -14,7 +14,6 @@ import auth0 from 'auth0-js'
 */
 export default {
   install: function(Vue, options) {
-
     let webAuth = new auth0.WebAuth({
       domain: options.config.VUE_APP_AUTH0_DOMAIN,
       clientID: options.config.VUE_APP_AUTH0_CLIENT_ID,

@@ -17,6 +17,8 @@ let baseColumns = [{
   label: 'Actions',
   field: 'id',
   type: 'number',
+  thClass: 'actions',
+  tdClass: 'actions',
   sortable: false
 }]
 
@@ -44,7 +46,8 @@ export default {
       // }
     },
     searchOptions: {
-      enabled: true
+      enabled: true,
+      placeholder: 'Search'
     }
   }
 }

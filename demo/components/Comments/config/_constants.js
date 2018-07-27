@@ -17,12 +17,16 @@ export default {
       label: 'ID',
       field: 'id',
       type: 'number',
+      thClass: 'id',
+      tdClass: 'id',
       sortable: false
     },
     {
       label: 'Name',
       field: 'name',
-      type: 'string'
+      type: 'string',
+      thClass: 'name',
+      tdClass: 'name'
     },
   ],
   // EXTRAS
