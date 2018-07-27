@@ -47,6 +47,10 @@ export default {
       // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
       state.all.splice(index, 1)
       state.all.push(clone)
+      if (state.allByParent) {
+        state.allByParent.splice(index, 1)
+        state.allByParent.push(clone)
+      }
     }
   },
   saveItem (state, statusId, item) {
@@ -58,12 +62,18 @@ export default {
       // state.all[index] = clone
       // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
       state.all.push(clone)
+      if (state.allByParent) {
+        state.allByParent.push(clone)
+      }
     }
   },
   deleteItem (state, status, item) {
     if (status) {
       var index = state.all.indexOf(item)
       state.all.splice(index, 1)
+      if (state.allByParent) {
+        state.allByParent.splice(index, 1)
+      }
     }
   }
 }

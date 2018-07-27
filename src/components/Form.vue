@@ -11,6 +11,10 @@ export default {
       type: Object,
       required: false
     },
+    itemIDParent: {
+      type: Number,
+      required: false
+    },
     isNew: {
       type: Boolean,
       required: false,
