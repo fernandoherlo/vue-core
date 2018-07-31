@@ -24,6 +24,16 @@ export default {
       type: Object,
       required: false
     }
+  },
+  methods: {
+    __send () {
+      if (!this.isNew){
+        this.$parent.__update()
+      }
+      if (this.isNew){
+        this.$parent.__save()
+      }
+    }
   }
 }
 </script>
