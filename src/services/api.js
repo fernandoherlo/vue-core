@@ -51,8 +51,9 @@ let api = new Vue({
         // Notify
         self.$notify({
           group: 'global',
+          type: 'success',
           title: 'Update',
-          text: 'Hello user! This is a notification!'
+          text: 'Update element successfull!'
         });
         // -----
       }, function (/*response*/) {
@@ -77,6 +78,13 @@ let api = new Vue({
       this.$http.axios(options).then(function (response) {
         // CallBack
         _callback(response.data.id)
+        // Notify
+        self.$notify({
+          group: 'global',
+          type: 'success',
+          title: 'Save',
+          text: 'Save element successfull!'
+        });
       }, function (/*response*/) {
         // Fail
       })
@@ -95,6 +103,13 @@ let api = new Vue({
       this.$http.axios(options).then(function (response) {
         // CallBack
         _callback(response.data)
+        // Notify
+        self.$notify({
+          group: 'global',
+          type: 'success',
+          title: 'Delete',
+          text: 'Delete element successfull!'
+        });
       }, function (/*response*/) {
         // Fail
       })

@@ -313,8 +313,9 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
 
         self.$notify({
           group: 'global',
+          type: 'success',
           title: 'Update',
-          text: 'Hello user! This is a notification!'
+          text: 'Update element successfull!'
         }); // -----
       }, function ()
       /*response*/
@@ -338,7 +339,15 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       };
       this.$http.axios(options).then(function (response) {
         // CallBack
-        _callback(response.data.id);
+        _callback(response.data.id); // Notify
+
+
+        self.$notify({
+          group: 'global',
+          type: 'success',
+          title: 'Save',
+          text: 'Save element successfull!'
+        });
       }, function ()
       /*response*/
       {// Fail
@@ -357,7 +366,15 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       };
       this.$http.axios(options).then(function (response) {
         // CallBack
-        _callback(response.data);
+        _callback(response.data); // Notify
+
+
+        self.$notify({
+          group: 'global',
+          type: 'success',
+          title: 'Delete',
+          text: 'Delete element successfull!'
+        });
       }, function ()
       /*response*/
       {// Fail
