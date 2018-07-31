@@ -46,6 +46,12 @@ let api = new Vue({
       this.$http.axios(options).then(function (response) {
         // CallBack
         _callback(response.data)
+        // Notify
+        this.$notify({
+          group: 'global',
+          title: 'Update',
+          text: 'Hello user! This is a notification!'
+        });
         // -----
       }, function (/*response*/) {
         // Fail

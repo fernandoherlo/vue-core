@@ -33,13 +33,14 @@ export default {
       if (this.isNew){
         this.$parent.__save()
       }
+      return false;
     }
   }
 }
 </script>
 
 <template>
-  <form>
+  <form v-if="item" v-on:submit.prevent="__send">
     Form...
   </form>
 </template>
