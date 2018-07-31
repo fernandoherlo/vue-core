@@ -27,7 +27,9 @@ export default {
   },
   created () {
     if (this.$refs.firstFocusForm) {
-      this.$refs.firstFocusForm.$el.focus()
+      this.$nextTick(() => {
+        this.$refs.firstFocusForm.$el.focus()
+      })
     }
   },
   methods: {
