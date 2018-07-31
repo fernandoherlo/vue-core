@@ -277,6 +277,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     // GET ALL
     // ******************
     get: function get(url, _callback) {
+      var self = this;
       var options = {
         url: url,
         method: 'GET'
@@ -292,7 +293,8 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     // UPDATE
     // ******************
     update: function update(url, item, _callback) {
-      // Data
+      var self = this; // Data
+
       var data = {}; // Fields
 
       for (var propertyName in item) {
@@ -309,7 +311,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
         _callback(response.data); // Notify
 
 
-        this.$notify({
+        self.$notify({
           group: 'global',
           title: 'Update',
           text: 'Hello user! This is a notification!'
@@ -321,7 +323,8 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     },
     // SAVE
     save: function save(url, item, _callback) {
-      // Data
+      var self = this; // Data
+
       var data = {}; // Fields
 
       for (var propertyName in item) {
@@ -343,6 +346,8 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     },
     // DELETE
     delete: function _delete(url, item, _callback, wait) {
+      var self = this;
+
       if (wait) {// Alert wait
       }
 
