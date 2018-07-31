@@ -17,6 +17,7 @@ let api = new Vue({
     // GET ALL
     // ******************
     get (url, _callback) {
+      var self = this
       var options = {
         url: url,
         method: 'GET'
@@ -32,6 +33,7 @@ let api = new Vue({
     // UPDATE
     // ******************
     update (url, item, _callback) {
+      var self = this
       // Data
       var data = {}
       // Fields
@@ -47,7 +49,7 @@ let api = new Vue({
         // CallBack
         _callback(response.data)
         // Notify
-        this.$notify({
+        self.$notify({
           group: 'global',
           title: 'Update',
           text: 'Hello user! This is a notification!'
@@ -60,6 +62,7 @@ let api = new Vue({
 
     // SAVE
     save (url, item, _callback) {
+      var self = this
       // Data
       var data = {}
       // Fields
@@ -81,6 +84,7 @@ let api = new Vue({
 
     // DELETE
     delete (url, item, _callback, wait) {
+      var self = this
       if (wait) {
         // Alert wait
       }
