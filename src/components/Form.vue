@@ -25,6 +25,11 @@ export default {
       required: false
     }
   },
+  created () {
+    if (this.$refs.firstFocusForm) {
+      this.$refs.firstFocusForm.$el.focus()
+    }
+  },
   methods: {
     __send () {
       if (!this.isNew){
