@@ -26,11 +26,11 @@ export default {
     }
   },
   created () {
-    if (this.$refs.firstFocusForm) {
-      this.$nextTick(() => {
+    this.$nextTick(() => {
+      if (this.$refs.firstFocusForm) {
         this.$refs.firstFocusForm.$el.focus()
-      })
-    }
+      }
+    })
   },
   methods: {
     __send () {
