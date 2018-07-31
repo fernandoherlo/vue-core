@@ -765,6 +765,7 @@ var es6_promise = __webpack_require__("VRzm");
       state.all.splice(index, 1);
 
       if (state.allByParent) {
+        index = state.allByParent.indexOf(item);
         state.allByParent.splice(index, 1);
       }
     }

@@ -72,6 +72,7 @@ export default {
       var index = state.all.indexOf(item)
       state.all.splice(index, 1)
       if (state.allByParent) {
+        index = state.allByParent.indexOf(item)
         state.allByParent.splice(index, 1)
       }
     }
