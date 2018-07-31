@@ -25,6 +25,14 @@ export default {
       required: false
     }
   },
+  created () {
+    this.$nextTick(() => {
+      if (this.$refs.firstFocusForm) {
+        this.$refs.firstFocusForm.focus()
+        this.$refs.firstFocusForm.select()
+      }
+    })
+  },
   methods: {
     __send () {
       if (!this.isNew){
