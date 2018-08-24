@@ -20,7 +20,7 @@ export default {
       redirectUri: options.config.VUE_APP_AUTH0_CALLBACK_URL,
       audience: `https://${options.config.VUE_APP_AUTH0_DOMAIN}/userinfo`,
       responseType: 'token id_token',
-      scope: 'openid'
+      scope: 'openid email'
     })
 
     let auth = new Vue({

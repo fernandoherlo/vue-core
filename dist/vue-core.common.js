@@ -11142,7 +11142,7 @@ var auth0_min_esm = __webpack_require__("b0af");
       redirectUri: options.config.VUE_APP_AUTH0_CALLBACK_URL,
       audience: "https://".concat(options.config.VUE_APP_AUTH0_DOMAIN, "/userinfo"),
       responseType: 'token id_token',
-      scope: 'openid'
+      scope: 'openid email'
     });
     var auth = new Vue({
       computed: {
