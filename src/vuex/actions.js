@@ -19,6 +19,9 @@ export default {
       ['getAll' + options.mTypeNamePl] ({ commit }) {
         return self.getBaseAll(commit, options)
       },
+      ['getByParent' + options.mTypeNamePl] ({ commit }, id_parent) {
+        return self.getByParent(commit, options, id_parent)
+      },
       ['get' + options.mTypeName] ({ commit }, id) {
         return self.getItem(commit, options, id)
       },
@@ -44,6 +47,13 @@ export default {
       }
       EventBus.$emit('apiGet', options.url, _callback)
       // options.$api.get(options.url, _callback)
+    })
+  },
+  // GET ITEM
+  getByParent (commit, options, id_parent) {
+    return new Promise((resolve/*, reject*/) => {
+      commit('GET_BY_PARENT_' + options.mTypeNamePl, { id_parent })
+      resolve()
     })
   },
   // GET ITEM

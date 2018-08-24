@@ -17,6 +17,7 @@ let api = new Vue({
     // GET ALL
     // ******************
     get (url, _callback) {
+      var self = this
       var options = {
         url: url,
         method: 'GET'
@@ -32,6 +33,7 @@ let api = new Vue({
     // UPDATE
     // ******************
     update (url, item, _callback) {
+      var self = this
       // Data
       var data = {}
       // Fields
@@ -46,6 +48,13 @@ let api = new Vue({
       this.$http.axios(options).then(function (response) {
         // CallBack
         _callback(response.data)
+        // Notify
+        self.$notify({
+          group: 'global',
+          type: 'success',
+          title: 'Update',
+          text: 'Update element successfull!'
+        });
         // -----
       }, function (/*response*/) {
         // Fail
@@ -54,6 +63,7 @@ let api = new Vue({
 
     // SAVE
     save (url, item, _callback) {
+      var self = this
       // Data
       var data = {}
       // Fields
@@ -68,6 +78,13 @@ let api = new Vue({
       this.$http.axios(options).then(function (response) {
         // CallBack
         _callback(response.data.id)
+        // Notify
+        self.$notify({
+          group: 'global',
+          type: 'success',
+          title: 'Save',
+          text: 'Save element successfull!'
+        });
       }, function (/*response*/) {
         // Fail
       })
@@ -75,6 +92,7 @@ let api = new Vue({
 
     // DELETE
     delete (url, item, _callback, wait) {
+      var self = this
       if (wait) {
         // Alert wait
       }
@@ -85,6 +103,13 @@ let api = new Vue({
       this.$http.axios(options).then(function (response) {
         // CallBack
         _callback(response.data)
+        // Notify
+        self.$notify({
+          group: 'global',
+          type: 'success',
+          title: 'Delete',
+          text: 'Delete element successfull!'
+        });
       }, function (/*response*/) {
         // Fail
       })
