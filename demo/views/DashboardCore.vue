@@ -1,7 +1,7 @@
 <template>
-	<div>
+  <div>
     DashboardCore
-	</div>
+  </div>
 </template>
 
 <script>

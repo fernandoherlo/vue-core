@@ -6,6 +6,7 @@
 import auth from '@/services/auth'
 import http from '@/services/http'
 import api from '@/services/api'
+import acl from '@/services/acl'
 import { EventBus } from '@/services/event-bus.js';
 // Vuex
 import VuexLoad from '@/vuex/modules/load'
@@ -28,6 +29,7 @@ export {
   auth,
   http,
   api,
+  acl,
   EventBus,
   VuexLoad,
   VuexGetters,

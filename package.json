@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve 'demo/main'",
-    "build": "vue-cli-service build --target lib --name vue-core 'build'",
+    "build": "vue-cli-service build --target lib --name vue-core src/build.js",
     "lint": "vue-cli-service lint"
   },
   "main": "./dist/vue-core.common.js",

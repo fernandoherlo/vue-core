@@ -19,6 +19,14 @@ import { modules } from '../../store/modules'
 
 /*
 |--------------------------------------------------------------------------
+| ACL
+|--------------------------------------------------------------------------
+|
+*/
+import Acl from './config/acl'
+
+/*
+|--------------------------------------------------------------------------
 | Plugin
 |--------------------------------------------------------------------------
 |
@@ -41,6 +49,9 @@ function initPlugin(vm) {
   // Vuex
   vm.$store.registerModule('CommentsVuex', CommentsVuex)
   modules.push('getAllCOMMENTS')
+
+  // Acl
+  vm.$acl.addComponent('comments', Acl)
 
   // ADD routes
   vm.$router.addRoutes(

@@ -4,6 +4,7 @@ import router from './router'
 import auth from '@/services/auth'
 import http from '@/services/http'
 import api from '@/services/api'
+import acl from '@/services/acl'
 import { EventBus } from '@/services/event-bus.js';
 
 // DEMO
@@ -31,6 +32,7 @@ Vue.prototype.$EventBus = $EventBus
 Vue.use(auth, {config: process.env})
 Vue.use(http)
 Vue.use(api)
+Vue.use(acl)
 
 new Vue({
   store,
