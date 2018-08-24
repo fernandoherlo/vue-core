@@ -114,10 +114,15 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 var setPublicPath = __webpack_require__("HrLf");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
+var es6_function_name = __webpack_require__("f3/d");
+
 // EXTERNAL MODULE: ./node_modules/auth0-js/dist/auth0.min.esm.js
 var auth0_min_esm = __webpack_require__("sK8x");
 
 // CONCATENATED MODULE: ./src/services/auth0.js
+
+
 /*
 |--------------------------------------------------------------------------
 | Import npm
@@ -140,7 +145,7 @@ var auth0_min_esm = __webpack_require__("sK8x");
       redirectUri: options.config.VUE_APP_AUTH0_CALLBACK_URL,
       audience: "https://".concat(options.config.VUE_APP_AUTH0_DOMAIN, "/userinfo"),
       responseType: 'token id_token',
-      scope: 'openid'
+      scope: 'openid profile'
     });
     var auth = new Vue({
       computed: {
@@ -170,15 +175,19 @@ var auth0_min_esm = __webpack_require__("sK8x");
         setSession: function setSession(authResult) {
           // Set the time that the access token will expire at
           var expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
+          var str = JSON.stringify(authResult, null, 4);
+          console.log(str);
           localStorage.setItem('access_token', authResult.accessToken);
           localStorage.setItem('id_token', authResult.idToken);
           localStorage.setItem('expires_at', expiresAt);
+          localStorage.setItem('email', authResult.idTokenPayload.name);
         },
         logout: function logout() {
           // Clear access token and ID token from local storage
           localStorage.removeItem('access_token');
           localStorage.removeItem('id_token');
           localStorage.removeItem('expires_at');
+          localStorage.removeItem('email');
           webAuth.authorize();
         },
         isAuthenticated: function isAuthenticated() {
@@ -286,7 +295,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     // GET ALL
     // ******************
     get: function get(url, _callback) {
-      var self = this;
+      // var self = this
       var options = {
         url: url,
         method: 'GET'
@@ -810,7 +819,7 @@ var es6_promise = __webpack_require__("VRzm");
     });
   }
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/nano/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=c39486ae&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=c39486ae&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._v("\n  Callback\n")])}
 var staticRenderFns = []
 
@@ -1034,7 +1043,7 @@ var Core_component = normalizeComponent(
 )
 
 /* harmony default export */ var Core = (Core_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/nano/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=475dca50&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=475dca50&
 var Editvue_type_template_id_475dca50_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[(!_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopePl }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopeParent, params: { id: this.itemIDParent } }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(!_vm.isNew)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonUpdateName)}})]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonSaveName)}})]):_vm._e()],1),(_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
 var Editvue_type_template_id_475dca50_staticRenderFns = []
 
@@ -1044,7 +1053,7 @@ var Editvue_type_template_id_475dca50_staticRenderFns = []
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
 var es6_regexp_replace = __webpack_require__("pIFo");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/nano/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Form.vue?vue&type=template&id=6fe6913c&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Form.vue?vue&type=template&id=6fe6913c&scoped=true&
 var Formvue_type_template_id_6fe6913c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.item)?_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.__send($event)}}},[_vm._v("\n  Form...\n")]):_vm._e()}
 var Formvue_type_template_id_6fe6913c_scoped_true_staticRenderFns = []
 
@@ -1258,7 +1267,7 @@ var Edit_component = normalizeComponent(
 )
 
 /* harmony default export */ var Edit = (Edit_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/nano/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=175ec356&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=175ec356&
 var Listvue_type_template_id_175ec356_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonNewName)}})])]),_c('vue-good-table',{attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.label === 'Actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonEditName)}})]),_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonDeleteName)}})])]):_c('span',[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+"\n      ")])]}}])})],1)}
 var Listvue_type_template_id_175ec356_staticRenderFns = []
 
@@ -1272,10 +1281,6 @@ var diacriticless_default = /*#__PURE__*/__webpack_require__.n(diacriticless);
 // EXTERNAL MODULE: ./node_modules/lodash.clonedeep/index.js
 var lodash_clonedeep = __webpack_require__("zT9C");
 var lodash_clonedeep_default = /*#__PURE__*/__webpack_require__.n(lodash_clonedeep);
-
-// EXTERNAL MODULE: ./node_modules/lodash.assign/index.js
-var lodash_assign = __webpack_require__("QqA1");
-var lodash_assign_default = /*#__PURE__*/__webpack_require__.n(lodash_assign);
 
 // CONCATENATED MODULE: ./node_modules/date-fns/esm/toDate/index.js
 var MILLISECONDS_IN_HOUR = 3600000
@@ -9532,13 +9537,17 @@ var lodash_clone_default = /*#__PURE__*/__webpack_require__.n(lodash_clone);
 var lodash_foreach = __webpack_require__("qm8e");
 var lodash_foreach_default = /*#__PURE__*/__webpack_require__.n(lodash_foreach);
 
+// EXTERNAL MODULE: ./node_modules/lodash.assign/index.js
+var lodash_assign = __webpack_require__("QqA1");
+var lodash_assign_default = /*#__PURE__*/__webpack_require__.n(lodash_assign);
+
 // EXTERNAL MODULE: ./node_modules/lodash.filter/index.js
 var lodash_filter = __webpack_require__("12sx");
 var lodash_filter_default = /*#__PURE__*/__webpack_require__.n(lodash_filter);
 
 // CONCATENATED MODULE: ./node_modules/vue-good-table/dist/vue-good-table.es.js
 /**
- * vue-good-table v2.12.1
+ * vue-good-table v2.11.1
  * (c) 2018-present xaksis <shay@crayonbits.com>
  * https://github.com/xaksis/vue-good-table
  * Released under the MIT License.
@@ -10246,199 +10255,6 @@ var VgtFilterRow = {
   }
 };
 
-var VgtTableHeader = {
-  render: function render() {
-    var _vm = this;
-
-    var _h = _vm.$createElement;
-
-    var _c = _vm._self._c || _h;
-
-    return _c('thead', [_c('tr', [_vm.lineNumbers ? _c('th', {
-      staticClass: "line-numbers"
-    }) : _vm._e(), _vm._v(" "), _vm.selectable ? _c('th', {
-      staticClass: "vgt-checkbox-col"
-    }, [_c('input', {
-      attrs: {
-        "type": "checkbox"
-      },
-      domProps: {
-        "checked": _vm.allSelected,
-        "indeterminate": _vm.allSelectedIndeterminate
-      },
-      on: {
-        "change": _vm.toggleSelectAll
-      }
-    })]) : _vm._e(), _vm._v(" "), _vm._l(_vm.columns, function (column, index) {
-      return !column.hidden ? _c('th', {
-        key: index,
-        class: _vm.getHeaderClasses(column, index),
-        style: _vm.columnStyles[index],
-        on: {
-          "click": function click($event) {
-            _vm.sort(index);
-          }
-        }
-      }, [_vm._t("table-column", [_c('span', [_vm._v(_vm._s(column.label))])], {
-        column: column
-      })], 2) : _vm._e();
-    })], 2), _vm._v(" "), _c("vgt-filter-row", {
-      ref: "filter-row",
-      tag: "tr",
-      attrs: {
-        "global-search-enabled": _vm.searchEnabled,
-        "line-numbers": _vm.lineNumbers,
-        "selectable": _vm.selectable,
-        "columns": _vm.columns,
-        "mode": _vm.mode,
-        "typed-columns": _vm.typedColumns
-      },
-      on: {
-        "filter-changed": _vm.filterRows
-      }
-    })]);
-  },
-  staticRenderFns: [],
-  _scopeId: 'data-v-0c8b4370',
-  name: 'VgtTableHeader',
-  props: {
-    lineNumbers: {
-      default: false,
-      type: Boolean
-    },
-    selectable: {
-      default: false,
-      type: Boolean
-    },
-    allSelected: {
-      default: false,
-      type: Boolean
-    },
-    allSelectedIndeterminate: {
-      default: false,
-      type: Boolean
-    },
-    columns: {
-      type: Array
-    },
-    mode: {
-      type: String
-    },
-    typedColumns: {},
-    //* Sort related
-    sortColumn: {
-      type: Number
-    },
-    sortType: {
-      type: String
-    },
-    // utility functions
-    isSortableColumn: {
-      type: Function
-    },
-    getClasses: {
-      type: Function
-    },
-    //* search related
-    searchEnabled: {
-      type: Boolean
-    },
-    tableRef: {},
-    paginated: {}
-  },
-  watch: {
-    tableRef: {
-      handler: function handler() {
-        this.setColumnStyles();
-      },
-      immediate: true
-    },
-    paginated: {
-      handler: function handler() {
-        if (this.tableRef) {
-          this.setColumnStyles();
-        }
-      },
-      deep: true
-    }
-  },
-  data: function data() {
-    return {
-      checkBoxThStyle: {},
-      lineNumberThStyle: {},
-      columnStyles: []
-    };
-  },
-  computed: {},
-  methods: {
-    toggleSelectAll: function toggleSelectAll() {
-      this.$emit('on-toggle-select-all');
-    },
-    sort: function sort(index) {
-      this.$emit('on-sort-change', index);
-    },
-    getHeaderClasses: function getHeaderClasses(column, index) {
-      var isSortable = this.isSortableColumn(index);
-      var classes = lodash_assign_default()({}, this.getClasses(index, 'th'), {
-        sorting: isSortable,
-        'sorting-desc': isSortable && this.sortColumn === index && this.sortType === 'desc',
-        'sorting-asc': isSortable && this.sortColumn === index && this.sortType === 'asc'
-      });
-      return classes;
-    },
-    filterRows: function filterRows(columnFilters) {
-      this.$emit('filter-changed', columnFilters);
-    },
-    getWidthStyle: function getWidthStyle(dom) {
-      var cellStyle = window.getComputedStyle(dom, null);
-      return {
-        width: cellStyle.width
-      };
-    },
-    setColumnStyles: function setColumnStyles() {
-      var _this = this;
-
-      var colStyles = [];
-      setTimeout(function () {
-        for (var i = 0; i < _this.columns.length; i++) {
-          if (_this.tableRef) {
-            var skip = 0;
-            if (_this.selectable) skip++;
-            if (_this.lineNumbers) skip++;
-            var cell = _this.tableRef.rows[0].cells[i + skip];
-            colStyles.push(_this.getWidthStyle(cell));
-          } else {
-            colStyles.push({
-              width: _this.columns[i].width ? _this.columns[i].width : 'auto'
-            });
-          }
-        }
-
-        _this.columnStyles = colStyles;
-      }, 200);
-    },
-    getColumnStyle: function getColumnStyle(column, index) {
-      var styleObject = {
-        width: column.width ? column.width : 'auto'
-      }; //* if fixed header we need to get width from original table
-
-      if (this.tableRef) {
-        if (this.selectable) index++;
-        if (this.lineNumbers) index++;
-        var cell = this.tableRef.rows[0].cells[index];
-        var cellStyle = window.getComputedStyle(cell, null);
-        styleObject.width = cellStyle.width;
-      }
-
-      return styleObject;
-    }
-  },
-  mounted: function mounted() {},
-  components: {
-    'vgt-filter-row': VgtFilterRow
-  }
-};
-
 var VgtHeaderRow = {
   render: function render() {
     var _vm = this;
@@ -10722,62 +10538,58 @@ var VueGoodTable = {
       }
     }, [_vm._v(" " + _vm._s(_vm.clearSelectionText) + " ")]), _vm._v(" "), _c('div', {
       staticClass: "vgt-selection-info-row__actions vgt-pull-right"
-    }, [_vm._t("selected-row-actions")], 2)]) : _vm._e(), _vm._v(" "), _vm.fixedHeader ? _c('table', {
-      staticClass: "vgt-fixed-header",
-      class: _vm.tableStyleClasses
-    }, [_c("vgt-table-header", {
-      tag: "thead",
-      attrs: {
-        "columns": _vm.columns,
-        "line-numbers": _vm.lineNumbers,
-        "selectable": _vm.selectable,
-        "all-selected": _vm.allSelected,
-        "all-selected-indeterminate": _vm.allSelectedIndeterminate,
-        "mode": _vm.mode,
-        "typed-columns": _vm.typedColumns,
-        "sort-column": _vm.sortColumn,
-        "sort-type": _vm.sortType,
-        "isSortableColumn": _vm.isSortableColumn,
-        "getClasses": _vm.getClasses,
-        "searchEnabled": _vm.searchEnabled,
-        "paginated": _vm.paginated,
-        "table-ref": _vm.$refs.table
-      },
-      on: {
-        "on-toggle-select-all": _vm.toggleSelectAll,
-        "on-sort-change": _vm.sort,
-        "filter-changed": _vm.filterRows
-      }
-    })]) : _vm._e(), _vm._v(" "), _c('div', {
+    }, [_vm._t("selected-row-actions")], 2)]) : _vm._e(), _vm._v(" "), _c('div', {
       class: {
         'vgt-responsive': _vm.responsive
-      },
-      style: _vm.wrapperStyles
+      }
     }, [_c('table', {
       ref: "table",
       class: _vm.tableStyleClasses
-    }, [_c("vgt-table-header", {
-      tag: "thead",
+    }, [_c('thead', [_c('tr', [_vm.lineNumbers ? _c('th', {
+      staticClass: "line-numbers"
+    }) : _vm._e(), _vm._v(" "), _vm.selectable ? _c('th', {
+      staticClass: "vgt-checkbox-col"
+    }, [_c('input', {
       attrs: {
-        "columns": _vm.columns,
-        "line-numbers": _vm.lineNumbers,
-        "selectable": _vm.selectable,
-        "all-selected": _vm.allSelected,
-        "all-selected-indeterminate": _vm.allSelectedIndeterminate,
-        "mode": _vm.mode,
-        "typed-columns": _vm.typedColumns,
-        "sort-column": _vm.sortColumn,
-        "sort-type": _vm.sortType,
-        "isSortableColumn": _vm.isSortableColumn,
-        "getClasses": _vm.getClasses,
-        "searchEnabled": _vm.searchEnabled
+        "type": "checkbox"
+      },
+      domProps: {
+        "checked": _vm.allSelected,
+        "indeterminate": _vm.allSelectedIndeterminate
       },
       on: {
-        "on-toggle-select-all": _vm.toggleSelectAll,
-        "on-sort-change": _vm.sort,
+        "change": _vm.toggleSelectAll
+      }
+    })]) : _vm._e(), _vm._v(" "), _vm._l(_vm.columns, function (column, index$$1) {
+      return !column.hidden ? _c('th', {
+        key: index$$1,
+        class: _vm.getHeaderClasses(column, index$$1),
+        style: {
+          width: column.width ? column.width : 'auto'
+        },
+        on: {
+          "click": function click($event) {
+            _vm.sort(index$$1);
+          }
+        }
+      }, [_vm._t("table-column", [_c('span', [_vm._v(_vm._s(column.label))])], {
+        column: column
+      })], 2) : _vm._e();
+    })], 2), _vm._v(" "), _c("vgt-filter-row", {
+      ref: "filter-row",
+      tag: "tr",
+      attrs: {
+        "global-search-enabled": _vm.searchEnabled,
+        "line-numbers": _vm.lineNumbers,
+        "selectable": _vm.selectable,
+        "columns": _vm.columns,
+        "mode": _vm.mode,
+        "typed-columns": _vm.typedColumns
+      },
+      on: {
         "filter-changed": _vm.filterRows
       }
-    }), _vm._v(" "), _vm._l(_vm.paginated, function (headerRow, index$$1) {
+    })]), _vm._v(" "), _vm._l(_vm.paginated, function (headerRow, index$$1) {
       return _c('tbody', {
         key: index$$1
       }, [_vm.groupHeaderOnTop ? _c('vgt-header-row', {
@@ -10913,14 +10725,6 @@ var VueGoodTable = {
   name: 'vue-good-table',
   props: {
     isLoading: {
-      default: false,
-      type: Boolean
-    },
-    maxHeight: {
-      default: null,
-      type: String
-    },
-    fixedHeader: {
       default: false,
       type: Boolean
     },
@@ -11098,12 +10902,6 @@ var VueGoodTable = {
     }
   },
   computed: {
-    wrapperStyles: function wrapperStyles() {
-      return {
-        overflow: 'scroll-y',
-        maxHeight: this.maxHeight ? this.maxHeight : 'auto'
-      };
-    },
     hasHeaderRowTemplate: function hasHeaderRowTemplate() {
       return !!this.$slots['table-header-row'] || !!this.$scopedSlots['table-header-row'];
     },
@@ -11654,6 +11452,16 @@ var VueGoodTable = {
       var isSortable = typeof sortable === 'boolean' ? sortable : this.sortable;
       return isSortable;
     },
+    // Get classes for the given header column.
+    getHeaderClasses: function getHeaderClasses(column, index$$1) {
+      var isSortable = this.isSortableColumn(index$$1);
+      var classes = lodash_assign_default()({}, this.getClasses(index$$1, 'th'), {
+        sorting: isSortable,
+        'sorting-desc': isSortable && this.sortColumn === index$$1 && this.sortType === 'desc',
+        'sorting-asc': isSortable && this.sortColumn === index$$1 && this.sortType === 'asc'
+      });
+      return classes;
+    },
     // Get classes for the given column index & element.
     getClasses: function getClasses(index$$1, element) {
       var _this$typedColumns$in = this.typedColumns[index$$1],
@@ -11951,6 +11759,7 @@ var VueGoodTable = {
     }
   },
   mounted: function mounted() {
+    // this.filteredRows = this.originalRows;
     if (this.perPage) {
       this.currentPerPage = this.perPage;
     }
@@ -11958,8 +11767,8 @@ var VueGoodTable = {
   components: {
     'vgt-pagination': VgtPagination,
     'vgt-global-search': VgtGlobalSearch,
-    'vgt-header-row': VgtHeaderRow,
-    'vgt-table-header': VgtTableHeader
+    'vgt-filter-row': VgtFilterRow,
+    'vgt-header-row': VgtHeaderRow
   }
 };
 
@@ -12065,7 +11874,7 @@ var List_component = normalizeComponent(
 )
 
 /* harmony default export */ var List = (List_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/nano/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ListInline.vue?vue&type=template&id=52c1d29c&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/dmenta/Develop/Projects/vue/vue-core/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ListInline.vue?vue&type=template&id=52c1d29c&
 var ListInlinevue_type_template_id_52c1d29c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List Inline"},[_c('div',{staticClass:"header"},[_c('h3',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('vue-good-table',{attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.label === 'Actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonEditName)}})]),_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonDeleteName)}})])]):_c('span',[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+"\n      ")])]}}])}),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonNewName)}})])])],1)}
 var ListInlinevue_type_template_id_52c1d29c_staticRenderFns = []
 
@@ -19454,6 +19263,29 @@ module.exports = (
     };
   })()
 );
+
+
+/***/ }),
+
+/***/ "f3/d":
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP = __webpack_require__("hswa").f;
+var FProto = Function.prototype;
+var nameRE = /^\s*function ([^ (]*)/;
+var NAME = 'name';
+
+// 19.2.4.2 name
+NAME in FProto || __webpack_require__("nh4g") && dP(FProto, NAME, {
+  configurable: true,
+  get: function () {
+    try {
+      return ('' + this).match(nameRE)[1];
+    } catch (e) {
+      return '';
+    }
+  }
+});
 
 
 /***/ }),

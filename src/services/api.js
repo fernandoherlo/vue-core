@@ -17,7 +17,7 @@ let api = new Vue({
     // GET ALL
     // ******************
     get (url, _callback) {
-      var self = this
+      // var self = this
       var options = {
         url: url,
         method: 'GET'

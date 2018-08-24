@@ -20,7 +20,7 @@ export default {
       redirectUri: options.config.VUE_APP_AUTH0_CALLBACK_URL,
       audience: `https://${options.config.VUE_APP_AUTH0_DOMAIN}/userinfo`,
       responseType: 'token id_token',
-      scope: 'openid'
+      scope: 'openid profile'
     })
 
     let auth = new Vue({
@@ -52,9 +52,12 @@ export default {
           let expiresAt = JSON.stringify(
             authResult.expiresIn * 1000 + new Date().getTime()
           )
+          var str = JSON.stringify(authResult, null, 4)
+          console.log(str)
           localStorage.setItem('access_token', authResult.accessToken)
           localStorage.setItem('id_token', authResult.idToken)
           localStorage.setItem('expires_at', expiresAt)
+          localStorage.setItem('email', authResult.idTokenPayload.name)
         },
 
         logout () {
@@ -62,6 +65,7 @@ export default {
           localStorage.removeItem('access_token')
           localStorage.removeItem('id_token')
           localStorage.removeItem('expires_at')
+          localStorage.removeItem('email')
           webAuth.authorize()
         },
 
