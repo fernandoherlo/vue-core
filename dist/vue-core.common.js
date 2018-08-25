@@ -12258,12 +12258,14 @@ var es6_array_find_index = __webpack_require__("20d6");
       self.deleteItem(state, item);
     }), _defineProperty(_ref9, 'ADD_' + options.mTypeName, function (state, _ref7) {
       var itemApi = _ref7.itemApi,
-          param = _ref7.param;
-      self.addItem(state, itemApi, param);
+          param = _ref7.param,
+          idParam = _ref7.idParam;
+      self.addItem(state, itemApi, param, idParam);
     }), _defineProperty(_ref9, 'REMOVE_' + options.mTypeName, function (state, _ref8) {
       var item = _ref8.item,
-          param = _ref8.param;
-      self.removeItem(state, item, param);
+          param = _ref8.param,
+          idParam = _ref8.idParam;
+      self.removeItem(state, item, param, idParam);
     }), _ref9;
   },
   getAll: function getAll(state, items) {

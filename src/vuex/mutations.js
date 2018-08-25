@@ -26,11 +26,11 @@ export default {
       ['DELETE_' + options.mTypeName] (state, { item }) {
         self.deleteItem(state, item)
       },
-      ['ADD_' + options.mTypeName] (state, { itemApi, param }) {
-        self.addItem(state, itemApi, param)
+      ['ADD_' + options.mTypeName] (state, { itemApi, param, idParam }) {
+        self.addItem(state, itemApi, param, idParam)
       },
-      ['REMOVE_' + options.mTypeName] (state, { item, param }) {
-        self.removeItem(state, item, param)
+      ['REMOVE_' + options.mTypeName] (state, { item, param, idParam }) {
+        self.removeItem(state, item, param, idParam)
       }
     }
   },
