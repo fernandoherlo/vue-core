@@ -38,45 +38,29 @@ export default {
   getItem (state, id) {
     state.item = state.all.filter(item => item.id === id)[0]
   },
-  updateItem (state, status, item) {
-    if (status) {
-      var index = state.all.indexOf(state.item)
-      var clone = Object.assign({}, item)
-      // Remove password from obejct - security
-      delete clone.password;
-      // ---
-      // state.all[index] = clone
-      // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
-      state.all.splice(index, 1)
-      state.all.push(clone)
-      if (state.allByParent) {
-        state.allByParent.splice(index, 1)
-        state.allByParent.push(clone)
-      }
+  updateItem (state, item) {
+    var index = state.all.indexOf(state.item)
+    var clone = Object.assign({}, item)
+    state.all.splice(index, 1)
+    state.all.push(clone)
+    if (state.allByParent) {
+      state.allByParent.splice(index, 1)
+      state.allByParent.push(clone)
     }
   },
-  saveItem (state, statusId, item) {
-    if (statusId) {
-      // Set id
-      item.id = statusId
-      var clone = Object.assign({}, item)
-      // ---
-      // state.all[index] = clone
-      // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
-      state.all.push(clone)
-      if (state.allByParent) {
-        state.allByParent.push(clone)
-      }
+  saveItem (state, item) {
+    var clone = Object.assign({}, item)
+    state.all.push(clone)
+    if (state.allByParent) {
+      state.allByParent.push(clone)
     }
   },
-  deleteItem (state, status, item) {
-    if (status) {
-      var index = state.all.indexOf(item)
-      state.all.splice(index, 1)
-      if (state.allByParent) {
-        index = state.allByParent.indexOf(item)
-        state.allByParent.splice(index, 1)
-      }
+  deleteItem (state, item) {
+    var index = state.all.indexOf(item)
+    state.all.splice(index, 1)
+    if (state.allByParent) {
+      index = state.allByParent.indexOf(item)
+      state.allByParent.splice(index, 1)
     }
   }
 }

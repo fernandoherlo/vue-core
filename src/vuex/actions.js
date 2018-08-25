@@ -66,8 +66,8 @@ export default {
   // UPDATE ITEM
   updateItem (commit, options, item) {
     return new Promise((resolve/*, reject*/) => {
-      var _callback = item => {
-        commit('UPDATE_' + options.mTypeName, { true, item })
+      var _callback = itemApi => {
+        commit('UPDATE_' + options.mTypeName, { itemApi })
         resolve()
       }
       EventBus.$emit('apiUpdate', options.url, item, _callback)
@@ -76,8 +76,8 @@ export default {
   // SAVE ITEM
   saveItem (commit, options, item) {
     return new Promise((resolve/*, reject*/) => {
-      var _callback = statusId => {
-        commit('SAVE_' + options.mTypeName, { statusId, item })
+      var _callback = itemApi => {
+        commit('SAVE_' + options.mTypeName, { itemApi })
         resolve()
       }
       EventBus.$emit('apiSave', options.url, item, _callback)
@@ -86,8 +86,8 @@ export default {
   // DELETE ITEM
   deleteItem (commit, options, item) {
     return new Promise((resolve/*, reject*/) => {
-      var _callback = status => {
-        commit('DELETE_' + options.mTypeName, { status, item })
+      var _callback = itemApi => {
+        commit('DELETE_' + options.mTypeName, { item })
         resolve()
       }
       EventBus.$emit('apiDelete', options.url, item, _callback)

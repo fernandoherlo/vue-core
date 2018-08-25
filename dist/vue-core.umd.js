@@ -11392,7 +11392,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       };
       this.$http.axios(options).then(function (response) {
         // CallBack
-        _callback(response.data.id); // Notify
+        _callback(response.data); // Notify
 
 
         self.$notify({
@@ -11765,10 +11765,9 @@ var es6_object_assign = __webpack_require__("f751");
     return new Promise(function (resolve
     /*, reject*/
     ) {
-      var _callback = function _callback(status) {
+      var _callback = function _callback(itemApi) {
         commit('UPDATE_' + options.mTypeName, {
-          status: status,
-          item: item
+          itemApi: itemApi
         });
         resolve();
       };
@@ -11781,10 +11780,9 @@ var es6_object_assign = __webpack_require__("f751");
     return new Promise(function (resolve
     /*, reject*/
     ) {
-      var _callback = function _callback(statusId) {
+      var _callback = function _callback(itemApi) {
         commit('SAVE_' + options.mTypeName, {
-          statusId: statusId,
-          item: item
+          itemApi: itemApi
         });
         resolve();
       };
@@ -11797,9 +11795,8 @@ var es6_object_assign = __webpack_require__("f751");
     return new Promise(function (resolve
     /*, reject*/
     ) {
-      var _callback = function _callback(status) {
+      var _callback = function _callback(itemApi) {
         commit('DELETE_' + options.mTypeName, {
-          status: status,
           item: item
         });
         resolve();
@@ -11861,46 +11858,32 @@ var es6_object_assign = __webpack_require__("f751");
       return item.id === id;
     })[0];
   },
-  updateItem: function updateItem(state, status, item) {
-    if (status) {
-      var index = state.all.indexOf(state.item);
-      var clone = Object.assign({}, item); // ---
-      // state.all[index] = clone
-      // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
+  updateItem: function updateItem(state, item) {
+    var index = state.all.indexOf(state.item);
+    var clone = Object.assign({}, item);
+    state.all.splice(index, 1);
+    state.all.push(clone);
 
-      state.all.splice(index, 1);
-      state.all.push(clone);
-
-      if (state.allByParent) {
-        state.allByParent.splice(index, 1);
-        state.allByParent.push(clone);
-      }
+    if (state.allByParent) {
+      state.allByParent.splice(index, 1);
+      state.allByParent.push(clone);
     }
   },
-  saveItem: function saveItem(state, statusId, item) {
-    if (statusId) {
-      // Set id
-      item.id = statusId;
-      var clone = Object.assign({}, item); // ---
-      // state.all[index] = clone
-      // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
+  saveItem: function saveItem(state, item) {
+    var clone = Object.assign({}, item);
+    state.all.push(clone);
 
-      state.all.push(clone);
-
-      if (state.allByParent) {
-        state.allByParent.push(clone);
-      }
+    if (state.allByParent) {
+      state.allByParent.push(clone);
     }
   },
-  deleteItem: function deleteItem(state, status, item) {
-    if (status) {
-      var index = state.all.indexOf(item);
-      state.all.splice(index, 1);
+  deleteItem: function deleteItem(state, item) {
+    var index = state.all.indexOf(item);
+    state.all.splice(index, 1);
 
-      if (state.allByParent) {
-        index = state.allByParent.indexOf(item);
-        state.allByParent.splice(index, 1);
-      }
+    if (state.allByParent) {
+      index = state.allByParent.indexOf(item);
+      state.allByParent.splice(index, 1);
     }
   }
 });

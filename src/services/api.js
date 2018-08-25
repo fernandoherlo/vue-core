@@ -77,7 +77,7 @@ let api = new Vue({
       }
       this.$http.axios(options).then(function (response) {
         // CallBack
-        _callback(response.data.id)
+        _callback(response.data)
         // Notify
         self.$notify({
           group: 'global',
