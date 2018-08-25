@@ -73,6 +73,7 @@ export default {
         this.itemVuex.id_parent = this.itemIDParent
       }
       this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then(() => {
+        console.log('resolve')
         this.$router.replace({name: this.config.coreExtendScope, params: { id: this.itemVuex.id }})
       })
     },

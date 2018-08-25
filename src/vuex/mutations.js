@@ -58,6 +58,8 @@ export default {
   },
   saveItem (state, item) {
     var clone = Object.assign({}, item)
+    console.log('save')
+    console.log(item)
     state.all.push(clone)
     if (state.allByParent) {
       state.allByParent.push(clone)
