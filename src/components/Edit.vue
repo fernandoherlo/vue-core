@@ -75,9 +75,20 @@ export default {
         this.itemVuex.id_parent = this.itemIDParent
       }
       this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
-        this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
+        if (this.config.backOnSave) {
+          this.__back()
+        } else {
+          this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
+        }
       })
     },
+    __back () {
+      if (this.config.inline) {
+        this.$router.replace({name: this.config.coreExtendScopeParent, params: { id: this.itemIDParent }})
+      } else {
+        this.$router.replace({name: this.config.coreExtendScopePl })
+      }
+    }
   }
 }
 </script>
@@ -88,8 +99,7 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
-      <router-link v-if="!config.inline" class="btn back" :to="{ name: config.coreExtendScopePl }"><span v-html="config.buttonBackName"></span></router-link>
-      <router-link v-if="config.inline" class="btn back" :to="{ name: config.coreExtendScopeParent, params: { id: this.itemIDParent } }"><span v-html="config.buttonBackName"></span></router-link>
+      <a class="btn back" @click="__back()" tabindex="0"><span v-html="config.buttonBackName"></span></a>
       <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0"><span v-html="config.buttonUpdateName"></span></a>
       <a v-if="isNew" class="btn save" @click="__save()" tabindex="0"><span v-html="config.buttonSaveName"></span></a>
     </div>
