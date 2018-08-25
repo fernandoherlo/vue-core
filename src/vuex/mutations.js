@@ -56,10 +56,16 @@ export default {
     }
   },
   deleteItem (state, item) {
-    var index = state.all.indexOf(item)
+    // var index = state.all.indexOf(item)
+    var index = state.all.findIndex(function(element) {
+      return element.id === item.id;
+    })
     state.all.splice(index, 1)
     if (state.allByParent) {
-      index = state.allByParent.indexOf(item)
+      // index = state.allByParent.indexOf(item)
+      index = state.all.findIndex(function(element) {
+        return element.id === item.id;
+      })
       state.allByParent.splice(index, 1)
     }
   }

@@ -88,6 +88,10 @@ export default {
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
         commit('DELETE_' + options.mTypeName, { item })
+        if (options.mTypeNameOnDelete) {
+          item = item[options.mTypeNameOnDeleteParam]
+          commit('DELETE_' + options.mTypeNameOnDelete, { item })
+        }
         resolve()
       }
       EventBus.$emit('apiDelete', options.url, item, _callback)
