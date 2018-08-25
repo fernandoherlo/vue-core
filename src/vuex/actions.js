@@ -66,8 +66,8 @@ export default {
   // UPDATE ITEM
   updateItem (commit, options, item) {
     return new Promise((resolve/*, reject*/) => {
-      var _callback = status => {
-        commit('UPDATE_' + options.mTypeName, { status, item })
+      var _callback = item => {
+        commit('UPDATE_' + options.mTypeName, { true, item })
         resolve()
       }
       EventBus.$emit('apiUpdate', options.url, item, _callback)
