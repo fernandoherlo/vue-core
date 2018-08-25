@@ -11832,17 +11832,14 @@ var es6_object_assign = __webpack_require__("f751");
       var id = _ref3.id;
       self.getItem(state, id);
     }), _defineProperty(_ref7, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
-      var status = _ref4.status,
-          item = _ref4.item;
-      self.updateItem(state, status, item);
+      var item = _ref4.item;
+      self.updateItem(state, item);
     }), _defineProperty(_ref7, 'SAVE_' + options.mTypeName, function (state, _ref5) {
-      var statusId = _ref5.statusId,
-          item = _ref5.item;
-      self.saveItem(state, statusId, item);
+      var item = _ref5.item;
+      self.saveItem(state, item);
     }), _defineProperty(_ref7, 'DELETE_' + options.mTypeName, function (state, _ref6) {
-      var status = _ref6.status,
-          item = _ref6.item;
-      self.deleteItem(state, status, item);
+      var item = _ref6.item;
+      self.deleteItem(state, item);
     }), _ref7;
   },
   getAll: function getAll(state, items) {
