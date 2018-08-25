@@ -85,7 +85,7 @@ export default {
           }
           commit('ADD_' + options.mTypeNameOnSave, { itemApi, param })
         }
-        resolve()
+        resolve(itemApi)
       }
       EventBus.$emit('apiSave', options.url, item, _callback)
     })

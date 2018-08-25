@@ -60,8 +60,10 @@ export default {
   },
   watch: {
     itemsVuex: function () {
-      console.log('watch')
-      this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
+      if (this.itemID){
+        console.log('watch')
+        this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
+      }
     }
   },
   methods: {
@@ -75,9 +77,9 @@ export default {
       if (this.config.inline) {
         this.itemVuex.id_parent = this.itemIDParent
       }
-      this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then(() => {
+      this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
         console.log('resolve')
-        this.$router.replace({name: this.config.coreExtendScope, params: { id: this.itemVuex.id }})
+        this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
       })
     },
   }
