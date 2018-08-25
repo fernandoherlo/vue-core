@@ -36,7 +36,7 @@ export default {
   },
   created () {
     // Data
-    this.itemIDParent = this.$helper.getID()
+    this.itemIDParent = this.$helper.getID(this.$route.params.id)
     this.$store.dispatch('getByParent' + this.config.coreExtendVuexPl, this.itemIDParent)
   },
   computed: {
