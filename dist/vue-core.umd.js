@@ -12159,19 +12159,21 @@ var web_dom_iterable = __webpack_require__("ac6a");
           itemApi: itemApi
         }); // Add associate
 
-        if (options.associate.ADD) {
-          var param = options.associate.ADD;
-          var idParam = options.associate.ID;
+        if (options.associate) {
+          if (options.associate.ADD) {
+            var param = options.associate.ADD;
+            var idParam = options.associate.ID;
 
-          if (options.associate.REMOVE) {
-            delete itemApi[options.associate.REMOVE];
+            if (options.associate.REMOVE) {
+              delete itemApi[options.associate.REMOVE];
+            }
+
+            commit('ADD_' + options.associate.STORE, {
+              itemApi: itemApi,
+              param: param,
+              idParam: idParam
+            });
           }
-
-          commit('ADD_' + options.associate.STORE, {
-            itemApi: itemApi,
-            param: param,
-            idParam: idParam
-          });
         }
 
         resolve(itemApi);
@@ -12191,33 +12193,35 @@ var web_dom_iterable = __webpack_require__("ac6a");
           item: item
         }); // Delete associate
 
-        if (options.associate.DELETE) {
-          var associate = item[options.associate.DELETE];
+        if (options.associate) {
+          if (options.associate.DELETE) {
+            var associate = item[options.associate.DELETE];
 
-          if (Array.isArray(associate)) {
-            associate.forEach(function (element) {
-              item = element;
+            if (Array.isArray(associate)) {
+              associate.forEach(function (element) {
+                item = element;
+                commit('DELETE_' + options.associate.STORE, {
+                  item: item
+                });
+              });
+            } else {
+              item = item[options.associate.DELETE];
               commit('DELETE_' + options.associate.STORE, {
                 item: item
               });
-            });
-          } else {
-            item = item[options.associate.DELETE];
-            commit('DELETE_' + options.associate.STORE, {
-              item: item
+            }
+          } // Delete associate relation
+
+
+          if (options.associate.ADD) {
+            var param = options.associate.ADD;
+            var idParam = options.associate.ID;
+            commit('REMOVE_' + options.associate.STORE, {
+              item: item,
+              param: param,
+              idParam: idParam
             });
           }
-        } // Delete associate relation
-
-
-        if (options.associate.ADD) {
-          var param = options.associate.ADD;
-          var idParam = options.associate.ID;
-          commit('REMOVE_' + options.associate.STORE, {
-            item: item,
-            param: param,
-            idParam: idParam
-          });
         }
 
         resolve();
