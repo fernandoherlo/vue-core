@@ -52,6 +52,9 @@ export default {
     state.all.splice(index, 1)
     state.all.push(clone)
     if (state.allByParent) {
+      index = state.allByParent.findIndex(function(element) {
+        return element.id === item.id
+      })
       state.allByParent.splice(index, 1)
       state.allByParent.push(clone)
     }
@@ -69,7 +72,7 @@ export default {
     })
     state.all.splice(index, 1)
     if (state.allByParent) {
-      index = state.all.findIndex(function(element) {
+      index = state.allByParent.findIndex(function(element) {
         return element.id === item.id
       })
       state.allByParent.splice(index, 1)

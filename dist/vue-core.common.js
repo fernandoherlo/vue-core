@@ -12290,6 +12290,9 @@ var es6_array_find_index = __webpack_require__("20d6");
     state.all.push(clone);
 
     if (state.allByParent) {
+      index = state.allByParent.findIndex(function (element) {
+        return element.id === item.id;
+      });
       state.allByParent.splice(index, 1);
       state.allByParent.push(clone);
     }
@@ -12309,7 +12312,7 @@ var es6_array_find_index = __webpack_require__("20d6");
     state.all.splice(index, 1);
 
     if (state.allByParent) {
-      index = state.all.findIndex(function (element) {
+      index = state.allByParent.findIndex(function (element) {
         return element.id === item.id;
       });
       state.allByParent.splice(index, 1);
