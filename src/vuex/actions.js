@@ -46,7 +46,6 @@ export default {
         resolve()
       }
       EventBus.$emit('apiGet', options.url, _callback)
-      // options.$api.get(options.url, _callback)
     })
   },
   // GET ITEM
@@ -80,8 +79,11 @@ export default {
         commit('SAVE_' + options.mTypeName, { itemApi })
         // Add associate
         if (options.mTypeNameOnSave) {
-          var param = options.mTypeNameOnSaveParam
-          commit('ADD_' + options.mTypeNameOnSave, { item, param })
+          var param = options.mTypeNameOnSaveAddParam
+          if (options.mTypeNameOnSaveRemoveParam) {
+            delete itemApi[options.mTypeNameOnSaveRemoveParam]
+          }
+          commit('ADD_' + options.mTypeNameOnSave, { itemApi, param })
         }
         resolve()
       }
@@ -91,6 +93,7 @@ export default {
   // DELETE ITEM
   deleteItem (commit, options, item) {
     return new Promise((resolve/*, reject*/) => {
+      // eslint-disable-next-line no-unused-vars
       var _callback = itemApi => {
         commit('DELETE_' + options.mTypeName, { item })
         // Delete associate
