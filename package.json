@@ -1,6 +1,6 @@
 {
   "name": "@fernandoherlo/vue-core",
-  "version": "0.5.25",
+  "version": "0.5.26",
   "author": "Fernando Herlo",
   "repository": {
     "type": "git",
@@ -15,10 +15,10 @@
     "serve": "vue-cli-service serve 'demo/main'",
     "build": "vue-cli-service build --target lib --name vue-core src/build.js",
     "lint": "vue-cli-service lint",
-    "git": "git add . & git add -u & git commit -m 'Bugs'",
+    "git": "git add . && git add -u && git commit -m 'Bugs'",
     "version": "npm version patch",
     "push": "git push origin master ",
-    "publish": "npm run build & npm run git & npm run version & npm run push & npm publish --access=public"
+    "prod": "npm run build && npm run git && npm run version && npm run push && npm publish --access=public"
   },
   "main": "./dist/vue-core.common.js",
   "dependencies": {
