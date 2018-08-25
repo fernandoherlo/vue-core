@@ -11994,9 +11994,9 @@ var es6_array_find_index = __webpack_require__("20d6");
       var item = _ref6.item;
       self.deleteItem(state, item);
     }), _defineProperty(_ref8, 'ADD_' + options.mTypeName, function (state, _ref7) {
-      var item = _ref7.item,
+      var itemApi = _ref7.itemApi,
           param = _ref7.param;
-      self.addItem(state, item, param);
+      self.addItem(state, itemApi, param);
     }), _ref8;
   },
   getAll: function getAll(state, items) {

@@ -26,8 +26,8 @@ export default {
       ['DELETE_' + options.mTypeName] (state, { item }) {
         self.deleteItem(state, item)
       },
-      ['ADD_' + options.mTypeName] (state, { item, param }) {
-        self.addItem(state, item, param)
+      ['ADD_' + options.mTypeName] (state, { itemApi, param }) {
+        self.addItem(state, itemApi, param)
       }
     }
   },
