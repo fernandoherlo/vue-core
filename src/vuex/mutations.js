@@ -42,6 +42,8 @@ export default {
     if (status) {
       var index = state.all.indexOf(state.item)
       var clone = Object.assign({}, item)
+      // Remove password from obejct - security
+      delete clone.password;
       // ---
       // state.all[index] = clone
       // --- TODO: lo ideal seria con el codigo de arriba, pero la vue-table no coge reactivity
