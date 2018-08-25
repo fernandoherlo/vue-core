@@ -28,6 +28,9 @@ export default {
       },
       ['ADD_' + options.mTypeName] (state, { itemApi, param }) {
         self.addItem(state, itemApi, param)
+      },
+      ['REMOVE_' + options.mTypeName] (state, { item, param }) {
+        self.removeItem(state, item, param)
       }
     }
   },
@@ -78,6 +81,20 @@ export default {
     })
     var itemRelated = state.all[index]
     itemRelated[param].push(item)
+    var clone = Object.assign({}, itemRelated)
+    state.all.splice(index, 1)
+    state.all.push(clone)
+  },
+  removeItem (state, item, param) {
+    var index = state.all.findIndex(function(element) {
+      return element.id === item.id_relation;
+    })
+    var itemRelated = state.all[index]
+    var indexRelated = itemRelated[param].findIndex(function(element) {
+      return element.id === item.id;
+    })
+    itemRelated[param].splice(indexRelated, 1)
+
     var clone = Object.assign({}, itemRelated)
     state.all.splice(index, 1)
     state.all.push(clone)

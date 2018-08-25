@@ -109,6 +109,11 @@ export default {
             commit('DELETE_' + options.mTypeNameOnDelete, { item })
           }
         }
+        // Delete associate relation
+        if (options.mTypeNameOnSave) {
+          var param = options.mTypeNameOnSaveAddParam
+          commit('REMOVE_' + options.mTypeNameOnSave, { itemApi, param })
+        }
         resolve()
       }
       EventBus.$emit('apiDelete', options.url, item, _callback)

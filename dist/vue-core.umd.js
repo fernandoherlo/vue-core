@@ -12205,6 +12205,15 @@ var web_dom_iterable = __webpack_require__("ac6a");
               item: item
             });
           }
+        } // Delete associate relation
+
+
+        if (options.mTypeNameOnSave) {
+          var param = options.mTypeNameOnSaveAddParam;
+          commit('REMOVE_' + options.mTypeNameOnSave, {
+            itemApi: itemApi,
+            param: param
+          });
         }
 
         resolve();
@@ -12230,33 +12239,37 @@ var es6_array_find_index = __webpack_require__("20d6");
 */
 /* harmony default export */ var vuex_mutations = ({
   core: function core(state, options) {
-    var _ref8;
+    var _ref9;
 
     // mTypeNamePl, mTypeName
     var self = this;
-    return _ref8 = {}, _defineProperty(_ref8, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
+    return _ref9 = {}, _defineProperty(_ref9, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
       var items = _ref.items;
       self.getAll(state, items);
-    }), _defineProperty(_ref8, 'GET_BY_PARENT_' + options.mTypeNamePl, function (state, _ref2) {
+    }), _defineProperty(_ref9, 'GET_BY_PARENT_' + options.mTypeNamePl, function (state, _ref2) {
       var id_parent = _ref2.id_parent;
       self.getAllByParent(state, id_parent);
-    }), _defineProperty(_ref8, 'GET_' + options.mTypeName, function (state, _ref3) {
+    }), _defineProperty(_ref9, 'GET_' + options.mTypeName, function (state, _ref3) {
       var id = _ref3.id;
       self.getItem(state, id);
-    }), _defineProperty(_ref8, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
+    }), _defineProperty(_ref9, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
       var itemApi = _ref4.itemApi;
       self.updateItem(state, itemApi);
-    }), _defineProperty(_ref8, 'SAVE_' + options.mTypeName, function (state, _ref5) {
+    }), _defineProperty(_ref9, 'SAVE_' + options.mTypeName, function (state, _ref5) {
       var itemApi = _ref5.itemApi;
       self.saveItem(state, itemApi);
-    }), _defineProperty(_ref8, 'DELETE_' + options.mTypeName, function (state, _ref6) {
+    }), _defineProperty(_ref9, 'DELETE_' + options.mTypeName, function (state, _ref6) {
       var item = _ref6.item;
       self.deleteItem(state, item);
-    }), _defineProperty(_ref8, 'ADD_' + options.mTypeName, function (state, _ref7) {
+    }), _defineProperty(_ref9, 'ADD_' + options.mTypeName, function (state, _ref7) {
       var itemApi = _ref7.itemApi,
           param = _ref7.param;
       self.addItem(state, itemApi, param);
-    }), _ref8;
+    }), _defineProperty(_ref9, 'REMOVE_' + options.mTypeName, function (state, _ref8) {
+      var item = _ref8.item,
+          param = _ref8.param;
+      self.removeItem(state, item, param);
+    }), _ref9;
   },
   getAll: function getAll(state, items) {
     state.all = items;
@@ -12311,6 +12324,19 @@ var es6_array_find_index = __webpack_require__("20d6");
     });
     var itemRelated = state.all[index];
     itemRelated[param].push(item);
+    var clone = Object.assign({}, itemRelated);
+    state.all.splice(index, 1);
+    state.all.push(clone);
+  },
+  removeItem: function removeItem(state, item, param) {
+    var index = state.all.findIndex(function (element) {
+      return element.id === item.id_relation;
+    });
+    var itemRelated = state.all[index];
+    var indexRelated = itemRelated[param].findIndex(function (element) {
+      return element.id === item.id;
+    });
+    itemRelated[param].splice(indexRelated, 1);
     var clone = Object.assign({}, itemRelated);
     state.all.splice(index, 1);
     state.all.push(clone);
