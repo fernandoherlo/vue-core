@@ -65,19 +65,19 @@ export default {
   },
   deleteItem (state, item) {
     var index = state.all.findIndex(function(element) {
-      return element.id === item.id;
+      return element.id === item.id
     })
     state.all.splice(index, 1)
     if (state.allByParent) {
       index = state.all.findIndex(function(element) {
-        return element.id === item.id;
+        return element.id === item.id
       })
       state.allByParent.splice(index, 1)
     }
   },
-  addItem (state, item, param) {
+  addItem (state, item, param, idParam) {
     var index = state.all.findIndex(function(element) {
-      return element.id === item.id_relation;
+      return element.id === item[idParam]
     })
     var itemRelated = state.all[index]
     itemRelated[param].push(item)
@@ -85,13 +85,13 @@ export default {
     state.all.splice(index, 1)
     state.all.push(clone)
   },
-  removeItem (state, item, param) {
+  removeItem (state, item, param, idParam) {
     var index = state.all.findIndex(function(element) {
-      return element.id === item.id_relation;
+      return element.id === item[idParam]
     })
     var itemRelated = state.all[index]
     var indexRelated = itemRelated[param].findIndex(function(element) {
-      return element.id === item.id;
+      return element.id === item.id
     })
     itemRelated[param].splice(indexRelated, 1)
 

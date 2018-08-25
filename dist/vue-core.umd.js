@@ -12159,16 +12159,18 @@ var web_dom_iterable = __webpack_require__("ac6a");
           itemApi: itemApi
         }); // Add associate
 
-        if (options.mTypeNameOnSave) {
-          var param = options.mTypeNameOnSaveAddParam;
+        if (options.associate.ADD) {
+          var param = options.associate.ADD;
+          var idParam = options.associate.ID;
 
-          if (options.mTypeNameOnSaveRemoveParam) {
-            delete itemApi[options.mTypeNameOnSaveRemoveParam];
+          if (options.associate.REMOVE) {
+            delete itemApi[options.associate.REMOVE];
           }
 
-          commit('ADD_' + options.mTypeNameOnSave, {
+          commit('ADD_' + options.associate.STORE, {
             itemApi: itemApi,
-            param: param
+            param: param,
+            idParam: idParam
           });
         }
 
@@ -12189,30 +12191,32 @@ var web_dom_iterable = __webpack_require__("ac6a");
           item: item
         }); // Delete associate
 
-        if (options.mTypeNameOnDelete) {
-          var associate = item[options.mTypeNameOnDeleteParam];
+        if (options.associate.DELETE) {
+          var associate = item[options.associate.DELETE];
 
           if (Array.isArray(associate)) {
             associate.forEach(function (element) {
               item = element;
-              commit('DELETE_' + options.mTypeNameOnDelete, {
+              commit('DELETE_' + options.associate.STORE, {
                 item: item
               });
             });
           } else {
-            item = item[options.mTypeNameOnDeleteParam];
-            commit('DELETE_' + options.mTypeNameOnDelete, {
+            item = item[options.associate.DELETE];
+            commit('DELETE_' + options.associate.STORE, {
               item: item
             });
           }
         } // Delete associate relation
 
 
-        if (options.mTypeNameOnSave) {
-          var param = options.mTypeNameOnSaveAddParam;
-          commit('REMOVE_' + options.mTypeNameOnSave, {
+        if (options.associate.ADD) {
+          var param = options.associate.ADD;
+          var idParam = options.associate.ID;
+          commit('REMOVE_' + options.associate.STORE, {
             item: item,
-            param: param
+            param: param,
+            idParam: idParam
           });
         }
 
@@ -12318,9 +12322,9 @@ var es6_array_find_index = __webpack_require__("20d6");
       state.allByParent.splice(index, 1);
     }
   },
-  addItem: function addItem(state, item, param) {
+  addItem: function addItem(state, item, param, idParam) {
     var index = state.all.findIndex(function (element) {
-      return element.id === item.id_relation;
+      return element.id === item[idParam];
     });
     var itemRelated = state.all[index];
     itemRelated[param].push(item);
@@ -12328,9 +12332,9 @@ var es6_array_find_index = __webpack_require__("20d6");
     state.all.splice(index, 1);
     state.all.push(clone);
   },
-  removeItem: function removeItem(state, item, param) {
+  removeItem: function removeItem(state, item, param, idParam) {
     var index = state.all.findIndex(function (element) {
-      return element.id === item.id_relation;
+      return element.id === item[idParam];
     });
     var itemRelated = state.all[index];
     var indexRelated = itemRelated[param].findIndex(function (element) {

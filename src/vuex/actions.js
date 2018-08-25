@@ -78,12 +78,13 @@ export default {
       var _callback = itemApi => {
         commit('SAVE_' + options.mTypeName, { itemApi })
         // Add associate
-        if (options.mTypeNameOnSave) {
-          var param = options.mTypeNameOnSaveAddParam
-          if (options.mTypeNameOnSaveRemoveParam) {
-            delete itemApi[options.mTypeNameOnSaveRemoveParam]
+        if (options.associate.ADD) {
+          var param = options.associate.ADD
+          var idParam = options.associate.ID
+          if (options.associate.REMOVE) {
+            delete itemApi[options.associate.REMOVE]
           }
-          commit('ADD_' + options.mTypeNameOnSave, { itemApi, param })
+          commit('ADD_' + options.associate.STORE, { itemApi, param, idParam })
         }
         resolve(itemApi)
       }
@@ -97,22 +98,23 @@ export default {
       var _callback = itemApi => {
         commit('DELETE_' + options.mTypeName, { item })
         // Delete associate
-        if (options.mTypeNameOnDelete) {
-          var associate = item[options.mTypeNameOnDeleteParam]
+        if (options.associate.DELETE) {
+          var associate = item[options.associate.DELETE]
           if (Array.isArray(associate)) {
             associate.forEach((element) => {
               item = element
-              commit('DELETE_' + options.mTypeNameOnDelete, { item })
+              commit('DELETE_' + options.associate.STORE, { item })
             })
           } else {
-            item = item[options.mTypeNameOnDeleteParam]
-            commit('DELETE_' + options.mTypeNameOnDelete, { item })
+            item = item[options.associate.DELETE]
+            commit('DELETE_' + options.associate.STORE, { item })
           }
         }
         // Delete associate relation
-        if (options.mTypeNameOnSave) {
-          var param = options.mTypeNameOnSaveAddParam
-          commit('REMOVE_' + options.mTypeNameOnSave, { item, param })
+        if (options.associate.ADD) {
+          var param = options.associate.ADD
+          var idParam = options.associate.ID
+          commit('REMOVE_' + options.associate.STORE, { item, param, idParam })
         }
         resolve()
       }
