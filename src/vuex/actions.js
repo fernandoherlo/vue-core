@@ -78,6 +78,11 @@ export default {
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
         commit('SAVE_' + options.mTypeName, { itemApi })
+        // Add associate
+        if (options.mTypeNameOnSave) {
+          var param = options.mTypeNameOnSaveParam
+          commit('ADD_' + options.mTypeNameOnSave, { item, param })
+        }
         resolve()
       }
       EventBus.$emit('apiSave', options.url, item, _callback)
@@ -88,6 +93,7 @@ export default {
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
         commit('DELETE_' + options.mTypeName, { item })
+        // Delete associate
         if (options.mTypeNameOnDelete) {
           item = item[options.mTypeNameOnDeleteParam]
           commit('DELETE_' + options.mTypeNameOnDelete, { item })

@@ -25,6 +25,9 @@ export default {
       },
       ['DELETE_' + options.mTypeName] (state, { item }) {
         self.deleteItem(state, item)
+      },
+      ['ADD_' + options.mTypeName] (state, { item, param }) {
+        self.addItem(state, item, param)
       }
     }
   },
@@ -39,7 +42,9 @@ export default {
     state.item = state.all.filter(item => item.id === id)[0]
   },
   updateItem (state, item) {
-    var index = state.all.indexOf(state.item)
+    var index = state.all.findIndex(function(element) {
+      return element.id === item.id;
+    })
     var clone = Object.assign({}, item)
     state.all.splice(index, 1)
     state.all.push(clone)
@@ -56,17 +61,25 @@ export default {
     }
   },
   deleteItem (state, item) {
-    // var index = state.all.indexOf(item)
     var index = state.all.findIndex(function(element) {
       return element.id === item.id;
     })
     state.all.splice(index, 1)
     if (state.allByParent) {
-      // index = state.allByParent.indexOf(item)
       index = state.all.findIndex(function(element) {
         return element.id === item.id;
       })
       state.allByParent.splice(index, 1)
     }
+  },
+  addItem (state, item, param) {
+    var index = state.all.findIndex(function(element) {
+      return element.id === item.id_relation;
+    })
+    var itemRelated = state.all[index]
+    itemRelated[param] = item
+    var clone = Object.assign({}, itemRelated)
+    state.all.splice(index, 1)
+    state.all.push(clone)
   }
 }

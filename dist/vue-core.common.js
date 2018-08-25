@@ -11909,7 +11909,16 @@ var es6_object_assign = __webpack_require__("f751");
       var _callback = function _callback(itemApi) {
         commit('SAVE_' + options.mTypeName, {
           itemApi: itemApi
-        });
+        }); // Add associate
+
+        if (options.mTypeNameOnSave) {
+          var param = options.mTypeNameOnSaveParam;
+          commit('ADD_' + options.mTypeNameOnSave, {
+            item: item,
+            param: param
+          });
+        }
+
         resolve();
       };
 
@@ -11924,7 +11933,7 @@ var es6_object_assign = __webpack_require__("f751");
       var _callback = function _callback(itemApi) {
         commit('DELETE_' + options.mTypeName, {
           item: item
-        });
+        }); // Delete associate
 
         if (options.mTypeNameOnDelete) {
           item = item[options.mTypeNameOnDeleteParam];
@@ -11956,29 +11965,33 @@ var es6_array_find_index = __webpack_require__("20d6");
 */
 /* harmony default export */ var vuex_mutations = ({
   core: function core(state, options) {
-    var _ref7;
+    var _ref8;
 
     // mTypeNamePl, mTypeName
     var self = this;
-    return _ref7 = {}, _defineProperty(_ref7, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
+    return _ref8 = {}, _defineProperty(_ref8, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
       var items = _ref.items;
       self.getAll(state, items);
-    }), _defineProperty(_ref7, 'GET_BY_PARENT_' + options.mTypeNamePl, function (state, _ref2) {
+    }), _defineProperty(_ref8, 'GET_BY_PARENT_' + options.mTypeNamePl, function (state, _ref2) {
       var id_parent = _ref2.id_parent;
       self.getAllByParent(state, id_parent);
-    }), _defineProperty(_ref7, 'GET_' + options.mTypeName, function (state, _ref3) {
+    }), _defineProperty(_ref8, 'GET_' + options.mTypeName, function (state, _ref3) {
       var id = _ref3.id;
       self.getItem(state, id);
-    }), _defineProperty(_ref7, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
+    }), _defineProperty(_ref8, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
       var itemApi = _ref4.itemApi;
       self.updateItem(state, itemApi);
-    }), _defineProperty(_ref7, 'SAVE_' + options.mTypeName, function (state, _ref5) {
+    }), _defineProperty(_ref8, 'SAVE_' + options.mTypeName, function (state, _ref5) {
       var itemApi = _ref5.itemApi;
       self.saveItem(state, itemApi);
-    }), _defineProperty(_ref7, 'DELETE_' + options.mTypeName, function (state, _ref6) {
+    }), _defineProperty(_ref8, 'DELETE_' + options.mTypeName, function (state, _ref6) {
       var item = _ref6.item;
       self.deleteItem(state, item);
-    }), _ref7;
+    }), _defineProperty(_ref8, 'ADD_' + options.mTypeName, function (state, _ref7) {
+      var item = _ref7.item,
+          param = _ref7.param;
+      self.addItem(state, item, param);
+    }), _ref8;
   },
   getAll: function getAll(state, items) {
     state.all = items;
@@ -11994,7 +12007,9 @@ var es6_array_find_index = __webpack_require__("20d6");
     })[0];
   },
   updateItem: function updateItem(state, item) {
-    var index = state.all.indexOf(state.item);
+    var index = state.all.findIndex(function (element) {
+      return element.id === item.id;
+    });
     var clone = Object.assign({}, item);
     state.all.splice(index, 1);
     state.all.push(clone);
@@ -12013,19 +12028,27 @@ var es6_array_find_index = __webpack_require__("20d6");
     }
   },
   deleteItem: function deleteItem(state, item) {
-    // var index = state.all.indexOf(item)
     var index = state.all.findIndex(function (element) {
       return element.id === item.id;
     });
     state.all.splice(index, 1);
 
     if (state.allByParent) {
-      // index = state.allByParent.indexOf(item)
       index = state.all.findIndex(function (element) {
         return element.id === item.id;
       });
       state.allByParent.splice(index, 1);
     }
+  },
+  addItem: function addItem(state, item, param) {
+    var index = state.all.findIndex(function (element) {
+      return element.id === item.id_relation;
+    });
+    var itemRelated = state.all[index];
+    itemRelated[param] = item;
+    var clone = Object.assign({}, itemRelated);
+    state.all.splice(index, 1);
+    state.all.push(clone);
   }
 });
 // CONCATENATED MODULE: ./src/mixins/events.js
