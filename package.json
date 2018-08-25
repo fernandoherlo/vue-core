@@ -15,7 +15,10 @@
     "serve": "vue-cli-service serve 'demo/main'",
     "build": "vue-cli-service build --target lib --name vue-core src/build.js",
     "lint": "vue-cli-service lint",
-    "repo": "git add . && git add -u && git commit -m 'Bugs'",
+    "repo_a": "git add . && git add -u && git commit -m 'Bugs'",
+    "repo_u": "git add . && git add -u && git commit -m 'Bugs'",
+    "repo_c": "git add . && git add -u && git commit -m 'Bugs'",
+    "repo": "npm run repo_a && npm run repo_u && npm run repo_c",
     "version": "npm version patch",
     "push": "git push origin master ",
     "prod": "npm run build && npm run repo && npm run version && npm run push && npm publish --access=public"
