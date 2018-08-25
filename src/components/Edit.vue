@@ -50,18 +50,15 @@ export default {
   },
   computed: {
     itemsVuex () {
-      console.log('computed plural')
       return this.$store.getters['all' + this.config.coreExtendVuexPl]
     },
     itemVuex () {
-      console.log('computed singular')
       return this.$store.getters['clone' + this.config.coreExtendVuex]
     }
   },
   watch: {
     itemsVuex: function () {
       if (this.itemID){
-        console.log('watch')
         this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
       }
     }
@@ -78,7 +75,6 @@ export default {
         this.itemVuex.id_parent = this.itemIDParent
       }
       this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
-        console.log('resolve')
         this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
       })
     },
