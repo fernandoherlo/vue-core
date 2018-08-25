@@ -17,11 +17,11 @@ export default {
       ['GET_' + options.mTypeName] (state, { id }) {
         self.getItem(state, id)
       },
-      ['UPDATE_' + options.mTypeName] (state, { item }) {
-        self.updateItem(state, item)
+      ['UPDATE_' + options.mTypeName] (state, { itemApi }) {
+        self.updateItem(state, itemApi)
       },
-      ['SAVE_' + options.mTypeName] (state, { item }) {
-        self.saveItem(state, item)
+      ['SAVE_' + options.mTypeName] (state, { itemApi }) {
+        self.saveItem(state, itemApi)
       },
       ['DELETE_' + options.mTypeName] (state, { item }) {
         self.deleteItem(state, item)
