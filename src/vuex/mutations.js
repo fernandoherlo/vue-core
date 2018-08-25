@@ -77,7 +77,7 @@ export default {
       return element.id === item.id_relation;
     })
     var itemRelated = state.all[index]
-    itemRelated[param] = item
+    itemRelated[param].push(item)
     var clone = Object.assign({}, itemRelated)
     state.all.splice(index, 1)
     state.all.push(clone)

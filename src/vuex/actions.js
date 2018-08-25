@@ -98,8 +98,16 @@ export default {
         commit('DELETE_' + options.mTypeName, { item })
         // Delete associate
         if (options.mTypeNameOnDelete) {
-          item = item[options.mTypeNameOnDeleteParam]
-          commit('DELETE_' + options.mTypeNameOnDelete, { item })
+          var associate = item[options.mTypeNameOnDeleteParam]
+          if (Array.isArray(associate)) {
+            associate.forEach((element) => {
+              item = element
+              commit('DELETE_' + options.mTypeNameOnDelete, { item })
+            })
+          } else {
+            item = item[options.mTypeNameOnDeleteParam]
+            commit('DELETE_' + options.mTypeNameOnDelete, { item })
+          }
         }
         resolve()
       }
