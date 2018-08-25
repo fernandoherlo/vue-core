@@ -112,7 +112,7 @@ export default {
         // Delete associate relation
         if (options.mTypeNameOnSave) {
           var param = options.mTypeNameOnSaveAddParam
-          commit('REMOVE_' + options.mTypeNameOnSave, { itemApi, param })
+          commit('REMOVE_' + options.mTypeNameOnSave, { item, param })
         }
         resolve()
       }

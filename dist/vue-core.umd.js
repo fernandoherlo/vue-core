@@ -12211,7 +12211,7 @@ var web_dom_iterable = __webpack_require__("ac6a");
         if (options.mTypeNameOnSave) {
           var param = options.mTypeNameOnSaveAddParam;
           commit('REMOVE_' + options.mTypeNameOnSave, {
-            itemApi: itemApi,
+            item: item,
             param: param
           });
         }
