@@ -39,11 +39,11 @@ export default {
     // Component
     Vue.component(this.config.coreExtendScopePl + '-form', this.Form)
     // Data
-    this.itemID = parseInt(this.$route.params.id)
+    this.itemID = this.$helper.getID()
     this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
     // Inline
     if (this.config.inline) {
-      this.itemIDParent = parseInt(this.$route.params.id_parent)
+      this.itemIDParent = this.$helper.getIDParent()
     }
     // Created children
     this.__created ()

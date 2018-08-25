@@ -5,6 +5,7 @@ import auth from '@/services/auth'
 import http from '@/services/http'
 import api from '@/services/api'
 import acl from '@/services/acl'
+import helper from '@/services/helper'
 import { EventBus } from '@/services/event-bus.js';
 
 // DEMO
@@ -33,6 +34,7 @@ Vue.use(auth, {config: process.env})
 Vue.use(http)
 Vue.use(api)
 Vue.use(acl)
+Vue.use(helper)
 
 new Vue({
   store,
