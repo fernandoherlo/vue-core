@@ -50,14 +50,17 @@ export default {
   },
   computed: {
     itemsVuex () {
+      console.log('computed plural')
       return this.$store.getters['all' + this.config.coreExtendVuexPl]
     },
     itemVuex () {
+      console.log('computed singular')
       return this.$store.getters['clone' + this.config.coreExtendVuex]
     }
   },
   watch: {
     itemsVuex: function () {
+      console.log('watch')
       this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
     }
   },

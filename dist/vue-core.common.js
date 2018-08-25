@@ -12591,12 +12591,12 @@ var Core_component = normalizeComponent(
 
 Core_component.options.__file = "Core.vue"
 /* harmony default export */ var Core = (Core_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=2766d666&
-var Editvue_type_template_id_2766d666_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[(!_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopePl }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopeParent, params: { id: this.itemIDParent } }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(!_vm.isNew)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonUpdateName)}})]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonSaveName)}})]):_vm._e()],1),(_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
-var Editvue_type_template_id_2766d666_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=045b5b58&
+var Editvue_type_template_id_045b5b58_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[(!_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopePl }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(_vm.config.inline)?_c('router-link',{staticClass:"btn back",attrs:{"to":{ name: _vm.config.coreExtendScopeParent, params: { id: this.itemIDParent } }}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]):_vm._e(),(!_vm.isNew)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonUpdateName)}})]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonSaveName)}})]):_vm._e()],1),(_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
+var Editvue_type_template_id_045b5b58_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=2766d666&
+// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=045b5b58&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
 var es6_regexp_replace = __webpack_require__("a481");
@@ -12755,14 +12755,17 @@ Form_component.options.__file = "Form.vue"
   },
   computed: {
     itemsVuex: function itemsVuex() {
+      console.log('computed plural');
       return this.$store.getters['all' + this.config.coreExtendVuexPl];
     },
     itemVuex: function itemVuex() {
+      console.log('computed singular');
       return this.$store.getters['clone' + this.config.coreExtendVuex];
     }
   },
   watch: {
     itemsVuex: function itemsVuex() {
+      console.log('watch');
       this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID);
     }
   },
@@ -12808,8 +12811,8 @@ var Editvue_type_style_index_0_lang_sass_ = __webpack_require__("3c3d");
 
 var Edit_component = normalizeComponent(
   components_Editvue_type_script_lang_js_,
-  Editvue_type_template_id_2766d666_render,
-  Editvue_type_template_id_2766d666_staticRenderFns,
+  Editvue_type_template_id_045b5b58_render,
+  Editvue_type_template_id_045b5b58_staticRenderFns,
   false,
   null,
   null,
