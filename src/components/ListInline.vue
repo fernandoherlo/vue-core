@@ -31,6 +31,7 @@ export default {
     return {
       itemIDParent: 0,
       items: [],
+      confirm: {},
       config: componentConfig
     }
   },
@@ -51,11 +52,24 @@ export default {
     __edit (id) {
       this.$router.push({name: this.config.coreExtendScope, params: { id: id, id_parent: this.itemIDParent }})
     },
-    __delete (id) {
+    __confirmDelete (id) {
+      // Reset
+      this.confirm = {}
+      // Delete
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {
         this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex])
       })
-    }
+    },
+    __cancelDelete (id) {
+      // Confirm false
+      this.$set(this.confirm, id, false)
+    },
+    __delete (id) {
+      // Reset
+      this.confirm = {}
+      // Confirm
+      this.$set(this.confirm, id, true)
+    },
   }
 }
 </script>
@@ -69,7 +83,9 @@ export default {
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.label === 'Actions'">
           <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttonEditName"></span></a>
-          <a class="btn delete" @click="__delete(props.row.id)"><span v-html="config.buttonDeleteName"></span></a>
+          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]"><span v-html="config.buttonDeleteName"></span></a>
+          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttonAskDeleteName"></span></a>
+          <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttonCancelName"></span></a>
         </span>
         <span v-else>
           {{ props.formattedRow[props.column.field] }}

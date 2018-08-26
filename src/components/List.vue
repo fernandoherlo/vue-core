@@ -55,8 +55,8 @@ export default {
       this.$router.push({name: this.config.coreExtendScope, params: { id: id }})
     },
     __confirmDelete (id) {
-      // Confirm false
-      this.$set(this.confirm, id, false)
+      // Reset
+      this.confirm = {}
       // Delete
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {
         this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex])
