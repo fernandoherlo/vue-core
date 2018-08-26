@@ -39,7 +39,7 @@ export default {
     // Component
     Vue.component(this.config.coreExtendScopePl + '-form', this.Form)
     // Data
-    if (!isNew) {
+    if (!this.isNew) {
       this.itemID = this.$helper.getID(this.$route.params.id)
       this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
     } else {
