@@ -49,7 +49,20 @@ export default {
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {
         this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex])
       })
-    }
+    },
+    preg_quote ( str ) {
+      // eslint-disable-next-line
+      return (str+'').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
+    },
+    highlight (haystack) {
+      if (this.$refs.VueGoodTable) {
+        var needle = this.$refs.VueGoodTable.searchTerm
+        return haystack.toString().replace(
+          new RegExp('(' + this.preg_quote(needle) + ')', 'ig'),
+          '<span class="highlight">$1</span>'
+        )
+      }
+    },
   }
 }
 </script>
@@ -62,14 +75,14 @@ export default {
     <div class="actions">
       <a class="btn new" @click="__newItem()"><span v-html="config.buttonNewName"></span></a>
     </div>
-    <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.label === 'Actions'">
           <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttonEditName"></span></a>
           <a class="btn delete" @click="__delete(props.row.id)"><span v-html="config.buttonDeleteName"></span></a>
         </span>
-        <span v-else>
-          {{ props.formattedRow[props.column.field] }}
+        <span v-else v-html="highlight(props.formattedRow[props.column.field])">
+          {{ props.formattedRow[props.column.field] }} 
         </span>
       </template>
     </vue-good-table>
@@ -77,4 +90,6 @@ export default {
 </template>
 
 <style lang="sass">
+.highlight
+  background: yellow;
 </style>
