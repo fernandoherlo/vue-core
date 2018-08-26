@@ -25,6 +25,8 @@ import Form from '@/components/Form'
 import List from '@/components/List'
 import ListInline from '@/components/ListInline'
 import New from '@/components/New'
+// Partials
+import InputText from '@/components/partials/InputText'
 
 export {
   auth,
@@ -44,5 +46,6 @@ export {
   Form,
   List,
   ListInline,
-  New
+  New,
+  InputText
 }
