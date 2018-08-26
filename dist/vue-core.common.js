@@ -12190,11 +12190,7 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   actions: actions,
   mutations: mutations
 });
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
-var es6_object_assign = __webpack_require__("f751");
-
 // CONCATENATED MODULE: ./src/vuex/getters.js
-
 
 
 /*
@@ -12215,7 +12211,7 @@ var es6_object_assign = __webpack_require__("f751");
     }), _defineProperty(_ref, options.mTypeName, function (state) {
       return state.item;
     }), _defineProperty(_ref, 'clone' + options.mTypeName, function (state) {
-      return Object.assign({}, state.item);
+      return state.clone;
     }), _ref;
   }
 });
@@ -12496,6 +12492,9 @@ var web_dom_iterable = __webpack_require__("ac6a");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.find-index.js
 var es6_array_find_index = __webpack_require__("20d6");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
+var es6_object_assign = __webpack_require__("f751");
+
 // CONCATENATED MODULE: ./src/vuex/mutations.js
 
 
@@ -12564,9 +12563,11 @@ var es6_array_find_index = __webpack_require__("20d6");
     state.item = state.all.filter(function (item) {
       return item.id === id;
     })[0];
+    state.clone = Object.assign({}, state.item);
   },
   clearItem: function clearItem(state) {
     state.item = null;
+    state.clone = null;
   },
 
   /*

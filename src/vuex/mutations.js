@@ -53,9 +53,11 @@ export default {
   },
   getItem (state, id) {
     state.item = state.all.filter(item => item.id === id)[0]
+    state.clone = Object.assign({}, state.item)
   },
   clearItem (state) {
     state.item = null
+    state.clone = null
   },
   /*
   |--------------------------------------------------------------------------

@@ -10,7 +10,7 @@ export default {
       ['all' + options.mTypeNamePl]: state => state.all,
       ['allByParent' + options.mTypeNamePl]: state => state.allByParent,
       [options.mTypeName]: state => state.item,
-      ['clone' + options.mTypeName]: state => Object.assign({}, state.item)
+      ['clone' + options.mTypeName]: state => state.clone
     }
   }
 }

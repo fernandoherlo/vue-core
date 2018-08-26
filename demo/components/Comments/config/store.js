@@ -25,7 +25,8 @@ const options = {
 */
 const state = {
   all: [],
-  item: {}
+  item: {},
+  clone: {}
 }
 
 /*
