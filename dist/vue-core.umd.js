@@ -12497,11 +12497,21 @@ var web_dom_iterable = __webpack_require__("ac6a");
         }); // Delete associate
 
         if (options.associate) {
-          // Delete associate object
-          _this2.deleteAssociate(commit, options, item); // Remove associate item
+          if (Array.isArray(options.associate)) {
+            options.associate.forEach(function (options_associate) {
+              // Delete associate object
+              _this2.deleteAssociate(commit, options_associate, item); // Remove associate item
 
 
-          _this2.removeItem(commit, options, item);
+              _this2.removeItem(commit, options_associate, item);
+            });
+          } else {
+            // Delete associate object
+            _this2.deleteAssociate(commit, options.associate, item); // Remove associate item
+
+
+            _this2.removeItem(commit, options.associate, item);
+          }
         }
 
         resolve();
@@ -12517,20 +12527,20 @@ var web_dom_iterable = __webpack_require__("ac6a");
   |--------------------------------------------------------------------------
   |
   */
-  deleteAssociate: function deleteAssociate(commit, options, item) {
-    if (options.associate.DELETE) {
-      var associate = item[options.associate.DELETE];
+  deleteAssociate: function deleteAssociate(commit, options_associate, item) {
+    if (options_associate.DELETE) {
+      var associateItems = item[options_associate.DELETE];
 
-      if (Array.isArray(associate)) {
-        associate.forEach(function (element) {
+      if (Array.isArray(associateItems)) {
+        associateItems.forEach(function (element) {
           item = element;
-          commit('DELETE_' + options.associate.STORE, {
+          commit('DELETE_' + options_associate.STORE, {
             item: item
           });
         });
       } else {
-        item = item[options.associate.DELETE];
-        commit('DELETE_' + options.associate.STORE, {
+        item = item[options_associate.DELETE];
+        commit('DELETE_' + options_associate.STORE, {
           item: item
         });
       }
@@ -12543,11 +12553,11 @@ var web_dom_iterable = __webpack_require__("ac6a");
   |--------------------------------------------------------------------------
   |
   */
-  removeItem: function removeItem(commit, options, item) {
-    if (options.associate.ADD) {
-      var param = options.associate.ADD;
-      var idParam = options.associate.ID;
-      commit('REMOVE_' + options.associate.STORE, {
+  removeItem: function removeItem(commit, options_associate, item) {
+    if (options_associate.ADD) {
+      var param = options_associate.ADD;
+      var idParam = options_associate.ID;
+      commit('REMOVE_' + options_associate.STORE, {
         item: item,
         param: param,
         idParam: idParam

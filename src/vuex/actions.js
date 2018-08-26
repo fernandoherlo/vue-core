@@ -145,10 +145,19 @@ export default {
         commit('DELETE_' + options.mTypeName, { item })
         // Delete associate
         if (options.associate) {
-          // Delete associate object
-          this.deleteAssociate(commit, options, item)
-          // Remove associate item
-          this.removeItem(commit, options, item)
+          if (Array.isArray(options.associate)) {
+            options.associate.forEach((options_associate) => {
+              // Delete associate object
+              this.deleteAssociate(commit, options_associate, item)
+              // Remove associate item
+              this.removeItem(commit, options_associate, item)
+            })
+          } else {
+            // Delete associate object
+            this.deleteAssociate(commit, options.associate, item)
+            // Remove associate item
+            this.removeItem(commit, options.associate, item)
+          }
         }
         resolve()
       }
@@ -161,17 +170,17 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  deleteAssociate (commit, options, item) {
-    if (options.associate.DELETE) {
-      var associate = item[options.associate.DELETE]
-      if (Array.isArray(associate)) {
-        associate.forEach((element) => {
+  deleteAssociate (commit, options_associate, item) {
+    if (options_associate.DELETE) {
+      var associateItems = item[options_associate.DELETE]
+      if (Array.isArray(associateItems)) {
+        associateItems.forEach((element) => {
           item = element
-          commit('DELETE_' + options.associate.STORE, { item })
+          commit('DELETE_' + options_associate.STORE, { item })
         })
       } else {
-        item = item[options.associate.DELETE]
-        commit('DELETE_' + options.associate.STORE, { item })
+        item = item[options_associate.DELETE]
+        commit('DELETE_' + options_associate.STORE, { item })
       }
     }
   },
@@ -181,11 +190,11 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  removeItem (commit, options, item) {
-    if (options.associate.ADD) {
-      var param = options.associate.ADD
-      var idParam = options.associate.ID
-      commit('REMOVE_' + options.associate.STORE, { item, param, idParam })
+  removeItem (commit, options_associate, item) {
+    if (options_associate.ADD) {
+      var param = options_associate.ADD
+      var idParam = options_associate.ID
+      commit('REMOVE_' + options_associate.STORE, { item, param, idParam })
     }
   },
   /*
