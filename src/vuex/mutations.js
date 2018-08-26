@@ -56,8 +56,8 @@ export default {
     state.clone = Object.assign({}, state.item)
   },
   clearItem (state) {
-    state.item = null
-    state.clone = null
+    state.item = {}
+    state.clone = {}
   },
   /*
   |--------------------------------------------------------------------------
