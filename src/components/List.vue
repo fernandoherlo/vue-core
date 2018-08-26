@@ -33,6 +33,14 @@ export default {
       config: componentConfig
     }
   },
+  created () {
+    this.$nextTick(() => {
+      if (this.$refs.VueGoodTable.$children[0].$el) {
+        this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].focus()
+        this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].select()
+      }
+    })
+  },
   computed: {
     itemsVuex () {
       return this.$store.getters['all' + this.config.coreExtendVuexPl]
@@ -50,24 +58,14 @@ export default {
         this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex])
       })
     },
-    preg_quote ( str ) {
-      // eslint-disable-next-line
-      return (str+'').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
-    },
-    highlight (haystack) {
+    __highlight (haystack) {
       if (this.$refs.VueGoodTable) {
         var needle = this.$refs.VueGoodTable.searchTerm
         if (needle) {
-          return haystack.toString().replace(
-            new RegExp('(' + this.preg_quote(needle) + ')', 'ig'),
-            '<span class="highlight">$1</span>'
-          )
-        } else {
-          return haystack  
+          return this.$helper.search(haystack, needle)
         }
-      } else {
-        return haystack
       }
+      return haystack
     },
   }
 }
@@ -87,7 +85,7 @@ export default {
           <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttonEditName"></span></a>
           <a class="btn delete" @click="__delete(props.row.id)"><span v-html="config.buttonDeleteName"></span></a>
         </span>
-        <span v-else v-html="highlight(props.formattedRow[props.column.field])">
+        <span v-else v-html="__highlight(props.formattedRow[props.column.field])">
           {{ props.formattedRow[props.column.field] }} 
         </span>
       </template>

@@ -1178,6 +1178,23 @@ if (__webpack_require__("9e1e") && /./g.flags != 'g') __webpack_require__("86cc"
 
 /***/ }),
 
+/***/ "386d":
+/***/ (function(module, exports, __webpack_require__) {
+
+// @@search logic
+__webpack_require__("214f")('search', 1, function (defined, SEARCH, $search) {
+  // 21.1.3.15 String.prototype.search(regexp)
+  return [function search(regexp) {
+    'use strict';
+    var O = defined(this);
+    var fn = regexp == undefined ? undefined : regexp[SEARCH];
+    return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[SEARCH](String(O));
+  }, $search];
+});
+
+
+/***/ }),
+
 /***/ "387f":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11838,8 +11855,9 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     // UPDATE
     // ******************
     update: function update(url, item, _callback) {
-      var self = this; // Data
+      var _this = this;
 
+      // Data
       var data = {}; // Fields
 
       for (var propertyName in item) {
@@ -11856,12 +11874,15 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
         _callback(response.data); // Notify
 
 
-        self.$notify({
-          group: 'global',
-          type: 'success',
-          title: 'Update',
-          text: 'Update element successfull!'
-        }); // -----
+        if (_this.$notify) {
+          _this.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Update',
+            text: 'Update element successfull!'
+          });
+        } // -----
+
       }, function ()
       /*response*/
       {// Fail
@@ -11869,8 +11890,9 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     },
     // SAVE
     save: function save(url, item, _callback) {
-      var self = this; // Data
+      var _this2 = this;
 
+      // Data
       var data = {}; // Fields
 
       for (var propertyName in item) {
@@ -11887,12 +11909,14 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
         _callback(response.data); // Notify
 
 
-        self.$notify({
-          group: 'global',
-          type: 'success',
-          title: 'Save',
-          text: 'Save element successfull!'
-        });
+        if (_this2.$notify) {
+          _this2.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Save',
+            text: 'Save element successfull!'
+          });
+        }
       }, function ()
       /*response*/
       {// Fail
@@ -11900,7 +11924,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     },
     // DELETE
     delete: function _delete(url, item, _callback, wait) {
-      var self = this;
+      var _this3 = this;
 
       if (wait) {// Alert wait
       }
@@ -11914,12 +11938,14 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
         _callback(response.data); // Notify
 
 
-        self.$notify({
-          group: 'global',
-          type: 'success',
-          title: 'Delete',
-          text: 'Delete element successfull!'
-        });
+        if (_this3.$notify) {
+          _this3.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Delete',
+            text: 'Delete element successfull!'
+          });
+        }
       }, function ()
       /*response*/
       {// Fail
@@ -11980,7 +12006,20 @@ var acl = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     Vue.prototype.$acl = acl;
   }
 });
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.constructor.js
+var es6_regexp_constructor = __webpack_require__("3b2b");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
+var es6_regexp_to_string = __webpack_require__("6b54");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
+var es6_regexp_replace = __webpack_require__("a481");
+
 // CONCATENATED MODULE: ./src/services/helper.js
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Import npm
@@ -11997,9 +12036,11 @@ var acl = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
 
 var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
   methods: {
+    // Number
     isNumber: function isNumber(n) {
       return !isNaN(parseFloat(n)) && isFinite(n);
     },
+    // Parse ID
     getID: function getID(ID) {
       // Is number
       if (this.isNumber(ID)) {
@@ -12007,6 +12048,14 @@ var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       } else {
         return ID;
       }
+    },
+    // Search
+    pregQuote: function pregQuote(str) {
+      // eslint-disable-next-line
+      return (str + '').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
+    },
+    search: function search(haystack, needle) {
+      return haystack.toString().replace(new RegExp('(' + this.pregQuote(needle) + ')', 'ig'), '<span class="highlight">$1</span>');
     }
   }
 });
@@ -12218,7 +12267,13 @@ var web_dom_iterable = __webpack_require__("ac6a");
       return self.deleteItem(commit, options, item);
     }), _ref7;
   },
-  // GET ALL
+
+  /*
+  |--------------------------------------------------------------------------
+  | GET ALL
+  |--------------------------------------------------------------------------
+  |
+  */
   getBaseAll: function getBaseAll(commit, options) {
     return new Promise(function (resolve
     /*, reject*/
@@ -12234,7 +12289,13 @@ var web_dom_iterable = __webpack_require__("ac6a");
       EventBus.$emit('apiGet', options.url, _callback);
     });
   },
-  // GET ITEM
+
+  /*
+  |--------------------------------------------------------------------------
+  | GET by PARENT
+  |--------------------------------------------------------------------------
+  |
+  */
   getByParent: function getByParent(commit, options, id_parent) {
     return new Promise(function (resolve
     /*, reject*/
@@ -12245,7 +12306,13 @@ var web_dom_iterable = __webpack_require__("ac6a");
       resolve();
     });
   },
-  // GET ITEM
+
+  /*
+  |--------------------------------------------------------------------------
+  | GET
+  |--------------------------------------------------------------------------
+  |
+  */
   getItem: function getItem(commit, options, id) {
     return new Promise(function (resolve
     /*, reject*/
@@ -12256,7 +12323,13 @@ var web_dom_iterable = __webpack_require__("ac6a");
       resolve();
     });
   },
-  // UPDATE ITEM
+
+  /*
+  |--------------------------------------------------------------------------
+  | UPDATE
+  |--------------------------------------------------------------------------
+  |
+  */
   updateItem: function updateItem(commit, options, item) {
     return new Promise(function (resolve
     /*, reject*/
@@ -12271,8 +12344,16 @@ var web_dom_iterable = __webpack_require__("ac6a");
       EventBus.$emit('apiUpdate', options.url, item, _callback);
     });
   },
-  // SAVE ITEM
+
+  /*
+  |--------------------------------------------------------------------------
+  | SAVE
+  |--------------------------------------------------------------------------
+  |
+  */
   saveItem: function saveItem(commit, options, item) {
+    var _this = this;
+
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12282,21 +12363,9 @@ var web_dom_iterable = __webpack_require__("ac6a");
         }); // Add associate
 
         if (options.associate) {
-          if (options.associate.ADD) {
-            var param = options.associate.ADD;
-            var idParam = options.associate.ID;
+          _this.addItem(commit, options, itemApi);
+        } // Param to callback
 
-            if (options.associate.REMOVE) {
-              delete itemApi[options.associate.REMOVE];
-            }
-
-            commit('ADD_' + options.associate.STORE, {
-              itemApi: itemApi,
-              param: param,
-              idParam: idParam
-            });
-          }
-        }
 
         resolve(itemApi);
       };
@@ -12304,8 +12373,40 @@ var web_dom_iterable = __webpack_require__("ac6a");
       EventBus.$emit('apiSave', options.url, item, _callback);
     });
   },
-  // DELETE ITEM
+
+  /*
+  |--------------------------------------------------------------------------
+  | ADD
+  |--------------------------------------------------------------------------
+  |
+  */
+  addItem: function addItem(commit, options, itemApi) {
+    if (options.associate.ADD) {
+      var param = options.associate.ADD;
+      var idParam = options.associate.ID;
+
+      if (options.associate.REMOVE) {
+        // Remove relation: base->relation->[base: delete]
+        delete itemApi[options.associate.REMOVE];
+      }
+
+      commit('ADD_' + options.associate.STORE, {
+        itemApi: itemApi,
+        param: param,
+        idParam: idParam
+      });
+    }
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | DELETE
+  |--------------------------------------------------------------------------
+  |
+  */
   deleteItem: function deleteItem(commit, options, item) {
+    var _this2 = this;
+
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12316,34 +12417,11 @@ var web_dom_iterable = __webpack_require__("ac6a");
         }); // Delete associate
 
         if (options.associate) {
-          if (options.associate.DELETE) {
-            var associate = item[options.associate.DELETE];
-
-            if (Array.isArray(associate)) {
-              associate.forEach(function (element) {
-                item = element;
-                commit('DELETE_' + options.associate.STORE, {
-                  item: item
-                });
-              });
-            } else {
-              item = item[options.associate.DELETE];
-              commit('DELETE_' + options.associate.STORE, {
-                item: item
-              });
-            }
-          } // Delete associate relation
+          // Delete associate object
+          _this2.deleteAssociate(commit, options, item); // Remove associate item
 
 
-          if (options.associate.ADD) {
-            var param = options.associate.ADD;
-            var idParam = options.associate.ID;
-            commit('REMOVE_' + options.associate.STORE, {
-              item: item,
-              param: param,
-              idParam: idParam
-            });
-          }
+          _this2.removeItem(commit, options, item);
         }
 
         resolve();
@@ -12351,6 +12429,50 @@ var web_dom_iterable = __webpack_require__("ac6a");
 
       EventBus.$emit('apiDelete', options.url, item, _callback);
     });
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | DELETE ASSOCIATE
+  |--------------------------------------------------------------------------
+  |
+  */
+  deleteAssociate: function deleteAssociate(commit, options, item) {
+    if (options.associate.DELETE) {
+      var associate = item[options.associate.DELETE];
+
+      if (Array.isArray(associate)) {
+        associate.forEach(function (element) {
+          item = element;
+          commit('DELETE_' + options.associate.STORE, {
+            item: item
+          });
+        });
+      } else {
+        item = item[options.associate.DELETE];
+        commit('DELETE_' + options.associate.STORE, {
+          item: item
+        });
+      }
+    }
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | REMOVE
+  |--------------------------------------------------------------------------
+  |
+  */
+  removeItem: function removeItem(commit, options, item) {
+    if (options.associate.ADD) {
+      var param = options.associate.ADD;
+      var idParam = options.associate.ID;
+      commit('REMOVE_' + options.associate.STORE, {
+        item: item,
+        param: param,
+        idParam: idParam
+      });
+    }
   }
 });
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.find-index.js
@@ -12403,6 +12525,13 @@ var es6_array_find_index = __webpack_require__("20d6");
       self.removeItem(state, item, param, idParam);
     }), _ref9;
   },
+
+  /*
+  |--------------------------------------------------------------------------
+  | GET
+  |--------------------------------------------------------------------------
+  |
+  */
   getAll: function getAll(state, items) {
     state.all = items;
   },
@@ -12416,65 +12545,145 @@ var es6_array_find_index = __webpack_require__("20d6");
       return item.id === id;
     })[0];
   },
+
+  /*
+  |--------------------------------------------------------------------------
+  | UPDATE
+  |--------------------------------------------------------------------------
+  |
+  */
   updateItem: function updateItem(state, item) {
-    var index = state.all.findIndex(function (element) {
-      return element.id === item.id;
-    });
-    var clone = Object.assign({}, item);
-    state.all.splice(index, 1);
-    state.all.push(clone);
+    // Update all
+    this.__updateItemState(state.all, item);
 
     if (state.allByParent) {
-      index = state.allByParent.findIndex(function (element) {
-        return element.id === item.id;
-      });
-      state.allByParent.splice(index, 1);
-      state.allByParent.push(clone);
+      // Update allByParent
+      this.__updateItemState(state.allByParent, item);
     }
   },
+  __updateItemState: function __updateItemState(stateEl, item, indexEl) {
+    var index = stateEl.findIndex(function (element) {
+      return element.id === item.id;
+    }); // Overwrite
+
+    if (indexEl) {
+      index = indexEl;
+    }
+
+    var clone = Object.assign({}, item);
+    stateEl.splice(index, 1);
+    stateEl.push(clone);
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | SAVE
+  |--------------------------------------------------------------------------
+  |
+  */
   saveItem: function saveItem(state, item) {
+    // Save all
+    this.__saveItemState(state.all, item);
+
+    if (state.allByParent) {
+      // Save allByParent
+      this.__saveItemState(state.allByParent, item);
+    }
+  },
+  __saveItemState: function __saveItemState(stateEl, item) {
     var clone = Object.assign({}, item);
-    state.all.push(clone);
+    stateEl.push(clone); // Return
 
-    if (state.allByParent) {
-      state.allByParent.push(clone);
-    }
+    return stateEl;
   },
+
+  /*
+  |--------------------------------------------------------------------------
+  | DELETE
+  |--------------------------------------------------------------------------
+  |
+  */
   deleteItem: function deleteItem(state, item) {
-    var index = state.all.findIndex(function (element) {
-      return element.id === item.id;
-    });
-    state.all.splice(index, 1);
+    // Delete
+    this.__deleteItemState(state.all, item);
 
     if (state.allByParent) {
-      index = state.allByParent.findIndex(function (element) {
-        return element.id === item.id;
-      });
-      state.allByParent.splice(index, 1);
+      // Delete
+      this.__deleteItemState(state.allByParent, item);
     }
   },
-  addItem: function addItem(state, item, param, idParam) {
-    var index = state.all.findIndex(function (element) {
-      return element.id === item[idParam];
-    });
-    var itemRelated = state.all[index];
-    itemRelated[param].push(item);
-    var clone = Object.assign({}, itemRelated);
-    state.all.splice(index, 1);
-    state.all.push(clone);
+  __deleteItemState: function __deleteItemState(stateEl, item, indexEl) {
+    var index = stateEl.findIndex(function (element) {
+      return element.id === item.id;
+    }); // Overwrite
+
+    if (indexEl) {
+      index = indexEl;
+    }
+
+    stateEl.splice(index, 1); // Return
+
+    return stateEl;
   },
-  removeItem: function removeItem(state, item, param, idParam) {
-    var index = state.all.findIndex(function (element) {
+
+  /*
+  |--------------------------------------------------------------------------
+  | ADD
+  |--------------------------------------------------------------------------
+  |
+  */
+  addItem: function addItem(state, item, param, idParam) {
+    // Add
+    this.__addItemState(state.all, item, param, idParam);
+
+    if (state.allByParent) {
+      // Add
+      this.__addItemState(state.allByParent, item, param, idParam);
+    }
+  },
+  __addItemState: function __addItemState(stateEl, item, param, idParam) {
+    // Find index
+    var index = stateEl.findIndex(function (element) {
       return element.id === item[idParam];
-    });
-    var itemRelated = state.all[index];
+    }); // Find item
+
+    var itemRelated = stateEl[index]; // Add item in property
+
+    itemRelated[param] = this.__saveItemState(itemRelated[param], item); // Update
+
+    this.__updateItemState(stateEl, itemRelated, index);
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | REMOVE
+  |--------------------------------------------------------------------------
+  |
+  */
+  removeItem: function removeItem(state, item, param, idParam) {
+    // Remove
+    this.__removeItemState(state.all, item, param, idParam);
+
+    if (state.allByParent) {
+      // Remove
+      this.__removeItemState(state.allByParent, item, param, idParam);
+    }
+  },
+  __removeItemState: function __removeItemState(stateEl, item, param, idParam) {
+    // Find index
+    var index = stateEl.findIndex(function (element) {
+      return element.id === item[idParam];
+    }); // Find item
+
+    var itemRelated = stateEl[index]; // Find index related
+
     var indexRelated = itemRelated[param].findIndex(function (element) {
       return element.id === item.id;
-    });
-    itemRelated[param].splice(indexRelated, 1);
-    var clone = Object.assign({}, itemRelated);
-    state.all.splice(index, 1);
-    state.all.push(clone);
+    }); // Delete item in property
+
+    itemRelated[param] = this.__deleteItemState(itemRelated[param], itemRelated, indexRelated); // Update
+
+    this.__updateItemState(stateEl, itemRelated, index);
   }
 });
 // CONCATENATED MODULE: ./src/mixins/events.js
@@ -12740,9 +12949,6 @@ var Editvue_type_template_id_2863194a_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=2863194a&
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
-var es6_regexp_replace = __webpack_require__("a481");
-
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Form.vue?vue&type=template&id=6fe6913c&scoped=true&
 var Formvue_type_template_id_6fe6913c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.item)?_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.__send($event)}}},[_vm._v("\n  Form...\n")]):_vm._e()}
 var Formvue_type_template_id_6fe6913c_scoped_true_staticRenderFns = []
@@ -12979,18 +13185,15 @@ var Edit_component = normalizeComponent(
 
 Edit_component.options.__file = "Edit.vue"
 /* harmony default export */ var Edit = (Edit_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=13096989&
-var Listvue_type_template_id_13096989_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonNewName)}})])]),_c('vue-good-table',{ref:"VueGoodTable",attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.label === 'Actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonEditName)}})]),_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonDeleteName)}})])]):_c('span',{domProps:{"innerHTML":_vm._s(_vm.highlight(props.formattedRow[props.column.field]))}},[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+" \n      ")])]}}])})],1)}
-var Listvue_type_template_id_13096989_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=058de488&
+var Listvue_type_template_id_058de488_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonNewName)}})])]),_c('vue-good-table',{ref:"VueGoodTable",attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.label === 'Actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonEditName)}})]),_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonDeleteName)}})])]):_c('span',{domProps:{"innerHTML":_vm._s(_vm.__highlight(props.formattedRow[props.column.field]))}},[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+" \n      ")])]}}])})],1)}
+var Listvue_type_template_id_058de488_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/List.vue?vue&type=template&id=13096989&
+// CONCATENATED MODULE: ./src/components/List.vue?vue&type=template&id=058de488&
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.constructor.js
-var es6_regexp_constructor = __webpack_require__("3b2b");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
-var es6_regexp_to_string = __webpack_require__("6b54");
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.search.js
+var es6_regexp_search = __webpack_require__("386d");
 
 // EXTERNAL MODULE: ./node_modules/diacriticless/diacriticless.js
 var diacriticless = __webpack_require__("a529");
@@ -23745,8 +23948,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=script&lang=js&
 
 
-
-
 /*
 |--------------------------------------------------------------------------
 | CORE component & config
@@ -23781,6 +23982,17 @@ if (typeof window !== 'undefined' && window.Vue) {
       config: components_component
     };
   },
+  created: function created() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      if (_this.$refs.VueGoodTable.$children[0].$el) {
+        _this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].focus();
+
+        _this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].select();
+      }
+    });
+  },
   computed: {
     itemsVuex: function itemsVuex() {
       return this.$store.getters['all' + this.config.coreExtendVuexPl];
@@ -23801,28 +24013,22 @@ if (typeof window !== 'undefined' && window.Vue) {
       });
     },
     __delete: function __delete(id) {
-      var _this = this;
+      var _this2 = this;
 
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(function () {
-        _this.$store.dispatch('delete' + _this.config.coreExtendVuex, _this.$store.getters[_this.config.coreExtendVuex]);
+        _this2.$store.dispatch('delete' + _this2.config.coreExtendVuex, _this2.$store.getters[_this2.config.coreExtendVuex]);
       });
     },
-    preg_quote: function preg_quote(str) {
-      // eslint-disable-next-line
-      return (str + '').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
-    },
-    highlight: function highlight(haystack) {
+    __highlight: function __highlight(haystack) {
       if (this.$refs.VueGoodTable) {
         var needle = this.$refs.VueGoodTable.searchTerm;
 
         if (needle) {
-          return haystack.toString().replace(new RegExp('(' + this.preg_quote(needle) + ')', 'ig'), '<span class="highlight">$1</span>');
-        } else {
-          return haystack;
+          return this.$helper.search(haystack, needle);
         }
-      } else {
-        return haystack;
       }
+
+      return haystack;
     }
   }
 });
@@ -23842,8 +24048,8 @@ var Listvue_type_style_index_0_lang_sass_ = __webpack_require__("78c9");
 
 var List_component = normalizeComponent(
   components_Listvue_type_script_lang_js_,
-  Listvue_type_template_id_13096989_render,
-  Listvue_type_template_id_13096989_staticRenderFns,
+  Listvue_type_template_id_058de488_render,
+  Listvue_type_template_id_058de488_staticRenderFns,
   false,
   null,
   null,

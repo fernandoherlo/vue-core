@@ -14,9 +14,11 @@ import Vue from 'vue'
 */
 let helper = new Vue({
   methods: {
+    // Number
     isNumber (n) {
       return !isNaN(parseFloat(n)) && isFinite(n);
     },
+    // Parse ID
     getID (ID) {
       // Is number
       if (this.isNumber(ID)) {
@@ -24,6 +26,17 @@ let helper = new Vue({
       } else {
         return ID
       }
+    },
+    // Search
+    pregQuote ( str ) {
+      // eslint-disable-next-line
+      return (str+'').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
+    },
+    search ( haystack, needle ) {
+      return haystack.toString().replace(
+        new RegExp('(' + this.pregQuote(needle) + ')', 'ig'),
+        '<span class="highlight">$1</span>'
+      )
     }
   }
 })

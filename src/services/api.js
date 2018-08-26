@@ -22,10 +22,10 @@ let api = new Vue({
         url: url,
         method: 'GET'
       }
-      this.$http.axios(options).then(function (response) {
+      this.$http.axios(options).then((response) => {
         // Return items
         _callback(response.data)
-      }, function (/*err*/) {
+      }, (/*err*/) => {
         // Fail
       })
     },
@@ -33,7 +33,6 @@ let api = new Vue({
     // UPDATE
     // ******************
     update (url, item, _callback) {
-      var self = this
       // Data
       var data = {}
       // Fields
@@ -45,25 +44,26 @@ let api = new Vue({
         method: 'POST',
         data: data
       }
-      this.$http.axios(options).then(function (response) {
+      this.$http.axios(options).then((response) => {
         // CallBack
         _callback(response.data)
         // Notify
-        self.$notify({
-          group: 'global',
-          type: 'success',
-          title: 'Update',
-          text: 'Update element successfull!'
-        });
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Update',
+            text: 'Update element successfull!'
+          })
+        }
         // -----
-      }, function (/*response*/) {
+      }, (/*response*/) => {
         // Fail
       })
     },
 
     // SAVE
     save (url, item, _callback) {
-      var self = this
       // Data
       var data = {}
       // Fields
@@ -75,24 +75,25 @@ let api = new Vue({
         method: 'POST',
         data: data
       }
-      this.$http.axios(options).then(function (response) {
+      this.$http.axios(options).then((response) => {
         // CallBack
         _callback(response.data)
         // Notify
-        self.$notify({
-          group: 'global',
-          type: 'success',
-          title: 'Save',
-          text: 'Save element successfull!'
-        });
-      }, function (/*response*/) {
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Save',
+            text: 'Save element successfull!'
+          })
+        }
+      }, (/*response*/) => {
         // Fail
       })
     },
 
     // DELETE
     delete (url, item, _callback, wait) {
-      var self = this
       if (wait) {
         // Alert wait
       }
@@ -100,17 +101,19 @@ let api = new Vue({
         url: url + '/' + item.id,
         method: 'DELETE'
       }
-      this.$http.axios(options).then(function (response) {
+      this.$http.axios(options).then((response) => {
         // CallBack
         _callback(response.data)
         // Notify
-        self.$notify({
-          group: 'global',
-          type: 'success',
-          title: 'Delete',
-          text: 'Delete element successfull!'
-        });
-      }, function (/*response*/) {
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Delete',
+            text: 'Delete element successfull!'
+          })
+        }
+      }, (/*response*/) => {
         // Fail
       })
     }

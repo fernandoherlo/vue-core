@@ -35,6 +35,12 @@ export default {
     }
   },
 
+  /*
+  |--------------------------------------------------------------------------
+  | GET
+  |--------------------------------------------------------------------------
+  |
+  */
   getAll (state, items) {
     state.all = items
   },
@@ -44,62 +50,132 @@ export default {
   getItem (state, id) {
     state.item = state.all.filter(item => item.id === id)[0]
   },
+  /*
+  |--------------------------------------------------------------------------
+  | UPDATE
+  |--------------------------------------------------------------------------
+  |
+  */
   updateItem (state, item) {
-    var index = state.all.findIndex(function(element) {
+    // Update all
+    this.__updateItemState(state.all, item)
+    if (state.allByParent) {
+      // Update allByParent
+      this.__updateItemState(state.allByParent, item)
+    }
+  },
+  __updateItemState (stateEl, item, indexEl) {
+    var index = stateEl.findIndex(function(element) {
       return element.id === item.id;
     })
-    var clone = Object.assign({}, item)
-    state.all.splice(index, 1)
-    state.all.push(clone)
-    if (state.allByParent) {
-      index = state.allByParent.findIndex(function(element) {
-        return element.id === item.id
-      })
-      state.allByParent.splice(index, 1)
-      state.allByParent.push(clone)
+    // Overwrite
+    if (indexEl){
+      index = indexEl
     }
+    var clone = Object.assign({}, item)
+    stateEl.splice(index, 1)
+    stateEl.push(clone)
   },
+  /*
+  |--------------------------------------------------------------------------
+  | SAVE
+  |--------------------------------------------------------------------------
+  |
+  */
   saveItem (state, item) {
-    var clone = Object.assign({}, item)
-    state.all.push(clone)
+    // Save all
+    this.__saveItemState(state.all, item)
     if (state.allByParent) {
-      state.allByParent.push(clone)
+      // Save allByParent
+      this.__saveItemState(state.allByParent, item)
     }
   },
+  __saveItemState (stateEl, item) {
+    var clone = Object.assign({}, item)
+    stateEl.push(clone)
+    // Return
+    return stateEl
+  },
+  /*
+  |--------------------------------------------------------------------------
+  | DELETE
+  |--------------------------------------------------------------------------
+  |
+  */
   deleteItem (state, item) {
-    var index = state.all.findIndex(function(element) {
+    // Delete
+    this.__deleteItemState(state.all, item)
+    if (state.allByParent) {
+      // Delete
+      this.__deleteItemState(state.allByParent, item)
+    }
+  },
+  __deleteItemState (stateEl, item, indexEl) {
+    var index = stateEl.findIndex(function(element) {
       return element.id === item.id
     })
-    state.all.splice(index, 1)
+    // Overwrite
+    if (indexEl){
+      index = indexEl
+    }
+    stateEl.splice(index, 1)
+    // Return
+    return stateEl
+  },
+  /*
+  |--------------------------------------------------------------------------
+  | ADD
+  |--------------------------------------------------------------------------
+  |
+  */
+  addItem (state, item, param, idParam) {
+    // Add
+    this.__addItemState(state.all, item, param, idParam)
     if (state.allByParent) {
-      index = state.allByParent.findIndex(function(element) {
-        return element.id === item.id
-      })
-      state.allByParent.splice(index, 1)
+      // Add
+      this.__addItemState(state.allByParent, item, param, idParam)
     }
   },
-  addItem (state, item, param, idParam) {
-    var index = state.all.findIndex(function(element) {
+  __addItemState (stateEl, item, param, idParam) {
+    // Find index
+    var index = stateEl.findIndex(function(element) {
       return element.id === item[idParam]
     })
-    var itemRelated = state.all[index]
-    itemRelated[param].push(item)
-    var clone = Object.assign({}, itemRelated)
-    state.all.splice(index, 1)
-    state.all.push(clone)
+    // Find item
+    var itemRelated = stateEl[index]
+    // Add item in property
+    itemRelated[param] = this.__saveItemState (itemRelated[param], item)
+    // Update
+    this.__updateItemState(stateEl, itemRelated, index)
   },
+  /*
+  |--------------------------------------------------------------------------
+  | REMOVE
+  |--------------------------------------------------------------------------
+  |
+  */
   removeItem (state, item, param, idParam) {
-    var index = state.all.findIndex(function(element) {
+    // Remove
+    this.__removeItemState(state.all, item, param, idParam)
+    if (state.allByParent) {
+      // Remove
+      this.__removeItemState(state.allByParent, item, param, idParam)
+    }
+  },
+  __removeItemState (stateEl, item, param, idParam) {
+    // Find index
+    var index = stateEl.findIndex(function(element) {
       return element.id === item[idParam]
     })
-    var itemRelated = state.all[index]
+    // Find item
+    var itemRelated = stateEl[index]
+    // Find index related
     var indexRelated = itemRelated[param].findIndex(function(element) {
       return element.id === item.id
     })
-    itemRelated[param].splice(indexRelated, 1)
-
-    var clone = Object.assign({}, itemRelated)
-    state.all.splice(index, 1)
-    state.all.push(clone)
+    // Delete item in property
+    itemRelated[param] = this.__deleteItemState(itemRelated[param], itemRelated, indexRelated)
+    // Update
+    this.__updateItemState(stateEl, itemRelated, index)
   }
 }
