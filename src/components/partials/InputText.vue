@@ -9,6 +9,11 @@ export default {
     field: {
       type: Object,
       required: false
+    },
+    disabledCondition: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
@@ -18,10 +23,10 @@ export default {
   <div class="form-group">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
-      <input class="form-control" type="text" v-model="item[field.field]" ref="firstFocusForm">
+      <input class="form-control" type="text" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
     </template>
     <template v-else>
-      <input class="form-control" type="text" v-model="item[field.field]">
+      <input class="form-control" type="text" v-model="item[field.field]" :disabled="disabledCondition">
     </template>
   </div>
 </template>

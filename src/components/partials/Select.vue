@@ -13,6 +13,11 @@ export default {
     values: {
       type: Array,
       required: false
+    },
+    disabledCondition: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
@@ -22,7 +27,7 @@ export default {
   <div class="form-group">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
-      <select class="custom-select" v-model="item[field.field]" ref="firstFocusForm">
+      <select class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
           {{ val.name }}
@@ -30,7 +35,7 @@ export default {
       </select>
     </template>
     <template v-else>
-      <select class="custom-select" v-model="item[field.field]">
+      <select class="custom-select" v-model="item[field.field]" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
           {{ val.name }}
