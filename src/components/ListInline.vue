@@ -81,7 +81,7 @@ export default {
     </div>
     <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
       <template slot="table-row" slot-scope="props">
-        <span v-if="props.column.label === 'Actions'">
+        <span v-if="props.column.thClass === 'actions'">
           <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttonEditName"></span></a>
           <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]"><span v-html="config.buttonDeleteName"></span></a>
           <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttonAskDeleteName"></span></a>
