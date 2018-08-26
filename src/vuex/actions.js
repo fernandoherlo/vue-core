@@ -33,6 +33,9 @@ export default {
       },
       ['delete' + options.mTypeName] ({ commit }, item) {
         return self.deleteItem(commit, options, item)
+      },
+      ['clear' + options.mTypeName] ({ commit }) {
+        return self.clearItem(commit, options)
       }
     }
   },
@@ -184,5 +187,17 @@ export default {
       var idParam = options.associate.ID
       commit('REMOVE_' + options.associate.STORE, { item, param, idParam })
     }
+  },
+  /*
+  |--------------------------------------------------------------------------
+  | CLEAR
+  |--------------------------------------------------------------------------
+  |
+  */
+  clearItem (commit, options) {
+    return new Promise((resolve/*, reject*/) => {
+      commit('CLEAR_' + options.mTypeName)
+      resolve()
+    })
   },
 }

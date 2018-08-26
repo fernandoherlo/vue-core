@@ -31,7 +31,11 @@ export default {
       },
       ['REMOVE_' + options.mTypeName] (state, { item, param, idParam }) {
         self.removeItem(state, item, param, idParam)
+      },
+      ['CLEAR_' + options.mTypeName] (state) {
+        self.clearItem(state)
       }
+
     }
   },
 
@@ -49,6 +53,9 @@ export default {
   },
   getItem (state, id) {
     state.item = state.all.filter(item => item.id === id)[0]
+  },
+  clearItem (state) {
+    state.item = null
   },
   /*
   |--------------------------------------------------------------------------

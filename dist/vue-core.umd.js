@@ -12252,29 +12252,32 @@ var web_dom_iterable = __webpack_require__("ac6a");
 
 /* harmony default export */ var vuex_actions = ({
   core: function core(options) {
-    var _ref7;
+    var _ref8;
 
     //mTypeNamePl, mTypeName, url, displayName
     var self = this;
-    return _ref7 = {}, _defineProperty(_ref7, 'getAll' + options.mTypeNamePl, function (_ref) {
+    return _ref8 = {}, _defineProperty(_ref8, 'getAll' + options.mTypeNamePl, function (_ref) {
       var commit = _ref.commit;
       return self.getBaseAll(commit, options);
-    }), _defineProperty(_ref7, 'getByParent' + options.mTypeNamePl, function (_ref2, id_parent) {
+    }), _defineProperty(_ref8, 'getByParent' + options.mTypeNamePl, function (_ref2, id_parent) {
       var commit = _ref2.commit;
       return self.getByParent(commit, options, id_parent);
-    }), _defineProperty(_ref7, 'get' + options.mTypeName, function (_ref3, id) {
+    }), _defineProperty(_ref8, 'get' + options.mTypeName, function (_ref3, id) {
       var commit = _ref3.commit;
       return self.getItem(commit, options, id);
-    }), _defineProperty(_ref7, 'update' + options.mTypeName, function (_ref4, item) {
+    }), _defineProperty(_ref8, 'update' + options.mTypeName, function (_ref4, item) {
       var commit = _ref4.commit;
       return self.updateItem(commit, options, item);
-    }), _defineProperty(_ref7, 'save' + options.mTypeName, function (_ref5, item) {
+    }), _defineProperty(_ref8, 'save' + options.mTypeName, function (_ref5, item) {
       var commit = _ref5.commit;
       return self.saveItem(commit, options, item);
-    }), _defineProperty(_ref7, 'delete' + options.mTypeName, function (_ref6, item) {
+    }), _defineProperty(_ref8, 'delete' + options.mTypeName, function (_ref6, item) {
       var commit = _ref6.commit;
       return self.deleteItem(commit, options, item);
-    }), _ref7;
+    }), _defineProperty(_ref8, 'clear' + options.mTypeName, function (_ref7) {
+      var commit = _ref7.commit;
+      return self.clearItem(commit, options);
+    }), _ref8;
   },
 
   /*
@@ -12482,6 +12485,21 @@ var web_dom_iterable = __webpack_require__("ac6a");
         idParam: idParam
       });
     }
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | CLEAR
+  |--------------------------------------------------------------------------
+  |
+  */
+  clearItem: function clearItem(commit, options) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      commit('CLEAR_' + options.mTypeName);
+      resolve();
+    });
   }
 });
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.find-index.js
@@ -12532,6 +12550,8 @@ var es6_array_find_index = __webpack_require__("20d6");
           param = _ref8.param,
           idParam = _ref8.idParam;
       self.removeItem(state, item, param, idParam);
+    }), _defineProperty(_ref9, 'CLEAR_' + options.mTypeName, function (state) {
+      self.clearItem(state);
     }), _ref9;
   },
 
@@ -12553,6 +12573,9 @@ var es6_array_find_index = __webpack_require__("20d6");
     state.item = state.all.filter(function (item) {
       return item.id === id;
     })[0];
+  },
+  clearItem: function clearItem(state) {
+    state.item = null;
   },
 
   /*
@@ -12951,12 +12974,12 @@ var Core_component = normalizeComponent(
 
 Core_component.options.__file = "Core.vue"
 /* harmony default export */ var Core = (Core_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=5c124e86&
-var Editvue_type_template_id_5c124e86_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn back",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__back()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]),(!_vm.isNew)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonUpdateName)}})]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonSaveName)}})]):_vm._e()]),(_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
-var Editvue_type_template_id_5c124e86_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=2b352ec0&
+var Editvue_type_template_id_2b352ec0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[_c('div',{staticClass:"header"},[_c('h2',[_vm._v(_vm._s(_vm.config.displayName))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn back",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__back()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonBackName)}})]),(!_vm.isNew)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonUpdateName)}})]):_vm._e(),(_vm.isNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[_c('span',{domProps:{"innerHTML":_vm._s(_vm.config.buttonSaveName)}})]):_vm._e()]),(_vm.itemsVuex && _vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.coreExtendScopePl + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
+var Editvue_type_template_id_2b352ec0_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=5c124e86&
+// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=2b352ec0&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Form.vue?vue&type=template&id=6fe6913c&scoped=true&
 var Formvue_type_template_id_6fe6913c_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.item)?_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.__send($event)}}},[_vm._v("\n  Form...\n")]):_vm._e()}
@@ -13100,8 +13123,13 @@ Form_component.options.__file = "Form.vue"
     // Component
     external_commonjs_vue_commonjs2_vue_root_Vue_default.a.component(this.config.coreExtendScopePl + '-form', this.Form); // Data
 
-    this.itemID = this.$helper.getID(this.$route.params.id);
-    this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID); // Inline
+    if (!isNew) {
+      this.itemID = this.$helper.getID(this.$route.params.id);
+      this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID);
+    } else {
+      this.$store.dispatch('clear' + this.config.coreExtendVuex);
+    } // Inline
+
 
     if (this.config.inline) {
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent);
@@ -13189,8 +13217,8 @@ var Editvue_type_style_index_0_lang_sass_ = __webpack_require__("3c3d");
 
 var Edit_component = normalizeComponent(
   components_Editvue_type_script_lang_js_,
-  Editvue_type_template_id_5c124e86_render,
-  Editvue_type_template_id_5c124e86_staticRenderFns,
+  Editvue_type_template_id_2b352ec0_render,
+  Editvue_type_template_id_2b352ec0_staticRenderFns,
   false,
   null,
   null,
