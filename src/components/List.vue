@@ -57,10 +57,16 @@ export default {
     highlight (haystack) {
       if (this.$refs.VueGoodTable) {
         var needle = this.$refs.VueGoodTable.searchTerm
-        return haystack.toString().replace(
-          new RegExp('(' + this.preg_quote(needle) + ')', 'ig'),
-          '<span class="highlight">$1</span>'
-        )
+        if (needle) {
+          return haystack.toString().replace(
+            new RegExp('(' + this.preg_quote(needle) + ')', 'ig'),
+            '<span class="highlight">$1</span>'
+          )
+        } else {
+          return haystack  
+        }
+      } else {
+        return haystack
       }
     },
   }
