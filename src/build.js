@@ -28,6 +28,7 @@ import New from '@/components/New'
 // Partials
 import InputText from '@/components/partials/InputText'
 import InputHidden from '@/components/partials/InputHidden'
+import InputPassword from '@/components/partials/InputPassword'
 import Select from '@/components/partials/Select'
 
 export {
@@ -51,5 +52,6 @@ export {
   New,
   InputText,
   InputHidden,
+  InputPassword,
   Select
 }
