@@ -1166,6 +1166,17 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "366d":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputHidden_vue_vue_type_style_index_0_id_b7cf4ca8_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("b921");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputHidden_vue_vue_type_style_index_0_id_b7cf4ca8_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputHidden_vue_vue_type_style_index_0_id_b7cf4ca8_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputHidden_vue_vue_type_style_index_0_id_b7cf4ca8_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
 /***/ "3846":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6254,6 +6265,13 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
+
+/***/ }),
+
+/***/ "b921":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -24348,6 +24366,53 @@ var InputText_component = normalizeComponent(
 
 InputText_component.options.__file = "InputText.vue"
 /* harmony default export */ var InputText = (InputText_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/InputHidden.vue?vue&type=template&id=b7cf4ca8&scoped=true&
+var InputHiddenvue_type_template_id_b7cf4ca8_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item[_vm.field.field]),expression:"item[field.field]"}],attrs:{"type":"hidden"},domProps:{"value":(_vm.item[_vm.field.field])},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, _vm.field.field, $event.target.value)}}})}
+var InputHiddenvue_type_template_id_b7cf4ca8_scoped_true_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/partials/InputHidden.vue?vue&type=template&id=b7cf4ca8&scoped=true&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/InputHidden.vue?vue&type=script&lang=js&
+/* harmony default export */ var InputHiddenvue_type_script_lang_js_ = ({
+  props: {
+    item: {
+      type: Object,
+      required: false
+    },
+    field: {
+      type: Object,
+      required: false
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/partials/InputHidden.vue?vue&type=script&lang=js&
+ /* harmony default export */ var partials_InputHiddenvue_type_script_lang_js_ = (InputHiddenvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./src/components/partials/InputHidden.vue?vue&type=style&index=0&id=b7cf4ca8&lang=sass&scoped=true&
+var InputHiddenvue_type_style_index_0_id_b7cf4ca8_lang_sass_scoped_true_ = __webpack_require__("366d");
+
+// CONCATENATED MODULE: ./src/components/partials/InputHidden.vue
+
+
+
+
+
+
+/* normalize component */
+
+var InputHidden_component = normalizeComponent(
+  partials_InputHiddenvue_type_script_lang_js_,
+  InputHiddenvue_type_template_id_b7cf4ca8_scoped_true_render,
+  InputHiddenvue_type_template_id_b7cf4ca8_scoped_true_staticRenderFns,
+  false,
+  null,
+  "b7cf4ca8",
+  null
+  
+)
+
+InputHidden_component.options.__file = "InputHidden.vue"
+/* harmony default export */ var InputHidden = (InputHidden_component.exports);
 // CONCATENATED MODULE: ./src/build.js
 /**
  * @name VueJS VueCore (vue-core)
@@ -24379,6 +24444,7 @@ InputText_component.options.__file = "InputText.vue"
 
 
 
+
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib-no-default.js
 /* concated harmony reexport auth */__webpack_require__.d(__webpack_exports__, "auth", function() { return services_auth; });
 /* concated harmony reexport http */__webpack_require__.d(__webpack_exports__, "http", function() { return services_http; });
@@ -24399,6 +24465,7 @@ InputText_component.options.__file = "InputText.vue"
 /* concated harmony reexport ListInline */__webpack_require__.d(__webpack_exports__, "ListInline", function() { return ListInline; });
 /* concated harmony reexport New */__webpack_require__.d(__webpack_exports__, "New", function() { return New; });
 /* concated harmony reexport InputText */__webpack_require__.d(__webpack_exports__, "InputText", function() { return InputText; });
+/* concated harmony reexport InputHidden */__webpack_require__.d(__webpack_exports__, "InputHidden", function() { return InputHidden; });
 
 
 
