@@ -41,5 +41,5 @@ export default new Vuex.Store({
   modules: {
     load
   },
-  strict: debug
+  strict: false //debug
 })
