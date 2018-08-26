@@ -67,6 +67,8 @@ export default {
       this.$set(this.confirm, id, false)
     },
     __delete (id) {
+      // Reset
+      this.confirm = {}
       // Confirm
       this.$set(this.confirm, id, true)
     },
