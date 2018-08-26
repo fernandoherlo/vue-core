@@ -1,2 +1,2 @@
 // Modules
-export const modules = []
+export const initialGetters = []

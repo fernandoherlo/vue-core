@@ -6,11 +6,18 @@
 */
 export default {
 // VUEX
-  VUEX_MUTATION: 'COMMENT',
-  VUEX_MUTATION_PL: 'COMMENTS',
+  VUEX_MUTATION: 'INLINE',
+  VUEX_MUTATION_PL: 'INLINES',
+  VUEX_MUTATION_ASSOCIATE: {
+    STORE: 'COMMENT',
+    ID: 'id_parent',
+    ADD: 'inlines',
+    REMOVE: 'comment',
+  },
   // API
-  SCOPE: 'comment',
-  SCOPE_PL: 'comments',
+  SCOPE: 'inline',
+  SCOPE_PL: 'inlines',
+  SCOPE_PARENT: 'comment',
   // TABLE
   TABLE_COLUMNS: [
     {
@@ -28,6 +35,13 @@ export default {
       thClass: 'name',
       tdClass: 'name'
     },
+    {
+      label: 'Parent',
+      field: 'comment.name',
+      type: 'string',
+      thClass: 'parent',
+      tdClass: 'parent'
+    },
   ],
   FIELDS: [
     {
@@ -37,8 +51,14 @@ export default {
       required: true,
       firstFocusForm: true
     },
+    {
+      label: 'Parent',
+      field: 'id_parent',
+      type: 'number',
+      required: true
+    },
   ],
   // EXTRAS
   MENU: '',
-  NAME: 'Comments'
+  NAME: 'Inlines'
 }

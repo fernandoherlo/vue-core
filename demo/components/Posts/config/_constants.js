@@ -6,11 +6,15 @@
 */
 export default {
 // VUEX
-  VUEX_MUTATION: 'COMMENT',
-  VUEX_MUTATION_PL: 'COMMENTS',
+  VUEX_MUTATION: 'POST',
+  VUEX_MUTATION_PL: 'POSTS',
+  VUEX_MUTATION_ASSOCIATE: {
+    STORE: 'RELATION',
+    DELETE: 'relations'
+  },
   // API
-  SCOPE: 'comment',
-  SCOPE_PL: 'comments',
+  SCOPE: 'post',
+  SCOPE_PL: 'posts',
   // TABLE
   TABLE_COLUMNS: [
     {
@@ -40,5 +44,5 @@ export default {
   ],
   // EXTRAS
   MENU: '',
-  NAME: 'Comments'
+  NAME: 'Posts'
 }

@@ -40,6 +40,7 @@ import config from './config/_constants'
 |--------------------------------------------------------------------------
 |
 */
+
 let alreadyExecuted = false
 function plugin(Vue) {
   Vue.mixin({

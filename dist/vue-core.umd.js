@@ -21584,7 +21584,7 @@ var lodash_filter_default = /*#__PURE__*/__webpack_require__.n(lodash_filter);
 
 // CONCATENATED MODULE: ./node_modules/vue-good-table/dist/vue-good-table.es.js
 /**
- * vue-good-table v2.13.0
+ * vue-good-table v2.13.1
  * (c) 2018-present xaksis <shay@crayonbits.com>
  * https://github.com/xaksis/vue-good-table
  * Released under the MIT License.
@@ -22001,13 +22001,10 @@ var VgtPagination = {
     perPageChanged: function perPageChanged(event) {
       if (event) {
         this.currentPerPage = parseInt(event.target.value, 10);
-      }
+      } //* go back to first page
 
-      if (this.currentPerPage === -1) {
-        // reset current page to 1
-        this.currentPage = 1;
-      }
 
+      this.changePage(1);
       this.$emit('per-page-changed', {
         currentPerPage: this.currentPerPage
       });
@@ -22016,7 +22013,13 @@ var VgtPagination = {
       return this.rowsPerPageOptions;
     },
     handlePerPage: function handlePerPage() {
-      this.rowsPerPageOptions = lodash_clonedeep_default()(this.defaultRowsPerPageDropdown);
+      //* if there's a custom dropdown then we use that
+      if (this.customRowsPerPageDropdown !== null && Array.isArray(this.customRowsPerPageDropdown) && this.customRowsPerPageDropdown.length !== 0) {
+        this.rowsPerPageOptions = this.customRowsPerPageDropdown;
+      } else {
+        //* otherwise we use the default rows per page dropdown
+        this.rowsPerPageOptions = lodash_clonedeep_default()(this.defaultRowsPerPageDropdown);
+      }
 
       if (this.perPage) {
         this.currentPerPage = this.perPage; // if perPage doesn't already exist, we add it
@@ -22033,10 +22036,6 @@ var VgtPagination = {
       } else {
         // reset to default
         this.currentPerPage = 10;
-      }
-
-      if (this.customRowsPerPageDropdown !== null && Array.isArray(this.customRowsPerPageDropdown) && this.customRowsPerPageDropdown.length !== 0) {
-        this.rowsPerPageOptions = this.customRowsPerPageDropdown;
       }
     }
   },
@@ -22154,7 +22153,7 @@ var VgtFilterRow = {
           "value": _vm.columnFilters[column.field]
         },
         on: {
-          "input": function input($event) {
+          "change": function change($event) {
             _vm.updateFilters(column, $event.target.value);
           }
         }
@@ -22521,7 +22520,7 @@ var VgtHeaderRow = {
     }) : _vm._e(), _vm._v(" "), _vm.headerRow.mode !== 'span' && _vm.selectable ? _c('th', {
       staticClass: "vgt-row-header"
     }) : _vm._e(), _vm._v(" "), _vm._l(_vm.columns, function (column, i) {
-      return _vm.headerRow.mode !== 'span' ? _c('th', {
+      return _vm.headerRow.mode !== 'span' && !column.hidden ? _c('th', {
         key: i,
         staticClass: "vgt-row-header",
         class: _vm.getClasses(i, 'td')
@@ -23230,7 +23229,14 @@ var VueGoodTable = {
       return selectedRows;
     },
     fullColspan: function fullColspan() {
-      var fullColspan = this.columns.length;
+      var fullColspan = 0;
+
+      for (var i = 0; i < this.columns.length; i += 1) {
+        if (!this.columns[i].hidden) {
+          fullColspan += 1;
+        }
+      }
+
       if (this.lineNumbers) fullColspan++;
       if (this.selectable) fullColspan++;
       return fullColspan;

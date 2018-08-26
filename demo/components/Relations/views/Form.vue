@@ -6,8 +6,8 @@
 |
 */
 import Form from '@/components/Form'
-import InputText from '@/components/partials/InputText'
-import ListInline from '../../Inlines/views/ListInline'
+import InputHidden from '@/components/partials/InputHidden'
+import Select from '@/components/partials/Select'
 
 /*
 |--------------------------------------------------------------------------
@@ -26,22 +26,27 @@ import localConfig from '../config/component'
 export default {
   extends: Form,
   components: {
-    'list-inline': ListInline,
-    'input-text': InputText
+    'input-hidden': InputHidden,
+    'custom-select': Select
   },
   data () {
     return {
       config: localConfig
     }
-  }
+  },
+  computed: {
+    itemsGet1 () {
+      return this.$store.getters['all' + this.config.coreExtendVuexGet1]
+    }
+  },
 }
 </script>
 
 <template>
   <form v-if="item" v-on:submit.prevent="__send">
-    <!-- Name -->
-    <input-text :field="config.fields[0]" :item="item"></input-text>
-    <!-- Inline -->
-    <list-inline v-if="!isNew"></list-inline>
+    <!-- Id_relation -->
+    <custom-select :field="config.fields[0]" :item="item" :values="itemsGet1"></custom-select>
+    <!-- Id_parent -->
+    <input-hidden :field="config.fields[1]" :item="item"></input-hidden>
   </form>
 </template>

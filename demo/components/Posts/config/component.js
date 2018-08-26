@@ -36,7 +36,7 @@ export default {
   buttonDeleteName: 'Delete',
   buttonAskDeleteName: 'Sure ?',
   buttonCancelName: 'Cancel',
-  buttonBackName: '« Back',
+  buttonBackName: 'Back',
   buttonSaveName: 'Save',
   buttonUpdateName: 'Update',
   // Table

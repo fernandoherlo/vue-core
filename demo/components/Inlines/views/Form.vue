@@ -7,7 +7,7 @@
 */
 import Form from '@/components/Form'
 import InputText from '@/components/partials/InputText'
-import ListInline from '../../Inlines/views/ListInline'
+import InputHidden from '@/components/partials/InputHidden'
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +26,8 @@ import localConfig from '../config/component'
 export default {
   extends: Form,
   components: {
-    'list-inline': ListInline,
-    'input-text': InputText
+    'input-text': InputText,
+    'input-hidden': InputHidden
   },
   data () {
     return {
@@ -41,7 +41,7 @@ export default {
   <form v-if="item" v-on:submit.prevent="__send">
     <!-- Name -->
     <input-text :field="config.fields[0]" :item="item"></input-text>
-    <!-- Inline -->
-    <list-inline v-if="!isNew"></list-inline>
+    <!-- Id_parent -->
+    <input-hidden :field="config.fields[1]" :item="item"></input-hidden>
   </form>
 </template>

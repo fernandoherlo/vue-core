@@ -16,7 +16,7 @@ import config from './_constants'
 let baseColumns = [{
   label: 'Actions',
   field: 'id',
-  type: 'number',
+  type: 'string',
   thClass: 'actions',
   tdClass: 'actions',
   sortable: false
@@ -36,7 +36,7 @@ export default {
   buttonDeleteName: 'Delete',
   buttonAskDeleteName: 'Sure ?',
   buttonCancelName: 'Cancel',
-  buttonBackName: '« Back',
+  buttonBackName: 'Back',
   buttonSaveName: 'Save',
   buttonUpdateName: 'Update',
   // Table

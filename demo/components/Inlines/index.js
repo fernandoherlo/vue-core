@@ -4,7 +4,6 @@
 |--------------------------------------------------------------------------
 |
 */
-import ViewItems from './views/List'
 import ViewItem from './views/Edit'
 import ViewNew from './views/New'
 
@@ -65,15 +64,7 @@ function initPlugin(vm) {
   vm.$router.addRoutes(
   [
     {
-      path: '/' + config.SCOPE_PL,
-      name: config.SCOPE_PL,
-      component: ViewItems,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/' + config.SCOPE_PL + '/:id',
+      path: '/' + config.SCOPE_PL + '/:id/:id_parent',
       name: config.SCOPE,
       component: ViewItem,
       meta: {
@@ -81,7 +72,7 @@ function initPlugin(vm) {
       }
     },
     {
-      path: '/' + config.SCOPE_PL + '/new',
+      path: '/' + config.SCOPE_PL + '/new/:id_parent',
       name: config.SCOPE + '-new',
       component: ViewNew,
       meta: {

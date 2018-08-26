@@ -4,11 +4,7 @@
 |--------------------------------------------------------------------------
 |
 */
-$primary: #42b883;
-$secondary: #35495e;
-
-$body-bg: #efefef;
-$body-color: $secondary;
+@import "_variables";
 
 /*
 |--------------------------------------------------------------------------
@@ -24,38 +20,7 @@ $body-color: $secondary;
 |--------------------------------------------------------------------------
 |
 */
-body {
-  margin-top: 56px;
-}
-
-.loading {
-  position: absolute;
-  width: 200px;
-  margin-left: -100px;
-  top: 100px;
-  left: 50%;
-  text-align: center;
-
-  svg {
-    margin-bottom: 15px;
-  }
-  p {
-    font-size: 16px;
-    small {
-      display: block;
-    }
-  }
-}
-
-/*
-|--------------------------------------------------------------------------
-| Transitions
-|--------------------------------------------------------------------------
-|
-*/
-.fade-enter-active, .fade-leave-active {
-transition: opacity 1.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-opacity: 0;
-}
+@import "_fix";
+@import "_content";
+@import "_header";
+@import "_component";

@@ -20,7 +20,8 @@ const options = {
   displayName: config.SCOPE_PL,
   url: process.env.VUE_APP_API_URL +  '/' + config.SCOPE_PL,
   mTypeName: config.VUEX_MUTATION,
-  mTypeNamePl: config.VUEX_MUTATION_PL
+  mTypeNamePl: config.VUEX_MUTATION_PL,
+  associate: config.VUEX_MUTATION_ASSOCIATE
 }
 
 /*
