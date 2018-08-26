@@ -67,7 +67,11 @@ export default {
     __created () {
     },
     __update () {
-      this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex)
+      this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
+        if (this.config.backOnUpdate) {
+          this.__back()
+        }
+      })
     },
     __save () {
       // Inline

@@ -34,6 +34,8 @@ export default {
   buttonNewName: 'New',
   buttonEditName: 'Edit',
   buttonDeleteName: 'Delete',
+  buttonAskDeleteName: 'Sure ?',
+  buttonCancelName: 'Cancel',
   // Table
   table: {
     columns: config.TABLE_COLUMNS.concat(baseColumns),
