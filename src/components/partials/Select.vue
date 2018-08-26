@@ -9,6 +9,10 @@ export default {
     field: {
       type: Object,
       required: false
+    },
+    values: {
+      type: Object,
+      required: false
     }
   }
 }
@@ -18,11 +22,16 @@ export default {
   <div class="form-group">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
-      <input class="form-control" type="text" v-model="item[field.field]" ref="firstFocusForm">
+    <select class="custom-select" v-model="item[field.field]" ref="firstFocusForm">
     </template>
     <template v-else>
-      <input class="form-control" type="text" v-model="item[field.field]">
+    <select class="custom-select" v-model="item[field.field]">
     </template>
+      <option disabled>{{ field.labelDefault }}</option>
+      <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
+        {{ val.name }}
+      </option>
+    </select>
   </div>
 </template>
 

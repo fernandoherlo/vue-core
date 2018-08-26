@@ -28,6 +28,7 @@ import New from '@/components/New'
 // Partials
 import InputText from '@/components/partials/InputText'
 import InputHidden from '@/components/partials/InputHidden'
+import Select from '@/components/partials/Select'
 
 export {
   auth,
@@ -49,5 +50,6 @@ export {
   ListInline,
   New,
   InputText,
-  InputHidden
+  InputHidden,
+  Select
 }
