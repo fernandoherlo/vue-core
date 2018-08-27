@@ -70,6 +70,12 @@ export default {
       // Confirm
       this.$set(this.confirm, id, true)
     },
+    __checkComponentExists (name) {
+      if (this.$options.components[name]) {
+        return true
+      }
+      return false
+    }
   }
 }
 </script>
@@ -79,7 +85,17 @@ export default {
     <div class="header">
       <h3>{{ config.displayName }}</h3>
     </div>
-    <vue-good-table :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
+    <div class="actions">
+      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
+        <div :is="config.coreExtendScopePl + '-btns'" ref="btnsinline"></div>
+      </template>
+    </div>
+    <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
+      <div slot="selected-row-actions">
+        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-row-actions')">
+          <div :is="config.coreExtendScopePl + '-row-actions'" ref="rowactionsinline"></div>
+        </template>
+      </div>
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttonEditName"></span></a>
