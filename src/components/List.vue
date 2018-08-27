@@ -83,6 +83,12 @@ export default {
       }
       return haystack
     },
+    __checkComponentExists (name) {
+      if (this.$options.components[name]) {
+        return true
+      }
+      return false
+    }
   }
 }
 </script>
@@ -94,7 +100,7 @@ export default {
     </div>
     <div class="actions">
       <a class="btn new" @click="__newItem()"><span v-html="config.buttonNewName"></span></a>
-      <template v-if="config.coreExtendScopePl + '-btns'">
+      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
         <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
       </template>
     </div>
