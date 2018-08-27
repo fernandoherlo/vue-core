@@ -94,6 +94,7 @@ export default {
     </div>
     <div class="actions">
       <a class="btn new" @click="__newItem()"><span v-html="config.buttonNewName"></span></a>
+      <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
     </div>
     <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
       <template slot="table-row" slot-scope="props">
@@ -102,7 +103,6 @@ export default {
           <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]"><span v-html="config.buttonDeleteName"></span></a>
           <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttonAskDeleteName"></span></a>
           <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttonCancelName"></span></a>
-          <slot name="btns"></slot>
         </span>
         <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">
           {{ props.formattedRow[props.column.field] }} 
