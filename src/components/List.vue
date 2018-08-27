@@ -36,7 +36,7 @@ export default {
   },
   created () {
     this.$nextTick(() => {
-      if (config.table.searchOptions.enabled) {
+      if (this.config.table.searchOptions.enabled) {
         if (this.$refs.VueGoodTable.$children[0].$el) {
           this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].focus()
           this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].select()
