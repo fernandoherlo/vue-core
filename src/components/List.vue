@@ -106,7 +106,7 @@ export default {
         <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
       </template>
     </div>
-    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.coreExtendScopePl + '-row-actions')">
           <div :is="config.coreExtendScopePl + '-row-actions'" ref="rowactionsdefault"></div>
