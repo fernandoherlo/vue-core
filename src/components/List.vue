@@ -87,6 +87,7 @@ export default {
         }
         // Default pagintaion
         this.$refs.VueGoodTable.paginate = this.config.table.paginationOptions.enabled
+        this.$refs.VueGoodTable.currentPerPage = this.config.table.paginationOptions.perPage
       }
       // return Highlight
       return haystack
