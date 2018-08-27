@@ -79,10 +79,16 @@ export default {
         if (!props.column.globalSearchDisabled){
           var needle = this.$refs.VueGoodTable.searchTerm
           if (needle) {
+            // Disable pagintaion
+            this.$refs.VueGoodTable.paginate = false
+            // return Highlight
             return this.$helper.search(haystack, needle)
           }
         }
+        // Default pagintaion
+        this.$refs.VueGoodTable.paginate = this.config.table.paginationOptions.enabled
       }
+      // return Highlight
       return haystack
     },
     __checkComponentExists (name) {
