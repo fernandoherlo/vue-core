@@ -94,7 +94,9 @@ export default {
     </div>
     <div class="actions">
       <a class="btn new" @click="__newItem()"><span v-html="config.buttonNewName"></span></a>
-      <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
+      <template v-if="config.coreExtendScopePl + '-btns'">
+        <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
+      </template>
     </div>
     <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" styleClass="table table-bordered table-hover">
       <template slot="table-row" slot-scope="props">
