@@ -37,6 +37,9 @@ let helper = new Vue({
         new RegExp('(' + this.pregQuote(needle) + ')', 'ig'),
         '<span class="highlight">$1</span>'
       )
+    },
+    print (  ) {
+      window.print()
     }
   }
 })

@@ -107,6 +107,7 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
+      <a class="btn print" @click="$helper.print()"><span v-html="config.buttons.printName"></span></a>
       <a class="btn back" @click="__back()" tabindex="0"><span v-html="config.buttons.backName"></span></a>
       <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0"><span v-html="config.buttons.updateName"></span></a>
       <a v-if="isNew" class="btn save" @click="__save()" tabindex="0"><span v-html="config.buttons.saveName"></span></a>

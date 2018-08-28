@@ -110,6 +110,7 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
+      <a class="btn print" @click="$helper.print()"><span v-html="config.buttons.printName"></span></a>
       <a class="btn refresh" @click="__refresh()"><span v-html="config.buttons.refreshName"></span></a>
       <a class="btn new" @click="__newItem()"><span v-html="config.buttons.newName"></span></a>
       <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
