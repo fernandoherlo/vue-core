@@ -107,7 +107,8 @@ export default {
 <template>
   <div class="List">
     <div class="header">
-      <h2>{{ config.displayName }}</h2>
+      <h2 class="hidden-print">{{ config.displayName }}</h2>
+      <h2 class="only-print">{{ config.displayNamePrint }}</h2>
     </div>
     <div class="actions">
       <a class="btn print" @click="$helper.print()"><span v-html="config.buttons.printName"></span></a>

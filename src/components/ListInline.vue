@@ -83,7 +83,8 @@ export default {
 <template>
   <div class="List Inline">
     <div class="header">
-      <h3>{{ config.displayName }}</h3>
+      <h3 class="hidden-print">{{ config.displayName }}</h3>
+      <h3 class="only-print">{{ config.displayNamePrint }}</h3>
     </div>
     <div class="actions">
       <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
