@@ -6,10 +6,17 @@
 |
 */
 import Datepicker from 'vuejs-datepicker';
+import {en, es} from 'vuejs-datepicker/dist/locale'
 
 export default {
   components: {
     Datepicker
+  },
+  data () {
+    return {
+      en: en,
+      es: es
+    }
   },
   props: {
     item: {
@@ -32,7 +39,7 @@ export default {
 <template>
   <div class="form-group">
     <label>{{ field.label }}</label>
-    <datepicker v-model="item[field.field]"></datepicker>
+    <datepicker v-model="item[field.field]" :format="field.dateInputFormat" :monday-first="true" :language="es"></datepicker>
   </div>
 </template>
 
