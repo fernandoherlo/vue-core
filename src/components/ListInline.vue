@@ -100,7 +100,7 @@ export default {
         <span v-if="props.column.thClass === 'actions'">
           <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttons.editName"></span></a>
           <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]"><span v-html="config.buttons.deleteName"></span></a>
-          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.askDeleteName"></span></a>
+          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.askName"></span></a>
           <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.cancelName"></span></a>
         </span>
         <span v-else>
