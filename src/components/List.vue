@@ -50,6 +50,9 @@ export default {
     }
   },
   methods: {
+    __refresh () {
+      this.$store.dispatch('getAll' + this.config.coreExtendVuexPl)
+    },
     __newItem () {
       this.$router.push({name: this.config.coreExtendScope + '-new'})
     },
@@ -107,6 +110,7 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
+      <a class="btn refresh" @click="__refresh()"><span v-html="config.buttons.refreshName"></span></a>
       <a class="btn new" @click="__newItem()"><span v-html="config.buttons.newName"></span></a>
       <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
         <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
