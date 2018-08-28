@@ -104,8 +104,8 @@ export default {
 <template>
   <div class="Edit">
     <div class="header" v-if="itemVuex">
-      <h2 class="hidden-print">{{ config.displayName }}<span v-if="!isNew">: itemVuex[config.fieldID]</span></h2>
-      <h2 class="only-print">{{ config.displayNamePrint }}<span v-if="!isNew">: itemVuex[config.fieldID]</span></h2>
+      <h2 class="hidden-print">{{ config.displayName }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
+      <h2 class="only-print">{{ config.displayNamePrint }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
     </div>
     <div class="actions">
       <a class="btn print" @click="$helper.print()"><span v-html="config.buttons.printName"></span></a>
