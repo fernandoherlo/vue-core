@@ -133,6 +133,9 @@ export default {
           {{ props.formattedRow[props.column.field] }} 
         </span>
       </template>
+      <div slot="emptystate">
+        {{ config.table.noDataText }}
+      </div>
     </vue-good-table>
   </div>
 </template>
