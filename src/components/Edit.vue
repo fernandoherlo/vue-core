@@ -107,9 +107,9 @@ export default {
       <h2>{{ config.displayName }}</h2>
     </div>
     <div class="actions">
-      <a class="btn back" @click="__back()" tabindex="0"><span v-html="config.buttonBackName"></span></a>
-      <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0"><span v-html="config.buttonUpdateName"></span></a>
-      <a v-if="isNew" class="btn save" @click="__save()" tabindex="0"><span v-html="config.buttonSaveName"></span></a>
+      <a class="btn back" @click="__back()" tabindex="0"><span v-html="config.buttons.backName"></span></a>
+      <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0"><span v-html="config.buttons.updateName"></span></a>
+      <a v-if="isNew" class="btn save" @click="__save()" tabindex="0"><span v-html="config.buttons.saveName"></span></a>
     </div>
     <div class="form" v-if="itemVuex">
       <div :is="config.coreExtendScopePl + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
