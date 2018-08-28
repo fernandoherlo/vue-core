@@ -99,10 +99,10 @@ export default {
       </div>
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
-          <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttons.editName" title="{{ config.buttons.editName }}"></span></a>
-          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]"><span v-html="config.buttons.deleteName" title="{{ config.buttons.deleteName }}"></span></a>
-          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.askName" title="{{ config.buttons.askName }}"></span></a>
-          <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.cancelName" title="{{ config.buttons.cancelName }}"></span></a>
+          <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttons.editName" :title="config.buttons.editName"></span></a>
+          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]"><span v-html="config.buttons.deleteName" :title="config.buttons.deleteName"></span></a>
+          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.askName" :title="config.buttons.askName"></span></a>
+          <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.cancelName" :title="config.buttons.cancelName"></span></a>
         </span>
         <span v-else>
           {{ props.formattedRow[props.column.field] }}
@@ -110,7 +110,7 @@ export default {
       </template>
     </vue-good-table>
     <div class="actions">
-      <a class="btn new" @click="__newItem()"><span v-html="config.buttons.newName"></span></a>
+      <a class="btn new" @click="__newItem()"><span v-html="config.buttons.newName" :title="config.buttons.newName"></span></a>
     </div>
   </div>
 </template>
