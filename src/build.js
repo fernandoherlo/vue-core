@@ -30,6 +30,7 @@ import InputText from '@/components/partials/InputText'
 import InputHidden from '@/components/partials/InputHidden'
 import InputPassword from '@/components/partials/InputPassword'
 import Select from '@/components/partials/Select'
+import DatePicker from '@/components/partials/DatePicker'
 
 export {
   auth,
@@ -53,5 +54,6 @@ export {
   InputText,
   InputHidden,
   InputPassword,
-  Select
+  Select,
+  DatePicker
 }
