@@ -40,9 +40,6 @@ let helper = new Vue({
     },
     print () {
       window.print()
-    },
-    routerPush (name, params) {
-      this.$router.push({name: name, params})
     }
   }
 })
