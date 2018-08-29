@@ -12172,6 +12172,12 @@ var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     },
     print: function print() {
       window.print();
+    },
+    routerPush: function routerPush(name, params) {
+      this.$router.push({
+        name: name,
+        params: params
+      });
     }
   }
 });

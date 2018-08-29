@@ -38,8 +38,11 @@ let helper = new Vue({
         '<span class="highlight">$1</span>'
       )
     },
-    print (  ) {
+    print () {
       window.print()
+    },
+    routerPush (name, params) {
+      this.$router.push({name: name, params})
     }
   }
 })
