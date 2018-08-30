@@ -12207,7 +12207,7 @@ var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
   install: function install(Vue) {
     Vue.prototype.$helper = helper;
   },
-  helper: methodsHelper
+  $: methodsHelper
 });
 // CONCATENATED MODULE: ./src/services/event-bus.js
 

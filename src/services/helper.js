@@ -76,5 +76,5 @@ export default {
   install: function(Vue) {
     Vue.prototype.$helper = helper
   },
-  helper: methodsHelper
+  $: methodsHelper
 }
