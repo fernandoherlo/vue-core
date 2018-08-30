@@ -24402,6 +24402,8 @@ var ListInline_component = normalizeComponent(
 ListInline_component.options.__file = "ListInline.vue"
 /* harmony default export */ var ListInline = (ListInline_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/New.vue?vue&type=script&lang=js&
+
+
 /*
 |--------------------------------------------------------------------------
 | CORE component & config
@@ -24427,7 +24429,16 @@ ListInline_component.options.__file = "ListInline.vue"
   },
   methods: {
     __construct: function __construct() {
-      // Init methods
+      var _this = this;
+
+      // Validate
+      this.$nextTick(function () {
+        _this.$refs.formdefault.$children.forEach(function (vm) {
+          console.log(vm.$options._componentTag);
+          vm.$validator.validate();
+        });
+      }); // Init methods
+
       this.__created();
     }
   }
