@@ -28,6 +28,10 @@ export default {
     <template v-else>
       <input v-validate="field.validate" :name="field.label" :class="{'is-danger': errors.has(field.label)}" class="form-control" type="text" v-model="item[field.field]" :disabled="disabledCondition">
     </template>
+    {{ errors }}
+    {{ field.label }}
+    {{ errors.has(field.label) }}
+    {{ errors.first(field.label) }}
     <span class="error" v-show="errors.has(field.label)">{{ errors.first(field.label) }}</span>
   </div>
 </template>
