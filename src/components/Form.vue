@@ -43,6 +43,16 @@ export default {
       }
       return false;
     }
+  },
+  hasErrors (label) {
+    if (this.errors.items.length > 0) {
+      return this.errors.has('formDefaultValidate.' + label)
+    }
+  },
+  firstError (label) {
+    if (this.errors.items.length > 0) {
+      return this.errors.first('formDefaultValidate.' + label)
+    }
   }
 }
 </script>
