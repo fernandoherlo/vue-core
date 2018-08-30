@@ -30,7 +30,11 @@ const getters = {
 */
 const actions = {
   // eslint-disable-next-line
-  loadBaseData ({ dispatch, commit }, modules, VUE_APP_LOAD_COMPLETE) {
+  loadBaseData ({ dispatch, commit }, data) {
+
+    var modules = data[0]
+    var VUE_APP_LOAD_COMPLETE = data[1]
+
     // Init
     dispatch('initLoad', modules.length)
     // Load

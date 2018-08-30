@@ -12248,10 +12248,12 @@ var getters = {
 };
 var actions = {
   // eslint-disable-next-line
-  loadBaseData: function loadBaseData(_ref, modules, VUE_APP_LOAD_COMPLETE) {
+  loadBaseData: function loadBaseData(_ref, data) {
     var dispatch = _ref.dispatch,
         commit = _ref.commit;
-    // Init
+    var modules = data[0];
+    var VUE_APP_LOAD_COMPLETE = data[1]; // Init
+
     dispatch('initLoad', modules.length); // Load
 
     var load = function load(i) {
