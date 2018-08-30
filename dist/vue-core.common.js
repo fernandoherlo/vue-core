@@ -12119,11 +12119,11 @@ var acl = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     Vue.prototype.$acl = acl;
   }
 });
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.constructor.js
-var es6_regexp_constructor = __webpack_require__("3b2b");
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
 var es6_regexp_to_string = __webpack_require__("6b54");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.constructor.js
+var es6_regexp_constructor = __webpack_require__("3b2b");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.replace.js
 var es6_regexp_replace = __webpack_require__("a481");
@@ -12158,10 +12158,20 @@ var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       if (n === undefined || n === null) return '';
       return parseFloat(Math.round(n * 100) / 100).toFixed(2);
     },
-    toCurrency: function toCurrency(n) {
-      this.toDecimal(n).replace(/[,.]/g, function (m) {
-        return m === ',' ? '.' : ',';
-      });
+    toCurrency: function toCurrency(number) {
+      /*
+       * @param integer n: length of decimal
+       * @param integer x: length of whole part
+       * @param mixed   s: sections delimiter
+       * @param mixed   c: decimal delimiter
+       */
+      var n = 2;
+      var x = 3;
+      var s = '.';
+      var c = ',';
+      var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')';
+      var num = number.toFixed(Math.max(0, ~~n));
+      return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     },
     // Parse ID
     getID: function getID(ID) {

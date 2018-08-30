@@ -23,10 +23,20 @@ let helper = new Vue({
       if (n === undefined || n === null) return '';
       return parseFloat(Math.round(n * 100) / 100).toFixed(2);
     },
-    toCurrency (n) {
-      this.toDecimal(n).replace(/[,.]/g, function (m) {
-        return m === ',' ? '.' : ',';
-      })
+    toCurrency (number) {
+      /*
+       * @param integer n: length of decimal
+       * @param integer x: length of whole part
+       * @param mixed   s: sections delimiter
+       * @param mixed   c: decimal delimiter
+       */
+      const n = 2
+      const x = 3
+      const s = '.'
+      const c = ','
+      var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')'
+      var num = number.toFixed(Math.max(0, ~~n));
+      return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
     },
     // Parse ID
     getID (ID) {
