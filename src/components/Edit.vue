@@ -49,6 +49,8 @@ export default {
     if (this.config.inline) {
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
     }
+    // Created __construct new
+    this.__construct ()
     // Created children
     this.__created ()
   },
@@ -68,6 +70,8 @@ export default {
     }
   },
   methods: {
+    __construct () {
+    },
     __created () {
     },
     __update () {

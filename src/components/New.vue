@@ -31,8 +31,6 @@ export default {
           vm.$validator.validate()
         })
       })
-      // Init methods
-      this.__created()
     }
   }
 }
