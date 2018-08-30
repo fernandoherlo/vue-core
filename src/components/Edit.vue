@@ -71,8 +71,7 @@ export default {
     __created () {
     },
     __update () {
-      this.$validator.validateAll().then((result) => {
-        console.log(this.$validator.errors.items)
+      this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
           this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
             if (this.config.backOnUpdate) {
@@ -83,8 +82,7 @@ export default {
       })
     },
     __save () {
-      this.$validator.validateAll().then((result) => {
-        console.log(this.$validator.errors.items)
+      this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
           // Inline
           if (this.config.inline) {
