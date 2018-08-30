@@ -71,30 +71,32 @@ export default {
     __created () {
     },
     __update () {
-      console.log(this.$validator.errors.items)
-      if (!this.$validator.errors.items) {
-        this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
-          if (this.config.backOnUpdate) {
-            this.__back()
-          }
-        })
-      }
+      this.$refs.formdefault.$validator.validateAll().then((result) => {
+        if (result) {
+          this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
+            if (this.config.backOnUpdate) {
+              this.__back()
+            }
+          })
+        }
+      })
     },
     __save () {
-      console.log(this.$validator.errors.items)
-      if (!this.$validator.errors.items) {
-        // Inline
-        if (this.config.inline) {
-          this.itemVuex.id_parent = this.itemIDParent
-        }
-        this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
-          if (this.config.backOnSave) {
-            this.__back()
-          } else {
-            this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
+      this.$refs.formdefault.$validator.validateAll().then((result) => {
+        if (result) {
+          // Inline
+          if (this.config.inline) {
+            this.itemVuex.id_parent = this.itemIDParent
           }
-        })
-      }
+          this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
+            if (this.config.backOnSave) {
+              this.__back()
+            } else {
+              this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
+            }
+          })
+        }
+      })
     },
     __back () {
       if (this.config.inline) {

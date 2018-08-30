@@ -23,12 +23,12 @@ export default {
   <div class="form-group">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
-      <input v-validate="field.validate" :name="field.label" class="form-control" type="password" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
+      <input v-validate="field.validate" :name="field.label" :class="{'is-danger': errors.has(field.label)}" class="form-control" type="password" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
     </template>
     <template v-else>
-      <input v-validate="field.validate" :name="field.label" class="form-control" type="password" v-model="item[field.field]" :disabled="disabledCondition">
+      <input v-validate="field.validate" :name="field.label" :class="{'is-danger': errors.has(field.label)}" class="form-control" type="password" v-model="item[field.field]" :disabled="disabledCondition">
     </template>
-    <span class="error" v-show="errors.has(field.field)">{{ errors.first(field.field) }}</span>
+    <span class="error" v-show="errors.has(field.label)">{{ errors.first(field.label) }}</span>
   </div>
 </template>
 
