@@ -28,6 +28,7 @@ export default {
     <template v-else>
       <input v-validate="field.validate" class="form-control" type="password" v-model="item[field.field]" :disabled="disabledCondition">
     </template>
+    <span class="error" v-show="errors.has(field.field)">{{ errors.first(field.field) }}</span>
   </div>
 </template>
 

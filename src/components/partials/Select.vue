@@ -42,6 +42,7 @@ export default {
         </option>
       </select>
     </template>
+    <span class="error" v-show="errors.has(field.field)">{{ errors.first(field.field) }}</span>
   </div>
 </template>
 

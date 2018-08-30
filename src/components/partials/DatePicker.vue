@@ -40,6 +40,7 @@ export default {
   <div class="form-group">
     <label>{{ field.label }}</label>
     <datepicker v-validate="field.validate" v-model="item[field.field]" :format="field.dateInputFormat" :bootstrap-styling="field.bootstrapStyling" :monday-first="true" :language="es"></datepicker>
+    <span class="error" v-show="errors.has(field.field)">{{ errors.first(field.field) }}</span>
   </div>
 </template>
 
