@@ -27,7 +27,6 @@ export default {
       // Validate
       this.$nextTick(() => {
         this.$refs.formdefault.$children.forEach(vm => {
-          console.log(vm.$options._componentTag);
           vm.$validator.validate()
         })
       })

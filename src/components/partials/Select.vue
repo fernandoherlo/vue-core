@@ -30,7 +30,7 @@ export default {
       <select v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
-          {{ val.name }}
+          {{ val.id }}. {{ val.name }}
         </option>
       </select>
     </template>
@@ -38,7 +38,7 @@ export default {
       <select v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
-          {{ val.name }}
+          {{ val.id }}. {{ val.name }}
         </option>
       </select>
     </template>
