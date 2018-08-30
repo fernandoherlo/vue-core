@@ -12163,14 +12163,16 @@ var methodsHelper = {
      * @param integer x: length of whole part
      * @param mixed   s: sections delimiter
      * @param mixed   c: decimal delimiter
+     * @param mixed   y: symbol currency
      */
     var n = 2;
     var x = 3;
     var s = '.';
     var c = ',';
+    var y = '€';
     var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')';
     var num = number.toFixed(Math.max(0, ~~n));
-    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ',')) + y;
   },
   // Parse ID
   getID: function getID(ID) {

@@ -28,14 +28,16 @@ let methodsHelper = {
      * @param integer x: length of whole part
      * @param mixed   s: sections delimiter
      * @param mixed   c: decimal delimiter
+     * @param mixed   y: symbol currency
      */
     const n = 2
     const x = 3
     const s = '.'
     const c = ','
+    const y = '€'
     var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')'
     var num = number.toFixed(Math.max(0, ~~n));
-    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ',')) + y;
   },
   // Parse ID
   getID (ID) {
