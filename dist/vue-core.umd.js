@@ -12167,6 +12167,11 @@ var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       if (n === undefined || n === null) return '';
       return parseFloat(Math.round(n * 100) / 100).toFixed(2);
     },
+    toCurrency: function toCurrency(n) {
+      this.toDecimal(n).replace(/[,.]/g, function (m) {
+        return m === ',' ? '.' : ',';
+      });
+    },
     // Parse ID
     getID: function getID(ID) {
       // Is number

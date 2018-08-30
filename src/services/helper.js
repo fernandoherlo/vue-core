@@ -23,6 +23,11 @@ let helper = new Vue({
       if (n === undefined || n === null) return '';
       return parseFloat(Math.round(n * 100) / 100).toFixed(2);
     },
+    toCurrency (n) {
+      this.toDecimal(n).replace(/[,.]/g, function (m) {
+        return m === ',' ? '.' : ',';
+      })
+    },
     // Parse ID
     getID (ID) {
       // Is number
