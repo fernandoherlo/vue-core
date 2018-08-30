@@ -12248,7 +12248,7 @@ var getters = {
 };
 var actions = {
   // eslint-disable-next-line
-  loadBaseData: function loadBaseData(_ref, modules) {
+  loadBaseData: function loadBaseData(_ref, modules, VUE_APP_LOAD_COMPLETE) {
     var dispatch = _ref.dispatch,
         commit = _ref.commit;
     // Init
@@ -12257,7 +12257,7 @@ var actions = {
     var load = function load(i) {
       if (i === modules.length) {
         // Complete
-        dispatch('completeLoad');
+        dispatch('completeLoad', VUE_APP_LOAD_COMPLETE);
       } else {
         dispatch(modules[i]).then(function () {
           // Next
@@ -12275,10 +12275,10 @@ var actions = {
     var commit = _ref2.commit;
     commit('RECEIVE_LOAD_INIT', count);
   },
-  completeLoad: function completeLoad(_ref3) {
+  completeLoad: function completeLoad(_ref3, VUE_APP_LOAD_COMPLETE) {
     var commit = _ref3.commit;
     setTimeout(function () {
-      commit('RECEIVE_LOAD_END', '<strong>' + "Load complete" + '</strong>');
+      commit('RECEIVE_LOAD_END', '<strong>' + VUE_APP_LOAD_COMPLETE + '</strong>');
     }, 500);
     setTimeout(function () {
       commit('RECEIVE_LOAD');

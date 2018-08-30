@@ -30,14 +30,14 @@ const getters = {
 */
 const actions = {
   // eslint-disable-next-line
-  loadBaseData ({ dispatch, commit }, modules) {
+  loadBaseData ({ dispatch, commit }, modules, VUE_APP_LOAD_COMPLETE) {
     // Init
     dispatch('initLoad', modules.length)
     // Load
     let load = function (i) {
       if (i === modules.length) {
         // Complete
-        dispatch('completeLoad')
+        dispatch('completeLoad', VUE_APP_LOAD_COMPLETE)
       } else {
         dispatch(modules[i]).then(() => {
           // Next
@@ -53,9 +53,9 @@ const actions = {
   initLoad ({ commit }, count) {
     commit('RECEIVE_LOAD_INIT', count)
   },
-  completeLoad ({ commit }) {
+  completeLoad ({ commit }, VUE_APP_LOAD_COMPLETE) {
     setTimeout(() => {
-      commit('RECEIVE_LOAD_END', '<strong>' + process.env.VUE_APP_LOAD_COMPLETE + '</strong>')
+      commit('RECEIVE_LOAD_END', '<strong>' + VUE_APP_LOAD_COMPLETE + '</strong>')
     }, 500)
     setTimeout(() => {
       commit('RECEIVE_LOAD')
