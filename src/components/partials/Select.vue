@@ -27,7 +27,7 @@ export default {
   <div class="form-group">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
-      <select v-validate="field.validate" :name="field.label" :class="{'is-danger': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
+      <select v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
           {{ val.name }}
@@ -35,7 +35,7 @@ export default {
       </select>
     </template>
     <template v-else>
-      <select v-validate="field.validate" :name="field.label" :class="{'is-danger': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" :disabled="disabledCondition">
+      <select v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
           {{ val.name }}
