@@ -1,6 +1,14 @@
 <script>
 
 export default {
+  $_veeValidate: {
+    name () {
+      return this.field.label;
+    },
+    value () {
+      return this.item[this.field.field]
+    }
+  },
   props: {
     item: {
       type: Object,
