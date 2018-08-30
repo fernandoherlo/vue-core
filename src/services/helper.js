@@ -18,6 +18,11 @@ let helper = new Vue({
     isNumber (n) {
       return !isNaN(parseFloat(n)) && isFinite(n);
     },
+    // decimal
+    toDecimal (n) {
+      if (n === undefined || n === null) return '';
+      return parseFloat(Math.round(n * 100) / 100).toFixed(2);
+    },
     // Parse ID
     getID (ID) {
       // Is number

@@ -12153,6 +12153,11 @@ var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
     isNumber: function isNumber(n) {
       return !isNaN(parseFloat(n)) && isFinite(n);
     },
+    // decimal
+    toDecimal: function toDecimal(n) {
+      if (n === undefined || n === null) return '';
+      return parseFloat(Math.round(n * 100) / 100).toFixed(2);
+    },
     // Parse ID
     getID: function getID(ID) {
       // Is number
