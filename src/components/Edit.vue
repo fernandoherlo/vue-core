@@ -71,8 +71,8 @@ export default {
     __created () {
     },
     __update () {
-      console.log(this.$validator.errorBag)
-      if (!this.$validator.errorBag) {
+      console.log(this.$validator.errors.items)
+      if (!this.$validator.errors.items) {
         this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
           if (this.config.backOnUpdate) {
             this.__back()
@@ -81,8 +81,8 @@ export default {
       }
     },
     __save () {
-      console.log(this.$validator.errorBag)
-      if (!this.$validator.errorBag) {
+      console.log(this.$validator.errors.items)
+      if (!this.$validator.errors.items) {
         // Inline
         if (this.config.inline) {
           this.itemVuex.id_parent = this.itemIDParent

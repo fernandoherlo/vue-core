@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <input v-validate="field.validate" type="hidden" v-model="item[field.field]">
+  <input v-validate="field.validate" :name="field.label" type="hidden" v-model="item[field.field]">
 </template>
 
 <style lang="sass" scoped>
