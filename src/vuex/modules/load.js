@@ -55,7 +55,7 @@ const actions = {
   },
   completeLoad ({ commit }) {
     setTimeout(() => {
-      commit('RECEIVE_LOAD_END', '<strong>Load complete</strong>')
+      commit('RECEIVE_LOAD_END', '<strong>' + process.env.VUE_APP_LOAD_COMPLETE + '</strong>')
     }, 500)
     setTimeout(() => {
       commit('RECEIVE_LOAD')

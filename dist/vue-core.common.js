@@ -12269,7 +12269,7 @@ var actions = {
   completeLoad: function completeLoad(_ref3) {
     var commit = _ref3.commit;
     setTimeout(function () {
-      commit('RECEIVE_LOAD_END', '<strong>Load complete</strong>');
+      commit('RECEIVE_LOAD_END', '<strong>' + "Load complete" + '</strong>');
     }, 500);
     setTimeout(function () {
       commit('RECEIVE_LOAD');
