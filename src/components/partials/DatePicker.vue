@@ -39,7 +39,7 @@ export default {
 <template>
   <div class="form-group">
     <label>{{ field.label }}</label>
-    <datepicker v-model="item[field.field]" :format="field.dateInputFormat" :bootstrap-styling="field.bootstrapStyling" :monday-first="true" :language="es"></datepicker>
+    <datepicker v-validate="field.validate" v-model="item[field.field]" :format="field.dateInputFormat" :bootstrap-styling="field.bootstrapStyling" :monday-first="true" :language="es"></datepicker>
   </div>
 </template>
 
