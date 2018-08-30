@@ -12151,63 +12151,72 @@ var es6_regexp_replace = __webpack_require__("a481");
 
 /*
 |--------------------------------------------------------------------------
+| methodsHelper
+|--------------------------------------------------------------------------
+|
+*/
+
+var methodsHelper = {
+  // Number
+  isNumber: function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  },
+  // decimal
+  toDecimal: function toDecimal(n) {
+    if (n === undefined || n === null) return '';
+    return parseFloat(Math.round(n * 100) / 100).toFixed(2);
+  },
+  toCurrency: function toCurrency(number) {
+    /*
+     * @param integer n: length of decimal
+     * @param integer x: length of whole part
+     * @param mixed   s: sections delimiter
+     * @param mixed   c: decimal delimiter
+     */
+    var n = 2;
+    var x = 3;
+    var s = '.';
+    var c = ',';
+    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')';
+    var num = number.toFixed(Math.max(0, ~~n));
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+  },
+  // Parse ID
+  getID: function getID(ID) {
+    // Is number
+    if (this.isNumber(ID)) {
+      return parseInt(ID);
+    } else {
+      return ID;
+    }
+  },
+  // Search
+  pregQuote: function pregQuote(str) {
+    // eslint-disable-next-line
+    return (str + '').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
+  },
+  search: function search(haystack, needle) {
+    return haystack.toString().replace(new RegExp('(' + this.pregQuote(needle) + ')', 'ig'), '<span class="highlight">$1</span>');
+  },
+  print: function print() {
+    window.print();
+  }
+};
+/*
+|--------------------------------------------------------------------------
 | $helper
 |--------------------------------------------------------------------------
 |
 */
 
 var helper = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
-  methods: {
-    // Number
-    isNumber: function isNumber(n) {
-      return !isNaN(parseFloat(n)) && isFinite(n);
-    },
-    // decimal
-    toDecimal: function toDecimal(n) {
-      if (n === undefined || n === null) return '';
-      return parseFloat(Math.round(n * 100) / 100).toFixed(2);
-    },
-    toCurrency: function toCurrency(number) {
-      /*
-       * @param integer n: length of decimal
-       * @param integer x: length of whole part
-       * @param mixed   s: sections delimiter
-       * @param mixed   c: decimal delimiter
-       */
-      var n = 2;
-      var x = 3;
-      var s = '.';
-      var c = ',';
-      var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')';
-      var num = number.toFixed(Math.max(0, ~~n));
-      return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
-    },
-    // Parse ID
-    getID: function getID(ID) {
-      // Is number
-      if (this.isNumber(ID)) {
-        return parseInt(ID);
-      } else {
-        return ID;
-      }
-    },
-    // Search
-    pregQuote: function pregQuote(str) {
-      // eslint-disable-next-line
-      return (str + '').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
-    },
-    search: function search(haystack, needle) {
-      return haystack.toString().replace(new RegExp('(' + this.pregQuote(needle) + ')', 'ig'), '<span class="highlight">$1</span>');
-    },
-    print: function print() {
-      window.print();
-    }
-  }
+  methods: methodsHelper
 });
 /* harmony default export */ var services_helper = ({
   install: function install(Vue) {
     Vue.prototype.$helper = helper;
-  }
+  },
+  helper: methodsHelper
 });
 // CONCATENATED MODULE: ./src/services/event-bus.js
 
