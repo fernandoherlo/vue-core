@@ -72,6 +72,7 @@ export default {
     },
     __update () {
       this.$refs.formdefault.$validator.validateAll().then((result) => {
+        console.log(result)
         if (result) {
           this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
             if (this.config.backOnUpdate) {
@@ -83,6 +84,7 @@ export default {
     },
     __save () {
       this.$refs.formdefault.$validator.validateAll().then((result) => {
+        console.log(result)
         if (result) {
           // Inline
           if (this.config.inline) {
