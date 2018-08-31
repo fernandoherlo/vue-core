@@ -29,6 +29,7 @@ export default {
         this.$refs.formdefault.$children.forEach(vm => {
           vm.$validator.validate()
         })
+        this.$refs.formdefault.$validator.validate()
       })
     }
   }
