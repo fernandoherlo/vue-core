@@ -39,8 +39,8 @@ export default {
 <template>
   <div class="form-group">
     <label>{{ field.label }}</label>
-    <datepicker v-validate="field.validate" :name="field.label" :input-class="{'has-error': $parent.hasErrors(field.label)}" v-model="item[field.field]" :format="field.dateInputFormat" :bootstrap-styling="field.bootstrapStyling" :monday-first="true" :language="es"></datepicker>
-    <span class="error" v-show="$parent.hasErrors(field.label)">{{ $parent.firstError(field.label) }}</span>
+    <datepicker v-validate="field.validate" :name="field.label" :input-class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="item[field.field]" :format="field.dateInputFormat" :bootstrap-styling="field.bootstrapStyling" :monday-first="true" :language="es"></datepicker>
+    <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
   </div>
 </template>
 
