@@ -31,6 +31,7 @@ import InputHidden from '@/components/partials/InputHidden'
 import InputPassword from '@/components/partials/InputPassword'
 import Select from '@/components/partials/Select'
 import DatePicker from '@/components/partials/DatePicker'
+import Dropbox from '@/components/partials/Dropbox'
 
 export {
   auth,
@@ -55,5 +56,6 @@ export {
   InputHidden,
   InputPassword,
   Select,
-  DatePicker
+  DatePicker,
+  Dropbox
 }

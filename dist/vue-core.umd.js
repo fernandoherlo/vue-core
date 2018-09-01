@@ -26227,6 +26227,155 @@ var DatePicker_component = normalizeComponent(
 
 DatePicker_component.options.__file = "DatePicker.vue"
 /* harmony default export */ var DatePicker = (DatePicker_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=template&id=4b6401ba&
+var Dropboxvue_type_template_id_4b6401ba_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropbox"},[_c('h3',[_vm._v(_vm._s(_vm.field.label))]),_c('div',{staticClass:"form-group w100"},[_c('div',{staticClass:"photos-btns"},[_c('label',{staticClass:"btn btn-file btn-outline-primary"},[_c('span',{ref:"fileSelect"},[_vm._v(_vm._s(_vm.field.addText))]),_c('input',{ref:"file",attrs:{"type":"file","multiple":"","hidden":""},on:{"change":_vm.previewFiles}})]),_c('button',{staticClass:"btn btn-primary",attrs:{"type":"button","tabindex":"0","disabled":!_vm.filesUploadCount},on:{"click":function($event){_vm.uploadFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.upText))]),_c('button',{staticClass:"btn btn-warning",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.deleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.deleteText))])]),(_vm.loading)?[(_vm.files)?_c('ul',{staticClass:"photos-list"},_vm._l((_vm.files),function(file,index){return _c('li',{key:file.metadata.id},[_c('a',{attrs:{"href":file.link,"target":"_blank"}},[_c('small',[_vm._v(_vm._s(index+1))]),_c('img',{attrs:{"src":file.link}})])])})):_vm._e()]:[_c('div',{staticClass:"loading inline"},[_c('icon',{attrs:{"name":"sync","scale":"2","spin":""}})],1)]],2)])}
+var Dropboxvue_type_template_id_4b6401ba_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=template&id=4b6401ba&
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=script&lang=js&
+/* harmony default export */ var Dropboxvue_type_script_lang_js_ = ({
+  props: {
+    item: {
+      type: Object,
+      required: false
+    },
+    field: {
+      type: Object,
+      required: false
+    }
+  },
+  data: function data() {
+    return {
+      loading: false,
+      filesUploadCount: 0,
+      files: []
+    };
+  },
+  computed: {
+    urlFiles: function urlFiles() {
+      return this.field.urlFiles + '/' + this.item.id;
+    },
+    deleteFiles: function deleteFiles() {
+      return this.field.deleteFiles + '/' + this.item.id;
+    },
+    urlUpload: function urlUpload() {
+      return this.field.urlUpload + '/' + this.item.id;
+    }
+  },
+  created: function created() {
+    this.getFilesDropbox();
+  },
+  methods: {
+    getFilesDropbox: function getFilesDropbox() {
+      var _this = this;
+
+      var options = {
+        url: this.urlFiles,
+        method: 'GET'
+      };
+      this.$http.axios(options).then(function (dropboxFiles) {
+        _this.loading = true;
+        _this.files = dropboxFiles.data;
+      });
+    },
+    deleteFilesDropbox: function deleteFilesDropbox() {
+      var _this2 = this;
+
+      // RESET
+      this.resetDropboxElements();
+      var options = {
+        url: this.deleteFiles,
+        method: 'GET'
+      };
+      this.$http.axios(options).then(function () {
+        _this2.getFilesDropbox();
+      });
+    },
+    previewFiles: function previewFiles() {
+      var files = this.$refs.file.files;
+
+      if (files) {
+        this.filesUploadCount = files.length;
+        this.$refs.fileSelect.innerText = files.length + this.field.selectText;
+      } else {
+        this.filesUploadCount = 0;
+        this.$refs.fileSelect.innerText = this.field.addText;
+      }
+    },
+    uploadFilesDropbox: function uploadFilesDropbox() {
+      var _this3 = this;
+
+      // Get
+      var formData = new FormData();
+      var files = this.$refs.file.files;
+
+      for (var i = 0; i < files.length; i++) {
+        formData.append('file', files[i]);
+      } // RESET
+
+
+      this.$refs.fileSelect.innerText = this.field.upUpText;
+      this.resetDropboxElements();
+      var options = {
+        url: this.urlUpload,
+        method: 'POST',
+        data: formData
+      };
+      this.$http.axios(options).then(function () {
+        _this3.getFilesDropbox();
+
+        _this3.$refs.fileSelect.innerText = _this3.field.addText; // Notify
+
+        if (_this3.$notify) {
+          _this3.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Save',
+            text: 'Save element successfull!'
+          });
+        }
+      }, function ()
+      /*response*/
+      {
+        _this3.getFilesDropbox();
+
+        _this3.$refs.fileSelect.innerText = _this3.field.addText;
+      });
+    },
+    resetDropboxElements: function resetDropboxElements() {
+      this.files = [];
+      this.filesUploadCount = 0;
+      this.$refs.file.type = 'text';
+      this.$refs.file.type = 'file';
+      this.loading = false;
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=script&lang=js&
+ /* harmony default export */ var partials_Dropboxvue_type_script_lang_js_ = (Dropboxvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue
+
+
+
+
+
+/* normalize component */
+
+var Dropbox_component = normalizeComponent(
+  partials_Dropboxvue_type_script_lang_js_,
+  Dropboxvue_type_template_id_4b6401ba_render,
+  Dropboxvue_type_template_id_4b6401ba_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+Dropbox_component.options.__file = "Dropbox.vue"
+/* harmony default export */ var Dropbox = (Dropbox_component.exports);
 // CONCATENATED MODULE: ./src/build.js
 /**
  * @name VueJS VueCore (vue-core)
@@ -26262,6 +26411,7 @@ DatePicker_component.options.__file = "DatePicker.vue"
 
 
 
+
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib-no-default.js
 /* concated harmony reexport auth */__webpack_require__.d(__webpack_exports__, "auth", function() { return services_auth; });
 /* concated harmony reexport http */__webpack_require__.d(__webpack_exports__, "http", function() { return services_http; });
@@ -26286,6 +26436,7 @@ DatePicker_component.options.__file = "DatePicker.vue"
 /* concated harmony reexport InputPassword */__webpack_require__.d(__webpack_exports__, "InputPassword", function() { return InputPassword; });
 /* concated harmony reexport Select */__webpack_require__.d(__webpack_exports__, "Select", function() { return Select; });
 /* concated harmony reexport DatePicker */__webpack_require__.d(__webpack_exports__, "DatePicker", function() { return DatePicker; });
+/* concated harmony reexport Dropbox */__webpack_require__.d(__webpack_exports__, "Dropbox", function() { return Dropbox; });
 
 
 
