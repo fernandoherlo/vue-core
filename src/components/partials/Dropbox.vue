@@ -52,6 +52,15 @@ export default {
       }
       this.$http.axios(options).then(() => {
         this.getFilesDropbox()
+        // Notify
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'success',
+            title: 'Delete',
+            text: 'Delete element successfull!'
+          })
+        }
       })
     },
     previewFiles: function () {

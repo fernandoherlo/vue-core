@@ -32,6 +32,8 @@ export default {
         this.$refs.firstFocusForm.select()
       }
     })
+    // Created children
+    this.__created ()
   },
   methods: {
     __send () {
