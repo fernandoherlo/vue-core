@@ -49,10 +49,10 @@ export default {
     if (this.config.inline) {
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
     }
-    // Created __construct new
-    this.__construct()
     // Created children
     this.__created()
+    // Created __construct new
+    this.__construct()
   },
   computed: {
     itemsVuex () {
