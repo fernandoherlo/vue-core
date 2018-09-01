@@ -50,9 +50,9 @@ export default {
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
     }
     // Created __construct new
-    this.__construct ()
+    this.__construct()
     // Created children
-    this.__created ()
+    this.__created()
   },
   computed: {
     itemsVuex () {

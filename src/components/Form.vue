@@ -33,9 +33,11 @@ export default {
       }
     })
     // Created children
-    this.__created ()
+    this.__created()
   },
   methods: {
+    __created () {
+    },
     __send () {
       if (!this.isNew){
         this.$parent.__update()
