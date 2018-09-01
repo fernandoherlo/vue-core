@@ -26227,12 +26227,12 @@ var DatePicker_component = normalizeComponent(
 
 DatePicker_component.options.__file = "DatePicker.vue"
 /* harmony default export */ var DatePicker = (DatePicker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=template&id=4b6401ba&
-var Dropboxvue_type_template_id_4b6401ba_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropbox"},[_c('h3',[_vm._v(_vm._s(_vm.field.label))]),_c('div',{staticClass:"form-group w100"},[_c('div',{staticClass:"photos-btns"},[_c('label',{staticClass:"btn btn-file btn-outline-primary"},[_c('span',{ref:"fileSelect"},[_vm._v(_vm._s(_vm.field.addText))]),_c('input',{ref:"file",attrs:{"type":"file","multiple":"","hidden":""},on:{"change":_vm.previewFiles}})]),_c('button',{staticClass:"btn btn-primary",attrs:{"type":"button","tabindex":"0","disabled":!_vm.filesUploadCount},on:{"click":function($event){_vm.uploadFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.upText))]),_c('button',{staticClass:"btn btn-warning",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.deleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.deleteText))])]),(_vm.loading)?[(_vm.files)?_c('ul',{staticClass:"photos-list"},_vm._l((_vm.files),function(file,index){return _c('li',{key:file.metadata.id},[_c('a',{attrs:{"href":file.link,"target":"_blank"}},[_c('small',[_vm._v(_vm._s(index+1))]),_c('img',{attrs:{"src":file.link}})])])})):_vm._e()]:[_c('div',{staticClass:"loading inline"},[_c('icon',{attrs:{"name":"sync","scale":"2","spin":""}})],1)]],2)])}
-var Dropboxvue_type_template_id_4b6401ba_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=template&id=5a1368f8&
+var Dropboxvue_type_template_id_5a1368f8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropbox"},[_c('h3',[_vm._v(_vm._s(_vm.field.label))]),_c('div',{staticClass:"form-group w100"},[_c('div',{staticClass:"photos-btns"},[_c('label',{staticClass:"btn btn-file btn-outline-primary"},[_c('span',{ref:"fileSelect"},[_vm._v(_vm._s(_vm.field.addText))]),_c('input',{ref:"file",attrs:{"type":"file","multiple":"","hidden":""},on:{"change":_vm.previewFiles}})]),_c('button',{staticClass:"btn btn-primary",attrs:{"type":"button","tabindex":"0","disabled":!_vm.filesUploadCount},on:{"click":function($event){_vm.uploadFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.upText))]),_c('button',{staticClass:"btn btn-warning",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.deleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.deleteText))])]),(_vm.loading)?[(_vm.files)?_c('ul',{staticClass:"photos-list"},_vm._l((_vm.files),function(file,index){return _c('li',{key:file.metadata.id},[_c('a',{attrs:{"href":file.link,"target":"_blank"}},[_c('small',[_vm._v(_vm._s(index+1))]),_c('img',{attrs:{"src":file.link}})])])})):_vm._e()]:[_c('div',{staticClass:"loading inline"},[_c('icon',{attrs:{"name":"sync","scale":"2","spin":""}})],1)]],2)])}
+var Dropboxvue_type_template_id_5a1368f8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=template&id=4b6401ba&
+// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=template&id=5a1368f8&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=script&lang=js&
 /* harmony default export */ var Dropboxvue_type_script_lang_js_ = ({
@@ -26365,8 +26365,8 @@ var Dropboxvue_type_template_id_4b6401ba_staticRenderFns = []
 
 var Dropbox_component = normalizeComponent(
   partials_Dropboxvue_type_script_lang_js_,
-  Dropboxvue_type_template_id_4b6401ba_render,
-  Dropboxvue_type_template_id_4b6401ba_staticRenderFns,
+  Dropboxvue_type_template_id_5a1368f8_render,
+  Dropboxvue_type_template_id_5a1368f8_staticRenderFns,
   false,
   null,
   null,

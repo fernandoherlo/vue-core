@@ -110,6 +110,7 @@ export default {
 <template>
   <div class="dropbox">
     <h3>{{ field.label }}</h3>
+    
     <div class="form-group w100">
       <div class="photos-btns">
         <label class="btn btn-file btn-outline-primary">
