@@ -21666,7 +21666,7 @@ var lodash_filter_default = /*#__PURE__*/__webpack_require__.n(lodash_filter);
 
 // CONCATENATED MODULE: ./node_modules/vue-good-table/dist/vue-good-table.es.js
 /**
- * vue-good-table v2.13.1
+ * vue-good-table v2.13.2
  * (c) 2018-present xaksis <shay@crayonbits.com>
  * https://github.com/xaksis/vue-good-table
  * Released under the MIT License.
@@ -21798,10 +21798,10 @@ var VgtPaginationPageInfo = {
   _scopeId: 'data-v-731a4dda',
   name: 'VgtPaginationPageInfo',
   props: {
-    currentPerPage: {
-      default: 10
-    },
     currentPage: {
+      default: 1
+    },
+    lastPage: {
       default: 1
     },
     totalRecords: {
@@ -21822,9 +21822,6 @@ var VgtPaginationPageInfo = {
   computed: {
     pageInfo: function pageInfo() {
       return "".concat(this.ofText, " ").concat(this.lastPage);
-    },
-    lastPage: function lastPage() {
-      return this.currentPerPage === -1 ? 1 : Math.ceil(this.totalRecords / this.currentPerPage);
     }
   },
   methods: {
@@ -21845,6 +21842,7 @@ var VgtPaginationPageInfo = {
   components: {}
 };
 
+var DEFAULT_ROWS_PER_PAGE_DROPDOWN = [10, 20, 30, 40, 50];
 var VgtPagination = {
   render: function render() {
     var _vm = this;
@@ -21882,7 +21880,7 @@ var VgtPagination = {
           _vm.currentPerPage = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
         }, _vm.perPageChanged]
       }
-    }, [_vm._l(_vm.getRowsPerPageDropdown(), function (option, idx) {
+    }, [_vm._l(_vm.rowsPerPageOptions, function (option, idx) {
       return _c('option', {
         key: 'rows-dropdown-option-' + idx,
         domProps: {
@@ -21890,8 +21888,8 @@ var VgtPagination = {
         }
       }, [_vm._v(" " + _vm._s(option) + " ")]);
     }), _vm._v(" "), _vm.paginateDropdownAllowAll ? _c('option', {
-      attrs: {
-        "value": "-1"
+      domProps: {
+        "value": _vm.total
       }
     }, [_vm._v(_vm._s(_vm.allText))]) : _vm._e()], 2)]), _vm._v(" "), _c('div', {
       staticClass: "footer__navigation vgt-pull-right"
@@ -21920,7 +21918,7 @@ var VgtPagination = {
     }), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.prevText))])]), _vm._v(" "), _vm.mode === 'pages' ? _c('pagination-page-info', {
       attrs: {
         "totalRecords": _vm.total,
-        "currentPerPage": _vm.currentPerPage,
+        "lastPage": _vm.pagesCount,
         "currentPage": _vm.currentPage,
         "ofText": _vm.ofText,
         "pageText": _vm.pageText
@@ -22003,8 +22001,7 @@ var VgtPagination = {
       currentPage: 1,
       prevPage: 0,
       currentPerPage: 10,
-      rowsPerPageOptions: [],
-      defaultRowsPerPageDropdown: [10, 20, 30, 40, 50]
+      rowsPerPageOptions: []
     };
   },
   watch: {
@@ -22019,38 +22016,29 @@ var VgtPagination = {
     }
   },
   computed: {
-    currentPerPageString: function currentPerPageString() {
-      return this.currentPerPage === -1 ? 'All' : this.currentPerPage;
+    // Number of pages
+    pagesCount: function pagesCount() {
+      var quotient = Math.floor(this.total / this.currentPerPage);
+      var remainder = this.total % this.currentPerPage;
+      return remainder === 0 ? quotient : quotient + 1;
     },
+    // Current displayed items
     paginatedInfo: function paginatedInfo() {
-      if (this.currentPerPage === -1) {
-        return "1 - ".concat(this.total, " ").concat(this.ofText, " ").concat(this.total);
-      }
-
-      var first = (this.currentPage - 1) * this.currentPerPage + 1 ? (this.currentPage - 1) * this.currentPerPage + 1 : 1;
-
-      if (first > this.total) {
-        // this probably happened as a result of filtering
-        first = 1;
-        this.currentPage = 1;
-        this.prevPage = 0;
-      }
-
-      var last = Math.min(this.total, this.currentPerPage * this.currentPage);
+      var first = (this.currentPage - 1) * this.currentPerPage + 1;
+      var last = Math.min(this.total, this.currentPage * this.currentPerPage);
       return "".concat(first, " - ").concat(last, " ").concat(this.ofText, " ").concat(this.total);
     },
+    // Can go to next page
     nextIsPossible: function nextIsPossible() {
-      return this.currentPerPage === -1 ? false : this.total > this.currentPerPage * this.currentPage;
+      return this.currentPage < this.pagesCount;
     },
+    // Can go to previous page
     prevIsPossible: function prevIsPossible() {
       return this.currentPage > 1;
     }
   },
   methods: {
-    // optionSelected(option) {
-    //   return this.currentPerPage === option;
-    // },
-    reset: function reset() {},
+    // Change current page
     changePage: function changePage(pageNumber) {
       if (pageNumber > 0 && this.total > this.currentPerPage * (pageNumber - 1)) {
         this.prevPage = this.currentPage;
@@ -22058,49 +22046,45 @@ var VgtPagination = {
         this.pageChanged();
       }
     },
+    // Go to next page
     nextPage: function nextPage() {
-      if (this.currentPerPage === -1) return;
-
       if (this.nextIsPossible) {
         this.prevPage = this.currentPage;
         ++this.currentPage;
         this.pageChanged();
       }
     },
+    // Go to previous page
     previousPage: function previousPage() {
-      if (this.currentPage > 1) {
+      if (this.prevIsPossible) {
         this.prevPage = this.currentPage;
         --this.currentPage;
         this.pageChanged();
       }
     },
+    // Indicate page changing
     pageChanged: function pageChanged() {
       this.$emit('page-changed', {
         currentPage: this.currentPage,
         prevPage: this.prevPage
       });
     },
-    perPageChanged: function perPageChanged(event) {
-      if (event) {
-        this.currentPerPage = parseInt(event.target.value, 10);
-      } //* go back to first page
-
-
+    // Indicate per page changing
+    perPageChanged: function perPageChanged() {
+      // go back to first page
       this.changePage(1);
       this.$emit('per-page-changed', {
         currentPerPage: this.currentPerPage
       });
     },
-    getRowsPerPageDropdown: function getRowsPerPageDropdown() {
-      return this.rowsPerPageOptions;
-    },
+    // Handle per page changing
     handlePerPage: function handlePerPage() {
       //* if there's a custom dropdown then we use that
       if (this.customRowsPerPageDropdown !== null && Array.isArray(this.customRowsPerPageDropdown) && this.customRowsPerPageDropdown.length !== 0) {
         this.rowsPerPageOptions = this.customRowsPerPageDropdown;
       } else {
         //* otherwise we use the default rows per page dropdown
-        this.rowsPerPageOptions = lodash_clonedeep_default()(this.defaultRowsPerPageDropdown);
+        this.rowsPerPageOptions = lodash_clonedeep_default()(DEFAULT_ROWS_PER_PAGE_DROPDOWN);
       }
 
       if (this.perPage) {
@@ -22114,7 +22098,9 @@ var VgtPagination = {
           }
         }
 
-        if (!found && this.perPage !== -1) this.rowsPerPageOptions.push(this.perPage);
+        if (!found && this.perPage !== -1) {
+          this.rowsPerPageOptions.push(this.perPage);
+        }
       } else {
         // reset to default
         this.currentPerPage = 10;
@@ -22504,6 +22490,9 @@ var VgtTableHeader = {
   },
   computed: {},
   methods: {
+    reset: function reset() {
+      this.$refs['filter-row'].reset(true);
+    },
     toggleSelectAll: function toggleSelectAll() {
       this.$emit('on-toggle-select-all');
     },
@@ -22748,10 +22737,9 @@ vue_good_table_es_boolean.filterPredicate = function (rowval, filter$$1) {
 
 vue_good_table_es_boolean.compare = function (x, y) {
   function cook(d) {
-    // if d is null or undefined we give it the smallest
-    // possible value
-    if (typeof d !== 'boolean') return -Infinity;
-    return d ? 1 : 0;
+    if (typeof d === 'boolean') return d ? 1 : 0;
+    if (typeof d === 'string') return d === 'true' ? 1 : 0;
+    return -Infinity;
   }
 
   x = cook(x);
@@ -22865,6 +22853,7 @@ var VueGoodTable = {
       staticClass: "vgt-fixed-header",
       class: _vm.tableStyleClasses
     }, [_c("vgt-table-header", {
+      ref: "table-header-secondary",
       tag: "thead",
       attrs: {
         "columns": _vm.columns,
@@ -22904,6 +22893,7 @@ var VueGoodTable = {
       ref: "table",
       class: _vm.tableStyleClasses
     }, [_c("vgt-table-header", {
+      ref: "table-header-primary",
       tag: "thead",
       attrs: {
         "columns": _vm.columns,
@@ -23582,7 +23572,11 @@ var VueGoodTable = {
     reset: function reset() {
       this.initializeSort();
       this.changePage(1);
-      this.$refs['filter-row'].reset(true);
+      this.$refs['table-header-primary'].reset(true);
+
+      if (this.$refs['table-header-secondary']) {
+        this.$refs['table-header-secondary'].reset(true);
+      }
     },
     emitSelectedRows: function emitSelectedRows() {
       this.$emit('on-select-all', {
@@ -26306,12 +26300,12 @@ var DatePicker_component = normalizeComponent(
 
 DatePicker_component.options.__file = "DatePicker.vue"
 /* harmony default export */ var DatePicker = (DatePicker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=template&id=1041ed75&
-var Dropboxvue_type_template_id_1041ed75_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropbox"},[_c('h3',[_vm._v(_vm._s(_vm.field.label))]),_c('div',{staticClass:"form-group w100"},[_c('div',{staticClass:"photos-btns"},[_c('label',{staticClass:"btn btn-file btn-outline-primary"},[_c('span',{ref:"fileSelect"},[_vm._v(_vm._s(_vm.field.addText))]),_c('input',{ref:"file",attrs:{"type":"file","multiple":"","hidden":""},on:{"change":_vm.previewFiles}})]),_c('button',{staticClass:"btn btn-primary",attrs:{"type":"button","tabindex":"0","disabled":!_vm.filesUploadCount},on:{"click":function($event){_vm.uploadFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.upText))]),_c('button',{staticClass:"btn btn-warning",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.deleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.deleteText))])]),(_vm.loading)?[(_vm.files)?_c('ul',{staticClass:"photos-list"},_vm._l((_vm.files),function(file,index){return _c('li',{key:file.metadata.id},[_c('a',{attrs:{"href":file.link,"target":"_blank"}},[_c('small',[_vm._v(_vm._s(index+1))]),_c('img',{attrs:{"src":file.link}})])])})):_vm._e()]:[_c('div',{staticClass:"loading inline"},[_c('icon',{attrs:{"name":"sync","scale":"2","spin":""}})],1)]],2)])}
-var Dropboxvue_type_template_id_1041ed75_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=template&id=94cac748&
+var Dropboxvue_type_template_id_94cac748_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropbox"},[_c('h3',[_vm._v(_vm._s(_vm.field.label))]),_c('div',{staticClass:"form-group w100"},[_c('div',{staticClass:"photos-btns"},[_c('label',{staticClass:"btn file"},[_c('span',{ref:"fileSelect"},[_vm._v(_vm._s(_vm.field.addText))]),_c('input',{ref:"file",attrs:{"type":"file","multiple":"","hidden":""},on:{"change":_vm.previewFiles}})]),_c('button',{staticClass:"btn upload",attrs:{"type":"button","tabindex":"0","disabled":!_vm.filesUploadCount},on:{"click":function($event){_vm.uploadFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.upText))]),(!_vm.confirm)?_c('button',{staticClass:"btn delete",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.deleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.deleteText))]):_vm._e(),(_vm.confirm)?_c('button',{staticClass:"btn delete ask",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.confirmDeleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.confirmDeleteText))]):_vm._e(),(_vm.confirm)?_c('button',{staticClass:"btn cancel",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.cancelDeleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.cancelDeleteText))]):_vm._e()]),(_vm.loading)?[(_vm.files)?_c('ul',{staticClass:"photos-list"},_vm._l((_vm.files),function(file,index){return _c('li',{key:file.metadata.id},[_c('a',{attrs:{"href":file.link,"target":"_blank"}},[_c('small',[_vm._v(_vm._s(index+1))]),_c('img',{attrs:{"src":file.link}})])])})):_vm._e()]:[_c('div',{staticClass:"loading inline"},[_c('icon',{attrs:{"name":"sync","scale":"2","spin":""}})],1)]],2)])}
+var Dropboxvue_type_template_id_94cac748_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=template&id=1041ed75&
+// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=template&id=94cac748&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=script&lang=js&
 /* harmony default export */ var Dropboxvue_type_script_lang_js_ = ({
@@ -26329,7 +26323,8 @@ var Dropboxvue_type_template_id_1041ed75_staticRenderFns = []
     return {
       loading: false,
       filesUploadCount: 0,
-      files: []
+      files: [],
+      confirm: false
     };
   },
   computed: {
@@ -26360,6 +26355,12 @@ var Dropboxvue_type_template_id_1041ed75_staticRenderFns = []
       });
     },
     deleteFilesDropbox: function deleteFilesDropbox() {
+      this.confirm = true;
+    },
+    cancelDeleteFilesDropbox: function cancelDeleteFilesDropbox() {
+      this.confirm = false;
+    },
+    confirmDeleteFilesDropbox: function confirmDeleteFilesDropbox() {
       var _this2 = this;
 
       // RESET
@@ -26454,8 +26455,8 @@ var Dropboxvue_type_template_id_1041ed75_staticRenderFns = []
 
 var Dropbox_component = normalizeComponent(
   partials_Dropboxvue_type_script_lang_js_,
-  Dropboxvue_type_template_id_1041ed75_render,
-  Dropboxvue_type_template_id_1041ed75_staticRenderFns,
+  Dropboxvue_type_template_id_94cac748_render,
+  Dropboxvue_type_template_id_94cac748_staticRenderFns,
   false,
   null,
   null,

@@ -15,7 +15,8 @@ export default {
     return {
       loading: false,
       filesUploadCount: 0,
-      files: []
+      files: [],
+      confirm: false
     }
   },
   computed: {
@@ -44,6 +45,12 @@ export default {
       })
     },
     deleteFilesDropbox: function () {
+      this.confirm = true
+    },
+    cancelDeleteFilesDropbox: function () {
+      this.confirm = false
+    },
+    confirmDeleteFilesDropbox: function () {
       // RESET
       this.resetDropboxElements()
       var options = {
@@ -122,11 +129,14 @@ export default {
     
     <div class="form-group w100">
       <div class="photos-btns">
-        <label class="btn btn-file btn-outline-primary">
+        <label class="btn file">
           <span ref="fileSelect">{{ field.addText }}</span> <input type="file" ref="file" multiple hidden @change="previewFiles">
         </label>
-        <button type="button" class="btn btn-primary" @click="uploadFilesDropbox()" tabindex="0" :disabled="!filesUploadCount">{{ field.upText }}</button>
-        <button type="button" class="btn btn-warning" @click="deleteFilesDropbox()" tabindex="0" :disabled="!files.length">{{ field.deleteText }}</button>
+        <button type="button" class="btn upload" @click="uploadFilesDropbox()" tabindex="0" :disabled="!filesUploadCount">{{ field.upText }}</button>
+        <button v-if="!confirm" type="button" class="btn delete" @click="deleteFilesDropbox()" tabindex="0" :disabled="!files.length">{{ field.deleteText }}</button>
+        <button v-if="confirm" type="button" class="btn delete ask" @click="confirmDeleteFilesDropbox()" tabindex="0" :disabled="!files.length">{{ field.confirmDeleteText }}</button>
+        <button v-if="confirm" type="button" class="btn cancel" @click="cancelDeleteFilesDropbox()" tabindex="0" :disabled="!files.length">{{ field.cancelDeleteText }}</button>
+
       </div>
       <template v-if="loading">
         <ul class="photos-list" v-if="files">
