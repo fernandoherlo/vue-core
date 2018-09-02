@@ -18,13 +18,17 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    classCss: {
+      type: String,
+      required: false
     }
   }
 }
 </script>
 
 <template>
-  <div class="form-group select">
+  <div class="form-group select" :class="classCss">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
       <select v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">

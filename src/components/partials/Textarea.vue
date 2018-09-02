@@ -14,13 +14,17 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    classCss: {
+      type: String,
+      required: false
     }
   }
 }
 </script>
 
 <template>
-  <div class="form-group textarea">
+  <div class="form-group textarea" :class="classCss">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
       <textarea v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition"></textarea>
