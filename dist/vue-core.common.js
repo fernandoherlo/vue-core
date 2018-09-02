@@ -12206,7 +12206,12 @@ var methodsHelper = {
     var result = arrayConfig.filter(function (config) {
       return config.id === id;
     });
-    return result[0].value_data;
+
+    if (result.length > 0) {
+      return result[0].value_data;
+    } else {
+      return '';
+    }
   },
   // Search
   pregQuote: function pregQuote(str) {
