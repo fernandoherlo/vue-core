@@ -12206,7 +12206,7 @@ var methodsHelper = {
     var result = arrayConfig.filter(function (config) {
       return config.id === id;
     });
-    return result.value_data;
+    return result[0].value_data;
   },
   // Search
   pregQuote: function pregQuote(str) {

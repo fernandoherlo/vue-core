@@ -50,8 +50,8 @@ let methodsHelper = {
   },
   // Parse CONFIG DB
   getValueNameConfig (arrayConfig, id) {
-    const result = arrayConfig.filter(config => config.id === id);
-    return result.value_data
+    const result = arrayConfig.filter(config => config.id === id)
+    return result[0].value_data
   },
   // Search
   pregQuote ( str ) {
