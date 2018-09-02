@@ -30,6 +30,7 @@ import InputText from '@/components/partials/InputText'
 import InputHidden from '@/components/partials/InputHidden'
 import InputPassword from '@/components/partials/InputPassword'
 import Select from '@/components/partials/Select'
+import Textarea from '@/components/partials/Textarea'
 import DatePicker from '@/components/partials/DatePicker'
 import Dropbox from '@/components/partials/Dropbox'
 
@@ -56,6 +57,7 @@ export {
   InputHidden,
   InputPassword,
   Select,
+  Textarea,
   DatePicker,
   Dropbox
 }
