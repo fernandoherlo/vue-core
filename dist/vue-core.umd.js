@@ -26309,12 +26309,12 @@ var DatePicker_component = normalizeComponent(
 
 DatePicker_component.options.__file = "DatePicker.vue"
 /* harmony default export */ var DatePicker = (DatePicker_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=template&id=0db674ca&
-var Dropboxvue_type_template_id_0db674ca_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropbox"},[_c('h3',[_vm._v(_vm._s(_vm.field.label))]),_c('div',{staticClass:"form-group w100"},[_c('div',{staticClass:"photos-btns"},[_c('label',{staticClass:"btn file"},[_c('span',{ref:"fileSelect"},[_vm._v(_vm._s(_vm.field.addText))]),_c('input',{ref:"file",attrs:{"type":"file","multiple":"","hidden":""},on:{"change":_vm.previewFiles}})]),_c('button',{staticClass:"btn upload",attrs:{"type":"button","tabindex":"0","disabled":!_vm.filesUploadCount},on:{"click":function($event){_vm.uploadFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.upText))]),(!_vm.confirm)?_c('button',{staticClass:"btn delete",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.deleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.deleteText))]):_vm._e(),(_vm.confirm)?_c('button',{staticClass:"btn delete ask",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.confirmDeleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.confirmDeleteText))]):_vm._e(),(_vm.confirm)?_c('button',{staticClass:"btn cancel",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.cancelDeleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.cancelDeleteText))]):_vm._e()]),(_vm.loading)?[(_vm.files)?_c('ul',{staticClass:"photos-list"},_vm._l((_vm.files),function(file,index){return _c('li',{key:file.metadata.id},[_c('a',{attrs:{"href":file.link,"target":"_blank"}},[_c('small',[_vm._v(_vm._s(index+1))]),_c('img',{attrs:{"src":file.link}})])])})):_vm._e()]:[_c('div',{staticClass:"loading inline"},[_c('icon',{attrs:{"name":"sync","scale":"2","spin":""}})],1)]],2)])}
-var Dropboxvue_type_template_id_0db674ca_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=template&id=18e10f1a&
+var Dropboxvue_type_template_id_18e10f1a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropbox"},[_c('h3',[_vm._v(_vm._s(_vm.field.label))]),_c('div',{staticClass:"form-group w100"},[_c('div',{staticClass:"photos-btns"},[_c('label',{staticClass:"btn file"},[_c('span',{ref:"fileSelect"},[_vm._v(_vm._s(_vm.field.addText))]),_c('input',{ref:"file",attrs:{"type":"file","multiple":"","hidden":""},on:{"change":_vm.previewFiles}})]),_c('button',{staticClass:"btn upload",attrs:{"type":"button","tabindex":"0","disabled":!_vm.filesUploadCount},on:{"click":function($event){_vm.uploadFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.upText))]),(!_vm.confirm)?_c('button',{staticClass:"btn delete",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.deleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.deleteText))]):_vm._e(),(_vm.confirm)?_c('button',{staticClass:"btn delete ask",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.confirmDeleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.confirmDeleteText))]):_vm._e(),(_vm.confirm)?_c('button',{staticClass:"btn cancel",attrs:{"type":"button","tabindex":"0","disabled":!_vm.files.length},on:{"click":function($event){_vm.cancelDeleteFilesDropbox()}}},[_vm._v(_vm._s(_vm.field.cancelDeleteText))]):_vm._e()]),(_vm.loading)?[(_vm.files)?_c('ul',{staticClass:"photos-list"},_vm._l((_vm.files),function(file,index){return _c('li',{key:file.metadata.id},[_c('a',{attrs:{"href":file.link,"target":"_blank"}},[_c('small',[_vm._v(_vm._s(index+1))]),_c('img',{attrs:{"src":file.link}})])])})):_vm._e()]:[_c('div',{staticClass:"loading inline"},[_c('icon',{attrs:{"name":"sync","scale":"2","spin":""}})],1)]],2)])}
+var Dropboxvue_type_template_id_18e10f1a_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=template&id=0db674ca&
+// CONCATENATED MODULE: ./src/components/partials/Dropbox.vue?vue&type=template&id=18e10f1a&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Dropbox.vue?vue&type=script&lang=js&
 /* harmony default export */ var Dropboxvue_type_script_lang_js_ = ({
@@ -26449,6 +26449,7 @@ var Dropboxvue_type_template_id_0db674ca_staticRenderFns = []
       this.$refs.file.type = 'text';
       this.$refs.file.type = 'file';
       this.loading = false;
+      this.confirm = false;
     }
   }
 });
@@ -26464,8 +26465,8 @@ var Dropboxvue_type_template_id_0db674ca_staticRenderFns = []
 
 var Dropbox_component = normalizeComponent(
   partials_Dropboxvue_type_script_lang_js_,
-  Dropboxvue_type_template_id_0db674ca_render,
-  Dropboxvue_type_template_id_0db674ca_staticRenderFns,
+  Dropboxvue_type_template_id_18e10f1a_render,
+  Dropboxvue_type_template_id_18e10f1a_staticRenderFns,
   false,
   null,
   null,
