@@ -48,6 +48,11 @@ let methodsHelper = {
       return ID
     }
   },
+  // Parse CONFIG DB
+  getValueNameConfig (arrayConfig, id) {
+    const result = arrayConfig.filter(config => config.id === id);
+    return result.value_data
+  },
   // Search
   pregQuote ( str ) {
     // eslint-disable-next-line

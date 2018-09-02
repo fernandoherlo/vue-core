@@ -12210,6 +12210,13 @@ var methodsHelper = {
       return ID;
     }
   },
+  // Parse CONFIG DB
+  getValueNameConfig: function getValueNameConfig(arrayConfig, id) {
+    var result = arrayConfig.filter(function (config) {
+      return config.id === id;
+    });
+    return result.value_data;
+  },
   // Search
   pregQuote: function pregQuote(str) {
     // eslint-disable-next-line
