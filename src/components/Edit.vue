@@ -71,6 +71,16 @@ export default {
   },
   methods: {
     __construct () {
+      // 500 ms and VALIDATE!
+      setTimeout(() => {
+        // Validate
+        this.$nextTick(() => {
+          this.$refs.formdefault.$children.forEach(vm => {
+            vm.$validator.validate()
+          })
+          this.$refs.formdefault.$validator.validate()
+        })
+      }, 500)
     },
     __created () {
     },
