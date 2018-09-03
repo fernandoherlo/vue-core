@@ -25,9 +25,6 @@ import componentConfig from '@/components/component'
 */
 export default {
   extends: CoreComponent,
-  components: {
-    'local-form': Form
-  },
   data () {
     return {
       itemID: 0,
@@ -39,10 +36,8 @@ export default {
     }
   },
   created() {
-
     // Component
-    // Vue.component(this.config.coreExtendScopePl + '-form', this.Form)
-
+    Vue.component(this.config.formName + '-form', this.Form)
     // Data
     if (!this.isNew) {
       this.itemID = this.$helper.getID(this.$route.params.id)
@@ -144,7 +139,7 @@ export default {
       <a v-if="isNew" class="btn save" @click="__save()" tabindex="0"><span v-html="config.buttons.saveName" :title="config.buttons.saveName"></span></a>
     </div>
     <div class="form" v-if="itemVuex">
-      <div :is="'local-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
+      <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
     </div>
   </div>
 </template>
