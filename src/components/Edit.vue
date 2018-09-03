@@ -103,6 +103,7 @@ export default {
             this.itemVuex.id_parent = this.itemIDParent
           }
           this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
+            this.save()
             if (this.config.backOnSave) {
               this.__back()
             } else {
@@ -111,6 +112,8 @@ export default {
           })
         }
       })
+    },
+    save () {
     },
     __back () {
       if (this.config.inline) {
