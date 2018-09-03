@@ -103,17 +103,19 @@ export default {
             this.itemVuex.id_parent = this.itemIDParent
           }
           this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
-            this.save()
-            if (this.config.backOnSave) {
-              this.__back()
-            } else {
-              this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
-            }
+            this.save(() => {
+              if (this.config.backOnSave) {
+                this.__back()
+              } else {
+                this.$router.replace({name: this.config.coreExtendScope, params: { id: itemApi.id }})
+              }
+            })
           })
         }
       })
     },
-    save () {
+    save (callback) {
+      callback()
     },
     __back () {
       if (this.config.inline) {
