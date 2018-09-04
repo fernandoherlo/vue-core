@@ -12198,13 +12198,13 @@ var methodsHelper = {
     var c = ',';
     var y = '€';
 
-    if (number) {
-      var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')';
-      var num = number.toFixed(Math.max(0, ~~n));
-      return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ',')) + y;
-    } else {
-      return '0' + y;
+    if (!number) {
+      number = 0;
     }
+
+    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')';
+    var num = number.toFixed(Math.max(0, ~~n));
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ',')) + y;
   },
   // Parse ID
   getID: function getID(ID) {
