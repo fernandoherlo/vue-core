@@ -477,13 +477,6 @@ module.exports = __webpack_require__("9e1e") ? Object.defineProperties : functio
 
 /***/ }),
 
-/***/ "1520":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "1991":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1188,17 +1181,6 @@ module.exports = function (it) {
   return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
 };
 
-
-/***/ }),
-
-/***/ "341d":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_335bd5c4_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("1520");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_335bd5c4_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_335bd5c4_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_335bd5c4_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -5140,6 +5122,13 @@ CancelToken.source = function source() {
 
 module.exports = CancelToken;
 
+
+/***/ }),
+
+/***/ "8ee3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -11566,6 +11555,17 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("4362")))
+
+/***/ }),
+
+/***/ "e0d3":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_9a1427de_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8ee3");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_9a1427de_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_9a1427de_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Select_vue_vue_type_style_index_0_id_9a1427de_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -21691,7 +21691,7 @@ var lodash_filter_default = /*#__PURE__*/__webpack_require__.n(lodash_filter);
 
 // CONCATENATED MODULE: ./node_modules/vue-good-table/dist/vue-good-table.es.js
 /**
- * vue-good-table v2.13.2
+ * vue-good-table v2.13.1
  * (c) 2018-present xaksis <shay@crayonbits.com>
  * https://github.com/xaksis/vue-good-table
  * Released under the MIT License.
@@ -21823,10 +21823,10 @@ var VgtPaginationPageInfo = {
   _scopeId: 'data-v-731a4dda',
   name: 'VgtPaginationPageInfo',
   props: {
-    currentPage: {
-      default: 1
+    currentPerPage: {
+      default: 10
     },
-    lastPage: {
+    currentPage: {
       default: 1
     },
     totalRecords: {
@@ -21847,6 +21847,9 @@ var VgtPaginationPageInfo = {
   computed: {
     pageInfo: function pageInfo() {
       return "".concat(this.ofText, " ").concat(this.lastPage);
+    },
+    lastPage: function lastPage() {
+      return this.currentPerPage === -1 ? 1 : Math.ceil(this.totalRecords / this.currentPerPage);
     }
   },
   methods: {
@@ -21867,7 +21870,6 @@ var VgtPaginationPageInfo = {
   components: {}
 };
 
-var DEFAULT_ROWS_PER_PAGE_DROPDOWN = [10, 20, 30, 40, 50];
 var VgtPagination = {
   render: function render() {
     var _vm = this;
@@ -21905,7 +21907,7 @@ var VgtPagination = {
           _vm.currentPerPage = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
         }, _vm.perPageChanged]
       }
-    }, [_vm._l(_vm.rowsPerPageOptions, function (option, idx) {
+    }, [_vm._l(_vm.getRowsPerPageDropdown(), function (option, idx) {
       return _c('option', {
         key: 'rows-dropdown-option-' + idx,
         domProps: {
@@ -21913,8 +21915,8 @@ var VgtPagination = {
         }
       }, [_vm._v(" " + _vm._s(option) + " ")]);
     }), _vm._v(" "), _vm.paginateDropdownAllowAll ? _c('option', {
-      domProps: {
-        "value": _vm.total
+      attrs: {
+        "value": "-1"
       }
     }, [_vm._v(_vm._s(_vm.allText))]) : _vm._e()], 2)]), _vm._v(" "), _c('div', {
       staticClass: "footer__navigation vgt-pull-right"
@@ -21943,7 +21945,7 @@ var VgtPagination = {
     }), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.prevText))])]), _vm._v(" "), _vm.mode === 'pages' ? _c('pagination-page-info', {
       attrs: {
         "totalRecords": _vm.total,
-        "lastPage": _vm.pagesCount,
+        "currentPerPage": _vm.currentPerPage,
         "currentPage": _vm.currentPage,
         "ofText": _vm.ofText,
         "pageText": _vm.pageText
@@ -22026,7 +22028,8 @@ var VgtPagination = {
       currentPage: 1,
       prevPage: 0,
       currentPerPage: 10,
-      rowsPerPageOptions: []
+      rowsPerPageOptions: [],
+      defaultRowsPerPageDropdown: [10, 20, 30, 40, 50]
     };
   },
   watch: {
@@ -22041,29 +22044,38 @@ var VgtPagination = {
     }
   },
   computed: {
-    // Number of pages
-    pagesCount: function pagesCount() {
-      var quotient = Math.floor(this.total / this.currentPerPage);
-      var remainder = this.total % this.currentPerPage;
-      return remainder === 0 ? quotient : quotient + 1;
+    currentPerPageString: function currentPerPageString() {
+      return this.currentPerPage === -1 ? 'All' : this.currentPerPage;
     },
-    // Current displayed items
     paginatedInfo: function paginatedInfo() {
-      var first = (this.currentPage - 1) * this.currentPerPage + 1;
-      var last = Math.min(this.total, this.currentPage * this.currentPerPage);
+      if (this.currentPerPage === -1) {
+        return "1 - ".concat(this.total, " ").concat(this.ofText, " ").concat(this.total);
+      }
+
+      var first = (this.currentPage - 1) * this.currentPerPage + 1 ? (this.currentPage - 1) * this.currentPerPage + 1 : 1;
+
+      if (first > this.total) {
+        // this probably happened as a result of filtering
+        first = 1;
+        this.currentPage = 1;
+        this.prevPage = 0;
+      }
+
+      var last = Math.min(this.total, this.currentPerPage * this.currentPage);
       return "".concat(first, " - ").concat(last, " ").concat(this.ofText, " ").concat(this.total);
     },
-    // Can go to next page
     nextIsPossible: function nextIsPossible() {
-      return this.currentPage < this.pagesCount;
+      return this.currentPerPage === -1 ? false : this.total > this.currentPerPage * this.currentPage;
     },
-    // Can go to previous page
     prevIsPossible: function prevIsPossible() {
       return this.currentPage > 1;
     }
   },
   methods: {
-    // Change current page
+    // optionSelected(option) {
+    //   return this.currentPerPage === option;
+    // },
+    reset: function reset() {},
     changePage: function changePage(pageNumber) {
       if (pageNumber > 0 && this.total > this.currentPerPage * (pageNumber - 1)) {
         this.prevPage = this.currentPage;
@@ -22071,45 +22083,49 @@ var VgtPagination = {
         this.pageChanged();
       }
     },
-    // Go to next page
     nextPage: function nextPage() {
+      if (this.currentPerPage === -1) return;
+
       if (this.nextIsPossible) {
         this.prevPage = this.currentPage;
         ++this.currentPage;
         this.pageChanged();
       }
     },
-    // Go to previous page
     previousPage: function previousPage() {
-      if (this.prevIsPossible) {
+      if (this.currentPage > 1) {
         this.prevPage = this.currentPage;
         --this.currentPage;
         this.pageChanged();
       }
     },
-    // Indicate page changing
     pageChanged: function pageChanged() {
       this.$emit('page-changed', {
         currentPage: this.currentPage,
         prevPage: this.prevPage
       });
     },
-    // Indicate per page changing
-    perPageChanged: function perPageChanged() {
-      // go back to first page
+    perPageChanged: function perPageChanged(event) {
+      if (event) {
+        this.currentPerPage = parseInt(event.target.value, 10);
+      } //* go back to first page
+
+
       this.changePage(1);
       this.$emit('per-page-changed', {
         currentPerPage: this.currentPerPage
       });
     },
-    // Handle per page changing
+    getRowsPerPageDropdown: function getRowsPerPageDropdown() {
+      return this.rowsPerPageOptions;
+    },
     handlePerPage: function handlePerPage() {
       //* if there's a custom dropdown then we use that
       if (this.customRowsPerPageDropdown !== null && Array.isArray(this.customRowsPerPageDropdown) && this.customRowsPerPageDropdown.length !== 0) {
         this.rowsPerPageOptions = this.customRowsPerPageDropdown;
       } else {
         //* otherwise we use the default rows per page dropdown
-        this.rowsPerPageOptions = lodash_clonedeep_default()(DEFAULT_ROWS_PER_PAGE_DROPDOWN);
+        this.rowsPerPageOptions = lodash_clonedeep_default()(this.defaultRowsPerPageDropdown);
       }
 
       if (this.perPage) {
@@ -22123,9 +22139,7 @@ var VgtPagination = {
           }
         }
 
-        if (!found && this.perPage !== -1) {
-          this.rowsPerPageOptions.push(this.perPage);
-        }
+        if (!found && this.perPage !== -1) this.rowsPerPageOptions.push(this.perPage);
       } else {
         // reset to default
         this.currentPerPage = 10;
@@ -22515,9 +22529,6 @@ var VgtTableHeader = {
   },
   computed: {},
   methods: {
-    reset: function reset() {
-      this.$refs['filter-row'].reset(true);
-    },
     toggleSelectAll: function toggleSelectAll() {
       this.$emit('on-toggle-select-all');
     },
@@ -22762,9 +22773,10 @@ vue_good_table_es_boolean.filterPredicate = function (rowval, filter$$1) {
 
 vue_good_table_es_boolean.compare = function (x, y) {
   function cook(d) {
-    if (typeof d === 'boolean') return d ? 1 : 0;
-    if (typeof d === 'string') return d === 'true' ? 1 : 0;
-    return -Infinity;
+    // if d is null or undefined we give it the smallest
+    // possible value
+    if (typeof d !== 'boolean') return -Infinity;
+    return d ? 1 : 0;
   }
 
   x = cook(x);
@@ -22878,7 +22890,6 @@ var VueGoodTable = {
       staticClass: "vgt-fixed-header",
       class: _vm.tableStyleClasses
     }, [_c("vgt-table-header", {
-      ref: "table-header-secondary",
       tag: "thead",
       attrs: {
         "columns": _vm.columns,
@@ -22918,7 +22929,6 @@ var VueGoodTable = {
       ref: "table",
       class: _vm.tableStyleClasses
     }, [_c("vgt-table-header", {
-      ref: "table-header-primary",
       tag: "thead",
       attrs: {
         "columns": _vm.columns,
@@ -23597,11 +23607,7 @@ var VueGoodTable = {
     reset: function reset() {
       this.initializeSort();
       this.changePage(1);
-      this.$refs['table-header-primary'].reset(true);
-
-      if (this.$refs['table-header-secondary']) {
-        this.$refs['table-header-secondary'].reset(true);
-      }
+      this.$refs['filter-row'].reset(true);
     },
     emitSelectedRows: function emitSelectedRows() {
       this.$emit('on-select-all', {
@@ -24655,12 +24661,12 @@ var InputPassword_component = normalizeComponent(
 
 InputPassword_component.options.__file = "InputPassword.vue"
 /* harmony default export */ var InputPassword = (InputPassword_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Select.vue?vue&type=template&id=335bd5c4&scoped=true&
-var Selectvue_type_template_id_335bd5c4_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"form-group select",class:_vm.classCss},[_c('label',[_vm._v(_vm._s(_vm.field.label))]),(_vm.field.firstFocusForm)?[_c('select',{directives:[{name:"validate",rawName:"v-validate",value:(_vm.field.validate),expression:"field.validate"},{name:"model",rawName:"v-model",value:(_vm.item[_vm.field.field]),expression:"item[field.field]"}],ref:"firstFocusForm",staticClass:"custom-select",class:{'has-error': _vm.errors.has('formDefaultValidate.' + _vm.field.label)},attrs:{"data-vv-validate-on":"change","name":_vm.field.label,"disabled":_vm.disabledCondition},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.item, _vm.field.field, $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{attrs:{"disabled":""}},[_vm._v(_vm._s(_vm.field.labelDefault))]),_vm._l((_vm.values),function(val){return _c('option',{key:val.id,domProps:{"value":val.id}},[_vm._v("\n        "+_vm._s(val.name)+"\n      ")])})],2)]:[_c('select',{directives:[{name:"validate",rawName:"v-validate",value:(_vm.field.validate),expression:"field.validate"},{name:"model",rawName:"v-model",value:(_vm.item[_vm.field.field]),expression:"item[field.field]"}],staticClass:"custom-select",class:{'has-error': _vm.errors.has('formDefaultValidate.' + _vm.field.label)},attrs:{"data-vv-validate-on":"change","name":_vm.field.label,"disabled":_vm.disabledCondition},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.item, _vm.field.field, $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{attrs:{"disabled":""}},[_vm._v(_vm._s(_vm.field.labelDefault))]),_vm._l((_vm.values),function(val,index){return _c('option',{key:val.id,domProps:{"value":val.id,"selected":index === 0}},[_vm._v("\n        "+_vm._s(val.name)+"\n      ")])})],2)],_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.errors.has('formDefaultValidate.' + _vm.field.label)),expression:"errors.has('formDefaultValidate.' + field.label)"}],staticClass:"error"},[_vm._v(_vm._s(_vm.errors.first('formDefaultValidate.' + _vm.field.label)))])],2)}
-var Selectvue_type_template_id_335bd5c4_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Select.vue?vue&type=template&id=9a1427de&scoped=true&
+var Selectvue_type_template_id_9a1427de_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"form-group select",class:_vm.classCss},[_c('label',[_vm._v(_vm._s(_vm.field.label))]),(_vm.field.firstFocusForm)?[_c('select',{directives:[{name:"validate",rawName:"v-validate",value:(_vm.field.validate),expression:"field.validate"},{name:"model",rawName:"v-model",value:(_vm.item[_vm.field.field]),expression:"item[field.field]"}],ref:"firstFocusForm",staticClass:"custom-select",class:{'has-error': _vm.errors.has('formDefaultValidate.' + _vm.field.label)},attrs:{"data-vv-validate-on":"change","name":_vm.field.label,"disabled":_vm.disabledCondition},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.item, _vm.field.field, $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{attrs:{"disabled":""}},[_vm._v(_vm._s(_vm.field.labelDefault))]),_vm._l((_vm.values),function(val){return _c('option',{key:val.id,domProps:{"value":val.id}},[(_vm.valueCustom)?[_vm._v("\n          "+_vm._s(_vm.valueCustom(val))+"\n        ")]:[_vm._v("\n          "+_vm._s(val.name)+"\n        ")]],2)})],2)]:[_c('select',{directives:[{name:"validate",rawName:"v-validate",value:(_vm.field.validate),expression:"field.validate"},{name:"model",rawName:"v-model",value:(_vm.item[_vm.field.field]),expression:"item[field.field]"}],staticClass:"custom-select",class:{'has-error': _vm.errors.has('formDefaultValidate.' + _vm.field.label)},attrs:{"data-vv-validate-on":"change","name":_vm.field.label,"disabled":_vm.disabledCondition},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(_vm.item, _vm.field.field, $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{attrs:{"disabled":""}},[_vm._v(_vm._s(_vm.field.labelDefault))]),_vm._l((_vm.values),function(val,index){return _c('option',{key:val.id,domProps:{"value":val.id,"selected":index === 0}},[_vm._v("\n        "+_vm._s(val.name)+"\n      ")])})],2)],_c('span',{directives:[{name:"show",rawName:"v-show",value:(_vm.errors.has('formDefaultValidate.' + _vm.field.label)),expression:"errors.has('formDefaultValidate.' + field.label)"}],staticClass:"error"},[_vm._v(_vm._s(_vm.errors.first('formDefaultValidate.' + _vm.field.label)))])],2)}
+var Selectvue_type_template_id_9a1427de_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/partials/Select.vue?vue&type=template&id=335bd5c4&scoped=true&
+// CONCATENATED MODULE: ./src/components/partials/Select.vue?vue&type=template&id=9a1427de&scoped=true&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/Select.vue?vue&type=script&lang=js&
 /* harmony default export */ var Selectvue_type_script_lang_js_ = ({
@@ -24685,13 +24691,17 @@ var Selectvue_type_template_id_335bd5c4_scoped_true_staticRenderFns = []
     classCss: {
       type: String,
       required: false
+    },
+    valueCustom: {
+      type: Function,
+      required: false
     }
   }
 });
 // CONCATENATED MODULE: ./src/components/partials/Select.vue?vue&type=script&lang=js&
  /* harmony default export */ var partials_Selectvue_type_script_lang_js_ = (Selectvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/partials/Select.vue?vue&type=style&index=0&id=335bd5c4&lang=sass&scoped=true&
-var Selectvue_type_style_index_0_id_335bd5c4_lang_sass_scoped_true_ = __webpack_require__("341d");
+// EXTERNAL MODULE: ./src/components/partials/Select.vue?vue&type=style&index=0&id=9a1427de&lang=sass&scoped=true&
+var Selectvue_type_style_index_0_id_9a1427de_lang_sass_scoped_true_ = __webpack_require__("e0d3");
 
 // CONCATENATED MODULE: ./src/components/partials/Select.vue
 
@@ -24704,11 +24714,11 @@ var Selectvue_type_style_index_0_id_335bd5c4_lang_sass_scoped_true_ = __webpack_
 
 var Select_component = normalizeComponent(
   partials_Selectvue_type_script_lang_js_,
-  Selectvue_type_template_id_335bd5c4_scoped_true_render,
-  Selectvue_type_template_id_335bd5c4_scoped_true_staticRenderFns,
+  Selectvue_type_template_id_9a1427de_scoped_true_render,
+  Selectvue_type_template_id_9a1427de_scoped_true_staticRenderFns,
   false,
   null,
-  "335bd5c4",
+  "9a1427de",
   null
   
 )

@@ -22,6 +22,10 @@ export default {
     classCss: {
       type: String,
       required: false
+    },
+    valueCustom: {
+      type: Function,
+      required: false
     }
   }
 }
@@ -34,7 +38,12 @@ export default {
       <select v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
-          {{ val.name }}
+          <template v-if="valueCustom">
+            {{ valueCustom(val) }}
+          </template>
+          <template v-else>
+            {{ val.name }}
+          </template>
         </option>
       </select>
     </template>
