@@ -38,7 +38,7 @@ export default {
       <select v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
         <option disabled>{{ field.labelDefault }}</option>
         <option v-for="val in values" v-bind:value="val.id" v-bind:key="val.id">
-          <template v-if="valueCustom">
+          <template v-if="typeof valueCustom === 'function'">
             {{ valueCustom(val) }}
           </template>
           <template v-else>
