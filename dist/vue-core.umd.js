@@ -12432,32 +12432,29 @@ var web_dom_iterable = __webpack_require__("ac6a");
 
 /* harmony default export */ var vuex_actions = ({
   core: function core(options) {
-    var _ref8;
+    var _ref7;
 
     //mTypeNamePl, mTypeName, url, displayName
     var self = this;
-    return _ref8 = {}, _defineProperty(_ref8, 'getAll' + options.mTypeNamePl, function (_ref) {
+    return _ref7 = {}, _defineProperty(_ref7, 'getAll' + options.mTypeNamePl, function (_ref) {
       var commit = _ref.commit;
       return self.getBaseAll(commit, options);
-    }), _defineProperty(_ref8, 'getByParent' + options.mTypeNamePl, function (_ref2, id_parent) {
+    }), _defineProperty(_ref7, 'getByParent' + options.mTypeNamePl, function (_ref2, id_parent) {
       var commit = _ref2.commit;
       return self.getByParent(commit, options, id_parent);
-    }), _defineProperty(_ref8, 'get' + options.mTypeName, function (_ref3, id) {
+    }), _defineProperty(_ref7, 'get' + options.mTypeName, function (_ref3, id) {
       var commit = _ref3.commit;
       return self.getItem(commit, options, id);
-    }), _defineProperty(_ref8, 'update' + options.mTypeName, function (_ref4, item) {
+    }), _defineProperty(_ref7, 'update' + options.mTypeName, function (_ref4, item) {
       var commit = _ref4.commit;
       return self.updateItem(commit, options, item);
-    }), _defineProperty(_ref8, 'save' + options.mTypeName, function (_ref5, item) {
+    }), _defineProperty(_ref7, 'save' + options.mTypeName, function (_ref5, item) {
       var commit = _ref5.commit;
       return self.saveItem(commit, options, item);
-    }), _defineProperty(_ref8, 'delete' + options.mTypeName, function (_ref6, item) {
+    }), _defineProperty(_ref7, 'delete' + options.mTypeName, function (_ref6, item) {
       var commit = _ref6.commit;
       return self.deleteItem(commit, options, item);
-    }), _defineProperty(_ref8, 'clear' + options.mTypeName, function (_ref7) {
-      var commit = _ref7.commit;
-      return self.clearItem(commit, options);
-    }), _ref8;
+    }), _ref7;
   },
 
   /*
@@ -12523,13 +12520,24 @@ var web_dom_iterable = __webpack_require__("ac6a");
   |
   */
   updateItem: function updateItem(commit, options, item) {
+    var _this = this;
+
     return new Promise(function (resolve
     /*, reject*/
     ) {
       var _callback = function _callback(itemApi) {
         commit('UPDATE_' + options.mTypeName, {
           itemApi: itemApi
-        });
+        }); // Associate
+
+        if (options.associate) {
+          if (Array.isArray(options.associate)) {
+            options.associate.forEach(function (options_associate) {
+              _this.getBaseAll(commit, options_associate);
+            });
+          }
+        }
+
         resolve();
       };
 
@@ -12544,7 +12552,7 @@ var web_dom_iterable = __webpack_require__("ac6a");
   |
   */
   saveItem: function saveItem(commit, options, item) {
-    var _this = this;
+    var _this2 = this;
 
     return new Promise(function (resolve
     /*, reject*/
@@ -12552,10 +12560,14 @@ var web_dom_iterable = __webpack_require__("ac6a");
       var _callback = function _callback(itemApi) {
         commit('SAVE_' + options.mTypeName, {
           itemApi: itemApi
-        }); // Add associate
+        }); // Associate
 
         if (options.associate) {
-          _this.addItem(commit, options, itemApi);
+          if (Array.isArray(options.associate)) {
+            options.associate.forEach(function (options_associate) {
+              _this2.getBaseAll(commit, options_associate);
+            });
+          }
         } // Param to callback
 
 
@@ -12568,36 +12580,12 @@ var web_dom_iterable = __webpack_require__("ac6a");
 
   /*
   |--------------------------------------------------------------------------
-  | ADD
-  |--------------------------------------------------------------------------
-  |
-  */
-  addItem: function addItem(commit, options, itemApi) {
-    if (options.associate.ADD) {
-      var param = options.associate.ADD;
-      var idParam = options.associate.ID;
-
-      if (options.associate.REMOVE) {
-        // Remove relation: base->relation->[base: delete]
-        delete itemApi[options.associate.REMOVE];
-      }
-
-      commit('ADD_' + options.associate.STORE, {
-        itemApi: itemApi,
-        param: param,
-        idParam: idParam
-      });
-    }
-  },
-
-  /*
-  |--------------------------------------------------------------------------
   | DELETE
   |--------------------------------------------------------------------------
   |
   */
   deleteItem: function deleteItem(commit, options, item) {
-    var _this2 = this;
+    var _this3 = this;
 
     return new Promise(function (resolve
     /*, reject*/
@@ -12606,23 +12594,13 @@ var web_dom_iterable = __webpack_require__("ac6a");
       var _callback = function _callback(itemApi) {
         commit('DELETE_' + options.mTypeName, {
           item: item
-        }); // Delete associate
+        }); // Associate
 
         if (options.associate) {
           if (Array.isArray(options.associate)) {
             options.associate.forEach(function (options_associate) {
-              // Delete associate object
-              _this2.deleteAssociate(commit, options_associate, item); // Remove associate item
-
-
-              _this2.removeItem(commit, options_associate, item);
+              _this3.getBaseAll(commit, options_associate);
             });
-          } else {
-            // Delete associate object
-            _this2.deleteAssociate(commit, options.associate, item); // Remove associate item
-
-
-            _this2.removeItem(commit, options.associate, item);
           }
         }
 
@@ -12630,65 +12608,6 @@ var web_dom_iterable = __webpack_require__("ac6a");
       };
 
       EventBus.$emit('apiDelete', options.url, item, _callback);
-    });
-  },
-
-  /*
-  |--------------------------------------------------------------------------
-  | DELETE ASSOCIATE
-  |--------------------------------------------------------------------------
-  |
-  */
-  deleteAssociate: function deleteAssociate(commit, options_associate, item) {
-    if (options_associate.DELETE) {
-      var associateItems = item[options_associate.DELETE];
-
-      if (Array.isArray(associateItems)) {
-        associateItems.forEach(function (element) {
-          item = element;
-          commit('DELETE_' + options_associate.STORE, {
-            item: item
-          });
-        });
-      } else {
-        item = item[options_associate.DELETE];
-        commit('DELETE_' + options_associate.STORE, {
-          item: item
-        });
-      }
-    }
-  },
-
-  /*
-  |--------------------------------------------------------------------------
-  | REMOVE
-  |--------------------------------------------------------------------------
-  |
-  */
-  removeItem: function removeItem(commit, options_associate, item) {
-    if (options_associate.ADD) {
-      var param = options_associate.ADD;
-      var idParam = options_associate.ID;
-      commit('REMOVE_' + options_associate.STORE, {
-        item: item,
-        param: param,
-        idParam: idParam
-      });
-    }
-  },
-
-  /*
-  |--------------------------------------------------------------------------
-  | CLEAR
-  |--------------------------------------------------------------------------
-  |
-  */
-  clearItem: function clearItem(commit, options) {
-    return new Promise(function (resolve
-    /*, reject*/
-    ) {
-      commit('CLEAR_' + options.mTypeName);
-      resolve();
     });
   }
 });
@@ -12711,41 +12630,29 @@ var es6_object_assign = __webpack_require__("f751");
 */
 /* harmony default export */ var vuex_mutations = ({
   core: function core(state, options) {
-    var _ref9;
+    var _ref7;
 
     // mTypeNamePl, mTypeName
     var self = this;
-    return _ref9 = {}, _defineProperty(_ref9, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
+    return _ref7 = {}, _defineProperty(_ref7, 'RECEIVE_' + options.mTypeNamePl, function (state, _ref) {
       var items = _ref.items;
       self.getAll(state, items);
-    }), _defineProperty(_ref9, 'GET_BY_PARENT_' + options.mTypeNamePl, function (state, _ref2) {
+    }), _defineProperty(_ref7, 'GET_BY_PARENT_' + options.mTypeNamePl, function (state, _ref2) {
       var id_parent = _ref2.id_parent;
       self.getAllByParent(state, id_parent);
-    }), _defineProperty(_ref9, 'GET_' + options.mTypeName, function (state, _ref3) {
+    }), _defineProperty(_ref7, 'GET_' + options.mTypeName, function (state, _ref3) {
       var id = _ref3.id;
       self.getItem(state, id);
-    }), _defineProperty(_ref9, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
+    }), _defineProperty(_ref7, 'UPDATE_' + options.mTypeName, function (state, _ref4) {
       var itemApi = _ref4.itemApi;
       self.updateItem(state, itemApi);
-    }), _defineProperty(_ref9, 'SAVE_' + options.mTypeName, function (state, _ref5) {
+    }), _defineProperty(_ref7, 'SAVE_' + options.mTypeName, function (state, _ref5) {
       var itemApi = _ref5.itemApi;
       self.saveItem(state, itemApi);
-    }), _defineProperty(_ref9, 'DELETE_' + options.mTypeName, function (state, _ref6) {
+    }), _defineProperty(_ref7, 'DELETE_' + options.mTypeName, function (state, _ref6) {
       var item = _ref6.item;
       self.deleteItem(state, item);
-    }), _defineProperty(_ref9, 'ADD_' + options.mTypeName, function (state, _ref7) {
-      var itemApi = _ref7.itemApi,
-          param = _ref7.param,
-          idParam = _ref7.idParam;
-      self.addItem(state, itemApi, param, idParam);
-    }), _defineProperty(_ref9, 'REMOVE_' + options.mTypeName, function (state, _ref8) {
-      var item = _ref8.item,
-          param = _ref8.param,
-          idParam = _ref8.idParam;
-      self.removeItem(state, item, param, idParam);
-    }), _defineProperty(_ref9, 'CLEAR_' + options.mTypeName, function (state) {
-      self.clearItem(state);
-    }), _ref9;
+    }), _ref7;
   },
 
   /*
@@ -12767,10 +12674,6 @@ var es6_object_assign = __webpack_require__("f751");
       return item.id === id;
     })[0];
     state.clone = Object.assign({}, state.item);
-  },
-  clearItem: function clearItem(state) {
-    state.item = {};
-    state.clone = {};
   },
 
   /*
@@ -12851,66 +12754,6 @@ var es6_object_assign = __webpack_require__("f751");
     stateEl.splice(index, 1); // Return
 
     return stateEl;
-  },
-
-  /*
-  |--------------------------------------------------------------------------
-  | ADD
-  |--------------------------------------------------------------------------
-  |
-  */
-  addItem: function addItem(state, item, param, idParam) {
-    // Add
-    this.__addItemState(state.all, item, param, idParam);
-
-    if (state.allByParent) {
-      // Add
-      this.__addItemState(state.allByParent, item, param, idParam);
-    }
-  },
-  __addItemState: function __addItemState(stateEl, item, param, idParam) {
-    // Find index
-    var index = stateEl.findIndex(function (element) {
-      return element.id === item[idParam];
-    }); // Find item
-
-    var itemRelated = stateEl[index]; // Add item in property
-
-    itemRelated[param] = this.__saveItemState(itemRelated[param], item); // Update
-
-    this.__updateItemState(stateEl, itemRelated, index);
-  },
-
-  /*
-  |--------------------------------------------------------------------------
-  | REMOVE
-  |--------------------------------------------------------------------------
-  |
-  */
-  removeItem: function removeItem(state, item, param, idParam) {
-    // Remove
-    this.__removeItemState(state.all, item, param, idParam);
-
-    if (state.allByParent) {
-      // Remove
-      this.__removeItemState(state.allByParent, item, param, idParam);
-    }
-  },
-  __removeItemState: function __removeItemState(stateEl, item, param, idParam) {
-    // Find index
-    var index = stateEl.findIndex(function (element) {
-      return element.id === item[idParam];
-    }); // Find item
-
-    var itemRelated = stateEl[index]; // Find index related
-
-    var indexRelated = itemRelated[param].findIndex(function (element) {
-      return element.id === item.id;
-    }); // Delete item in property
-
-    itemRelated[param] = this.__deleteItemState(itemRelated[param], itemRelated, indexRelated); // Update
-
-    this.__updateItemState(stateEl, itemRelated, index);
   }
 });
 // CONCATENATED MODULE: ./src/mixins/events.js

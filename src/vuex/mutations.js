@@ -25,17 +25,7 @@ export default {
       },
       ['DELETE_' + options.mTypeName] (state, { item }) {
         self.deleteItem(state, item)
-      },
-      ['ADD_' + options.mTypeName] (state, { itemApi, param, idParam }) {
-        self.addItem(state, itemApi, param, idParam)
-      },
-      ['REMOVE_' + options.mTypeName] (state, { item, param, idParam }) {
-        self.removeItem(state, item, param, idParam)
-      },
-      ['CLEAR_' + options.mTypeName] (state) {
-        self.clearItem(state)
       }
-
     }
   },
 
@@ -54,10 +44,6 @@ export default {
   getItem (state, id) {
     state.item = state.all.filter(item => item.id === id)[0]
     state.clone = Object.assign({}, state.item)
-  },
-  clearItem (state) {
-    state.item = {}
-    state.clone = {}
   },
   /*
   |--------------------------------------------------------------------------
@@ -130,61 +116,5 @@ export default {
     stateEl.splice(index, 1)
     // Return
     return stateEl
-  },
-  /*
-  |--------------------------------------------------------------------------
-  | ADD
-  |--------------------------------------------------------------------------
-  |
-  */
-  addItem (state, item, param, idParam) {
-    // Add
-    this.__addItemState(state.all, item, param, idParam)
-    if (state.allByParent) {
-      // Add
-      this.__addItemState(state.allByParent, item, param, idParam)
-    }
-  },
-  __addItemState (stateEl, item, param, idParam) {
-    // Find index
-    var index = stateEl.findIndex(function(element) {
-      return element.id === item[idParam]
-    })
-    // Find item
-    var itemRelated = stateEl[index]
-    // Add item in property
-    itemRelated[param] = this.__saveItemState (itemRelated[param], item)
-    // Update
-    this.__updateItemState(stateEl, itemRelated, index)
-  },
-  /*
-  |--------------------------------------------------------------------------
-  | REMOVE
-  |--------------------------------------------------------------------------
-  |
-  */
-  removeItem (state, item, param, idParam) {
-    // Remove
-    this.__removeItemState(state.all, item, param, idParam)
-    if (state.allByParent) {
-      // Remove
-      this.__removeItemState(state.allByParent, item, param, idParam)
-    }
-  },
-  __removeItemState (stateEl, item, param, idParam) {
-    // Find index
-    var index = stateEl.findIndex(function(element) {
-      return element.id === item[idParam]
-    })
-    // Find item
-    var itemRelated = stateEl[index]
-    // Find index related
-    var indexRelated = itemRelated[param].findIndex(function(element) {
-      return element.id === item.id
-    })
-    // Delete item in property
-    itemRelated[param] = this.__deleteItemState(itemRelated[param], itemRelated, indexRelated)
-    // Update
-    this.__updateItemState(stateEl, itemRelated, index)
   }
 }
