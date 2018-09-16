@@ -12445,7 +12445,7 @@ var web_dom_iterable = __webpack_require__("ac6a");
     }), _defineProperty(_ref8, 'delete' + options.mTypeName, function (_ref6, item) {
       var commit = _ref6.commit;
       return self.deleteItem(commit, options, item);
-    }), _defineProperty(_ref8, 'clear' + options.mTypeName, function (_ref7, item) {
+    }), _defineProperty(_ref8, 'clear' + options.mTypeName, function (_ref7) {
       var commit = _ref7.commit;
       return self.clearItem(commit, options);
     }), _ref8;

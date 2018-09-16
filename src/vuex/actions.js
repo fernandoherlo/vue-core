@@ -34,7 +34,7 @@ export default {
       ['delete' + options.mTypeName] ({ commit }, item) {
         return self.deleteItem(commit, options, item)
       },
-      ['clear' + options.mTypeName] ({ commit }, item) {
+      ['clear' + options.mTypeName] ({ commit }) {
         return self.clearItem(commit, options)
       }
     }
