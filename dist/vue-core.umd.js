@@ -12534,8 +12534,12 @@ var web_dom_iterable = __webpack_require__("ac6a");
         }); // Associate
 
         if (options.associate) {
+          console.log(options.associate);
+
           if (Array.isArray(options.associate)) {
             options.associate.forEach(function (options_associate) {
+              console.log('getall');
+
               _this.getBaseAll(commit, options_associate);
             });
           }

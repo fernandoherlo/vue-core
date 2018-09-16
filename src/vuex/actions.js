@@ -92,8 +92,10 @@ export default {
         commit('UPDATE_' + options.mTypeName, { itemApi })
         // Associate
         if (options.associate) {
+          console.log(options.associate)
           if (Array.isArray(options.associate)) {
             options.associate.forEach((options_associate) => {
+              console.log('getall')
               this.getBaseAll(commit, options_associate)
             })
           } 
