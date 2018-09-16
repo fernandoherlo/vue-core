@@ -12432,29 +12432,32 @@ var web_dom_iterable = __webpack_require__("ac6a");
 
 /* harmony default export */ var vuex_actions = ({
   core: function core(options) {
-    var _ref7;
+    var _ref8;
 
     //mTypeNamePl, mTypeName, url, displayName
     var self = this;
-    return _ref7 = {}, _defineProperty(_ref7, 'getAll' + options.mTypeNamePl, function (_ref) {
+    return _ref8 = {}, _defineProperty(_ref8, 'getAll' + options.mTypeNamePl, function (_ref) {
       var commit = _ref.commit;
       return self.getBaseAll(commit, options);
-    }), _defineProperty(_ref7, 'getByParent' + options.mTypeNamePl, function (_ref2, id_parent) {
+    }), _defineProperty(_ref8, 'getByParent' + options.mTypeNamePl, function (_ref2, id_parent) {
       var commit = _ref2.commit;
       return self.getByParent(commit, options, id_parent);
-    }), _defineProperty(_ref7, 'get' + options.mTypeName, function (_ref3, id) {
+    }), _defineProperty(_ref8, 'get' + options.mTypeName, function (_ref3, id) {
       var commit = _ref3.commit;
       return self.getItem(commit, options, id);
-    }), _defineProperty(_ref7, 'update' + options.mTypeName, function (_ref4, item) {
+    }), _defineProperty(_ref8, 'update' + options.mTypeName, function (_ref4, item) {
       var commit = _ref4.commit;
       return self.updateItem(commit, options, item);
-    }), _defineProperty(_ref7, 'save' + options.mTypeName, function (_ref5, item) {
+    }), _defineProperty(_ref8, 'save' + options.mTypeName, function (_ref5, item) {
       var commit = _ref5.commit;
       return self.saveItem(commit, options, item);
-    }), _defineProperty(_ref7, 'delete' + options.mTypeName, function (_ref6, item) {
+    }), _defineProperty(_ref8, 'delete' + options.mTypeName, function (_ref6, item) {
       var commit = _ref6.commit;
       return self.deleteItem(commit, options, item);
-    }), _ref7;
+    }), _defineProperty(_ref8, 'clear' + options.mTypeName, function (_ref7, item) {
+      var commit = _ref7.commit;
+      return self.clearItem(commit, options);
+    }), _ref8;
   },
 
   /*
@@ -12609,6 +12612,21 @@ var web_dom_iterable = __webpack_require__("ac6a");
 
       EventBus.$emit('apiDelete', options.url, item, _callback);
     });
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | CLEAR
+  |--------------------------------------------------------------------------
+  |
+  */
+  clearItem: function clearItem(commit, options) {
+    return new Promise(function (resolve
+    /*, reject*/
+    ) {
+      commit('CLEAR_' + options.mTypeName);
+      resolve();
+    });
   }
 });
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.find-index.js
@@ -12652,6 +12670,8 @@ var es6_object_assign = __webpack_require__("f751");
     }), _defineProperty(_ref7, 'DELETE_' + options.mTypeName, function (state, _ref6) {
       var item = _ref6.item;
       self.deleteItem(state, item);
+    }), _defineProperty(_ref7, 'CLEAR_' + options.mTypeName, function (state) {
+      self.clearItem(state);
     }), _ref7;
   },
 
@@ -12674,6 +12694,10 @@ var es6_object_assign = __webpack_require__("f751");
       return item.id === id;
     })[0];
     state.clone = Object.assign({}, state.item);
+  },
+  clearItem: function clearItem(state) {
+    state.item = {};
+    state.clone = {};
   },
 
   /*

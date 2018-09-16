@@ -25,6 +25,9 @@ export default {
       },
       ['DELETE_' + options.mTypeName] (state, { item }) {
         self.deleteItem(state, item)
+      },
+      ['CLEAR_' + options.mTypeName] (state) {
+        self.clearItem(state)
       }
     }
   },
@@ -44,6 +47,10 @@ export default {
   getItem (state, id) {
     state.item = state.all.filter(item => item.id === id)[0]
     state.clone = Object.assign({}, state.item)
+  },
+  clearItem (state) {
+    state.item = {}
+    state.clone = {}
   },
   /*
   |--------------------------------------------------------------------------

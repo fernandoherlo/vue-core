@@ -33,6 +33,9 @@ export default {
       },
       ['delete' + options.mTypeName] ({ commit }, item) {
         return self.deleteItem(commit, options, item)
+      },
+      ['clear' + options.mTypeName] ({ commit }, item) {
+        return self.clearItem(commit, options)
       }
     }
   },
@@ -147,5 +150,17 @@ export default {
       }
       EventBus.$emit('apiDelete', options.url, item, _callback)
     })
-  }
+  },
+  /*
+  |--------------------------------------------------------------------------
+  | CLEAR
+  |--------------------------------------------------------------------------
+  |
+  */
+  clearItem (commit, options) {
+    return new Promise((resolve/*, reject*/) => {
+      commit('CLEAR_' + options.mTypeName)
+      resolve()
+    })
+  },
 }
