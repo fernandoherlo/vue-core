@@ -111,9 +111,18 @@ export default {
       <h2 class="only-print">{{ config.displayNamePrint }}</h2>
     </div>
     <div class="actions">
-      <a class="btn print" @click="$helper.print()"><span v-html="config.buttons.printName" :title="config.buttons.printName"></span></a>
-      <a class="btn refresh" @click="__refresh()"><span v-html="config.buttons.refreshName" :title="config.buttons.refreshName"></span></a>
-      <a class="btn new" @click="__newItem()"><span v-html="config.buttons.newName" :title="config.buttons.newName"></span></a>
+      <a class="btn print" @click="$helper.print()">
+        <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
+        <icon name="print" v-else></icon>
+      </a>
+      <a class="btn refresh" @click="__refresh()">
+        <span v-html="config.buttons.refreshName" :title="config.buttons.refreshName" v-if="config.buttons.refreshName"></span>
+        <icon name="sync-alt" v-else></icon>
+      </a>
+      <a class="btn new" @click="__newItem()">
+        <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
+        <icon name="<i class="plus-circle" v-else></icon>
+      </a>
       <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
         <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
       </template>
@@ -126,13 +135,22 @@ export default {
       </div>
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
-          <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttons.editName" :title="config.buttons.editName"></span></a>
+          <a class="btn edit" @click="__edit(props.row.id)">
+            <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
+            <icon name="edit" v-else></icon>
+          </a>
           <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]">
             <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
             <icon name="trash-alt" v-else></icon>
           </a>
-          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.askName" :title="config.buttons.askName"></span></a>
-          <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.cancelName" :title="config.buttons.cancelName"></span></a>
+          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]">
+            <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
+            <icon name="check-circle" v-else></icon>
+          </a>
+          <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
+            <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
+            <icon name="ban" v-else></icon>
+          </a>
         </span>
         <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">
           {{ props.formattedRow[props.column.field] }} 
