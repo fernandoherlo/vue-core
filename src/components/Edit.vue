@@ -135,10 +135,22 @@ export default {
       <h2 class="only-print">{{ config.displayNamePrint }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
     </div>
     <div class="actions">
-      <a class="btn print" @click="$helper.print()"><span v-html="config.buttons.printName" :title="config.buttons.printName"></span></a>
-      <a class="btn back" @click="__back()" tabindex="0"><span v-html="config.buttons.backName" :title="config.buttons.backName"></span></a>
-      <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0"><span v-html="config.buttons.updateName" :title="config.buttons.updateName"></span></a>
-      <a v-if="isNew" class="btn save" @click="__save()" tabindex="0"><span v-html="config.buttons.saveName" :title="config.buttons.saveName"></span></a>
+      <a class="btn print" @click="$helper.print()">
+        <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
+        <icon name="print" v-else></icon>
+      </a>
+      <a class="btn back" @click="__back()" tabindex="0">
+        <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
+        <icon name="times" v-else></icon>
+      </a>
+      <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0">
+        <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
+        <icon name="save" v-else></icon>
+      </a>
+      <a v-if="isNew" class="btn save" @click="__save()" tabindex="0">
+        <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
+        <icon name="save" v-else></icon>
+      </a>
     </div>
     <div class="form" v-if="itemVuex">
       <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>

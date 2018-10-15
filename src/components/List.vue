@@ -121,7 +121,7 @@ export default {
       </a>
       <a class="btn new" @click="__newItem()">
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
-        <icon name="<i class="plus-circle" v-else></icon>
+        <icon name="plus-circle" v-else></icon>
       </a>
       <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
         <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
