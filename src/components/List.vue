@@ -127,7 +127,10 @@ export default {
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <a class="btn edit" @click="__edit(props.row.id)"><span v-html="config.buttons.editName" :title="config.buttons.editName"></span></a>
-          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]"><span v-html="config.buttons.deleteName" :title="config.buttons.deleteName"></span></a>
+          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]">
+            <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
+            <icon name="trash-alt" v-else></icon>
+          </a>
           <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.askName" :title="config.buttons.askName"></span></a>
           <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]"><span v-html="config.buttons.cancelName" :title="config.buttons.cancelName"></span></a>
         </span>
