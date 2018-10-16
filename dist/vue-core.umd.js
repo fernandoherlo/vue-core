@@ -23957,6 +23957,9 @@ var VueGoodTable = {
     handleDefaultSort: function handleDefaultSort() {
       for (var index$$1 = 0; index$$1 < this.columns.length; index$$1++) {
         var col = this.columns[index$$1];
+		console.log(col.field);
+		console.log(this.defaultSortBy.field);
+		console.log(col.field === this.defaultSortBy.field);
 
         if (col.field === this.defaultSortBy.field) {
           this.sortColumn = index$$1;
