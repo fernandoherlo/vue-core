@@ -42,7 +42,7 @@ export default {
               window.location.reload(true)
             } else if (err) {
               // alert(`Error: ${err.error}. Check the console for further details.`)
-              console.log(`Error: ${err.error}. Check the console for further details.`)
+              console.log(`handleAuthentication () Error: ${err.error}. Check the console for further details.`)
               webAuth.authorize()
             }
           })
@@ -69,7 +69,8 @@ export default {
             if (authResult && authResult.accessToken && authResult.idToken) {
               callback(authResult.idTokenPayload)
             } else if (err) {
-              alert(`Error: ${err.error}. Check the console for further details.`)
+              // alert(`Error: ${err.error}. Check the console for further details.`)
+              console.log(`verifyAuthentication () Error: ${err.error}. Check the console for further details.`)
               webAuth.authorize()
             }
           })

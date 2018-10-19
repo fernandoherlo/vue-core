@@ -11928,7 +11928,7 @@ var auth0_min_esm = __webpack_require__("b0af");
               window.location.reload(true);
             } else if (err) {
               // alert(`Error: ${err.error}. Check the console for further details.`)
-              console.log("Error: ".concat(err.error, ". Check the console for further details."));
+              console.log("handleAuthentication () Error: ".concat(err.error, ". Check the console for further details."));
               webAuth.authorize();
             }
           });
@@ -11955,7 +11955,8 @@ var auth0_min_esm = __webpack_require__("b0af");
             if (authResult && authResult.accessToken && authResult.idToken) {
               callback(authResult.idTokenPayload);
             } else if (err) {
-              alert("Error: ".concat(err.error, ". Check the console for further details."));
+              // alert(`Error: ${err.error}. Check the console for further details.`)
+              console.log("verifyAuthentication () Error: ".concat(err.error, ". Check the console for further details."));
               webAuth.authorize();
             }
           });
