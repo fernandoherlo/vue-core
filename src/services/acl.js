@@ -25,10 +25,10 @@ let acl = new Vue({
     can (component, permission) {
       let canPromise = new Promise((resolve, reject) => {
         this.$auth.getUserInfo('https://dmenta.io/app_metadata').then((app_metadata) => {
-          if (!this.components[component]) {
+          if (this.components[component] === 'undefined') {
             reject()
           }
-          if (!this.components[component][app_metadata.role]) {
+          if (this.components[component][app_metadata.role] === 'undefined') {
             reject()
           }
           if (this.components[component][app_metadata.role][permission]) {
