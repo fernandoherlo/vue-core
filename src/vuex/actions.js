@@ -90,16 +90,6 @@ export default {
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
         commit('UPDATE_' + options.mTypeName, { itemApi })
-        // Associate
-        if (options.associate) {
-          console.log(options.associate)
-          if (Array.isArray(options.associate)) {
-            options.associate.forEach((options_associate) => {
-              console.log('getall')
-              this.getBaseAll(commit, options_associate)
-            })
-          } 
-        }
         resolve()
       }
       EventBus.$emit('apiUpdate', options.url, item, _callback)
@@ -115,14 +105,6 @@ export default {
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
         commit('SAVE_' + options.mTypeName, { itemApi })
-        // Associate
-        if (options.associate) {
-          if (Array.isArray(options.associate)) {
-            options.associate.forEach((options_associate) => {
-              this.getBaseAll(commit, options_associate)
-            })
-          } 
-        }
         // Param to callback
         resolve(itemApi)
       }
@@ -140,14 +122,6 @@ export default {
       // eslint-disable-next-line no-unused-vars
       var _callback = itemApi => {
         commit('DELETE_' + options.mTypeName, { item })
-        // Associate
-        if (options.associate) {
-          if (Array.isArray(options.associate)) {
-            options.associate.forEach((options_associate) => {
-              this.getBaseAll(commit, options_associate)
-            })
-          } 
-        }
         resolve()
       }
       EventBus.$emit('apiDelete', options.url, item, _callback)

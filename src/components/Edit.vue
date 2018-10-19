@@ -88,6 +88,14 @@ export default {
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
           this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
+            // Associate
+            if (this.config.coreVuexAssociate) {
+              if (Array.isArray(this.config.coreVuexAssociate)) {
+                this.config.coreVuexAssociate.forEach((associate) => {
+                  this.$store.dispatch('getAll' + associate)
+                })
+              } 
+            }
             if (this.config.backOnUpdate) {
               this.__back()
             }
@@ -103,6 +111,14 @@ export default {
             this.itemVuex.id_parent = this.itemIDParent
           }
           this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
+            // Associate
+            if (this.config.coreVuexAssociate) {
+              if (Array.isArray(this.config.coreVuexAssociate)) {
+                this.config.coreVuexAssociate.forEach((associate) => {
+                  this.$store.dispatch('getAll' + associate)
+                })
+              } 
+            }
             this.save(() => {
               if (this.config.backOnSave) {
                 this.__back()
