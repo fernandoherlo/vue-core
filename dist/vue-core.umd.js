@@ -12235,6 +12235,14 @@ var acl = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
 
       var canPromise = new Promise(function (resolve, reject) {
         _this.$auth.getUserInfo('https://dmenta.io/app_metadata').then(function (app_metadata) {
+          if (!_this.components[component]) {
+            reject();
+          }
+
+          if (!_this.components[component][app_metadata.role]) {
+            reject();
+          }
+
           if (_this.components[component][app_metadata.role][permission]) {
             resolve();
           } else {
