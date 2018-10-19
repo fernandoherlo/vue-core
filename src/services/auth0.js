@@ -41,7 +41,8 @@ export default {
               // Reload window
               window.location.reload(true)
             } else if (err) {
-              alert(`Error: ${err.error}. Check the console for further details.`)
+              // alert(`Error: ${err.error}. Check the console for further details.`)
+              console.log(`Error: ${err.error}. Check the console for further details.`)
               webAuth.authorize()
             }
           })
