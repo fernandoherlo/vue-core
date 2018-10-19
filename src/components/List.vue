@@ -31,7 +31,8 @@ export default {
     return {
       items: [],
       confirm: {},
-      config: componentConfig
+      config: componentConfig,
+      canCreateNew: false
     }
   },
   created () {
@@ -128,7 +129,7 @@ export default {
         <span v-html="config.buttons.refreshName" :title="config.buttons.refreshName" v-if="config.buttons.refreshName"></span>
         <icon name="sync-alt" v-else></icon>
       </a>
-      <a class="btn new" @click="__newItem()">
+      <a class="btn new" @click="__newItem()" v-if="canCreateNew">
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
