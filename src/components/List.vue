@@ -150,8 +150,8 @@ export default {
     </div>
     <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">
-        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-row-actions')">
-          <div :is="config.coreExtendScopePl + '-row-actions'" ref="rowactionsdefault"></div>
+        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-list-actions')">
+          <div :is="config.coreExtendScopePl + '-list-actions'" ref="rowactionsdefault"></div>
         </template>
       </div>
       <template slot="table-row" slot-scope="props">
@@ -172,6 +172,9 @@ export default {
             <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
             <icon name="ban" v-else></icon>
           </a>
+          <template v-if="__checkComponentExists(config.coreExtendScopePl + '-actions')">
+            <div :is="config.coreExtendScopePl + '-actions'" ref="actionsdefault"></div>
+          </template>
         </span>
         <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">
           {{ props.formattedRow[props.column.field] }} 
