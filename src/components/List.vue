@@ -173,7 +173,7 @@ export default {
             <icon name="ban" v-else></icon>
           </a>
           <template v-if="__checkComponentExists(config.coreExtendScopePl + '-actions')">
-            <div :is="config.coreExtendScopePl + '-actions'" ref="actionsdefault"></div>
+            <div :is="config.coreExtendScopePl + '-actions'" ref="actionsdefault" :props="props"></div>
           </template>
         </span>
         <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">
