@@ -37,6 +37,13 @@ export default {
   },
   created () {
     this.$nextTick(() => {
+      // ACL
+      if (this.$auth.authenticated) {
+        this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
+          this.canCreateNew = true
+        })
+      }
+      // Search Options
       if (this.config.table.searchOptions.enabled) {
         if (this.$refs.VueGoodTable.$children[0].$el) {
           this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].focus()
