@@ -32,12 +32,23 @@ export default {
       Form: Form,
       extrasForm: {},
       isNew: false,
-      config: componentConfig
+      config: componentConfig,
+      canCreateNew: false,
+      canUpdate: false
     }
   },
   created() {
     // Component
     Vue.component(this.config.formName + '-form', this.Form)
+    // ACL
+    if (this.$auth.authenticated) {
+      this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
+        this.canCreateNew = true
+      })
+      this.$acl.can(this.config.coreExtendScopePl, 'Update').then(() => {
+        this.canUpdate = true
+      })
+    }
     // Data
     if (!this.isNew) {
       this.itemID = this.$helper.getID(this.$route.params.id)
@@ -159,11 +170,11 @@ export default {
         <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
         <icon name="times" v-else></icon>
       </a>
-      <a v-if="!isNew" class="btn update" @click="__update()" tabindex="0">
+      <a v-if="!isNew && canUpdate" class="btn update" @click="__update()" tabindex="0">
         <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
         <icon name="save" v-else></icon>
       </a>
-      <a v-if="isNew" class="btn save" @click="__save()" tabindex="0">
+      <a v-if="isNew && canCreateNew" class="btn save" @click="__save()" tabindex="0">
         <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
         <icon name="save" v-else></icon>
       </a>
