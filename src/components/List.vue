@@ -32,7 +32,8 @@ export default {
       items: [],
       confirm: {},
       config: componentConfig,
-      canCreateNew: false
+      canCreateNew: false,
+      canDelete: false
     }
   },
   created () {
@@ -41,6 +42,9 @@ export default {
       if (this.$auth.authenticated) {
         this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
           this.canCreateNew = true
+        })
+        this.$acl.can(this.config.coreExtendScopePl, 'Delete').then(() => {
+          this.canDelete = true
         })
       }
       // Search Options
@@ -156,11 +160,11 @@ export default {
             <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
             <icon name="edit" v-else></icon>
           </a>
-          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]">
+          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
             <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
             <icon name="trash-alt" v-else></icon>
           </a>
-          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]">
+          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
             <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
             <icon name="check-circle" v-else></icon>
           </a>
