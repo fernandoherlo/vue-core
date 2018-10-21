@@ -150,6 +150,12 @@ export default {
       } else {
         this.$router.replace({name: this.config.coreExtendScopePl })
       }
+    },
+    __checkComponentExists (name) {
+      if (this.$options.components[name]) {
+        return true
+      }
+      return false
     }
   }
 }
@@ -170,6 +176,9 @@ export default {
         <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
         <icon name="times" v-else></icon>
       </a>
+      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-edit-btns')">
+        <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefault"></div>
+      </template>
       <a v-if="!isNew && canUpdate" class="btn update" @click="__update()" tabindex="0">
         <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
         <icon name="save" v-else></icon>
