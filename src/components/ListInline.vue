@@ -32,10 +32,30 @@ export default {
       itemIDParent: 0,
       items: [],
       confirm: {},
-      config: componentConfig
+      config: componentConfig,
+      canCreateNew: false,
+      canDelete: false
     }
   },
   created () {
+    this.$nextTick(() => {
+      // ACL
+      if (this.$auth.authenticated) {
+        this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
+          this.canCreateNew = true
+        })
+        this.$acl.can(this.config.coreExtendScopePl, 'Delete').then(() => {
+          this.canDelete = true
+        })
+      }
+      // Search Options
+      if (this.config.table.searchOptions.enabled) {
+        if (this.$refs.VueGoodTable.$children[0].$el) {
+          this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].focus()
+          this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].select()
+        }
+      }
+    })
     // Data
     this.itemIDParent = this.$helper.getID(this.$route.params.id)
     this.$store.dispatch('getByParent' + this.config.coreExtendVuexPl, this.itemIDParent)
@@ -103,11 +123,11 @@ export default {
             <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
             <icon name="edit" v-else></icon>
           </a>
-          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id]">
+          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
             <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
             <icon name="trash-alt" v-else></icon>
           </a>
-          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id]">
+          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
             <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
             <icon name="check-circle" v-else></icon>
           </a>
@@ -122,7 +142,7 @@ export default {
       </template>
     </vue-good-table>
     <div class="actions">
-      <a class="btn new" @click="__newItem()">
+      <a class="btn new" @click="__newItem()" v-if="canCreateNew">
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
