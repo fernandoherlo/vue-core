@@ -130,8 +130,6 @@ export default {
       return haystack
     },
     __checkComponentExists (name) {
-      // Degub
-      this.$log.debug('LIST')
       if (this.$options.components[name]) {
         return true
       }

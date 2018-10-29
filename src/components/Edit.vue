@@ -166,8 +166,6 @@ export default {
       }
     },
     __checkComponentExists (name) {
-      // Degub
-      this.$log.debug('EDIT')
       if (this.$options.components[name]) {
         return true
       }
