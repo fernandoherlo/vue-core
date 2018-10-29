@@ -17,6 +17,8 @@ let api = new Vue({
     // GET ALL
     // ******************
     get (url, _callback) {
+      // Degub
+      this.$log.debug('API -> get()')
       // var self = this
       var options = {
         url: url,
@@ -25,14 +27,17 @@ let api = new Vue({
       this.$http.axios(options).then((response) => {
         // Return items
         _callback(response.data)
-      }, (/*err*/) => {
-        // Fail
+      }, (error) => {
+        this.$log.info('SERVICES -> API -> get()')
+        this.$log.error(error)
       })
     },
 
     // UPDATE
     // ******************
     update (url, item, _callback) {
+      // Degub
+      this.$log.debug('API -> update()')
       // Data
       var data = {}
       // Fields
@@ -57,13 +62,16 @@ let api = new Vue({
           })
         }
         // -----
-      }, (/*response*/) => {
-        // Fail
+      }, (error) => {
+        this.$log.info('SERVICES -> API -> update()')
+        this.$log.error(error)
       })
     },
 
     // SAVE
     save (url, item, _callback) {
+      // Degub
+      this.$log.debug('API -> save()')
       // Data
       var data = {}
       // Fields
@@ -87,13 +95,16 @@ let api = new Vue({
             text: 'Save element successfull!'
           })
         }
-      }, (/*response*/) => {
-        // Fail
+      }, (error) => {
+        this.$log.info('SERVICES -> API -> save()')
+        this.$log.error(error)
       })
     },
 
     // DELETE
     delete (url, item, _callback, wait) {
+      // Degub
+      this.$log.debug('API -> delete()')
       if (wait) {
         // Alert wait
       }
@@ -113,8 +124,9 @@ let api = new Vue({
             text: 'Delete element successfull!'
           })
         }
-      }, (/*response*/) => {
-        // Fail
+      }, (error) => {
+        this.$log.info('SERVICES -> API -> delete()')
+        this.$log.error(error)
       })
     }
   }

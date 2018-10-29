@@ -31,10 +31,14 @@ export default {
       },
       methods: {
         login () {
+          // Degub
+          this.$log.debug('AUTH0 -> login()')
           webAuth.authorize()
         },
 
         handleAuthentication () {
+          // Degub
+          this.$log.debug('AUTH0 -> handleAuthentication()')
           webAuth.parseHash((err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
               this.setSession(authResult)
@@ -42,13 +46,15 @@ export default {
               window.location.reload(true)
             } else if (err) {
               // alert(`Error: ${err.error}. Check the console for further details.`)
-              console.log(`handleAuthentication () Error: ${err.error}. Check the console for further details.`)
+              this.$log.fatal(`handleAuthentication () Error: ${err.error}. Check the console for further details.`)
               webAuth.authorize()
             }
           })
         },
 
         getUserInfo (param) {
+          // Degub
+          this.$log.debug('AUTH0 -> getUserInfo()')
           let userPromise = new Promise((resolve) => {
             this.verifyAuthentication((data) => {
               resolve(data[param])
@@ -58,6 +64,8 @@ export default {
         },
 
         verifyAuthentication (callback) {
+          // Degub
+          this.$log.debug('AUTH0 -> verifyAuthentication()')
           // Options
           let options = {
             state: localStorage.getItem('state'),
@@ -69,14 +77,15 @@ export default {
             if (authResult && authResult.accessToken && authResult.idToken) {
               callback(authResult.idTokenPayload)
             } else if (err) {
-              // alert(`Error: ${err.error}. Check the console for further details.`)
-              console.log(`verifyAuthentication () Error: ${err.error}. Check the console for further details.`)
+              this.$log.fatal(`verifyAuthentication () Error: ${err.error}. Check the console for further details.`)
               webAuth.authorize()
             }
           })
         },
         
         setSession (authResult) {
+          // Degub
+          this.$log.debug('AUTH0 -> setSession()')
           // Set the time that the access token will expire at
           let expiresAt = JSON.stringify(
             authResult.expiresIn * 1000 + new Date().getTime()
@@ -90,6 +99,8 @@ export default {
         },
 
         logout () {
+          // Degub
+          this.$log.debug('AUTH0 -> logout()')
           // Clear access token and ID token from local storage
           localStorage.removeItem('access_token')
           localStorage.removeItem('id_token')
@@ -101,6 +112,8 @@ export default {
         },
 
         isAuthenticated () {
+          // Degub
+          this.$log.debug('AUTH0 -> isAuthenticated()')
           // Check whether the current time is past the
           // access token's expiry time
           let expiresAt = JSON.parse(localStorage.getItem('expires_at'))

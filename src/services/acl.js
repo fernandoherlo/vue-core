@@ -20,9 +20,15 @@ let acl = new Vue({
   },
   methods: {
     addComponent (name, component) {
+      // Degub
+      this.$log.debug('ACL -> addComponent()')
+      // Add
       this.components[name] = component
     },
     can (component, permission) {
+      // Degub
+      this.$log.debug('ACL -> can()')
+      // Can
       let canPromise = new Promise((resolve, reject) => {
         this.$auth.getUserInfo('https://dmenta.io/app_metadata').then((app_metadata) => {
           if (this.components[component] === 'undefined') {
