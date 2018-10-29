@@ -113,8 +113,6 @@ export default {
       this.$set(this.confirm, id, true)
     },
     __highlight (haystack, props) {
-      // Degub
-      this.$log.debug('LIST')
       if (this.$refs.VueGoodTable) {
         if (!props.column.globalSearchDisabled){
           var needle = this.$refs.VueGoodTable.searchTerm
