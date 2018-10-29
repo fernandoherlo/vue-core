@@ -21,13 +21,13 @@ let acl = new Vue({
   methods: {
     addComponent (name, component) {
       // Degub
-      this.$log.debug('ACL -> addComponent()')
+      this.$log.debug('ACL', name, component)
       // Add
       this.components[name] = component
     },
     can (component, permission) {
       // Degub
-      this.$log.debug('ACL -> can()')
+      this.$log.debug('ACL', component, permission)
       // Can
       let canPromise = new Promise((resolve, reject) => {
         this.$auth.getUserInfo('https://dmenta.io/app_metadata').then((app_metadata) => {

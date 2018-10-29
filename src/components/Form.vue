@@ -26,6 +26,8 @@ export default {
     }
   },
   created () {
+    // Degub
+    this.$log.debug('FORM')
     this.$nextTick(() => {
       if (this.$refs.firstFocusForm) {
         this.$refs.firstFocusForm.focus()
@@ -37,8 +39,12 @@ export default {
   },
   methods: {
     __created () {
+      // Degub
+      this.$log.debug('FORM')
     },
     __send () {
+      // Degub
+      this.$log.debug('FORM')
       if (!this.isNew){
         this.$parent.__update()
       }

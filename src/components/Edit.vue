@@ -38,6 +38,8 @@ export default {
     }
   },
   created() {
+    // Degub
+    this.$log.debug('EDIT')
     // Component
     Vue.component(this.config.formName + '-form', this.Form)
     // ACL
@@ -82,6 +84,8 @@ export default {
   },
   methods: {
     __construct () {
+      // Degub
+      this.$log.debug('EDIT')
       // 500 ms and VALIDATE!
       setTimeout(() => {
         // Validate
@@ -94,8 +98,12 @@ export default {
       }, 500)
     },
     __created () {
+      // Degub
+      this.$log.debug('EDIT')
     },
     __update () {
+      // Degub
+      this.$log.debug('EDIT')
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
           this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
@@ -115,6 +123,8 @@ export default {
       })
     },
     __save () {
+      // Degub
+      this.$log.debug('EDIT')
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
           // Inline
@@ -142,9 +152,13 @@ export default {
       })
     },
     save (callback) {
+      // Degub
+      this.$log.debug('EDIT')
       callback()
     },
     __back () {
+      // Degub
+      this.$log.debug('EDIT')
       if (this.config.inline) {
         this.$router.replace({name: this.config.coreExtendScopeParent, params: { id: this.itemIDParent }})
       } else {
@@ -152,6 +166,8 @@ export default {
       }
     },
     __checkComponentExists (name) {
+      // Degub
+      this.$log.debug('EDIT')
       if (this.$options.components[name]) {
         return true
       }

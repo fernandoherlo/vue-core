@@ -37,6 +37,8 @@ export default {
     }
   },
   created () {
+    // Degub
+    this.$log.debug('LIST')
     this.$nextTick(() => {
       // ACL
       if (this.$auth.authenticated) {
@@ -63,15 +65,23 @@ export default {
   },
   methods: {
     __refresh () {
+      // Degub
+      this.$log.debug('LIST')
       this.$store.dispatch('getAll' + this.config.coreExtendVuexPl)
     },
     __newItem () {
+      // Degub
+      this.$log.debug('LIST')
       this.$router.push({name: this.config.coreExtendScope + '-new'})
     },
     __edit (id) {
+      // Degub
+      this.$log.debug('LIST')
       this.$router.push({name: this.config.coreExtendScope, params: { id: id }})
     },
     __confirmDelete (id) {
+      // Degub
+      this.$log.debug('LIST')
       // Reset
       this.confirm = {}
       // Delete
@@ -89,16 +99,22 @@ export default {
       })
     },
     __cancelDelete (id) {
+      // Degub
+      this.$log.debug('LIST')
       // Confirm false
       this.$set(this.confirm, id, false)
     },
     __delete (id) {
+      // Degub
+      this.$log.debug('LIST')
       // Reset
       this.confirm = {}
       // Confirm
       this.$set(this.confirm, id, true)
     },
     __highlight (haystack, props) {
+      // Degub
+      this.$log.debug('LIST')
       if (this.$refs.VueGoodTable) {
         if (!props.column.globalSearchDisabled){
           var needle = this.$refs.VueGoodTable.searchTerm
@@ -116,6 +132,8 @@ export default {
       return haystack
     },
     __checkComponentExists (name) {
+      // Degub
+      this.$log.debug('LIST')
       if (this.$options.components[name]) {
         return true
       }

@@ -497,6 +497,13 @@ module.exports = __webpack_require__("9e1e") ? Object.defineProperties : functio
 
 /***/ }),
 
+/***/ "162d":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "1991":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4877,17 +4884,6 @@ module.exports = (
 
 /***/ }),
 
-/***/ "7bdb":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_8939fcae_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a5fd");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_8939fcae_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_8939fcae_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_8939fcae_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
 /***/ "7f20":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5477,13 +5473,6 @@ module.exports.f = function (C) {
   return new PromiseCapability(C);
 };
 
-
-/***/ }),
-
-/***/ "a5fd":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -6173,6 +6162,17 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
   }
 }
 
+
+/***/ }),
+
+/***/ "ad4b":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_31a571d2_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("162d");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_31a571d2_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_31a571d2_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_9_oneOf_1_0_node_modules_css_loader_index_js_ref_9_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_9_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_9_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_style_index_0_id_31a571d2_lang_sass_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -11829,14 +11829,14 @@ var auth0_min_esm = __webpack_require__("b0af");
       methods: {
         login: function login() {
           // Degub
-          this.$log.debug('AUTH0 -> login()');
+          this.$log.debug('AUTH0');
           webAuth.authorize();
         },
         handleAuthentication: function handleAuthentication() {
           var _this = this;
 
           // Degub
-          this.$log.debug('AUTH0 -> handleAuthentication()');
+          this.$log.debug('AUTH0');
           webAuth.parseHash(function (err, authResult) {
             if (authResult && authResult.accessToken && authResult.idToken) {
               _this.setSession(authResult); // Reload window
@@ -11855,7 +11855,7 @@ var auth0_min_esm = __webpack_require__("b0af");
           var _this2 = this;
 
           // Degub
-          this.$log.debug('AUTH0 -> getUserInfo()');
+          this.$log.debug('AUTH0');
           var userPromise = new Promise(function (resolve) {
             _this2.verifyAuthentication(function (data) {
               resolve(data[param]);
@@ -11867,7 +11867,7 @@ var auth0_min_esm = __webpack_require__("b0af");
           var _this3 = this;
 
           // Degub
-          this.$log.debug('AUTH0 -> verifyAuthentication()'); // Options
+          this.$log.debug('AUTH0'); // Options
 
           var options = {
             state: localStorage.getItem('state'),
@@ -11887,7 +11887,7 @@ var auth0_min_esm = __webpack_require__("b0af");
         },
         setSession: function setSession(authResult) {
           // Degub
-          this.$log.debug('AUTH0 -> setSession()'); // Set the time that the access token will expire at
+          this.$log.debug('AUTH0'); // Set the time that the access token will expire at
 
           var expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
           localStorage.setItem('access_token', authResult.accessToken);
@@ -11911,7 +11911,7 @@ var auth0_min_esm = __webpack_require__("b0af");
         },
         isAuthenticated: function isAuthenticated() {
           // Degub
-          this.$log.debug('AUTH0 -> isAuthenticated()'); // Check whether the current time is past the
+          this.$log.debug('AUTH0'); // Check whether the current time is past the
           // access token's expiry time
 
           var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
@@ -12019,7 +12019,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       var _this = this;
 
       // Degub
-      this.$log.debug('API -> get()'); // var self = this
+      this.$log.debug('API', url); // var self = this
 
       var options = {
         url: url,
@@ -12040,7 +12040,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       var _this2 = this;
 
       // Degub
-      this.$log.debug('API -> update()'); // Data
+      this.$log.debug('API', url); // Data
 
       var data = {}; // Fields
 
@@ -12078,7 +12078,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       var _this3 = this;
 
       // Degub
-      this.$log.debug('API -> save()'); // Data
+      this.$log.debug('API', url); // Data
 
       var data = {}; // Fields
 
@@ -12115,7 +12115,7 @@ var api = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       var _this4 = this;
 
       // Degub
-      this.$log.debug('API -> delete()');
+      this.$log.debug('API', url);
 
       if (wait) {// Alert wait
       }
@@ -12176,7 +12176,7 @@ var acl = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
   methods: {
     addComponent: function addComponent(name, component) {
       // Degub
-      this.$log.debug('ACL -> addComponent()'); // Add
+      this.$log.debug('ACL', name, component); // Add
 
       this.components[name] = component;
     },
@@ -12184,7 +12184,7 @@ var acl = new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
       var _this = this;
 
       // Degub
-      this.$log.debug('ACL -> can()'); // Can
+      this.$log.debug('ACL', component, permission); // Can
 
       var canPromise = new Promise(function (resolve, reject) {
         _this.$auth.getUserInfo('https://dmenta.io/app_metadata').then(function (app_metadata) {
@@ -12346,10 +12346,18 @@ var _mutations;
 
 /*
 |--------------------------------------------------------------------------
+| Import core
+|--------------------------------------------------------------------------
+|
+*/
+
+/*
+|--------------------------------------------------------------------------
 | Initial state
 |--------------------------------------------------------------------------
 |
 */
+
 var load_state = {
   load: false,
   msg: '',
@@ -12383,6 +12391,8 @@ var actions = {
   loadBaseData: function loadBaseData(_ref, data) {
     var dispatch = _ref.dispatch,
         commit = _ref.commit;
+    // Degub
+    EventBus.$log.debug('VUEX LOAD', data);
     var modules = data[0];
     var VUE_APP_LOAD_COMPLETE = data[1]; // Init
 
@@ -12407,10 +12417,14 @@ var actions = {
   },
   initLoad: function initLoad(_ref2, count) {
     var commit = _ref2.commit;
+    // Degub
+    EventBus.$log.debug('RECEIVE_LOAD_INIT', count);
     commit('RECEIVE_LOAD_INIT', count);
   },
   completeLoad: function completeLoad(_ref3, VUE_APP_LOAD_COMPLETE) {
     var commit = _ref3.commit;
+    // Degub
+    EventBus.$log.debug('VUE_APP_LOAD_COMPLETE');
     setTimeout(function () {
       commit('RECEIVE_LOAD_END', '<strong>' + VUE_APP_LOAD_COMPLETE + '</strong>');
     }, 500);
@@ -12427,13 +12441,21 @@ var actions = {
 */
 
 var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', function RECEIVE_LOAD(state) {
+  // Degub
+  EventBus.$log.debug('mu -> RECEIVE_LOAD');
   state.load = true;
 }), _defineProperty(_mutations, 'RECEIVE_LOAD_INIT', function RECEIVE_LOAD_INIT(state, count) {
+  // Degub
+  EventBus.$log.debug('mu -> RECEIVE_LOAD_INIT', count);
   state.count = count;
 }), _defineProperty(_mutations, 'RECEIVE_LOAD_PARTIAL', function RECEIVE_LOAD_PARTIAL(state, msg) {
+  // Degub
+  EventBus.$log.debug('mu -> RECEIVE_LOAD_PARTIAL', msg);
   state.now++;
   state.msg += '<small>' + msg + ' <strong>(' + state.now + '/' + state.count + ')</strong></small>';
 }), _defineProperty(_mutations, 'RECEIVE_LOAD_END', function RECEIVE_LOAD_END(state, msg) {
+  // Degub
+  EventBus.$log.debug('mu -> RECEIVE_LOAD_END', msg);
   state.msg += '<small>' + msg + ' <strong>(' + state.now + '/' + state.count + ')</strong></small>';
 }), _mutations);
 /*
@@ -12443,7 +12465,7 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
 |
 */
 
-/* harmony default export */ var load = ({
+/* harmony default export */ var modules_load = ({
   state: load_state,
   getters: getters,
   actions: actions,
@@ -12529,6 +12551,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   |
   */
   getBaseAll: function getBaseAll(commit, options) {
+    // Degub
+    EventBus.$log.debug('ACTIONS');
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12551,6 +12575,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   |
   */
   getByParent: function getByParent(commit, options, id_parent) {
+    // Degub
+    EventBus.$log.debug('ACTIONS');
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12568,6 +12594,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   |
   */
   getItem: function getItem(commit, options, id) {
+    // Degub
+    EventBus.$log.debug('ACTIONS');
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12585,6 +12613,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   |
   */
   updateItem: function updateItem(commit, options, item) {
+    // Degub
+    EventBus.$log.debug('ACTIONS');
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12606,6 +12636,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   |
   */
   saveItem: function saveItem(commit, options, item) {
+    // Degub
+    EventBus.$log.debug('ACTIONS');
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12628,6 +12660,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   |
   */
   deleteItem: function deleteItem(commit, options, item) {
+    // Degub
+    EventBus.$log.debug('ACTIONS');
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12650,6 +12684,8 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, 'RECEIVE_LOAD', fu
   |
   */
   clearItem: function clearItem(commit, options) {
+    // Degub
+    EventBus.$log.debug('ACTIONS');
     return new Promise(function (resolve
     /*, reject*/
     ) {
@@ -12671,10 +12707,18 @@ var es6_object_assign = __webpack_require__("f751");
 
 /*
 |--------------------------------------------------------------------------
+| Import core
+|--------------------------------------------------------------------------
+|
+*/
+
+/*
+|--------------------------------------------------------------------------
 | CORE vuex mutations
 |--------------------------------------------------------------------------
 |
 */
+
 /* harmony default export */ var vuex_mutations = ({
   core: function core(state, options) {
     var _ref7;
@@ -12711,20 +12755,28 @@ var es6_object_assign = __webpack_require__("f751");
   |
   */
   getAll: function getAll(state, items) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS');
     state.all = items;
   },
   getAllByParent: function getAllByParent(state, id_parent) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS');
     state.allByParent = state.all.filter(function (item) {
       return item.id_parent === id_parent;
     });
   },
   getItem: function getItem(state, id) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS');
     state.item = state.all.filter(function (item) {
       return item.id === id;
     })[0];
     state.clone = Object.assign({}, state.item);
   },
   clearItem: function clearItem(state) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS');
     state.item = {};
     state.clone = {};
   },
@@ -12736,7 +12788,9 @@ var es6_object_assign = __webpack_require__("f751");
   |
   */
   updateItem: function updateItem(state, item) {
-    // Update all
+    // Degub
+    EventBus.$log.debug('MUTATIONS'); // Update all
+
     this.__updateItemState(state.all, item);
 
     if (state.allByParent) {
@@ -12745,6 +12799,8 @@ var es6_object_assign = __webpack_require__("f751");
     }
   },
   __updateItemState: function __updateItemState(stateEl, item, indexEl) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS');
     var index = stateEl.findIndex(function (element) {
       return element.id === item.id;
     }); // Overwrite
@@ -12765,7 +12821,9 @@ var es6_object_assign = __webpack_require__("f751");
   |
   */
   saveItem: function saveItem(state, item) {
-    // Save all
+    // Degub
+    EventBus.$log.debug('MUTATIONS'); // Save all
+
     this.__saveItemState(state.all, item);
 
     if (state.allByParent) {
@@ -12774,6 +12832,8 @@ var es6_object_assign = __webpack_require__("f751");
     }
   },
   __saveItemState: function __saveItemState(stateEl, item) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS');
     var clone = Object.assign({}, item);
     stateEl.push(clone); // Return
 
@@ -12787,7 +12847,9 @@ var es6_object_assign = __webpack_require__("f751");
   |
   */
   deleteItem: function deleteItem(state, item) {
-    // Delete
+    // Degub
+    EventBus.$log.debug('MUTATIONS'); // Delete
+
     this.__deleteItemState(state.all, item);
 
     if (state.allByParent) {
@@ -12796,6 +12858,8 @@ var es6_object_assign = __webpack_require__("f751");
     }
   },
   __deleteItemState: function __deleteItemState(stateEl, item, indexEl) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS');
     var index = stateEl.findIndex(function (element) {
       return element.id === item.id;
     }); // Overwrite
@@ -12815,36 +12879,38 @@ var es6_object_assign = __webpack_require__("f751");
   created: function created() {
     var _this = this;
 
-    // this.$EventBus.$on('authChange', authState => {
-    //   this.authenticated = authState.authenticated
-    // })
-    // this.$EventBus.$on('goRouter', (route, force) => {
-    //   this.$router.push(route, function (){
-    //     if (force){
-    //       window.location.reload(true)
-    //     }
-    //   })
-    // })
     this.$EventBus.$on('apiGet', function (url, callback) {
+      // Degub
+      _this.$log.debug('EVENTS -> apiGet', url);
+
       _this.$api.get(url, callback);
     });
     this.$EventBus.$on('apiUpdate', function (url, item, callback) {
+      // Degub
+      _this.$log.debug('EVENTS -> apiUpdate', url);
+
       _this.$api.update(url, item, callback);
     });
     this.$EventBus.$on('apiSave', function (url, item, callback) {
+      // Degub
+      _this.$log.debug('EVENTS -> apiSave', url);
+
       _this.$api.save(url, item, callback);
     });
     this.$EventBus.$on('apiDelete', function (url, item, callback) {
+      // Degub
+      _this.$log.debug('EVENTS -> apiDelete', url);
+
       _this.$api.delete(url, item, callback);
     });
   }
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=c39486ae&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=template&id=253d99f4&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._v("\n  Callback\n")])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/views/Callback.vue?vue&type=template&id=c39486ae&
+// CONCATENATED MODULE: ./src/views/Callback.vue?vue&type=template&id=253d99f4&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Callback.vue?vue&type=script&lang=js&
 //
@@ -12857,6 +12923,9 @@ var staticRenderFns = []
   name: 'callback',
   props: ['auth'],
   data: function data() {
+    // Degub
+    this.$log.debug('callback', this.$auth.authenticated);
+
     if (!this.$auth.authenticated) {
       this.$auth.handleAuthentication();
     } else {
@@ -13021,12 +13090,12 @@ var Core_component = normalizeComponent(
 
 Core_component.options.__file = "Core.vue"
 /* harmony default export */ var Core = (Core_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=ecbdc36c&
-var Editvue_type_template_id_ecbdc36c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[(_vm.itemVuex)?_c('div',{staticClass:"header"},[_c('h2',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName)),(!_vm.isNew)?_c('span',[_vm._v(": "+_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()]),_c('h2',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint)),(!_vm.isNew)?_c('span',[_vm._v(": "+_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()])]):_vm._e(),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn print",on:{"click":function($event){_vm.$helper.print()}}},[(_vm.config.buttons.printName)?_c('span',{attrs:{"title":_vm.config.buttons.printName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.printName)}}):_c('icon',{attrs:{"name":"print"}})],1),_c('a',{staticClass:"btn back",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__back()}}},[(_vm.config.buttons.backName)?_c('span',{attrs:{"title":_vm.config.buttons.backName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.backName)}}):_c('icon',{attrs:{"name":"times"}})],1),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-edit-btns'))?[_c(_vm.config.coreExtendScopePl + '-edit-btns',{ref:"editbtnsdefault",tag:"div"})]:_vm._e(),(!_vm.isNew && _vm.canUpdate)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[(_vm.config.buttons.updateName)?_c('span',{attrs:{"title":_vm.config.buttons.updateName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.updateName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e(),(_vm.isNew && _vm.canCreateNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[(_vm.config.buttons.saveName)?_c('span',{attrs:{"title":_vm.config.buttons.saveName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.saveName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e()],2),(_vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.formName + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
-var Editvue_type_template_id_ecbdc36c_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=2ff14818&
+var Editvue_type_template_id_2ff14818_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit"},[(_vm.itemVuex)?_c('div',{staticClass:"header"},[_c('h2',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName)),(!_vm.isNew)?_c('span',[_vm._v(": "+_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()]),_c('h2',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint)),(!_vm.isNew)?_c('span',[_vm._v(": "+_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()])]):_vm._e(),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn print",on:{"click":function($event){_vm.$helper.print()}}},[(_vm.config.buttons.printName)?_c('span',{attrs:{"title":_vm.config.buttons.printName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.printName)}}):_c('icon',{attrs:{"name":"print"}})],1),_c('a',{staticClass:"btn back",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__back()}}},[(_vm.config.buttons.backName)?_c('span',{attrs:{"title":_vm.config.buttons.backName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.backName)}}):_c('icon',{attrs:{"name":"times"}})],1),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-edit-btns'))?[_c(_vm.config.coreExtendScopePl + '-edit-btns',{ref:"editbtnsdefault",tag:"div"})]:_vm._e(),(!_vm.isNew && _vm.canUpdate)?_c('a',{staticClass:"btn update",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[(_vm.config.buttons.updateName)?_c('span',{attrs:{"title":_vm.config.buttons.updateName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.updateName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e(),(_vm.isNew && _vm.canCreateNew)?_c('a',{staticClass:"btn save",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[(_vm.config.buttons.saveName)?_c('span',{attrs:{"title":_vm.config.buttons.saveName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.saveName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e()],2),(_vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.formName + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
+var Editvue_type_template_id_2ff14818_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=ecbdc36c&
+// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=2ff14818&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
@@ -13034,12 +13103,12 @@ var es6_function_name = __webpack_require__("7f7f");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Form.vue?vue&type=template&id=8939fcae&scoped=true&
-var Formvue_type_template_id_8939fcae_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.item)?_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.__send($event)}}},[_vm._v("\n  Form...\n")]):_vm._e()}
-var Formvue_type_template_id_8939fcae_scoped_true_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Form.vue?vue&type=template&id=31a571d2&scoped=true&
+var Formvue_type_template_id_31a571d2_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.item)?_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.__send($event)}}},[_vm._v("\n  Form...\n")]):_vm._e()}
+var Formvue_type_template_id_31a571d2_scoped_true_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Form.vue?vue&type=template&id=8939fcae&scoped=true&
+// CONCATENATED MODULE: ./src/components/Form.vue?vue&type=template&id=31a571d2&scoped=true&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
@@ -13076,6 +13145,8 @@ var es6_number_constructor = __webpack_require__("c5f6");
   created: function created() {
     var _this = this;
 
+    // Degub
+    this.$log.debug('FORM');
     this.$nextTick(function () {
       if (_this.$refs.firstFocusForm) {
         _this.$refs.firstFocusForm.focus();
@@ -13087,8 +13158,14 @@ var es6_number_constructor = __webpack_require__("c5f6");
     this.__created();
   },
   methods: {
-    __created: function __created() {},
+    __created: function __created() {
+      // Degub
+      this.$log.debug('FORM');
+    },
     __send: function __send() {
+      // Degub
+      this.$log.debug('FORM');
+
       if (!this.isNew) {
         this.$parent.__update();
       }
@@ -13103,8 +13180,8 @@ var es6_number_constructor = __webpack_require__("c5f6");
 });
 // CONCATENATED MODULE: ./src/components/Form.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_Formvue_type_script_lang_js_ = (Formvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/Form.vue?vue&type=style&index=0&id=8939fcae&lang=sass&scoped=true&
-var Formvue_type_style_index_0_id_8939fcae_lang_sass_scoped_true_ = __webpack_require__("7bdb");
+// EXTERNAL MODULE: ./src/components/Form.vue?vue&type=style&index=0&id=31a571d2&lang=sass&scoped=true&
+var Formvue_type_style_index_0_id_31a571d2_lang_sass_scoped_true_ = __webpack_require__("ad4b");
 
 // CONCATENATED MODULE: ./src/components/Form.vue
 
@@ -13117,11 +13194,11 @@ var Formvue_type_style_index_0_id_8939fcae_lang_sass_scoped_true_ = __webpack_re
 
 var Form_component = normalizeComponent(
   components_Formvue_type_script_lang_js_,
-  Formvue_type_template_id_8939fcae_scoped_true_render,
-  Formvue_type_template_id_8939fcae_scoped_true_staticRenderFns,
+  Formvue_type_template_id_31a571d2_scoped_true_render,
+  Formvue_type_template_id_31a571d2_scoped_true_staticRenderFns,
   false,
   null,
-  "8939fcae",
+  "31a571d2",
   null
   
 )
@@ -13182,7 +13259,9 @@ Form_component.options.__file = "Form.vue"
   created: function created() {
     var _this = this;
 
-    // Component
+    // Degub
+    this.$log.debug('EDIT'); // Component
+
     external_commonjs_vue_commonjs2_vue_root_Vue_default.a.component(this.config.formName + '-form', this.Form); // ACL
 
     if (this.$auth.authenticated) {
@@ -13232,7 +13311,9 @@ Form_component.options.__file = "Form.vue"
     __construct: function __construct() {
       var _this2 = this;
 
-      // 500 ms and VALIDATE!
+      // Degub
+      this.$log.debug('EDIT'); // 500 ms and VALIDATE!
+
       setTimeout(function () {
         // Validate
         _this2.$nextTick(function () {
@@ -13244,10 +13325,15 @@ Form_component.options.__file = "Form.vue"
         });
       }, 500);
     },
-    __created: function __created() {},
+    __created: function __created() {
+      // Degub
+      this.$log.debug('EDIT');
+    },
     __update: function __update() {
       var _this3 = this;
 
+      // Degub
+      this.$log.debug('EDIT');
       this.$validator.validateAll('formDefaultValidate').then(function () {
         if (_this3.errors.items.length === 0) {
           _this3.$store.dispatch('update' + _this3.config.coreExtendVuex, _this3.itemVuex).then(function () {
@@ -13270,6 +13356,8 @@ Form_component.options.__file = "Form.vue"
     __save: function __save() {
       var _this4 = this;
 
+      // Degub
+      this.$log.debug('EDIT');
       this.$validator.validateAll('formDefaultValidate').then(function () {
         if (_this4.errors.items.length === 0) {
           // Inline
@@ -13304,9 +13392,14 @@ Form_component.options.__file = "Form.vue"
       });
     },
     save: function save(callback) {
+      // Degub
+      this.$log.debug('EDIT');
       callback();
     },
     __back: function __back() {
+      // Degub
+      this.$log.debug('EDIT');
+
       if (this.config.inline) {
         this.$router.replace({
           name: this.config.coreExtendScopeParent,
@@ -13321,6 +13414,9 @@ Form_component.options.__file = "Form.vue"
       }
     },
     __checkComponentExists: function __checkComponentExists(name) {
+      // Degub
+      this.$log.debug('EDIT');
+
       if (this.$options.components[name]) {
         return true;
       }
@@ -13345,8 +13441,8 @@ var Editvue_type_style_index_0_lang_sass_ = __webpack_require__("3c3d");
 
 var Edit_component = normalizeComponent(
   components_Editvue_type_script_lang_js_,
-  Editvue_type_template_id_ecbdc36c_render,
-  Editvue_type_template_id_ecbdc36c_staticRenderFns,
+  Editvue_type_template_id_2ff14818_render,
+  Editvue_type_template_id_2ff14818_staticRenderFns,
   false,
   null,
   null,
@@ -13356,12 +13452,12 @@ var Edit_component = normalizeComponent(
 
 Edit_component.options.__file = "Edit.vue"
 /* harmony default export */ var Edit = (Edit_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=6b2653d8&
-var Listvue_type_template_id_6b2653d8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List"},[_c('div',{staticClass:"header"},[_c('h2',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName))]),_c('h2',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn print",on:{"click":function($event){_vm.$helper.print()}}},[(_vm.config.buttons.printName)?_c('span',{attrs:{"title":_vm.config.buttons.printName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.printName)}}):_c('icon',{attrs:{"name":"print"}})],1),_c('a',{staticClass:"btn refresh",on:{"click":function($event){_vm.__refresh()}}},[(_vm.config.buttons.refreshName)?_c('span',{attrs:{"title":_vm.config.buttons.refreshName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.refreshName)}}):_c('icon',{attrs:{"name":"sync-alt"}})],1),(_vm.canCreateNew)?_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[(_vm.config.buttons.newName)?_c('span',{attrs:{"title":_vm.config.buttons.newName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.newName)}}):_c('icon',{attrs:{"name":"plus-circle"}})],1):_vm._e(),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-btns'))?[_c(_vm.config.coreExtendScopePl + '-btns',{ref:"btnsdefault",tag:"div"})]:_vm._e()],2),_c('vue-good-table',{ref:"VueGoodTable",attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"select-options":_vm.config.table.selectOptions,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"pagination-options":_vm.config.table.paginationOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.thClass === 'actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[(_vm.config.buttons.editName)?_c('span',{attrs:{"title":_vm.config.buttons.editName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.editName)}}):_c('icon',{attrs:{"name":"edit"}})],1),(!_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[(_vm.config.buttons.deleteName)?_c('span',{attrs:{"title":_vm.config.buttons.deleteName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.deleteName)}}):_c('icon',{attrs:{"name":"trash-alt"}})],1):_vm._e(),(_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete ask",on:{"click":function($event){_vm.__confirmDelete(props.row.id)}}},[(_vm.config.buttons.askName)?_c('span',{attrs:{"title":_vm.config.buttons.askName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.askName)}}):_c('icon',{attrs:{"name":"check-circle"}})],1):_vm._e(),(_vm.confirm[props.row.id])?_c('a',{staticClass:"btn cancel",on:{"click":function($event){_vm.__cancelDelete(props.row.id)}}},[(_vm.config.buttons.cancelName)?_c('span',{attrs:{"title":_vm.config.buttons.cancelName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.cancelName)}}):_c('icon',{attrs:{"name":"ban"}})],1):_vm._e(),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-actions'))?[_c(_vm.config.coreExtendScopePl + '-actions',{ref:"actionsdefault",tag:"div",attrs:{"props":props}})]:_vm._e()],2):_c('span',{domProps:{"innerHTML":_vm._s(_vm.__highlight(props.formattedRow[props.column.field], props))}},[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+" \n      ")])]}}])},[_c('div',{attrs:{"slot":"selected-row-actions"},slot:"selected-row-actions"},[(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-list-actions'))?[_c(_vm.config.coreExtendScopePl + '-list-actions',{ref:"rowactionsdefault",tag:"div"})]:_vm._e()],2),_c('div',{attrs:{"slot":"emptystate"},slot:"emptystate"},[_vm._v("\n      "+_vm._s(_vm.config.table.noDataText)+"\n    ")])])],1)}
-var Listvue_type_template_id_6b2653d8_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/List.vue?vue&type=template&id=87c14822&
+var Listvue_type_template_id_87c14822_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List"},[_c('div',{staticClass:"header"},[_c('h2',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName))]),_c('h2',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint))])]),_c('div',{staticClass:"actions"},[_c('a',{staticClass:"btn print",on:{"click":function($event){_vm.$helper.print()}}},[(_vm.config.buttons.printName)?_c('span',{attrs:{"title":_vm.config.buttons.printName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.printName)}}):_c('icon',{attrs:{"name":"print"}})],1),_c('a',{staticClass:"btn refresh",on:{"click":function($event){_vm.__refresh()}}},[(_vm.config.buttons.refreshName)?_c('span',{attrs:{"title":_vm.config.buttons.refreshName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.refreshName)}}):_c('icon',{attrs:{"name":"sync-alt"}})],1),(_vm.canCreateNew)?_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[(_vm.config.buttons.newName)?_c('span',{attrs:{"title":_vm.config.buttons.newName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.newName)}}):_c('icon',{attrs:{"name":"plus-circle"}})],1):_vm._e(),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-btns'))?[_c(_vm.config.coreExtendScopePl + '-btns',{ref:"btnsdefault",tag:"div"})]:_vm._e()],2),_c('vue-good-table',{ref:"VueGoodTable",attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"select-options":_vm.config.table.selectOptions,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"pagination-options":_vm.config.table.paginationOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.thClass === 'actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[(_vm.config.buttons.editName)?_c('span',{attrs:{"title":_vm.config.buttons.editName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.editName)}}):_c('icon',{attrs:{"name":"edit"}})],1),(!_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[(_vm.config.buttons.deleteName)?_c('span',{attrs:{"title":_vm.config.buttons.deleteName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.deleteName)}}):_c('icon',{attrs:{"name":"trash-alt"}})],1):_vm._e(),(_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete ask",on:{"click":function($event){_vm.__confirmDelete(props.row.id)}}},[(_vm.config.buttons.askName)?_c('span',{attrs:{"title":_vm.config.buttons.askName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.askName)}}):_c('icon',{attrs:{"name":"check-circle"}})],1):_vm._e(),(_vm.confirm[props.row.id])?_c('a',{staticClass:"btn cancel",on:{"click":function($event){_vm.__cancelDelete(props.row.id)}}},[(_vm.config.buttons.cancelName)?_c('span',{attrs:{"title":_vm.config.buttons.cancelName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.cancelName)}}):_c('icon',{attrs:{"name":"ban"}})],1):_vm._e(),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-actions'))?[_c(_vm.config.coreExtendScopePl + '-actions',{ref:"actionsdefault",tag:"div",attrs:{"props":props}})]:_vm._e()],2):_c('span',{domProps:{"innerHTML":_vm._s(_vm.__highlight(props.formattedRow[props.column.field], props))}},[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+" \n      ")])]}}])},[_c('div',{attrs:{"slot":"selected-row-actions"},slot:"selected-row-actions"},[(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-list-actions'))?[_c(_vm.config.coreExtendScopePl + '-list-actions',{ref:"rowactionsdefault",tag:"div"})]:_vm._e()],2),_c('div',{attrs:{"slot":"emptystate"},slot:"emptystate"},[_vm._v("\n      "+_vm._s(_vm.config.table.noDataText)+"\n    ")])])],1)}
+var Listvue_type_template_id_87c14822_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/List.vue?vue&type=template&id=6b2653d8&
+// CONCATENATED MODULE: ./src/components/List.vue?vue&type=template&id=87c14822&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.search.js
 var es6_regexp_search = __webpack_require__("386d");
@@ -24161,6 +24257,8 @@ if (typeof window !== 'undefined' && window.Vue) {
   created: function created() {
     var _this = this;
 
+    // Degub
+    this.$log.debug('LIST');
     this.$nextTick(function () {
       // ACL
       if (_this.$auth.authenticated) {
@@ -24190,14 +24288,20 @@ if (typeof window !== 'undefined' && window.Vue) {
   },
   methods: {
     __refresh: function __refresh() {
+      // Degub
+      this.$log.debug('LIST');
       this.$store.dispatch('getAll' + this.config.coreExtendVuexPl);
     },
     __newItem: function __newItem() {
+      // Degub
+      this.$log.debug('LIST');
       this.$router.push({
         name: this.config.coreExtendScope + '-new'
       });
     },
     __edit: function __edit(id) {
+      // Degub
+      this.$log.debug('LIST');
       this.$router.push({
         name: this.config.coreExtendScope,
         params: {
@@ -24208,7 +24312,9 @@ if (typeof window !== 'undefined' && window.Vue) {
     __confirmDelete: function __confirmDelete(id) {
       var _this2 = this;
 
-      // Reset
+      // Degub
+      this.$log.debug('LIST'); // Reset
+
       this.confirm = {}; // Delete
 
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(function () {
@@ -24225,16 +24331,23 @@ if (typeof window !== 'undefined' && window.Vue) {
       });
     },
     __cancelDelete: function __cancelDelete(id) {
-      // Confirm false
+      // Degub
+      this.$log.debug('LIST'); // Confirm false
+
       this.$set(this.confirm, id, false);
     },
     __delete: function __delete(id) {
-      // Reset
+      // Degub
+      this.$log.debug('LIST'); // Reset
+
       this.confirm = {}; // Confirm
 
       this.$set(this.confirm, id, true);
     },
     __highlight: function __highlight(haystack, props) {
+      // Degub
+      this.$log.debug('LIST');
+
       if (this.$refs.VueGoodTable) {
         if (!props.column.globalSearchDisabled) {
           var needle = this.$refs.VueGoodTable.searchTerm;
@@ -24255,6 +24368,9 @@ if (typeof window !== 'undefined' && window.Vue) {
       return haystack;
     },
     __checkComponentExists: function __checkComponentExists(name) {
+      // Degub
+      this.$log.debug('LIST');
+
       if (this.$options.components[name]) {
         return true;
       }
@@ -24279,8 +24395,8 @@ var Listvue_type_style_index_0_lang_sass_ = __webpack_require__("78c9");
 
 var List_component = normalizeComponent(
   components_Listvue_type_script_lang_js_,
-  Listvue_type_template_id_6b2653d8_render,
-  Listvue_type_template_id_6b2653d8_staticRenderFns,
+  Listvue_type_template_id_87c14822_render,
+  Listvue_type_template_id_87c14822_staticRenderFns,
   false,
   null,
   null,
@@ -24290,12 +24406,12 @@ var List_component = normalizeComponent(
 
 List_component.options.__file = "List.vue"
 /* harmony default export */ var List = (List_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ListInline.vue?vue&type=template&id=36dc0a40&
-var ListInlinevue_type_template_id_36dc0a40_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List Inline"},[_c('div',{staticClass:"header"},[_c('h3',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName))]),_c('h3',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint))])]),_c('div',{staticClass:"actions"},[(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-btns'))?[_c(_vm.config.coreExtendScopePl + '-btns',{ref:"btnsinline",tag:"div"})]:_vm._e()],2),_c('vue-good-table',{ref:"VueGoodTableInline",attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"select-options":_vm.config.table.selectOptions,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"pagination-options":_vm.config.table.paginationOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.thClass === 'actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[(_vm.config.buttons.editName)?_c('span',{attrs:{"title":_vm.config.buttons.editName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.editName)}}):_c('icon',{attrs:{"name":"edit"}})],1),(!_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[(_vm.config.buttons.deleteName)?_c('span',{attrs:{"title":_vm.config.buttons.deleteName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.deleteName)}}):_c('icon',{attrs:{"name":"trash-alt"}})],1):_vm._e(),(_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete ask",on:{"click":function($event){_vm.__confirmDelete(props.row.id)}}},[(_vm.config.buttons.askName)?_c('span',{attrs:{"title":_vm.config.buttons.askName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.askName)}}):_c('icon',{attrs:{"name":"check-circle"}})],1):_vm._e(),(_vm.confirm[props.row.id])?_c('a',{staticClass:"btn cancel",on:{"click":function($event){_vm.__cancelDelete(props.row.id)}}},[(_vm.config.buttons.cancelName)?_c('span',{attrs:{"title":_vm.config.buttons.cancelName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.cancelName)}}):_c('icon',{attrs:{"name":"ban"}})],1):_vm._e()]):_c('span',[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+"\n      ")])]}}])},[_c('div',{attrs:{"slot":"selected-row-actions"},slot:"selected-row-actions"},[(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-row-actions'))?[_c(_vm.config.coreExtendScopePl + '-row-actions',{ref:"rowactionsinline",tag:"div"})]:_vm._e()],2)]),_c('div',{staticClass:"actions"},[(_vm.canCreateNew)?_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[(_vm.config.buttons.newName)?_c('span',{attrs:{"title":_vm.config.buttons.newName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.newName)}}):_c('icon',{attrs:{"name":"plus-circle"}})],1):_vm._e()])],1)}
-var ListInlinevue_type_template_id_36dc0a40_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ListInline.vue?vue&type=template&id=34a83794&
+var ListInlinevue_type_template_id_34a83794_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"List Inline"},[_c('div',{staticClass:"header"},[_c('h3',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName))]),_c('h3',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint))])]),_c('div',{staticClass:"actions"},[(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-btns'))?[_c(_vm.config.coreExtendScopePl + '-btns',{ref:"btnsinline",tag:"div"})]:_vm._e()],2),_c('vue-good-table',{ref:"VueGoodTableInline",attrs:{"columns":_vm.config.table.columns,"rows":_vm.itemsVuex,"lineNumbers":_vm.config.table.lineNumbers,"select-options":_vm.config.table.selectOptions,"sort-options":_vm.config.table.sortOptions,"search-options":_vm.config.table.searchOptions,"pagination-options":_vm.config.table.paginationOptions,"styleClass":"table table-bordered table-hover"},scopedSlots:_vm._u([{key:"table-row",fn:function(props){return [(props.column.thClass === 'actions')?_c('span',[_c('a',{staticClass:"btn edit",on:{"click":function($event){_vm.__edit(props.row.id)}}},[(_vm.config.buttons.editName)?_c('span',{attrs:{"title":_vm.config.buttons.editName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.editName)}}):_c('icon',{attrs:{"name":"edit"}})],1),(!_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete",on:{"click":function($event){_vm.__delete(props.row.id)}}},[(_vm.config.buttons.deleteName)?_c('span',{attrs:{"title":_vm.config.buttons.deleteName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.deleteName)}}):_c('icon',{attrs:{"name":"trash-alt"}})],1):_vm._e(),(_vm.confirm[props.row.id] && _vm.canDelete)?_c('a',{staticClass:"btn delete ask",on:{"click":function($event){_vm.__confirmDelete(props.row.id)}}},[(_vm.config.buttons.askName)?_c('span',{attrs:{"title":_vm.config.buttons.askName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.askName)}}):_c('icon',{attrs:{"name":"check-circle"}})],1):_vm._e(),(_vm.confirm[props.row.id])?_c('a',{staticClass:"btn cancel",on:{"click":function($event){_vm.__cancelDelete(props.row.id)}}},[(_vm.config.buttons.cancelName)?_c('span',{attrs:{"title":_vm.config.buttons.cancelName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.cancelName)}}):_c('icon',{attrs:{"name":"ban"}})],1):_vm._e()]):_c('span',[_vm._v("\n        "+_vm._s(props.formattedRow[props.column.field])+"\n      ")])]}}])},[_c('div',{attrs:{"slot":"selected-row-actions"},slot:"selected-row-actions"},[(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-row-actions'))?[_c(_vm.config.coreExtendScopePl + '-row-actions',{ref:"rowactionsinline",tag:"div"})]:_vm._e()],2)]),_c('div',{staticClass:"actions"},[(_vm.canCreateNew)?_c('a',{staticClass:"btn new",on:{"click":function($event){_vm.__newItem()}}},[(_vm.config.buttons.newName)?_c('span',{attrs:{"title":_vm.config.buttons.newName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.newName)}}):_c('icon',{attrs:{"name":"plus-circle"}})],1):_vm._e()])],1)}
+var ListInlinevue_type_template_id_34a83794_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/ListInline.vue?vue&type=template&id=36dc0a40&
+// CONCATENATED MODULE: ./src/components/ListInline.vue?vue&type=template&id=34a83794&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/ListInline.vue?vue&type=script&lang=js&
 
@@ -24341,6 +24457,8 @@ var ListInlinevue_type_template_id_36dc0a40_staticRenderFns = []
   created: function created() {
     var _this = this;
 
+    // Degub
+    this.$log.debug('LISTINLINE');
     this.$nextTick(function () {
       // ACL
       if (_this.$auth.authenticated) {
@@ -24373,6 +24491,8 @@ var ListInlinevue_type_template_id_36dc0a40_staticRenderFns = []
   },
   methods: {
     __newItem: function __newItem() {
+      // Degub
+      this.$log.debug('LISTINLINE');
       this.$router.push({
         name: this.config.coreExtendScope + '-new',
         params: {
@@ -24381,6 +24501,8 @@ var ListInlinevue_type_template_id_36dc0a40_staticRenderFns = []
       });
     },
     __edit: function __edit(id) {
+      // Degub
+      this.$log.debug('LISTINLINE');
       this.$router.push({
         name: this.config.coreExtendScope,
         params: {
@@ -24392,7 +24514,9 @@ var ListInlinevue_type_template_id_36dc0a40_staticRenderFns = []
     __confirmDelete: function __confirmDelete(id) {
       var _this2 = this;
 
-      // Reset
+      // Degub
+      this.$log.debug('LISTINLINE'); // Reset
+
       this.confirm = {}; // Delete
 
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(function () {
@@ -24400,16 +24524,23 @@ var ListInlinevue_type_template_id_36dc0a40_staticRenderFns = []
       });
     },
     __cancelDelete: function __cancelDelete(id) {
-      // Confirm false
+      // Degub
+      this.$log.debug('LISTINLINE'); // Confirm false
+
       this.$set(this.confirm, id, false);
     },
     __delete: function __delete(id) {
-      // Reset
+      // Degub
+      this.$log.debug('LISTINLINE'); // Reset
+
       this.confirm = {}; // Confirm
 
       this.$set(this.confirm, id, true);
     },
     __checkComponentExists: function __checkComponentExists(name) {
+      // Degub
+      this.$log.debug('LISTINLINE');
+
       if (this.$options.components[name]) {
         return true;
       }
@@ -24434,8 +24565,8 @@ var ListInlinevue_type_style_index_0_lang_sass_ = __webpack_require__("001a");
 
 var ListInline_component = normalizeComponent(
   components_ListInlinevue_type_script_lang_js_,
-  ListInlinevue_type_template_id_36dc0a40_render,
-  ListInlinevue_type_template_id_36dc0a40_staticRenderFns,
+  ListInlinevue_type_template_id_34a83794_render,
+  ListInlinevue_type_template_id_34a83794_staticRenderFns,
   false,
   null,
   null,
@@ -26315,7 +26446,7 @@ var Datepicker = {render: function(){var _vm=this;var _h=_vm.$createElement;var 
 /* harmony default export */ var vuejs_datepicker_esm = (Datepicker);
 
 // CONCATENATED MODULE: ./node_modules/vuejs-datepicker/dist/locale/index.js
-var locale_Language=function(e,a,r,n){this.language=e,this.months=a,this.monthsAbbr=r,this.days=n,this.rtl=!1,this.ymd=!1,this.yearSuffix=""},locale_prototypeAccessors={language:{configurable:!0},months:{configurable:!0},monthsAbbr:{configurable:!0},days:{configurable:!0}};locale_prototypeAccessors.language.get=function(){return this._language},locale_prototypeAccessors.language.set=function(e){if("string"!=typeof e)throw new TypeError("Language must be a string");this._language=e},locale_prototypeAccessors.months.get=function(){return this._months},locale_prototypeAccessors.months.set=function(e){if(12!==e.length)throw new RangeError("There must be 12 months for "+this.language+" language");this._months=e},locale_prototypeAccessors.monthsAbbr.get=function(){return this._monthsAbbr},locale_prototypeAccessors.monthsAbbr.set=function(e){if(12!==e.length)throw new RangeError("There must be 12 abbreviated months for "+this.language+" language");this._monthsAbbr=e},locale_prototypeAccessors.days.get=function(){return this._days},locale_prototypeAccessors.days.set=function(e){if(7!==e.length)throw new RangeError("There must be 7 days for "+this.language+" language");this._days=e},Object.defineProperties(locale_Language.prototype,locale_prototypeAccessors);var af=new locale_Language("Afrikaans",["Januarie","Februarie","Maart","April","Mei","Junie","Julie","Augustus","September","Oktober","November","Desember"],["Jan","Feb","Mrt","Apr","Mei","Jun","Jul","Aug","Sep","Okt","Nov","Des"],["So.","Ma.","Di.","Wo.","Do.","Vr.","Sa."]),language=new locale_Language("Arabic",["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوڤمبر","ديسمبر"],["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوڤمبر","ديسمبر"],["أحد","إثنين","ثلاثاء","أربعاء","خميس","جمعة","سبت"]);language.rtl=!0;var bg=new locale_Language("Bulgarian",["Януари","Февруари","Март","Април","Май","Юни","Юли","Август","Септември","Октомври","Ноември","Декември"],["Ян","Фев","Мар","Апр","Май","Юни","Юли","Авг","Сеп","Окт","Ное","Дек"],["Нд","Пн","Вт","Ср","Чт","Пт","Сб"]),bs=new locale_Language("Bosnian",["Januar","Februar","Mart","April","Maj","Juni","Juli","Avgust","Septembar","Oktobar","Novembar","Decembar"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"],["Ned","Pon","Uto","Sri","Čet","Pet","Sub"]),ca=new locale_Language("Catalan",["Gener","Febrer","Març","Abril","Maig","Juny","Juliol","Agost","Setembre","Octubre","Novembre","Desembre"],["Gen","Feb","Mar","Abr","Mai","Jun","Jul","Ago","Set","Oct","Nov","Des"],["Diu","Dil","Dmr","Dmc","Dij","Div","Dis"]),cs=new locale_Language("Czech",["leden","únor","březen","duben","květen","červen","červenec","srpen","září","říjen","listopad","prosinec"],["led","úno","bře","dub","kvě","čer","čec","srp","zář","říj","lis","pro"],["ne","po","út","st","čt","pá","so"]),da=new locale_Language("Danish",["Januar","Februar","Marts","April","Maj","Juni","Juli","August","September","Oktober","November","December"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Aug","Sep","Okt","Nov","Dec"],["Sø","Ma","Ti","On","To","Fr","Lø"]),de=new locale_Language("German",["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"],["So.","Mo.","Di.","Mi.","Do.","Fr.","Sa."]),ee=new locale_Language("Estonian",["Jaanuar","Veebruar","Märts","Aprill","Mai","Juuni","Juuli","August","September","Oktoober","November","Detsember"],["Jaan","Veebr","Märts","Apr","Mai","Juuni","Juuli","Aug","Sept","Okt","Nov","Dets"],["P","E","T","K","N","R","L"]),el=new locale_Language("Greek",["Ιανουάριος","Φεβρουάριος","Μάρτιος","Απρίλιος","Μάϊος","Ιούνιος","Ιούλιος","Αύγουστος","Σεπτέμβριος","Οκτώβριος","Νοέμβριος","Δεκέμβριος"],["Ιαν","Φεβ","Μαρ","Απρ","Μαι","Ιουν","Ιουλ","Αυγ","Σεπ","Οκτ","Νοε","Δεκ"],["Κυρ","Δευ","Τρι","Τετ","Πεμ","Παρ","Σατ"]),locale_en=new locale_Language("English",["January","February","March","April","May","June","July","August","September","October","November","December"],["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]),es=new locale_Language("Spanish",["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"]),fa=new locale_Language("Persian",["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"],["فرو","ارد","خرد","تیر","مرد","شهر","مهر","آبا","آذر","دی","بهم","اسف"],["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"]),fi=new locale_Language("Finish",["tammikuu","helmikuu","maaliskuu","huhtikuu","toukokuu","kesäkuu","heinäkuu","elokuu","syyskuu","lokakuu","marraskuu","joulukuu"],["tammi","helmi","maalis","huhti","touko","kesä","heinä","elo","syys","loka","marras","joulu"],["su","ma","ti","ke","to","pe","la"]),fo=new locale_Language("Faroese",["Januar","Februar","Mars","Apríl","Mai","Juni","Juli","August","Septembur","Oktobur","Novembur","Desembur"],["Jan","Feb","Mar","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Des"],["Sun","Mán","Týs","Mik","Hós","Frí","Ley"]),fr=new locale_Language("French",["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"],["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]),ge=new locale_Language("Georgia",["იანვარი","თებერვალი","მარტი","აპრილი","მაისი","ივნისი","ივლისი","აგვისტო","სექტემბერი","ოქტომბერი","ნოემბერი","დეკემბერი"],["იან","თებ","მარ","აპრ","მაი","ივნ","ივლ","აგვ","სექ","ოქტ","ნოე","დეკ"],["კვი","ორშ","სამ","ოთხ","ხუთ","პარ","შაბ"]),language$1=new locale_Language("Hebrew",["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"],["ינו","פבר","מרץ","אפר","מאי","יונ","יול","אוג","ספט","אוק","נוב","דצמ"],["א","ב","ג","ד","ה","ו","ש"]);language$1.rtl=!0;var hr=new locale_Language("Croatian",["Siječanj","Veljača","Ožujak","Travanj","Svibanj","Lipanj","Srpanj","Kolovoz","Rujan","Listopad","Studeni","Prosinac"],["Sij","Velj","Ožu","Tra","Svi","Lip","Srp","Kol","Ruj","Lis","Stu","Pro"],["Ned","Pon","Uto","Sri","Čet","Pet","Sub"]),hu=new locale_Language("Hungarian",["Január","Február","Március","Április","Május","Június","Július","Augusztus","Szeptember","Október","November","December"],["Jan","Febr","Márc","Ápr","Máj","Jún","Júl","Aug","Szept","Okt","Nov","Dec"],["Vas","Hét","Ke","Sze","Csü","Pén","Szo"]),id=new locale_Language("Indonesian",["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"],["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],["Min","Sen","Sel","Rab","Kam","Jum","Sab"]),is=new locale_Language("Icelandic",["Janúar","Febrúar","Mars","Apríl","Maí","Júní","Júlí","Ágúst","September","Október","Nóvember","Desember"],["Jan","Feb","Mars","Apr","Maí","Jún","Júl","Ágú","Sep","Okt","Nóv","Des"],["Sun","Mán","Þri","Mið","Fim","Fös","Lau"]),it=new locale_Language("Italian",["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"],["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"],["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]),language$2=new locale_Language("Japanese",["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],["日","月","火","水","木","金","土"]);language$2.yearSuffix="年",language$2.ymd=!0;var language$3=new locale_Language("Korean",["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],["일","월","화","수","목","금","토"]);language$3.yearSuffix="년";var lb=new locale_Language("Luxembourgish",["Januar","Februar","Mäerz","Abrëll","Mäi","Juni","Juli","August","September","Oktober","November","Dezember"],["Jan","Feb","Mäe","Abr","Mäi","Jun","Jul","Aug","Sep","Okt","Nov","Dez"],["So.","Mé.","Dë.","Më.","Do.","Fr.","Sa."]),language$4=new locale_Language("Lithuanian",["Sausis","Vasaris","Kovas","Balandis","Gegužė","Birželis","Liepa","Rugpjūtis","Rugsėjis","Spalis","Lapkritis","Gruodis"],["Sau","Vas","Kov","Bal","Geg","Bir","Lie","Rugp","Rugs","Spa","Lap","Gru"],["Sek","Pir","Ant","Tre","Ket","Pen","Šeš"]);language$4.ymd=!0;var lv=new locale_Language("Latvian",["Janvāris","Februāris","Marts","Aprīlis","Maijs","Jūnijs","Jūlijs","Augusts","Septembris","Oktobris","Novembris","Decembris"],["Jan","Feb","Mar","Apr","Mai","Jūn","Jūl","Aug","Sep","Okt","Nov","Dec"],["Sv","Pr","Ot","Tr","Ce","Pk","Se"]),language$5=new locale_Language("Mongolia",["1 дүгээр сар","2 дугаар сар","3 дугаар сар","4 дүгээр сар","5 дугаар сар","6 дугаар сар","7 дугаар сар","8 дугаар сар","9 дүгээр сар","10 дугаар сар","11 дүгээр сар","12 дугаар сар"],["1-р сар","2-р сар","3-р сар","4-р сар","5-р сар","6-р сар","7-р сар","8-р сар","9-р сар","10-р сар","11-р сар","12-р сар"],["Ня","Да","Мя","Лх","Пү","Ба","Бя"]);language$5.ymd=!0;var nbNO=new locale_Language("Norwegian Bokmål",["Januar","Februar","Mars","April","Mai","Juni","Juli","August","September","Oktober","November","Desember"],["Jan","Feb","Mar","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Des"],["Sø","Ma","Ti","On","To","Fr","Lø"]),nl=new locale_Language("Dutch",["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"],["jan","feb","maa","apr","mei","jun","jul","aug","sep","okt","nov","dec"],["zo","ma","di","wo","do","vr","za"]),pl=new locale_Language("Polish",["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"],["Sty","Lut","Mar","Kwi","Maj","Cze","Lip","Sie","Wrz","Paź","Lis","Gru"],["Nd","Pn","Wt","Śr","Czw","Pt","Sob"]),ptBR=new locale_Language("Brazilian",["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"],["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],["Dom","Seg","Ter","Qua","Qui","Sex","Sab"]),ro=new locale_Language("Romanian",["Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie","Iulie","August","Septembrie","Octombrie","Noiembrie","Decembrie"],["Ian","Feb","Mar","Apr","Mai","Iun","Iul","Aug","Sep","Oct","Noi","Dec"],["D","L","Ma","Mi","J","V","S"]),ru=new locale_Language("Russian",["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],["Янв","Февр","Март","Апр","Май","Июнь","Июль","Авг","Сент","Окт","Нояб","Дек"],["Вс","Пн","Вт","Ср","Чт","Пт","Сб"]),sk=new locale_Language("Slovakian",["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"],["jan","feb","mar","apr","máj","jún","júl","aug","sep","okt","nov","dec"],["ne","po","ut","st","št","pi","so"]),slSI=new locale_Language("Sloveian",["Januar","Februar","Marec","April","Maj","Junij","Julij","Avgust","September","Oktober","November","December"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"],["Ned","Pon","Tor","Sre","Čet","Pet","Sob"]),srCYRL=new locale_Language("Serbian in Cyrillic script",["Јануар","Фебруар","Март","Април","Мај","Јун","Јул","Август","Септембар","Октобар","Новембар","Децембар"],["Јан","Феб","Мар","Апр","Мај","Јун","Јул","Авг","Сеп","Окт","Нов","Дец"],["Нед","Пон","Уто","Сре","Чет","Пет","Суб"]),sr=new locale_Language("Serbian",["Januar","Februar","Mart","April","Maj","Jun","Jul","Avgust","Septembar","Oktobar","Novembar","Decembar"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"],["Ned","Pon","Uto","Sre","Čet","Pet","Sub"]),sv=new locale_Language("Swedish",["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Aug","Sep","Okt","Nov","Dec"],["Sön","Mån","Tis","Ons","Tor","Fre","Lör"]),th=new locale_Language("Thai",["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"],["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."],["อา","จ","อ","พ","พฤ","ศ","ส"]),tr=new locale_Language("Turkish",["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"],["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"],["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"]),uk=new locale_Language("Ukraine",["Січень","Лютий","Березень","Квітень","Травень","Червень","Липень","Серпень","Вересень","Жовтень","Листопад","Грудень"],["Січ","Лют","Бер","Квіт","Трав","Чер","Лип","Серп","Вер","Жовт","Лист","Груд"],["Нд","Пн","Вт","Ср","Чт","Пт","Сб"]),language$6=new locale_Language("Urdu",["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","سپتمبر","اکتوبر","نومبر","دسمبر"],["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","سپتمبر","اکتوبر","نومبر","دسمبر"],["اتوار","پیر","منگل","بدھ","جمعرات","جمعہ","ہفتہ"]);language$6.rtl=!0;var vi=new locale_Language("Vientnamese",["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"],["T 01","T 02","T 03","T 04","T 05","T 06","T 07","T 08","T 09","T 10","T 11","T 12"],["CN","Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7"]),language$7=new locale_Language("Chinese",["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],["日","一","二","三","四","五","六"]);language$7.yearSuffix="年";
+var locale_Language=function(e,a,r,n){this.language=e,this.months=a,this.monthsAbbr=r,this.days=n,this.rtl=!1,this.ymd=!1,this.yearSuffix=""},locale_prototypeAccessors={language:{configurable:!0},months:{configurable:!0},monthsAbbr:{configurable:!0},days:{configurable:!0}};locale_prototypeAccessors.language.get=function(){return this._language},locale_prototypeAccessors.language.set=function(e){if("string"!=typeof e)throw new TypeError("Language must be a string");this._language=e},locale_prototypeAccessors.months.get=function(){return this._months},locale_prototypeAccessors.months.set=function(e){if(12!==e.length)throw new RangeError("There must be 12 months for "+this.language+" language");this._months=e},locale_prototypeAccessors.monthsAbbr.get=function(){return this._monthsAbbr},locale_prototypeAccessors.monthsAbbr.set=function(e){if(12!==e.length)throw new RangeError("There must be 12 abbreviated months for "+this.language+" language");this._monthsAbbr=e},locale_prototypeAccessors.days.get=function(){return this._days},locale_prototypeAccessors.days.set=function(e){if(7!==e.length)throw new RangeError("There must be 7 days for "+this.language+" language");this._days=e},Object.defineProperties(locale_Language.prototype,locale_prototypeAccessors);var af=new locale_Language("Afrikaans",["Januarie","Februarie","Maart","April","Mei","Junie","Julie","Augustus","September","Oktober","November","Desember"],["Jan","Feb","Mrt","Apr","Mei","Jun","Jul","Aug","Sep","Okt","Nov","Des"],["So.","Ma.","Di.","Wo.","Do.","Vr.","Sa."]),language=new locale_Language("Arabic",["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوڤمبر","ديسمبر"],["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوڤمبر","ديسمبر"],["أحد","إثنين","ثلاثاء","أربعاء","خميس","جمعة","سبت"]);language.rtl=!0;var bg=new locale_Language("Bulgarian",["Януари","Февруари","Март","Април","Май","Юни","Юли","Август","Септември","Октомври","Ноември","Декември"],["Ян","Фев","Мар","Апр","Май","Юни","Юли","Авг","Сеп","Окт","Ное","Дек"],["Нд","Пн","Вт","Ср","Чт","Пт","Сб"]),bs=new locale_Language("Bosnian",["Januar","Februar","Mart","April","Maj","Juni","Juli","Avgust","Septembar","Oktobar","Novembar","Decembar"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"],["Ned","Pon","Uto","Sri","Čet","Pet","Sub"]),ca=new locale_Language("Catalan",["Gener","Febrer","Març","Abril","Maig","Juny","Juliol","Agost","Setembre","Octubre","Novembre","Desembre"],["Gen","Feb","Mar","Abr","Mai","Jun","Jul","Ago","Set","Oct","Nov","Des"],["Diu","Dil","Dmr","Dmc","Dij","Div","Dis"]),cs=new locale_Language("Czech",["leden","únor","březen","duben","květen","červen","červenec","srpen","září","říjen","listopad","prosinec"],["led","úno","bře","dub","kvě","čer","čec","srp","zář","říj","lis","pro"],["ne","po","út","st","čt","pá","so"]),da=new locale_Language("Danish",["Januar","Februar","Marts","April","Maj","Juni","Juli","August","September","Oktober","November","December"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Aug","Sep","Okt","Nov","Dec"],["Sø","Ma","Ti","On","To","Fr","Lø"]),de=new locale_Language("German",["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"],["So.","Mo.","Di.","Mi.","Do.","Fr.","Sa."]),ee=new locale_Language("Estonian",["Jaanuar","Veebruar","Märts","Aprill","Mai","Juuni","Juuli","August","September","Oktoober","November","Detsember"],["Jaan","Veebr","Märts","Apr","Mai","Juuni","Juuli","Aug","Sept","Okt","Nov","Dets"],["P","E","T","K","N","R","L"]),el=new locale_Language("Greek",["Ιανουάριος","Φεβρουάριος","Μάρτιος","Απρίλιος","Μάϊος","Ιούνιος","Ιούλιος","Αύγουστος","Σεπτέμβριος","Οκτώβριος","Νοέμβριος","Δεκέμβριος"],["Ιαν","Φεβ","Μαρ","Απρ","Μαι","Ιουν","Ιουλ","Αυγ","Σεπ","Οκτ","Νοε","Δεκ"],["Κυρ","Δευ","Τρι","Τετ","Πεμ","Παρ","Σατ"]),locale_en=new locale_Language("English",["January","February","March","April","May","June","July","August","September","October","November","December"],["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]),es=new locale_Language("Spanish",["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"]),fa=new locale_Language("Persian",["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"],["فرو","ارد","خرد","تیر","مرد","شهر","مهر","آبا","آذر","دی","بهم","اسف"],["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"]),fi=new locale_Language("Finish",["tammikuu","helmikuu","maaliskuu","huhtikuu","toukokuu","kesäkuu","heinäkuu","elokuu","syyskuu","lokakuu","marraskuu","joulukuu"],["tammi","helmi","maalis","huhti","touko","kesä","heinä","elo","syys","loka","marras","joulu"],["su","ma","ti","ke","to","pe","la"]),fo=new locale_Language("Faroese",["Januar","Februar","Mars","Apríl","Mai","Juni","Juli","August","Septembur","Oktobur","Novembur","Desembur"],["Jan","Feb","Mar","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Des"],["Sun","Mán","Týs","Mik","Hós","Frí","Ley"]),fr=new locale_Language("French",["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"],["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]),ge=new locale_Language("Georgia",["იანვარი","თებერვალი","მარტი","აპრილი","მაისი","ივნისი","ივლისი","აგვისტო","სექტემბერი","ოქტომბერი","ნოემბერი","დეკემბერი"],["იან","თებ","მარ","აპრ","მაი","ივნ","ივლ","აგვ","სექ","ოქტ","ნოე","დეკ"],["კვი","ორშ","სამ","ოთხ","ხუთ","პარ","შაბ"]),language$1=new locale_Language("Hebrew",["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"],["ינו","פבר","מרץ","אפר","מאי","יונ","יול","אוג","ספט","אוק","נוב","דצמ"],["א","ב","ג","ד","ה","ו","ש"]);language$1.rtl=!0;var hr=new locale_Language("Croatian",["Siječanj","Veljača","Ožujak","Travanj","Svibanj","Lipanj","Srpanj","Kolovoz","Rujan","Listopad","Studeni","Prosinac"],["Sij","Velj","Ožu","Tra","Svi","Lip","Srp","Kol","Ruj","Lis","Stu","Pro"],["Ned","Pon","Uto","Sri","Čet","Pet","Sub"]),hu=new locale_Language("Hungarian",["Január","Február","Március","Április","Május","Június","Július","Augusztus","Szeptember","Október","November","December"],["Jan","Febr","Márc","Ápr","Máj","Jún","Júl","Aug","Szept","Okt","Nov","Dec"],["Vas","Hét","Ke","Sze","Csü","Pén","Szo"]),locale_id=new locale_Language("Indonesian",["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"],["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],["Min","Sen","Sel","Rab","Kam","Jum","Sab"]),is=new locale_Language("Icelandic",["Janúar","Febrúar","Mars","Apríl","Maí","Júní","Júlí","Ágúst","September","Október","Nóvember","Desember"],["Jan","Feb","Mars","Apr","Maí","Jún","Júl","Ágú","Sep","Okt","Nóv","Des"],["Sun","Mán","Þri","Mið","Fim","Fös","Lau"]),it=new locale_Language("Italian",["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"],["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"],["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]),language$2=new locale_Language("Japanese",["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],["日","月","火","水","木","金","土"]);language$2.yearSuffix="年",language$2.ymd=!0;var language$3=new locale_Language("Korean",["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],["일","월","화","수","목","금","토"]);language$3.yearSuffix="년";var lb=new locale_Language("Luxembourgish",["Januar","Februar","Mäerz","Abrëll","Mäi","Juni","Juli","August","September","Oktober","November","Dezember"],["Jan","Feb","Mäe","Abr","Mäi","Jun","Jul","Aug","Sep","Okt","Nov","Dez"],["So.","Mé.","Dë.","Më.","Do.","Fr.","Sa."]),language$4=new locale_Language("Lithuanian",["Sausis","Vasaris","Kovas","Balandis","Gegužė","Birželis","Liepa","Rugpjūtis","Rugsėjis","Spalis","Lapkritis","Gruodis"],["Sau","Vas","Kov","Bal","Geg","Bir","Lie","Rugp","Rugs","Spa","Lap","Gru"],["Sek","Pir","Ant","Tre","Ket","Pen","Šeš"]);language$4.ymd=!0;var lv=new locale_Language("Latvian",["Janvāris","Februāris","Marts","Aprīlis","Maijs","Jūnijs","Jūlijs","Augusts","Septembris","Oktobris","Novembris","Decembris"],["Jan","Feb","Mar","Apr","Mai","Jūn","Jūl","Aug","Sep","Okt","Nov","Dec"],["Sv","Pr","Ot","Tr","Ce","Pk","Se"]),language$5=new locale_Language("Mongolia",["1 дүгээр сар","2 дугаар сар","3 дугаар сар","4 дүгээр сар","5 дугаар сар","6 дугаар сар","7 дугаар сар","8 дугаар сар","9 дүгээр сар","10 дугаар сар","11 дүгээр сар","12 дугаар сар"],["1-р сар","2-р сар","3-р сар","4-р сар","5-р сар","6-р сар","7-р сар","8-р сар","9-р сар","10-р сар","11-р сар","12-р сар"],["Ня","Да","Мя","Лх","Пү","Ба","Бя"]);language$5.ymd=!0;var nbNO=new locale_Language("Norwegian Bokmål",["Januar","Februar","Mars","April","Mai","Juni","Juli","August","September","Oktober","November","Desember"],["Jan","Feb","Mar","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Des"],["Sø","Ma","Ti","On","To","Fr","Lø"]),nl=new locale_Language("Dutch",["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"],["jan","feb","maa","apr","mei","jun","jul","aug","sep","okt","nov","dec"],["zo","ma","di","wo","do","vr","za"]),pl=new locale_Language("Polish",["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"],["Sty","Lut","Mar","Kwi","Maj","Cze","Lip","Sie","Wrz","Paź","Lis","Gru"],["Nd","Pn","Wt","Śr","Czw","Pt","Sob"]),ptBR=new locale_Language("Brazilian",["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"],["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],["Dom","Seg","Ter","Qua","Qui","Sex","Sab"]),ro=new locale_Language("Romanian",["Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie","Iulie","August","Septembrie","Octombrie","Noiembrie","Decembrie"],["Ian","Feb","Mar","Apr","Mai","Iun","Iul","Aug","Sep","Oct","Noi","Dec"],["D","L","Ma","Mi","J","V","S"]),ru=new locale_Language("Russian",["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],["Янв","Февр","Март","Апр","Май","Июнь","Июль","Авг","Сент","Окт","Нояб","Дек"],["Вс","Пн","Вт","Ср","Чт","Пт","Сб"]),sk=new locale_Language("Slovakian",["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"],["jan","feb","mar","apr","máj","jún","júl","aug","sep","okt","nov","dec"],["ne","po","ut","st","št","pi","so"]),slSI=new locale_Language("Sloveian",["Januar","Februar","Marec","April","Maj","Junij","Julij","Avgust","September","Oktober","November","December"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"],["Ned","Pon","Tor","Sre","Čet","Pet","Sob"]),srCYRL=new locale_Language("Serbian in Cyrillic script",["Јануар","Фебруар","Март","Април","Мај","Јун","Јул","Август","Септембар","Октобар","Новембар","Децембар"],["Јан","Феб","Мар","Апр","Мај","Јун","Јул","Авг","Сеп","Окт","Нов","Дец"],["Нед","Пон","Уто","Сре","Чет","Пет","Суб"]),sr=new locale_Language("Serbian",["Januar","Februar","Mart","April","Maj","Jun","Jul","Avgust","Septembar","Oktobar","Novembar","Decembar"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Avg","Sep","Okt","Nov","Dec"],["Ned","Pon","Uto","Sre","Čet","Pet","Sub"]),sv=new locale_Language("Swedish",["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti","September","Oktober","November","December"],["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Aug","Sep","Okt","Nov","Dec"],["Sön","Mån","Tis","Ons","Tor","Fre","Lör"]),th=new locale_Language("Thai",["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"],["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."],["อา","จ","อ","พ","พฤ","ศ","ส"]),tr=new locale_Language("Turkish",["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"],["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"],["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"]),uk=new locale_Language("Ukraine",["Січень","Лютий","Березень","Квітень","Травень","Червень","Липень","Серпень","Вересень","Жовтень","Листопад","Грудень"],["Січ","Лют","Бер","Квіт","Трав","Чер","Лип","Серп","Вер","Жовт","Лист","Груд"],["Нд","Пн","Вт","Ср","Чт","Пт","Сб"]),language$6=new locale_Language("Urdu",["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","سپتمبر","اکتوبر","نومبر","دسمبر"],["جنوری","فروری","مارچ","اپریل","مئی","جون","جولائی","اگست","سپتمبر","اکتوبر","نومبر","دسمبر"],["اتوار","پیر","منگل","بدھ","جمعرات","جمعہ","ہفتہ"]);language$6.rtl=!0;var vi=new locale_Language("Vientnamese",["Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7","Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"],["T 01","T 02","T 03","T 04","T 05","T 06","T 07","T 08","T 09","T 10","T 11","T 12"],["CN","Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7"]),language$7=new locale_Language("Chinese",["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],["日","一","二","三","四","五","六"]);language$7.yearSuffix="年";
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/partials/DatePicker.vue?vue&type=script&lang=js&
 /*
@@ -26591,7 +26722,7 @@ Dropbox_component.options.__file = "Dropbox.vue"
 /* concated harmony reexport acl */__webpack_require__.d(__webpack_exports__, "acl", function() { return services_acl; });
 /* concated harmony reexport helper */__webpack_require__.d(__webpack_exports__, "helper", function() { return services_helper; });
 /* concated harmony reexport EventBus */__webpack_require__.d(__webpack_exports__, "EventBus", function() { return EventBus; });
-/* concated harmony reexport VuexLoad */__webpack_require__.d(__webpack_exports__, "VuexLoad", function() { return load; });
+/* concated harmony reexport VuexLoad */__webpack_require__.d(__webpack_exports__, "VuexLoad", function() { return modules_load; });
 /* concated harmony reexport VuexGetters */__webpack_require__.d(__webpack_exports__, "VuexGetters", function() { return vuex_getters; });
 /* concated harmony reexport VuexActions */__webpack_require__.d(__webpack_exports__, "VuexActions", function() { return vuex_actions; });
 /* concated harmony reexport VuexMutations */__webpack_require__.d(__webpack_exports__, "VuexMutations", function() { return vuex_mutations; });

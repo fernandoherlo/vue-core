@@ -18,7 +18,7 @@ let api = new Vue({
     // ******************
     get (url, _callback) {
       // Degub
-      this.$log.debug('API -> get()')
+      this.$log.debug('API', url)
       // var self = this
       var options = {
         url: url,
@@ -37,7 +37,7 @@ let api = new Vue({
     // ******************
     update (url, item, _callback) {
       // Degub
-      this.$log.debug('API -> update()')
+      this.$log.debug('API', url)
       // Data
       var data = {}
       // Fields
@@ -71,7 +71,7 @@ let api = new Vue({
     // SAVE
     save (url, item, _callback) {
       // Degub
-      this.$log.debug('API -> save()')
+      this.$log.debug('API', url)
       // Data
       var data = {}
       // Fields
@@ -104,7 +104,7 @@ let api = new Vue({
     // DELETE
     delete (url, item, _callback, wait) {
       // Degub
-      this.$log.debug('API -> delete()')
+      this.$log.debug('API', url)
       if (wait) {
         // Alert wait
       }

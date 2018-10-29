@@ -38,6 +38,8 @@ export default {
     }
   },
   created () {
+    // Degub
+    this.$log.debug('LISTINLINE')
     this.$nextTick(() => {
       // ACL
       if (this.$auth.authenticated) {
@@ -67,12 +69,18 @@ export default {
   },
   methods: {
     __newItem () {
+      // Degub
+      this.$log.debug('LISTINLINE')
       this.$router.push({name: this.config.coreExtendScope + '-new', params: { id_parent: this.itemIDParent }})
     },
     __edit (id) {
+      // Degub
+      this.$log.debug('LISTINLINE')
       this.$router.push({name: this.config.coreExtendScope, params: { id: id, id_parent: this.itemIDParent }})
     },
     __confirmDelete (id) {
+      // Degub
+      this.$log.debug('LISTINLINE')
       // Reset
       this.confirm = {}
       // Delete
@@ -81,16 +89,22 @@ export default {
       })
     },
     __cancelDelete (id) {
+      // Degub
+      this.$log.debug('LISTINLINE')
       // Confirm false
       this.$set(this.confirm, id, false)
     },
     __delete (id) {
+      // Degub
+      this.$log.debug('LISTINLINE')
       // Reset
       this.confirm = {}
       // Confirm
       this.$set(this.confirm, id, true)
     },
     __checkComponentExists (name) {
+      // Degub
+      this.$log.debug('LISTINLINE')
       if (this.$options.components[name]) {
         return true
       }

@@ -1,5 +1,13 @@
 /*
 |--------------------------------------------------------------------------
+| Import core
+|--------------------------------------------------------------------------
+|
+*/
+import { EventBus } from '@/services/event-bus';
+
+/*
+|--------------------------------------------------------------------------
 | CORE vuex mutations
 |--------------------------------------------------------------------------
 |
@@ -39,16 +47,24 @@ export default {
   |
   */
   getAll (state, items) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     state.all = items
   },
   getAllByParent (state, id_parent) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     state.allByParent = state.all.filter(item => item.id_parent === id_parent)
   },
   getItem (state, id) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     state.item = state.all.filter(item => item.id === id)[0]
     state.clone = Object.assign({}, state.item)
   },
   clearItem (state) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     state.item = {}
     state.clone = {}
   },
@@ -59,6 +75,8 @@ export default {
   |
   */
   updateItem (state, item) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     // Update all
     this.__updateItemState(state.all, item)
     if (state.allByParent) {
@@ -67,6 +85,8 @@ export default {
     }
   },
   __updateItemState (stateEl, item, indexEl) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     var index = stateEl.findIndex(function(element) {
       return element.id === item.id;
     })
@@ -85,6 +105,8 @@ export default {
   |
   */
   saveItem (state, item) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     // Save all
     this.__saveItemState(state.all, item)
     if (state.allByParent) {
@@ -93,6 +115,8 @@ export default {
     }
   },
   __saveItemState (stateEl, item) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     var clone = Object.assign({}, item)
     stateEl.push(clone)
     // Return
@@ -105,6 +129,8 @@ export default {
   |
   */
   deleteItem (state, item) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     // Delete
     this.__deleteItemState(state.all, item)
     if (state.allByParent) {
@@ -113,6 +139,8 @@ export default {
     }
   },
   __deleteItemState (stateEl, item, indexEl) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
     var index = stateEl.findIndex(function(element) {
       return element.id === item.id
     })

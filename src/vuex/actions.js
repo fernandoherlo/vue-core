@@ -4,7 +4,7 @@
 |--------------------------------------------------------------------------
 |
 */
-import { EventBus } from '@/services/event-bus.js';
+import { EventBus } from '@/services/event-bus';
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +47,8 @@ export default {
   |
   */
   getBaseAll (commit, options) {
+    // Degub
+    EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       var _callback = items => {
         commit('RECEIVE_' +  options.mTypeNamePl, { items })
@@ -63,6 +65,8 @@ export default {
   |
   */
   getByParent (commit, options, id_parent) {
+    // Degub
+    EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       commit('GET_BY_PARENT_' + options.mTypeNamePl, { id_parent })
       resolve()
@@ -75,6 +79,8 @@ export default {
   |
   */
   getItem (commit, options, id) {
+    // Degub
+    EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       commit('GET_' + options.mTypeName, { id })
       resolve()
@@ -87,6 +93,8 @@ export default {
   |
   */
   updateItem (commit, options, item) {
+    // Degub
+    EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
         commit('UPDATE_' + options.mTypeName, { itemApi })
@@ -102,6 +110,8 @@ export default {
   |
   */
   saveItem (commit, options, item) {
+    // Degub
+    EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
         commit('SAVE_' + options.mTypeName, { itemApi })
@@ -118,6 +128,8 @@ export default {
   |
   */
   deleteItem (commit, options, item) {
+    // Degub
+    EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       // eslint-disable-next-line no-unused-vars
       var _callback = itemApi => {
@@ -134,6 +146,8 @@ export default {
   |
   */
   clearItem (commit, options) {
+    // Degub
+    EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       commit('CLEAR_' + options.mTypeName)
       resolve()

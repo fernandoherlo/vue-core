@@ -32,13 +32,13 @@ export default {
       methods: {
         login () {
           // Degub
-          this.$log.debug('AUTH0 -> login()')
+          this.$log.debug('AUTH0')
           webAuth.authorize()
         },
 
         handleAuthentication () {
           // Degub
-          this.$log.debug('AUTH0 -> handleAuthentication()')
+          this.$log.debug('AUTH0')
           webAuth.parseHash((err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
               this.setSession(authResult)
@@ -54,7 +54,7 @@ export default {
 
         getUserInfo (param) {
           // Degub
-          this.$log.debug('AUTH0 -> getUserInfo()')
+          this.$log.debug('AUTH0')
           let userPromise = new Promise((resolve) => {
             this.verifyAuthentication((data) => {
               resolve(data[param])
@@ -65,7 +65,7 @@ export default {
 
         verifyAuthentication (callback) {
           // Degub
-          this.$log.debug('AUTH0 -> verifyAuthentication()')
+          this.$log.debug('AUTH0')
           // Options
           let options = {
             state: localStorage.getItem('state'),
@@ -85,7 +85,7 @@ export default {
         
         setSession (authResult) {
           // Degub
-          this.$log.debug('AUTH0 -> setSession()')
+          this.$log.debug('AUTH0')
           // Set the time that the access token will expire at
           let expiresAt = JSON.stringify(
             authResult.expiresIn * 1000 + new Date().getTime()
@@ -113,7 +113,7 @@ export default {
 
         isAuthenticated () {
           // Degub
-          this.$log.debug('AUTH0 -> isAuthenticated()')
+          this.$log.debug('AUTH0')
           // Check whether the current time is past the
           // access token's expiry time
           let expiresAt = JSON.parse(localStorage.getItem('expires_at'))
