@@ -176,7 +176,7 @@ export default {
 </script>
 
 <template>
-  <div class="Edit">
+  <div class="Edit" :class="config.coreExtendScopePl">
     <div class="header" v-if="itemVuex">
       <h2 class="hidden-print">{{ config.displayName }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
       <h2 class="only-print">{{ config.displayNamePrint }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
