@@ -5,8 +5,9 @@
 |--------------------------------------------------------------------------
 |
 */
-import Datepicker from 'vuejs-datepicker';
+import Datepicker from 'vuejs-datepicker'
 import {en, es} from 'vuejs-datepicker/dist/locale'
+import utils from 'vuejs-datepicker/src/utils/DateUtils'
 
 export default {
   components: {
@@ -47,7 +48,7 @@ export default {
     <datepicker v-validate="field.validate" :name="field.label" :input-class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="item[field.field]" :format="field.dateInputFormat" :bootstrap-styling="field.bootstrapStyling" :monday-first="true" :language="es"></datepicker>
     <template v-if="valueForPrint">
       <div class="form-control-print">
-        {{ item[field.field] }}
+        {{ utils.formatDate(item[field.field],field.dateInputFormat,es) }}
       </div>
     </template>
     <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
