@@ -18,6 +18,11 @@ export default {
     classCss: {
       type: String,
       required: false
+    },
+    valueForPrint: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
@@ -31,6 +36,11 @@ export default {
     </template>
     <template v-else>
       <input v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" type="text" v-model="item[field.field]" :disabled="disabledCondition">
+    </template>
+    <template v-if="valueForPrint">
+      <div class="form-control-print">
+        {{ item[field.field] }}
+      </div>
     </template>
     <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
   </div>
