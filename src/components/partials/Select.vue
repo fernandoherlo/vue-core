@@ -26,13 +26,18 @@ export default {
     valueCustom: {
       type: Function,
       required: false
+    },
+    valueForPrint: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
 </script>
 
 <template>
-  <div class="form-group select" :class="classCss">
+  <div class="form-group select" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
       <select v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="custom-select" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition">
@@ -59,6 +64,11 @@ export default {
           </template>
         </option>
       </select>
+    </template>
+    <template v-if="valueForPrint">
+      <div class="form-control-print">
+        {{ item[field.field] }}
+      </div>
     </template>
     <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
   </div>
