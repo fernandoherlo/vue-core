@@ -7,7 +7,7 @@
 */
 import Datepicker from 'vuejs-datepicker'
 import {en, es} from 'vuejs-datepicker/dist/locale'
-import {utils} from 'vuejs-datepicker/src/utils/DateUtils'
+import { utils } from 'vuejs-datepicker/src/utils/DateUtils'
 
 export default {
   components: {
