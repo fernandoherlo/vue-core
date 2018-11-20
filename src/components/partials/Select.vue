@@ -32,6 +32,16 @@ export default {
       required: false,
       default: false
     }
+  },
+  computed: {
+    textValue () {
+      var valueSelect = this.values.filter(value => value.id === this.item[this.field.field])
+      if (typeof this.valueCustom === 'function') {
+        return this.valueCustom(valueSelect)
+      } else {
+        return valueSelect.name
+      }
+    },
   }
 }
 </script>
@@ -67,7 +77,7 @@ export default {
     </template>
     <template v-if="valueForPrint">
       <div class="form-control-print">
-        {{ item[field.field] }}
+        {{ textValue }}
       </div>
     </template>
     <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
