@@ -11906,8 +11906,12 @@ var auth0_min_esm = __webpack_require__("b0af");
           localStorage.removeItem('state');
           localStorage.removeItem('expires_in');
           localStorage.removeItem('expires_at');
-          localStorage.removeItem('nonce');
-          webAuth.authorize();
+          localStorage.removeItem('nonce'); // webAuth.authorize()
+
+          webAuth.logout({
+            returnTo: options.config.VUE_APP_AUTH0_CALLBACK_URL,
+            clientID: options.config.VUE_APP_AUTH0_CLIENT_ID
+          });
         },
         isAuthenticated: function isAuthenticated() {
           // Degub
