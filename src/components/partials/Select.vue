@@ -36,6 +36,7 @@ export default {
   computed: {
     textValue () {
       var valueSelect = this.values.filter(value => value.id === this.item[this.field.field])
+      console.log(valueSelect)
       if (typeof this.valueCustom === 'function') {
         return this.valueCustom(valueSelect)
       } else {
