@@ -110,7 +110,9 @@ export default {
           localStorage.removeItem('nonce')
           // webAuth.authorize()
           webAuth.logout()
-          webAuth.authorize()
+          webAuth.authorize({
+            errorDescription: 'No auth'
+          })
         },
 
         isAuthenticated () {

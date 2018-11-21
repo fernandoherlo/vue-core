@@ -11909,7 +11909,9 @@ var auth0_min_esm = __webpack_require__("b0af");
           localStorage.removeItem('nonce'); // webAuth.authorize()
 
           webAuth.logout();
-          webAuth.authorize();
+          webAuth.authorize({
+            errorDescription: 'No auth'
+          });
         },
         isAuthenticated: function isAuthenticated() {
           // Degub
