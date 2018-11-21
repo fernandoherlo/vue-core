@@ -109,10 +109,8 @@ export default {
           localStorage.removeItem('expires_at')
           localStorage.removeItem('nonce')
           // webAuth.authorize()
-          webAuth.logout({
-            returnTo: options.config.VUE_APP_AUTH0_RETURN_URL,
-            clientID: options.config.AUTH0_CLIENT_ID
-          })
+          webAuth.logout()
+          webAuth.authorize()
         },
 
         isAuthenticated () {

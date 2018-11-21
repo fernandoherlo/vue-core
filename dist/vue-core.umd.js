@@ -11908,10 +11908,8 @@ var auth0_min_esm = __webpack_require__("b0af");
           localStorage.removeItem('expires_at');
           localStorage.removeItem('nonce'); // webAuth.authorize()
 
-          webAuth.logout({
-            returnTo: options.config.VUE_APP_AUTH0_RETURN_URL,
-            clientID: options.config.AUTH0_CLIENT_ID
-          });
+          webAuth.logout();
+          webAuth.authorize();
         },
         isAuthenticated: function isAuthenticated() {
           // Degub
