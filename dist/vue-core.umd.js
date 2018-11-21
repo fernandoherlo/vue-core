@@ -11830,7 +11830,9 @@ var auth0_min_esm = __webpack_require__("b0af");
         login: function login() {
           // Degub
           this.$log.debug('AUTH0');
-          webAuth.authorize();
+          webAuth.authorize({
+            prompt: 'login'
+          });
         },
         handleAuthentication: function handleAuthentication() {
           var _this = this;
@@ -11847,7 +11849,9 @@ var auth0_min_esm = __webpack_require__("b0af");
               // alert(`Error: ${err.error}. Check the console for further details.`)
               _this.$log.fatal("handleAuthentication () Error: ".concat(err.error, ". Check the console for further details."));
 
-              webAuth.authorize();
+              webAuth.authorize({
+                prompt: 'login'
+              });
             }
           });
         },
@@ -11881,7 +11885,9 @@ var auth0_min_esm = __webpack_require__("b0af");
             } else if (err) {
               _this3.$log.fatal("verifyAuthentication () Error: ".concat(err.error, ". Check the console for further details."));
 
-              webAuth.authorize();
+              webAuth.authorize({
+                prompt: 'login'
+              });
             }
           });
         },
@@ -11909,10 +11915,7 @@ var auth0_min_esm = __webpack_require__("b0af");
           localStorage.removeItem('nonce');
           webAuth.authorize({
             prompt: 'login'
-          }); // webAuth.logout()
-          // webAuth.authorize({
-          //   errorDescription: 'No auth'
-          // })
+          });
         },
         isAuthenticated: function isAuthenticated() {
           // Degub

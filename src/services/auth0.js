@@ -33,7 +33,9 @@ export default {
         login () {
           // Degub
           this.$log.debug('AUTH0')
-          webAuth.authorize()
+          webAuth.authorize({
+            prompt: 'login'
+          })
         },
 
         handleAuthentication () {
@@ -47,7 +49,9 @@ export default {
             } else if (err) {
               // alert(`Error: ${err.error}. Check the console for further details.`)
               this.$log.fatal(`handleAuthentication () Error: ${err.error}. Check the console for further details.`)
-              webAuth.authorize()
+              webAuth.authorize({
+                prompt: 'login'
+              })
             }
           })
         },
@@ -78,7 +82,9 @@ export default {
               callback(authResult.idTokenPayload)
             } else if (err) {
               this.$log.fatal(`verifyAuthentication () Error: ${err.error}. Check the console for further details.`)
-              webAuth.authorize()
+              webAuth.authorize({
+                prompt: 'login'
+              })
             }
           })
         },
@@ -111,10 +117,6 @@ export default {
           webAuth.authorize({
             prompt: 'login'
           })
-          // webAuth.logout()
-          // webAuth.authorize({
-          //   errorDescription: 'No auth'
-          // })
         },
 
         isAuthenticated () {
