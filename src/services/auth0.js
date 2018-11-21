@@ -33,7 +33,7 @@ export default {
         login () {
           // Degub
           this.$log.debug('AUTH0')
-          webAuth.popup.authorize()
+          webAuth.authorize()
         },
 
         handleAuthentication () {
@@ -78,7 +78,7 @@ export default {
               callback(authResult.idTokenPayload)
             } else if (err) {
               this.$log.fatal(`verifyAuthentication () Error: ${err.error}. Check the console for further details.`)
-              webAuth.popup.authorize()
+              webAuth.authorize()
             }
           })
         },
@@ -108,12 +108,13 @@ export default {
           localStorage.removeItem('expires_in')
           localStorage.removeItem('expires_at')
           localStorage.removeItem('nonce')
-          webAuth.popup.authorize()
+          webAuth.authorize({
+            prompt: 'login'
+          })
           // webAuth.logout()
           // webAuth.authorize({
           //   errorDescription: 'No auth'
           // })
-          // this.$router.push({name:'dashboard'})
         },
 
         isAuthenticated () {

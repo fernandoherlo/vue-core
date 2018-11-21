@@ -11821,7 +11821,7 @@ var auth0_min_esm = __webpack_require__("b0af");
         login: function login() {
           // Degub
           this.$log.debug('AUTH0');
-          webAuth.popup.authorize();
+          webAuth.authorize();
         },
         handleAuthentication: function handleAuthentication() {
           var _this = this;
@@ -11872,7 +11872,7 @@ var auth0_min_esm = __webpack_require__("b0af");
             } else if (err) {
               _this3.$log.fatal("verifyAuthentication () Error: ".concat(err.error, ". Check the console for further details."));
 
-              webAuth.popup.authorize();
+              webAuth.authorize();
             }
           });
         },
@@ -11898,11 +11898,12 @@ var auth0_min_esm = __webpack_require__("b0af");
           localStorage.removeItem('expires_in');
           localStorage.removeItem('expires_at');
           localStorage.removeItem('nonce');
-          webAuth.popup.authorize(); // webAuth.logout()
+          webAuth.authorize({
+            prompt: 'login'
+          }); // webAuth.logout()
           // webAuth.authorize({
           //   errorDescription: 'No auth'
           // })
-          // this.$router.push({name:'dashboard'})
         },
         isAuthenticated: function isAuthenticated() {
           // Degub
