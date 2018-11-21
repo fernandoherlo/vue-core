@@ -11911,10 +11911,7 @@ var auth0_min_esm = __webpack_require__("b0af");
           // webAuth.authorize({
           //   errorDescription: 'No auth'
           // })
-
-          this.$router.push({
-            name: 'dashboard'
-          });
+          // this.$router.push({name:'dashboard'})
         },
         isAuthenticated: function isAuthenticated() {
           // Degub

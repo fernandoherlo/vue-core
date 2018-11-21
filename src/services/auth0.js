@@ -113,7 +113,7 @@ export default {
           // webAuth.authorize({
           //   errorDescription: 'No auth'
           // })
-          this.$router.push({name:'dashboard'})
+          // this.$router.push({name:'dashboard'})
         },
 
         isAuthenticated () {
