@@ -11898,10 +11898,13 @@ var auth0_min_esm = __webpack_require__("b0af");
           localStorage.removeItem('expires_in');
           localStorage.removeItem('expires_at');
           localStorage.removeItem('nonce'); // webAuth.authorize()
+          // webAuth.logout()
+          // webAuth.authorize({
+          //   errorDescription: 'No auth'
+          // })
 
-          webAuth.logout();
-          webAuth.authorize({
-            errorDescription: 'No auth'
+          this.$router.push({
+            name: 'dashboard'
           });
         },
         isAuthenticated: function isAuthenticated() {

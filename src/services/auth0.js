@@ -109,10 +109,11 @@ export default {
           localStorage.removeItem('expires_at')
           localStorage.removeItem('nonce')
           // webAuth.authorize()
-          webAuth.logout()
-          webAuth.authorize({
-            errorDescription: 'No auth'
-          })
+          // webAuth.logout()
+          // webAuth.authorize({
+          //   errorDescription: 'No auth'
+          // })
+          this.$router.push({name:'dashboard'})
         },
 
         isAuthenticated () {
