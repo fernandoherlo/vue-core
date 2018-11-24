@@ -182,13 +182,13 @@ export default {
       <h2 class="only-print">{{ config.displayNamePrint }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
     </div>
     <div class="actions">
-      <a class="btn print" @click="$helper.print()">
-        <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
-        <icon name="print" v-else></icon>
-      </a>
       <a class="btn back" @click="__back()" tabindex="0">
         <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
         <icon name="times" v-else></icon>
+      </a>
+      <a class="btn print" @click="$helper.print()">
+        <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
+        <icon name="print" v-else></icon>
       </a>
       <template v-if="__checkComponentExists(config.coreExtendScopePl + '-edit-btns')">
         <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefault"></div>
