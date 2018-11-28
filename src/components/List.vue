@@ -145,6 +145,11 @@ export default {
       <h2 class="hidden-print">{{ config.displayName }}</h2>
       <h2 class="only-print">{{ config.displayNamePrint }}</h2>
     </div>
+    <template v-if="__checkComponentExists(config.coreExtendScopePl + '-filters')">
+      <div class="filters">
+        <div :is="config.coreExtendScopePl + '-filters'" ref="filtersdefault"></div>
+      </div>
+    </template>
     <div class="actions">
       <a class="btn print" @click="$helper.print()">
         <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
