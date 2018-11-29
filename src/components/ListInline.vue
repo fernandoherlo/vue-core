@@ -150,7 +150,7 @@ export default {
             <icon name="ban" v-else></icon>
           </a>
         </span>
-        <span v-else>
+        <span v-else v-html="props.formattedRow[props.column.field]">
           {{ props.formattedRow[props.column.field] }}
         </span>
       </template>
