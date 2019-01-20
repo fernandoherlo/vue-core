@@ -183,28 +183,32 @@ export default {
     </div>
     <div class="actions">
       <span class="action-icon">
-        <icon name="ellipsis-v"></icon>
+        <b-btn id="popoverAction" variant="primary">
+          <icon name="ellipsis-v"></icon>
+        </b-btn>
       </span>
       <div class="action-wrap">
-        <a class="btn back" @click="__back()" tabindex="0">
-          <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
-          <icon name="arrow-left" v-else></icon>
-        </a>
-        <a class="btn print" @click="$helper.print()">
-          <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
-          <icon name="print" v-else></icon>
-        </a>
-        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-edit-btns')">
-          <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefault"></div>
-        </template>
-        <a v-if="!isNew && canUpdate" class="btn update" @click="__update()" tabindex="0">
-          <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
-          <icon name="save" v-else></icon>
-        </a>
-        <a v-if="isNew && canCreateNew" class="btn save" @click="__save()" tabindex="0">
-          <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
-          <icon name="save" v-else></icon>
-        </a>
+        <b-popover target="popoverAction" placement="bottomleft">
+          <a class="btn back" @click="__back()" tabindex="0">
+            <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
+            <icon name="arrow-left" v-else></icon>
+          </a>
+          <a class="btn print" @click="$helper.print()">
+            <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
+            <icon name="print" v-else></icon>
+          </a>
+          <template v-if="__checkComponentExists(config.coreExtendScopePl + '-edit-btns')">
+            <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefault"></div>
+          </template>
+          <a v-if="!isNew && canUpdate" class="btn update" @click="__update()" tabindex="0">
+            <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
+            <icon name="save" v-else></icon>
+          </a>
+          <a v-if="isNew && canCreateNew" class="btn save" @click="__save()" tabindex="0">
+            <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
+            <icon name="save" v-else></icon>
+          </a>
+        </b-popover>
       </div>
     </div>
     <div class="form" v-if="itemVuex">
