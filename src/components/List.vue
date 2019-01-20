@@ -147,27 +147,33 @@ export default {
     </div>
     <template v-if="__checkComponentExists(config.coreExtendScopePl + '-filters')">
       <div class="filters">
-        <icon name="filter"></icon>
+        <span class="filter-icon">
+          <icon name="filter"></icon>
+        </span>
         <div :is="config.coreExtendScopePl + '-filters'" ref="filtersdefault"></div>
       </div>
     </template>
     <div class="actions">
-      <icon name="ellipsis-v"></icon>
-      <a class="btn print" @click="$helper.print()">
-        <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
-        <icon name="print" v-else></icon>
-      </a>
-      <a class="btn refresh" @click="__refresh()">
-        <span v-html="config.buttons.refreshName" :title="config.buttons.refreshName" v-if="config.buttons.refreshName"></span>
-        <icon name="sync-alt" v-else></icon>
-      </a>
-      <a class="btn new" @click="__newItem()" v-if="canCreateNew">
-        <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
-        <icon name="plus-circle" v-else></icon>
-      </a>
-      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
-        <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
-      </template>
+      <span class="action-icon">
+        <icon name="ellipsis-v"></icon>
+      </span>
+      <div class="action-wrap">
+        <a class="btn print" @click="$helper.print()">
+          <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
+          <icon name="print" v-else></icon>
+        </a>
+        <a class="btn refresh" @click="__refresh()">
+          <span v-html="config.buttons.refreshName" :title="config.buttons.refreshName" v-if="config.buttons.refreshName"></span>
+          <icon name="sync-alt" v-else></icon>
+        </a>
+        <a class="btn new" @click="__newItem()" v-if="canCreateNew">
+          <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
+          <icon name="plus-circle" v-else></icon>
+        </a>
+        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
+          <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
+        </template>
+      </div>
     </div>
     <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">

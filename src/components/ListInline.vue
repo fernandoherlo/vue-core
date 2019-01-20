@@ -121,9 +121,14 @@ export default {
       <h3 class="only-print">{{ config.displayNamePrint }}</h3>
     </div>
     <div class="actions">
-      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
-        <div :is="config.coreExtendScopePl + '-btns'" ref="btnsinline"></div>
-      </template>
+      <span class="action-icon">
+        <icon name="ellipsis-v"></icon>
+      </span>
+      <div class="action-wrap">
+        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
+          <div :is="config.coreExtendScopePl + '-btns'" ref="btnsinline"></div>
+        </template>
+      </div>
     </div>
     <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">
