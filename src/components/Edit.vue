@@ -178,8 +178,8 @@ export default {
 <template>
   <div class="Edit" :class="config.coreExtendScopePl">
     <div class="header" v-if="itemVuex">
-      <h2 class="hidden-print">{{ config.displayName }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
-      <h2 class="only-print">{{ config.displayNamePrint }}<span v-if="!isNew">: {{ itemVuex[config.fieldID] }}</span></h2>
+      <h2 class="hidden-print">{{ config.displayName }}: <span v-if="!isNew">{{ itemVuex[config.fieldID] }}</span></h2>
+      <h2 class="only-print">{{ config.displayNamePrint }}: <span v-if="!isNew">{{ itemVuex[config.fieldID] }}</span></h2>
     </div>
     <div class="actions">
       <a class="btn back" @click="__back()" tabindex="0">
