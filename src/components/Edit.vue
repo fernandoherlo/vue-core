@@ -181,13 +181,13 @@ export default {
       <h2 class="hidden-print">{{ config.displayName }}: <span v-if="!isNew">{{ itemVuex[config.fieldID] }}</span></h2>
       <h2 class="only-print">{{ config.displayNamePrint }}: <span v-if="!isNew">{{ itemVuex[config.fieldID] }}</span></h2>
     </div>
-    <div class="actions">
+    <div class="actions" id="popoverContent">
       <span class="action-icon">
         <b-btn id="popoverAction" variant="primary">
           <icon name="ellipsis-v"></icon>
         </b-btn>
       </span>
-      <b-popover target="popoverAction" placement="bottomleft">
+      <b-popover target="popoverAction" placement="bottomleft" container="popoverContent">
         <div class="action-wrap">
           <a class="btn back" @click="__back()" tabindex="0">
             <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>

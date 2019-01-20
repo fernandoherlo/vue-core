@@ -155,13 +155,13 @@ export default {
         <div :is="config.coreExtendScopePl + '-filters'" ref="filtersdefault"></div>
       </div>
     </template>
-    <div class="actions">
+    <div class="actions" id="popoverContent">
       <span class="action-icon">
         <b-btn id="popoverAction" variant="primary">
           <icon name="ellipsis-v"></icon>
         </b-btn>
       </span>
-      <b-popover target="popoverAction" placement="bottomleft">
+      <b-popover target="popoverAction" placement="bottomleft" container="popoverContent">
         <div class="action-wrap">
           <a class="btn print" @click="$helper.print()">
             <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
