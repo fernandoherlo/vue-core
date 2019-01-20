@@ -147,10 +147,12 @@ export default {
     </div>
     <template v-if="__checkComponentExists(config.coreExtendScopePl + '-filters')">
       <div class="filters">
+        <icon name="filter"></icon>
         <div :is="config.coreExtendScopePl + '-filters'" ref="filtersdefault"></div>
       </div>
     </template>
     <div class="actions">
+      <icon name="ellipsis-v"></icon>
       <a class="btn print" @click="$helper.print()">
         <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
         <icon name="print" v-else></icon>
