@@ -161,8 +161,8 @@ export default {
           <icon name="ellipsis-v"></icon>
         </b-btn>
       </span>
-      <div class="action-wrap">
-        <b-popover target="popoverAction" placement="bottomleft">
+      <b-popover target="popoverAction" placement="bottomleft">
+        <div class="action-wrap">
           <a class="btn print" @click="$helper.print()">
             <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
             <icon name="print" v-else></icon>
@@ -178,8 +178,8 @@ export default {
           <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
             <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
           </template>
-        </b-popover>
-      </div>
+        </div>
+      </b-popover>
     </div>
     <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">

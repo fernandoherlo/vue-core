@@ -187,8 +187,8 @@ export default {
           <icon name="ellipsis-v"></icon>
         </b-btn>
       </span>
-      <div class="action-wrap">
-        <b-popover target="popoverAction" placement="bottomleft">
+      <b-popover target="popoverAction" placement="bottomleft">
+        <div class="action-wrap">
           <a class="btn back" @click="__back()" tabindex="0">
             <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
             <icon name="arrow-left" v-else></icon>
@@ -208,8 +208,8 @@ export default {
             <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
             <icon name="save" v-else></icon>
           </a>
-        </b-popover>
-      </div>
+        </div>
+      </b-popover>
     </div>
     <div class="form" v-if="itemVuex">
       <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
