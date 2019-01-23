@@ -33,11 +33,12 @@ export default {
   watch: {
     item_value: function (val) {
       if (this.autocapitalize === 'sentences') {
-        return val.charAt(0).toUpperCase() + val.slice(1)
+        val = val.charAt(0).toUpperCase() + val.slice(1)
       }
       if (this.autocapitalize === 'characters') {
-        return val.toUpperCase()
+        val = val.toUpperCase()
       }
+      this.$set(this.item, this.field.field, val)
     }
   },
   computed: {
