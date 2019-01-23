@@ -164,7 +164,7 @@ export default {
         <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
       </template>
       <span class="action-icon">
-        <b-btn id="popoverAction" variant="primary">
+        <b-btn id="popoverAction" variant="outline-primary">
           <icon name="ellipsis-v"></icon>
         </b-btn>
       </span>
