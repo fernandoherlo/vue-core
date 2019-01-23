@@ -156,7 +156,6 @@ export default {
       </div>
     </template>
     <div class="actions" id="popoverContent">
-      
       <a class="btn new" @click="__newItem()" v-if="canCreateNew">
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
@@ -179,6 +178,13 @@ export default {
             <span v-html="config.buttons.refreshName" :title="config.buttons.refreshName" v-if="config.buttons.refreshName"></span>
             <icon name="sync-alt" v-else></icon>
           </a>
+          <a class="btn new" @click="__newItem()" v-if="canCreateNew">
+            <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
+            <icon name="plus-circle" v-else></icon>
+          </a>
+          <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
+            <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
+          </template>
         </div>
       </b-popover>
     </div>
