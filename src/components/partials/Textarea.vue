@@ -32,10 +32,10 @@ export default {
   <div class="form-group textarea" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
-      <textarea v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition"></textarea>
+      <textarea v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition" autocomplete="on" autocorrect="on" autocapitalize="on" spellcheck="on"></textarea>
     </template>
     <template v-else>
-      <textarea v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" v-model="item[field.field]" :disabled="disabledCondition"></textarea>
+      <textarea v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" v-model="item[field.field]" :disabled="disabledCondition" autocomplete="on" autocorrect="on" autocapitalize="on" spellcheck="on"></textarea>
     </template>
     <template v-if="valueForPrint">
       <div class="form-control-print">
