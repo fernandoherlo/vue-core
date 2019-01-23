@@ -148,7 +148,7 @@ export default {
     <template v-if="__checkComponentExists(config.coreExtendScopePl + '-filters')">
       <div class="filters">
         <span class="filter-icon">
-          <b-btn id="popoverFilter" variant="primary">
+          <b-btn id="popoverFilter" variant="outline-primary">
             <icon name="filter"></icon>
           </b-btn>
         </span>

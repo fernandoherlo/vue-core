@@ -195,7 +195,7 @@ export default {
         <icon name="save" v-else></icon>
       </a>
       <span class="action-icon">
-        <b-btn id="popoverAction" variant="primary">
+        <b-btn id="popoverAction" variant="outline-primary">
           <icon name="ellipsis-v"></icon>
         </b-btn>
       </span>
