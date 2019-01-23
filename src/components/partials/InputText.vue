@@ -33,10 +33,10 @@ export default {
   watch: {
     item_value: function (val) {
       if (this.autocapitalize === 'sentences') {
-        return ucfirst(val)
+        return val.charAt(0).toUpperCase() + val.slice(1)
       }
       if (this.autocapitalize === 'characters') {
-        return ucwords(val)
+        return val.toUpperCase()
       }
     }
   },
