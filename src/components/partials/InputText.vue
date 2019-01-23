@@ -27,9 +27,24 @@ export default {
     autocapitalize: {
       type: String,
       required: false,
-      default: 'on'
+      default: 'sentences'
     }
-  }
+  },
+  watch: {
+    item_value: function (val) {
+      if (this.autocapitalize === 'sentences') {
+        return ucfirst(val)
+      }
+      if (this.autocapitalize === 'characters') {
+        return ucwords(val)
+      }
+    }
+  },
+  computed: {
+    item_value () {
+      return this.item[this.field.field]
+    }
+  },
 }
 </script>
 
