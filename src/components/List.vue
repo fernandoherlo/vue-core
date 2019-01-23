@@ -175,7 +175,7 @@ export default {
             <icon name="plus-circle" v-else></icon>
           </a>
           <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
-            <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
+            <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault2"></div>
           </template>
           <a class="btn print" @click="$helper.print()">
             <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
