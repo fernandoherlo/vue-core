@@ -23,6 +23,11 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    autocapitalize: {
+      type: String,
+      required: false,
+      default: 'on'
     }
   }
 }
@@ -32,10 +37,10 @@ export default {
   <div class="form-group text" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
     <label>{{ field.label }}</label>
     <template v-if="field.firstFocusForm">
-      <input v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" type="text" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition" autocomplete="on" autocorrect="on" autocapitalize="on" spellcheck="on">
+      <input v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" type="text" v-model="item[field.field]" ref="firstFocusForm" :disabled="disabledCondition" autocomplete="on" autocorrect="on" :autocapitalize="autocapitalize" spellcheck="on">
     </template>
     <template v-else>
-      <input v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" type="text" v-model="item[field.field]" :disabled="disabledCondition" autocomplete="on" autocorrect="on" autocapitalize="on" spellcheck="on">
+      <input v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" type="text" v-model="item[field.field]" :disabled="disabledCondition" autocomplete="on" autocorrect="on" :autocapitalize="autocapitalize" spellcheck="on">
     </template>
     <template v-if="valueForPrint">
       <div class="form-control-print">
