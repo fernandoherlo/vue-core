@@ -140,7 +140,7 @@ export default {
 </script>
 
 <template>
-  <div class="List" :class="config.coreExtendScopePl">
+  <div class="List" :class="config.coreExtendScopePl" ref="listdefault">
     <div class="header">
       <h2 class="hidden-print">{{ config.displayName }}</h2>
       <h2 class="only-print">{{ config.displayNamePrint }}</h2>
