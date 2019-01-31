@@ -1,2 +1,0 @@
-// Modules
-export const initialGetters = []
