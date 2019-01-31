@@ -123,6 +123,8 @@ export default {
               this.__back()
             }
           })
+        } else {
+          this.updateDisable = false
         }
       })
     },
@@ -154,6 +156,8 @@ export default {
               }
             })
           })
+        } else {
+          this.saveDisable = false
         }
       })
     },
