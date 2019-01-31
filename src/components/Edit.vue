@@ -139,7 +139,7 @@ export default {
             this.itemVuex.id_parent = this.itemIDParent
           }
           this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
-            this.saveDisable = false
+            // this.saveDisable = false
             // Associate
             if (this.config.coreVuexAssociate) {
               if (Array.isArray(this.config.coreVuexAssociate)) {
