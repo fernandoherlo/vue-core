@@ -13089,12 +13089,12 @@ var Core_component = normalizeComponent(
 
 Core_component.options.__file = "Core.vue"
 /* harmony default export */ var Core = (Core_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=5651ab4c&
-var Editvue_type_template_id_5651ab4c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit",class:_vm.config.coreExtendScopePl},[(_vm.itemVuex)?_c('div',{staticClass:"header"},[_c('h2',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName)+": "),(!_vm.isNew)?_c('span',[_vm._v(_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()]),_c('h2',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint)+": "),(!_vm.isNew)?_c('span',[_vm._v(_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()])]):_vm._e(),_c('div',{staticClass:"actions",attrs:{"id":"popoverContent"}},[_c('a',{staticClass:"btn back",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__back()}}},[(_vm.config.buttons.backName)?_c('span',{attrs:{"title":_vm.config.buttons.backName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.backName)}}):_c('icon',{attrs:{"name":"arrow-left"}})],1),(!_vm.isNew && _vm.canUpdate)?_c('a',{staticClass:"btn update",class:{ disabled: _vm.__updateDisable },attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[(_vm.config.buttons.updateName)?_c('span',{attrs:{"title":_vm.config.buttons.updateName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.updateName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e(),(_vm.isNew && _vm.canCreateNew)?_c('a',{staticClass:"btn save",class:{ disabled: _vm.__saveDisable },attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[(_vm.config.buttons.saveName)?_c('span',{attrs:{"title":_vm.config.buttons.saveName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.saveName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e(),_c('span',{staticClass:"action-icon"},[_c('b-btn',{attrs:{"id":"popoverAction","variant":"outline-primary"}},[_c('icon',{attrs:{"name":"ellipsis-v"}})],1)],1),_c('b-popover',{attrs:{"target":"popoverAction","placement":"bottomleft","container":"popoverContent"}},[_c('div',{staticClass:"action-wrap"},[_c('a',{staticClass:"btn print",on:{"click":function($event){_vm.$helper.print()}}},[(_vm.config.buttons.printName)?_c('span',{attrs:{"title":_vm.config.buttons.printName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.printName)}}):_c('icon',{attrs:{"name":"print"}})],1),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-edit-btns'))?[_c(_vm.config.coreExtendScopePl + '-edit-btns',{ref:"editbtnsdefault",tag:"div"})]:_vm._e()],2)])],1),(_vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.formName + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
-var Editvue_type_template_id_5651ab4c_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75a811ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Edit.vue?vue&type=template&id=1030111a&
+var Editvue_type_template_id_1030111a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"Edit",class:_vm.config.coreExtendScopePl},[(_vm.itemVuex)?_c('div',{staticClass:"header"},[_c('h2',{staticClass:"hidden-print"},[_vm._v(_vm._s(_vm.config.displayName)+": "),(!_vm.isNew)?_c('span',[_vm._v(_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()]),_c('h2',{staticClass:"only-print"},[_vm._v(_vm._s(_vm.config.displayNamePrint)+": "),(!_vm.isNew)?_c('span',[_vm._v(_vm._s(_vm.itemVuex[_vm.config.fieldID]))]):_vm._e()])]):_vm._e(),_c('div',{staticClass:"actions",attrs:{"id":"popoverContent"}},[_c('a',{staticClass:"btn back",attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__back()}}},[(_vm.config.buttons.backName)?_c('span',{attrs:{"title":_vm.config.buttons.backName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.backName)}}):_c('icon',{attrs:{"name":"arrow-left"}})],1),(!_vm.isNew && _vm.canUpdate)?_c('a',{staticClass:"btn update",class:{ disabled: _vm.updateDisable },attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__update()}}},[(_vm.config.buttons.updateName)?_c('span',{attrs:{"title":_vm.config.buttons.updateName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.updateName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e(),(_vm.isNew && _vm.canCreateNew)?_c('a',{staticClass:"btn save",class:{ disabled: _vm.saveDisable },attrs:{"tabindex":"0"},on:{"click":function($event){_vm.__save()}}},[(_vm.config.buttons.saveName)?_c('span',{attrs:{"title":_vm.config.buttons.saveName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.saveName)}}):_c('icon',{attrs:{"name":"save"}})],1):_vm._e(),_c('span',{staticClass:"action-icon"},[_c('b-btn',{attrs:{"id":"popoverAction","variant":"outline-primary"}},[_c('icon',{attrs:{"name":"ellipsis-v"}})],1)],1),_c('b-popover',{attrs:{"target":"popoverAction","placement":"bottomleft","container":"popoverContent"}},[_c('div',{staticClass:"action-wrap"},[_c('a',{staticClass:"btn print",on:{"click":function($event){_vm.$helper.print()}}},[(_vm.config.buttons.printName)?_c('span',{attrs:{"title":_vm.config.buttons.printName},domProps:{"innerHTML":_vm._s(_vm.config.buttons.printName)}}):_c('icon',{attrs:{"name":"print"}})],1),(_vm.__checkComponentExists(_vm.config.coreExtendScopePl + '-edit-btns'))?[_c(_vm.config.coreExtendScopePl + '-edit-btns',{ref:"editbtnsdefault",tag:"div"})]:_vm._e()],2)])],1),(_vm.itemVuex)?_c('div',{staticClass:"form"},[_c(_vm.config.formName + '-form',{ref:"formdefault",tag:"div",attrs:{"item":_vm.itemVuex,"extrasForm":_vm.extrasForm,"is-new":_vm.isNew}})]):_vm._e()])}
+var Editvue_type_template_id_1030111a_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=5651ab4c&
+// CONCATENATED MODULE: ./src/components/Edit.vue?vue&type=template&id=1030111a&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.function.name.js
 var es6_function_name = __webpack_require__("7f7f");
@@ -13253,8 +13253,8 @@ Form_component.options.__file = "Form.vue"
       config: components_component,
       canCreateNew: false,
       canUpdate: false,
-      __saveDisable: false,
-      __updateDisable: false
+      saveDisable: false,
+      updateDisable: false
     };
   },
   created: function created() {
@@ -13335,11 +13335,11 @@ Form_component.options.__file = "Form.vue"
 
       // Degub
       this.$log.debug('EDIT');
-      this.__updateDisable = true;
+      this.updateDisable = true;
       this.$validator.validateAll('formDefaultValidate').then(function () {
         if (_this3.errors.items.length === 0) {
           _this3.$store.dispatch('update' + _this3.config.coreExtendVuex, _this3.itemVuex).then(function () {
-            _this3.__updateDisable = false; // Associate
+            _this3.updateDisable = false; // Associate
 
             if (_this3.config.coreVuexAssociate) {
               if (Array.isArray(_this3.config.coreVuexAssociate)) {
@@ -13361,7 +13361,7 @@ Form_component.options.__file = "Form.vue"
 
       // Degub
       this.$log.debug('EDIT');
-      this.__saveDisable = true;
+      this.saveDisable = true;
       this.$validator.validateAll('formDefaultValidate').then(function () {
         if (_this4.errors.items.length === 0) {
           // Inline
@@ -13370,7 +13370,7 @@ Form_component.options.__file = "Form.vue"
           }
 
           _this4.$store.dispatch('save' + _this4.config.coreExtendVuex, _this4.itemVuex).then(function (itemApi) {
-            _this4.__saveDisable = false; // Associate
+            _this4.saveDisable = false; // Associate
 
             if (_this4.config.coreVuexAssociate) {
               if (Array.isArray(_this4.config.coreVuexAssociate)) {
@@ -13443,8 +13443,8 @@ var Editvue_type_style_index_0_lang_sass_ = __webpack_require__("3c3d");
 
 var Edit_component = normalizeComponent(
   components_Editvue_type_script_lang_js_,
-  Editvue_type_template_id_5651ab4c_render,
-  Editvue_type_template_id_5651ab4c_staticRenderFns,
+  Editvue_type_template_id_1030111a_render,
+  Editvue_type_template_id_1030111a_staticRenderFns,
   false,
   null,
   null,

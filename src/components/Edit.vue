@@ -35,8 +35,8 @@ export default {
       config: componentConfig,
       canCreateNew: false,
       canUpdate: false,
-      __saveDisable: false,
-      __updateDisable: false,
+      saveDisable: false,
+      updateDisable: false,
     }
   },
   created() {
@@ -106,11 +106,11 @@ export default {
     __update () {
       // Degub
       this.$log.debug('EDIT')
-      this.__updateDisable = true
+      this.updateDisable = true
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
           this.$store.dispatch('update' + this.config.coreExtendVuex, this.itemVuex).then(() => {
-            this.__updateDisable = false
+            this.updateDisable = false
             // Associate
             if (this.config.coreVuexAssociate) {
               if (Array.isArray(this.config.coreVuexAssociate)) {
@@ -129,7 +129,7 @@ export default {
     __save () {
       // Degub
       this.$log.debug('EDIT')
-      this.__saveDisable = true
+      this.saveDisable = true
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
           // Inline
@@ -137,7 +137,7 @@ export default {
             this.itemVuex.id_parent = this.itemIDParent
           }
           this.$store.dispatch('save' + this.config.coreExtendVuex, this.itemVuex).then((itemApi) => {
-            this.__saveDisable = false
+            this.saveDisable = false
             // Associate
             if (this.config.coreVuexAssociate) {
               if (Array.isArray(this.config.coreVuexAssociate)) {
@@ -192,11 +192,11 @@ export default {
         <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
         <icon name="arrow-left" v-else></icon>
       </a>
-      <a v-if="!isNew && canUpdate" class="btn update" :class="{ disabled: __updateDisable }" @click="__update()" tabindex="0">
+      <a v-if="!isNew && canUpdate" class="btn update" :class="{ disabled: updateDisable }" @click="__update()" tabindex="0">
         <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
         <icon name="save" v-else></icon>
       </a>
-      <a v-if="isNew && canCreateNew" class="btn save" :class="{ disabled: __saveDisable }" @click="__save()" tabindex="0">
+      <a v-if="isNew && canCreateNew" class="btn save" :class="{ disabled: saveDisable }" @click="__save()" tabindex="0">
         <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
         <icon name="save" v-else></icon>
       </a>
