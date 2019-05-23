@@ -136,8 +136,9 @@ export default {
       return false
     },
     __selectionChanged (params) {
-      console.log(params)
-      document.querySelectorAll('table tbody input[type="checkbox"]:checked')[0].parentElement.parentElement.classList.toggle('active')
+      document.querySelectorAll('table tbody input[type="checkbox"]:checked').forEach(function(element) {
+        element.parentElement.parentElement.classList.toggle('active')
+      })
     }
   }
 }
