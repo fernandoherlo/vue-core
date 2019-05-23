@@ -121,7 +121,7 @@ export default {
         document.querySelectorAll('table tbody input[type="checkbox"]:checked').forEach(function(element) {
           element.parentElement.parentElement.classList.add('active')
         })
-      }, 200)
+      }, 100)
     }
   }
 }
