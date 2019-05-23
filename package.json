@@ -1,6 +1,6 @@
 {
   "name": "@fernandoherlo/vue-core",
-  "version": "1.0.0",
+  "version": "0.9.36",
   "author": "Fernando Herlo",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "repo_u": "git add -u",
     "repo_c": "git commit -m 'Bugs'",
     "repo": "npm run repo_a && npm run repo_u && npm run repo_c",
-    "ver": "npm version major",
+    "ver": "npm version patch",
     "push": "git push origin master ",
     "prod": "npm run build && npm run repo && npm run ver && npm run push && npm publish --access=public"
   },
