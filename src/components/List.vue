@@ -188,6 +188,7 @@ export default {
         </template>
       </div>
       <template slot="table-row" slot-scope="props">
+        {{ props.column }}
         <span v-if="props.column.thClass === 'actions'">
           <a class="btn edit" @click="__edit(props.row.id)">
             <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
@@ -222,5 +223,5 @@ export default {
 
 <style lang="sass">
 .highlight
-  background: yellow;
+  background: yellow
 </style>
