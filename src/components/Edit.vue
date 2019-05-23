@@ -148,7 +148,7 @@ export default {
                 })
               } 
             }
-            this.save(() => {
+            this.save(itemApi, () => {
               if (this.config.backOnSave) {
                 this.__back()
               } else {
@@ -161,7 +161,7 @@ export default {
         }
       })
     },
-    save (callback) {
+    save (itemApi, callback) {
       // Degub
       this.$log.debug('EDIT')
       callback()
