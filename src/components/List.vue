@@ -134,6 +134,9 @@ export default {
         return true
       }
       return false
+    },
+    __selectionChanged (params) {
+      console.log(params)
     }
   }
 }
@@ -181,7 +184,7 @@ export default {
         </div>
       </b-popover>
     </div>
-    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.coreExtendScopePl + '-list-actions')">
