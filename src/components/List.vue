@@ -189,13 +189,6 @@ export default {
         </template>
       </div>
 
-      <template slot="table-checkbox-row" slot-scope="{ row }">
-         <span>
-            <input type="checkbox" :id="'basic_checkbox_'+row.id" class="filled-in" :checked="row.vgtSelected">
-            <label for="'basic_checkbox_'+row.id"></label>
-         </span>
-      </template>
-
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <a class="btn edit" @click="__edit(props.row.id)">
