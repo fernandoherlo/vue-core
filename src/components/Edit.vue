@@ -88,7 +88,7 @@ export default {
     __construct () {
       // Degub
       this.$log.debug('EDIT')
-      // 500 ms and VALIDATE!
+      // 400 ms and VALIDATE!
       setTimeout(() => {
         // Validate
         this.$nextTick(() => {
