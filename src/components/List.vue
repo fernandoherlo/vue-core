@@ -136,8 +136,13 @@ export default {
       return false
     },
     __selectionChanged (params) {
+      // Remove all
+      document.querySelectorAll('table tbody input[type="checkbox"]').forEach(function(element) {
+        element.parentElement.parentElement.classList.remove('active')
+      })
+      // Select this
       document.querySelectorAll('table tbody input[type="checkbox"]:checked').forEach(function(element) {
-        element.parentElement.parentElement.classList.toggle('active')
+        element.parentElement.parentElement.classList.add('active')
       })
     }
   }

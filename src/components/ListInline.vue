@@ -109,6 +109,16 @@ export default {
         return true
       }
       return false
+    },
+    __selectionChanged (params) {
+      // Remove all
+      document.querySelectorAll('table tbody input[type="checkbox"]').forEach(function(element) {
+        element.parentElement.parentElement.classList.remove('active')
+      })
+      // Select this
+      document.querySelectorAll('table tbody input[type="checkbox"]:checked').forEach(function(element) {
+        element.parentElement.parentElement.classList.add('active')
+      })
     }
   }
 }
@@ -125,7 +135,7 @@ export default {
         <div :is="config.coreExtendScopePl + '-btns'" ref="btnsinline"></div>
       </template>
     </div>
-    <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
+    <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.coreExtendScopePl + '-row-actions')">
           <div :is="config.coreExtendScopePl + '-row-actions'" ref="rowactionsinline"></div>
