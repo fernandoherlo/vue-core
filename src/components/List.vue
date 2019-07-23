@@ -67,7 +67,16 @@ export default {
     __refresh () {
       // Degub
       this.$log.debug('LIST')
-      this.$store.dispatch('getAll' + this.config.coreExtendVuexPl)
+      this.$store.dispatch('getAll' + this.config.coreExtendVuexPl).then(() => {
+        // Associate
+        if (this.config.coreVuexAssociate) {
+          if (Array.isArray(this.config.coreVuexAssociate)) {
+            this.config.coreVuexAssociate.forEach((associate) => {
+              this.$store.dispatch('getAll' + associate)
+            })
+          } 
+        }
+      })
     },
     __newItem () {
       // Degub
