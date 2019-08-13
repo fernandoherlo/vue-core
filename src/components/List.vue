@@ -168,7 +168,9 @@ export default {
       if (this.firstOnPerPage) {
         // Per page
         if (this.$root.$children[0].paginateNum) {
-          this.$refs.VueGoodTable.perPage = this.$root.$children[0].paginateNum
+          if (this.$refs.VueGoodTable) {
+            this.$refs.VueGoodTable.perPage = this.$root.$children[0].paginateNum
+          }
         }
       } else {
         this.$root.$children[0].paginateNum = params.currentPerPage
