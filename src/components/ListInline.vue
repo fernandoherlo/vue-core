@@ -85,7 +85,16 @@ export default {
       this.confirm = {}
       // Delete
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {
-        this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex])
+        this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex]).then(() => {
+          // Associate
+          if (this.config.coreVuexAssociate) {
+            if (Array.isArray(this.config.coreVuexAssociate)) {
+              this.config.coreVuexAssociate.forEach((associate) => {
+                this.$store.dispatch('getAll' + associate)
+              })
+            } 
+          }
+        })
       })
     },
     __cancelDelete (id) {
