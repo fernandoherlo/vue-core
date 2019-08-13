@@ -152,23 +152,25 @@ export default {
         </template>
       </div>
       <template slot="table-row" slot-scope="props">
-        <span v-if="props.column.thClass === 'actions' && __checkConditionRowActions(props.row)">
-          <a class="btn edit" @click="__edit(props.row.id)">
-            <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
-            <icon name="edit" v-else></icon>
-          </a>
-          <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
-            <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
-            <icon name="trash-alt" v-else></icon>
-          </a>
-          <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
-            <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
-            <icon name="check-circle" v-else></icon>
-          </a>
-          <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
-            <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
-            <icon name="ban" v-else></icon>
-          </a>
+        <span v-if="props.column.thClass === 'actions'">
+          <template v-if="__checkConditionRowActions(props.row)">
+            <a class="btn edit" @click="__edit(props.row.id)">
+              <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
+              <icon name="edit" v-else></icon>
+            </a>
+            <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
+              <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
+              <icon name="trash-alt" v-else></icon>
+            </a>
+            <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
+              <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
+              <icon name="check-circle" v-else></icon>
+            </a>
+            <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
+              <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
+              <icon name="ban" v-else></icon>
+            </a>
+          </template>
         </span>
         <span v-else v-html="props.formattedRow[props.column.field]">
           {{ props.formattedRow[props.column.field] }}
