@@ -33,7 +33,8 @@ export default {
       confirm: {},
       config: componentConfig,
       canCreateNew: false,
-      canDelete: false
+      canDelete: false,
+      firstOnPerPage: true
     }
   },
   created () {
@@ -164,7 +165,15 @@ export default {
     __onPageChanged (params) {
       // Degub
       this.$log.debug('LIST')
-      this.$root.$children[0].paginateNum = params.currentPerPage
+      if (this.firstOnPerPage) {
+        // Per page
+        if (this.$root.$children[0].paginateNum) {
+          this.$refs.VueGoodTable.perPage = this.$root.$children[0].paginateNum
+        }
+      } else {
+        this.$root.$children[0].paginateNum = params.currentPerPage
+      }
+      this.firstOnPerPage = false
     }
   }
 }
