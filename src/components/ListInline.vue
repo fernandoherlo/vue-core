@@ -110,6 +110,13 @@ export default {
       }
       return false
     },
+    __checkConditionRowActions (row) {
+      if (this.config.conditionRowActions) {
+        return this.config.conditionRowActions(row)
+      } else {
+        return true;
+      }
+    },
     __selectionChanged (/*params*/) {
       // 200 ms and JS
       setTimeout(() => {
@@ -145,7 +152,7 @@ export default {
         </template>
       </div>
       <template slot="table-row" slot-scope="props">
-        <span v-if="props.column.thClass === 'actions'">
+        <span v-if="props.column.thClass === 'actions' && __checkConditionRowActions(props.row)">
           <a class="btn edit" @click="__edit(props.row.id)">
             <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
             <icon name="edit" v-else></icon>
