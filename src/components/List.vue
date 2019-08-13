@@ -56,6 +56,10 @@ export default {
           this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].select()
         }
       }
+      // Per page
+      if (this.$root.$children[0].paginateNum) {
+        this.$refs.VueGoodTable.perPage = this.$root.$children[0].paginateNum
+      }
     })
   },
   computed: {
@@ -156,6 +160,9 @@ export default {
           element.parentElement.parentElement.classList.add('active')
         })
       }, 100)
+    },
+    __onPageChanged (params) {
+      this.$root.$children[0].paginateNum = params.currentPerPage
     }
   }
 }
@@ -203,7 +210,7 @@ export default {
         </div>
       </b-popover>
     </div>
-    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.coreExtendScopePl + '-list-actions')">
           <div :is="config.coreExtendScopePl + '-list-actions'" ref="rowactionsdefault"></div>
