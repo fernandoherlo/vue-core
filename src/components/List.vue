@@ -162,6 +162,8 @@ export default {
       }, 100)
     },
     __onPageChanged (params) {
+      // Degub
+      this.$log.debug('LIST')
       this.$root.$children[0].paginateNum = params.currentPerPage
     }
   }
