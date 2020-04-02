@@ -220,6 +220,7 @@ export default {
           </template>
         </div>
       </b-popover>
+      <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none"></div>
     </div>
     <div class="form" v-if="itemVuex">
       <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
