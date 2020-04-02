@@ -220,7 +220,10 @@ export default {
           </template>
         </div>
       </b-popover>
-      <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none"></div>
+      <!-- Bootstrap-vue new version no ref buttons, only when show popover. now use this ref  -->
+      <b-jumbotron class="hidden-print d-none">
+        <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefaultOut"></div>
+      </b-jumbotron>
     </div>
     <div class="form" v-if="itemVuex">
       <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
