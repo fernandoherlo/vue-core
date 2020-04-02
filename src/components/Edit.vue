@@ -83,8 +83,8 @@ export default {
         this.$store.dispatch('get' + this.config.coreExtendVuex, this.itemID)
       }
     },
-    itemVuex: function () {
-      this.$EventBus.$emit('loadItemVuex' + this.config.coreExtendScope)
+    itemVuex: function (itemValue) {
+      this.$EventBus.$emit('loadItemVuex' + this.config.coreExtendScope, itemValue)
     }
   },
   methods: {
