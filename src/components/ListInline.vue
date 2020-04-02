@@ -45,9 +45,13 @@ export default {
       if (this.$auth.authenticated) {
         this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
           this.canCreateNew = true
+        }).catch(() => {
+          this.$log.warn('Create')
         })
         this.$acl.can(this.config.coreExtendScopePl, 'Delete').then(() => {
           this.canDelete = true
+        }).catch(() => {
+          this.$log.warn('Delete')
         })
       }
       // Search Options

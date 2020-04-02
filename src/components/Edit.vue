@@ -48,9 +48,13 @@ export default {
     if (this.$auth.authenticated) {
       this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
         this.canCreateNew = true
+      }).catch(() => {
+        this.$log.warn('Create')
       })
       this.$acl.can(this.config.coreExtendScopePl, 'Update').then(() => {
         this.canUpdate = true
+      }).catch(() => {
+        this.$log.warn('Update')
       })
     }
     // Data
