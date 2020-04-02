@@ -209,7 +209,7 @@ export default {
           <icon name="ellipsis-v"></icon>
         </b-btn>
       </span>
-      <b-popover target="popoverAction" placement="bottomleft" container="popoverContent">
+      <b-popover ref="popover" target="popoverAction" placement="bottomleft" container="popoverContent">
         <div class="action-wrap">
           <a class="btn print" @click="$helper.print()">
             <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
