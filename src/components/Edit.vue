@@ -74,6 +74,7 @@ export default {
       return this.$store.getters['all' + this.config.coreExtendVuexPl]
     },
     itemVuex () {
+      this.$EventBus.$emit('loadItemVuex' + this.config.coreExtendScope)
       return this.$store.getters['clone' + this.config.coreExtendVuex]
     }
   },
