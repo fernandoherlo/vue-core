@@ -226,7 +226,9 @@ export default {
         </div>
       </b-popover>
       <!-- Bootstrap-vue new version no ref buttons, only when show popover. now use this ref  -->
-      <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none"></div>
+      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-edit-btns')">
+        <div :is="config.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none"></div>
+      </template>
     </div>
     <div class="form" v-if="itemVuex">
       <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
