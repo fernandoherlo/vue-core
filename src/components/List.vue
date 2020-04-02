@@ -230,7 +230,7 @@ export default {
         </div>
       </b-popover>
     </div>
-    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.coreExtendScopePl + '-list-actions')">
           <div :is="config.coreExtendScopePl + '-list-actions'" ref="rowactionsdefault"></div>
