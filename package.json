@@ -12,7 +12,6 @@
   "homepage": "https://github.com/fernandoherlo/vue-core#readme",
   "license": "MIT",
   "scripts": {
-    "serve": "vue-cli-service serve 'demo/main'",
     "build": "vue-cli-service build --target lib --name vue-core src/build.js",
     "lint": "vue-cli-service lint",
     "repo_a": "git add .",

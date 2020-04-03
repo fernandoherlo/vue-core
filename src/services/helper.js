@@ -53,9 +53,13 @@ let methodsHelper = {
   },
   // Parse CONFIG DB
   getValueNameConfig (arrayConfig, id) {
-    const result = arrayConfig.filter(config => config.id === id)
-    if (result.length > 0) {
-      return result[0].value_data
+    if (arrayConfig) {
+      const result = arrayConfig.filter(config => config.id === id)
+      if (result.length > 0) {
+        return result[0].value_data
+      } else {
+        return ''
+      }
     } else {
       return ''
     }
