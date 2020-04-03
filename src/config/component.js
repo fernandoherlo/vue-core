@@ -59,7 +59,7 @@ export const baseComponentFunction = function (component)
   */
   let options = {
     displayName: component.displayName,
-    url: process.env.VUE_APP_API_URL +  '/' + component.componentNamePl,
+    url: component.componentUrl +  '/' + component.componentNamePl,
     mTypeName: component.componentName,
     mTypeNamePl: component.componentNamePl
   }
