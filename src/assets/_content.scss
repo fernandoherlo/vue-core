@@ -1,0 +1,197 @@
+/*
+|--------------------------------------------------------------------------
+| Body
+|--------------------------------------------------------------------------
+|
+*/
+body {
+  margin-top: 56px;
+}
+// Content
+.content {
+  padding-top: 30px;
+}
+.only-print {
+  display: none;
+}
+.hide-display {
+  display: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Container
+|--------------------------------------------------------------------------
+|
+*/
+.container-fluid {
+  max-width: 1440px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Loading
+|--------------------------------------------------------------------------
+|
+*/
+.loading {
+  position: absolute;
+  width: 200px;
+  margin-left: -100px;
+  top: 100px;
+  left: 50%;
+  text-align: center;
+
+  &.inline {
+    position: relative;
+    top: 0;
+  }
+
+  .fa-icon {
+    color: $primary;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 16px;
+    small {
+      display: block;
+    }
+  }
+
+  &.overlay {
+    z-index: 2001;
+    .fa-icon {
+      color: #fff;
+    }
+    p {
+      color: #fff;
+    }
+  }
+}
+.overlay-loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($secondary, 0.8);
+  z-index: 2000;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Notification
+|--------------------------------------------------------------------------
+|
+*/
+.vue-notification {
+  padding: 20px;
+  font-size: 14px;
+  margin: 0 0 5px 5px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+|
+*/
+.dashboard {
+  .block {
+    overflow: hidden;
+    border: 1px solid $gray-300;
+    padding: 20px 20px;
+    &.click {
+      cursor: pointer;
+      &:hover {
+        background-color: $gray-300;
+      }
+    }
+    dt,
+    dd {
+      display: block;
+      float: left;
+      line-height: 1;
+    }
+    dt {
+      width: 20%;
+      padding: 5px 0;
+    }
+    dd {
+      width: 80%;
+      font-weight: bold;
+      font-size: 40px;
+      small {
+        display: block;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+    }
+    &.color-primary {
+      background: $primary;
+      color: #fff;
+    }
+    &.color-secondary {
+      background: $secondary;
+      color: #fff;
+    }
+    &.note {
+      padding: 40px 20px;
+      h2 {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      dd {
+        font-size: 36px;
+        small {
+          font-weight: 300;
+          font-size: 12px;
+          text-transform: none;
+        }
+      }
+    }
+  }
+}
+
+.filter-wrap {
+  .form-group {
+    margin-bottom: 0;
+    label {
+      min-width: 80px;
+    }
+    .form-control {
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Transitions
+|--------------------------------------------------------------------------
+|
+*/
+.fade-enter-active, .fade-leave-active {
+transition: opacity 1.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+opacity: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Media
+|--------------------------------------------------------------------------
+|
+*/
+@include respond-between(xs, sm) {
+  body {
+    font-size: 0.9rem;
+    margin-top: 56px;
+  }
+  .content {
+    padding-top: 10px;
+  }
+}

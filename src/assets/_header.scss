@@ -1,0 +1,85 @@
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+|
+*/
+.navbar.main {
+  .navbar-brand {
+    font-weight: 900;
+    color: $secondary;
+    text-transform: uppercase;
+  }
+  .navbar-nav {
+    .nav-item {
+      .fa-icon {
+        margin-top: -3px;
+      }
+      &.dashboard{
+        border-right: 1px solid rgba(#fff, 0.2);
+        margin-right: 10px;
+        padding-right: 10px;
+      }
+      &.logout {
+      	small {
+      		position: relative;
+      		top: -2px;
+      		font-size: 11px;
+      	}
+      }
+    }
+  }
+}
+.navbar.foot {
+  display: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Media
+|--------------------------------------------------------------------------
+|
+*/
+@include respond-between(xs, sm) {
+  .navbar.main {
+    // position: static;
+    .navbar-brand {
+      display: none;
+    }
+    .navbar-toggler {
+      padding: 8px 10px 12px;
+      border: 0;
+      .fa-icon {
+        color: $secondary;
+      }
+    }
+    .navbar-nav {
+      margin: 1rem -1rem 0 !important;
+      a {
+        font-size: 20px;
+        border-top: 1px solid rgba(#fff, 0.2);
+        padding: 1rem !important;
+      }
+    }
+  }
+  .navbar.foot {
+    display: flex;
+    padding: 0;
+    .navbar-nav {
+      flex-direction: row;
+      width: 100%;
+      .nav-item {
+        text-align: center;
+        font-size: 12px;
+        .nav-link {
+          padding: 10px 5px 5px;
+          .fa-icon {
+            min-height: 16px;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}

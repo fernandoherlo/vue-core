@@ -1,0 +1,29 @@
+/*
+|--------------------------------------------------------------------------
+| Fix
+|--------------------------------------------------------------------------
+|
+*/
+// a
+a:not([href]):not([tabindex]) {
+    color: $white
+}
+// Table
+.table-condensed {
+  thead,
+  tbody {
+    td,
+    th {
+      padding: 0.40rem 0.75rem;
+    }
+  }
+}
+// Muted
+.muted {
+  color: $gray-400;
+}
+
+// Modal overlay
+.modal-backdrop {
+	background: rgba($body-color, 0.8);
+}
