@@ -25,6 +25,7 @@ import Form from '@/components/Form'
 import List from '@/components/List'
 import ListInline from '@/components/ListInline'
 import New from '@/components/New'
+import install from '@/components/install'
 // Partials
 import InputText from '@/components/partials/InputText'
 import InputHidden from '@/components/partials/InputHidden'
@@ -71,5 +72,6 @@ export {
   buttonsName,
   globalTableConfig,
   baseTableColumns,
-  baseComponentFunction
+  baseComponentFunction,
+  install
 }
