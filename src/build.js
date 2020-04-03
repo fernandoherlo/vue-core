@@ -26,6 +26,8 @@ import List from '@/components/List'
 import ListInline from '@/components/ListInline'
 import New from '@/components/New'
 import install from '@/components/install'
+import { baseComponentFunction } from '@/components/component'
+
 // Partials
 import InputText from '@/components/partials/InputText'
 import InputHidden from '@/components/partials/InputHidden'
@@ -39,7 +41,6 @@ import Dropbox from '@/components/partials/Dropbox'
 import { buttonsName } from '@/config/button'
 import { globalTableConfig } from '@/config/table'
 import { baseTableColumns } from '@/config/table'
-import { baseComponentFunction } from '@/config/component'
 
 
 export {
