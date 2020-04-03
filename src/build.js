@@ -38,6 +38,7 @@ import Dropbox from '@/components/partials/Dropbox'
 import { buttonsName } from '@/config/button'
 import { globalTableConfig } from '@/config/table'
 import { baseTableColumns } from '@/config/table'
+import { baseComponentFunction } from '@/config/component'
 
 
 export {
@@ -69,5 +70,6 @@ export {
   Dropbox,
   buttonsName,
   globalTableConfig,
-  baseTableColumns
+  baseTableColumns,
+  baseComponentFunction
 }
