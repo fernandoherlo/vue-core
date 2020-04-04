@@ -6,7 +6,7 @@
 |
 */
 import CoreComponentEdit from '@/components/Edit'
-import componentConfig from '@/components/component'
+import componentConfig from '@/components/config'
 
 /*
 |--------------------------------------------------------------------------

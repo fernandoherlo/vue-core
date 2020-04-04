@@ -15,7 +15,7 @@ import Vue from 'vue'
 */
 import CoreComponent from '@/components/Core'
 import Form from '@/components/Form'
-import componentConfig from '@/components/component'
+import componentConfig from '@/components/config'
 
 /*
 |--------------------------------------------------------------------------

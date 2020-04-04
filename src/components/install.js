@@ -23,9 +23,9 @@ function plugin(Vue, options) {
   if (options) {
     Vue.mixin({
       beforeCreate() {
-        if (!alreadyExecuted[componentObject.coreExtendVuex] && this.$router){
+        if (!alreadyExecuted[options.componentObject.coreExtendVuex] && this.$router){
           initPlugin(this, options.componentObject, options.store, options.acl, options.routes,  options.menu, options.initialGetters)
-          alreadyExecuted[componentObject.coreExtendVuex] = true
+          alreadyExecuted[options.componentObject.coreExtendVuex] = true
         }
       }
     })
