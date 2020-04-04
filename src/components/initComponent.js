@@ -18,7 +18,7 @@ import { baseTableColumns } from '@/config/table'
 |--------------------------------------------------------------------------
 |
 */
-export const baseComponentFunction = function (component)
+export const initComponent = function (component)
 {
   let componentObject = {
     coreExtendVuex: component.componentName,

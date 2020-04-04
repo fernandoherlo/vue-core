@@ -26,7 +26,7 @@ import List from '@/components/List'
 import ListInline from '@/components/ListInline'
 import New from '@/components/New'
 import initPlugin from '@/components/initPlugin'
-import { baseComponentFunction } from '@/components/baseComponent'
+import { initComponent } from '@/components/initComponent'
 
 // Partials
 import InputText from '@/components/partials/InputText'
@@ -73,6 +73,6 @@ export {
   buttonsName,
   globalTableConfig,
   baseTableColumns,
-  baseComponentFunction,
+  initComponent,
   initPlugin
 }
