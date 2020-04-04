@@ -21,6 +21,7 @@ function initPlugin(vm, componentObject, store, acl, routes, menu, initialGetter
 let alreadyExecuted = []
 function plugin(Vue, options) {
   if (options) {
+    console.log(options)
     Vue.mixin({
       beforeCreate() {
         if (!alreadyExecuted[options.componentObject.coreExtendVuex] && this.$router){
