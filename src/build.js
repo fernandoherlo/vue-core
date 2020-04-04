@@ -25,7 +25,7 @@ import Form from '@/components/Form'
 import List from '@/components/List'
 import ListInline from '@/components/ListInline'
 import New from '@/components/New'
-import install from '@/components/install'
+import initPlugin from '@/components/initPlugin'
 import { baseComponentFunction } from '@/components/baseComponent'
 
 // Partials
@@ -74,5 +74,5 @@ export {
   globalTableConfig,
   baseTableColumns,
   baseComponentFunction,
-  install
+  initPlugin
 }
