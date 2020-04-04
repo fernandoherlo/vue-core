@@ -26,7 +26,7 @@ import List from '@/components/List'
 import ListInline from '@/components/ListInline'
 import New from '@/components/New'
 import install from '@/components/install'
-import { baseComponentFunction } from '@/components/component'
+import { baseComponentFunction } from '@/components/baseComponent'
 
 // Partials
 import InputText from '@/components/partials/InputText'

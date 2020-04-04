@@ -18,14 +18,14 @@ function initPlugin(vm, componentObject, store, acl, routes, menu, initialGetter
   vm.$router.addRoutes(routes)
 }
 
-let alreadyExecuted = false
+let alreadyExecuted = []
 function plugin(Vue, options) {
   if (options) {
     Vue.mixin({
       beforeCreate() {
-        if (!alreadyExecuted && this.$router){
+        if (!alreadyExecuted[componentObject.coreExtendVuex] && this.$router){
           initPlugin(this, options.componentObject, options.store, options.acl, options.routes,  options.menu, options.initialGetters)
-          alreadyExecuted = true
+          alreadyExecuted[componentObject.coreExtendVuex] = true
         }
       }
     })
