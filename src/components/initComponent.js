@@ -30,6 +30,7 @@ export const initComponent = function (component)
     formName: component.componentNamePl,
     displayName: component.displayName,
     displayNamePrint: component.displayNamePrint,
+    typeMenu: component.typeMenu,
     
     // Name bottoms
     buttons: Object.assign({},
