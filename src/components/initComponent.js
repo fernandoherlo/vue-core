@@ -21,12 +21,13 @@ import { baseTableColumns } from '@/config/table'
 export const initComponent = function (component)
 {
   let componentObject = {
+    inline: component.componentInline,
     coreExtendVuex: component.componentName,
     coreExtendVuexPl: component.componentNamePl,
     coreExtendScope: component.componentName,
     coreExtendScopePl: component.componentNamePl,
     coreExtendScopeParent: component.componentParent,
-    coreVuexAssociate: [],
+    coreVuexAssociate: component.componentVuexAssociate,
     formName: component.componentNamePl,
     displayName: component.displayName,
     displayNamePrint: component.displayNamePrint,
