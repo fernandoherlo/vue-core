@@ -25,12 +25,15 @@ export const initComponent = function (component)
     coreExtendVuexPl: component.componentNamePl,
     coreExtendScope: component.componentName,
     coreExtendScopePl: component.componentNamePl,
-    coreExtendMenu: '',
+    coreExtendScopeParent: component.componentParent,
     coreVuexAssociate: [],
     formName: component.componentNamePl,
     displayName: component.displayName,
     displayNamePrint: component.displayNamePrint,
     typeMenu: component.typeMenu,
+
+    backOnSave: component.backOnSave,
+    backOnUpdate: component.backOnUpdate,
     
     // Name bottoms
     buttons: Object.assign({},
