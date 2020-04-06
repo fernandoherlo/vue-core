@@ -9,6 +9,7 @@ function initPlugin(vm, componentObject, store, acl, routes, menu, initialGetter
     name: componentObject.displayName,
     scope: componentObject.coreExtendScopePl,
     type: componentObject.typeMenu,
+    foot: componentObject.footMenu,
   })
 
   // Acl

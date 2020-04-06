@@ -33,6 +33,7 @@ export const initComponent = function (component)
     displayName: component.displayName,
     displayNamePrint: component.displayNamePrint,
     typeMenu: component.typeMenu,
+    footMenu: component.footMenu,
 
     backOnSave: component.backOnSave,
     backOnUpdate: component.backOnUpdate,
