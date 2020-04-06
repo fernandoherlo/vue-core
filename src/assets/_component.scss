@@ -743,6 +743,9 @@
       &.new {
         @extend .btn-secondary;
       }
+      &.assign {
+        @extend .btn-primary;
+      }
     }
   }
   // Table

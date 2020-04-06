@@ -210,7 +210,7 @@ export default {
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
-      <a class="btn new" @click="__assign()" v-if="canAssign">
+      <a class="btn assign" @click="__assign()" v-if="canAssign">
         <span v-html="config.buttons.assignName" :title="config.buttons.assignName" v-if="config.buttons.assignName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
