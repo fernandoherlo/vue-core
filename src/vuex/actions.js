@@ -144,6 +144,9 @@ export default {
         commit('DELETE_' + options.mTypeName, { item })
         resolve()
       }
+      EventBus.$log.debug(item)
+      EventBus.$log.debug(id_parent)
+      EventBus.$log.debug(options)
       if (id_parent && options.laravel) {
         EventBus.$emit('apiDelete', options.url, item, _callback, null, id_parent)
       } else {
