@@ -44,12 +44,9 @@ export const initComponent = function (component)
     table: Object.assign({},
       globalTableConfig,
       {
-        columns: component.columnsTable.concat([baseTableColumns]),
-        sortOptions: {
-          enabled: true,
-          initialSortBy: {field: component.fieldID, type: 'desc'}
-        },
-      }
+        columns: component.columnsTable.concat([baseTableColumns])
+      },
+      component.optionsTable
     ),
     // Fields
     fields: component.fieldsForm,

@@ -3,7 +3,7 @@ export const globalTableConfig = {
   noDataText: 'Sin datos en la tabla.',
 	lineNumbers: false,
   sortOptions: {
-    enabled: false
+    enabled: true
   },
   searchOptions: {
     enabled: true,
