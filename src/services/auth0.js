@@ -60,13 +60,13 @@ export default {
           // Degub
           this.$log.debug('AUTH0')
           let userPromise = new Promise((resolve) => {
-            // this.verifyAuthentication((data) => {
-            //   resolve(data[param])
-            // })
-
-            webAuth.client.userInfo(localStorage.getItem('access_token'), function(err, data) {
+            this.verifyAuthentication((data) => {
               resolve(data[param])
-            });
+            })
+
+            // webAuth.client.userInfo(localStorage.getItem('access_token'), function(err, data) {
+            //   resolve(data[param])
+            // });
 
           })
           return userPromise
