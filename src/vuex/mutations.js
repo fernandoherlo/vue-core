@@ -4,6 +4,7 @@
 |--------------------------------------------------------------------------
 |
 */
+import Vue from 'vue'
 import { EventBus } from '@/services/event-bus';
 
 /*
@@ -74,7 +75,7 @@ export default {
       return relateds.length > 0
     })
 
-    EventBus.set(state, 'allByParent', ...newStates);
+    Vue.set(state, 'allByParent', ...newStates);
 
   },
   getItem (state, id) {
