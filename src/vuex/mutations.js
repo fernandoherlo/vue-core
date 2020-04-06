@@ -22,6 +22,9 @@ export default {
       ['GET_BY_PARENT_' + options.mTypeNamePl] (state, { id_parent }) {
         self.getAllByParent(state, id_parent)
       },
+      ['GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl] (state, { id_parent, storeRelated }) {
+        self.getAllByParentLaravel(state, id_parent, storeRelated)
+      },
       ['GET_' + options.mTypeName] (state, { id }) {
         self.getItem(state, id)
       },
@@ -55,6 +58,15 @@ export default {
     // Degub
     EventBus.$log.debug('MUTATIONS')
     state.allByParent = state.all.filter(item => item.id_parent === id_parent)
+  },
+  getAllByParentLaravel (state, id_parent, storeRelated) {
+    // Degub
+    EventBus.$log.debug('MUTATIONS')
+    state.allByParent = state.all.filter( function(item) {
+      return item[storeRelated].forEach( function(related) {
+        return related.id === id_parent
+      })
+    })
   },
   getItem (state, id) {
     // Degub

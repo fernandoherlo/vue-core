@@ -21,6 +21,7 @@ import { baseTableColumns } from '@/config/table'
 export const initComponent = function (component)
 {
   let componentObject = {
+    laravel: component.componentLaravel,
     inline: component.componentInline,
     coreExtendVuex: component.componentName,
     coreExtendVuexPl: component.componentNamePl,
@@ -60,6 +61,8 @@ export const initComponent = function (component)
   |
   */
   let options = {
+    laravel: component.componentLaravel,
+    storeRelated: component.componentStoreRelatedParent,
     displayName: component.displayName,
     url: component.componentUrl +  '/' + component.componentNamePl,
     mTypeName: component.componentName,

@@ -68,7 +68,12 @@ export default {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
-      commit('GET_BY_PARENT_' + options.mTypeNamePl, { id_parent })
+      if (options.laravel) {
+        let storeRelated = options.storeRelated
+        commit('GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl, { id_parent, storeRelated })
+      } else {
+        commit('GET_BY_PARENT_' + options.mTypeNamePl, { id_parent })
+      }
       resolve()
     })
   },
