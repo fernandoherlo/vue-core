@@ -32,6 +32,7 @@ export default {
       items: [],
       confirm: {},
       config: componentConfig,
+      canEdit: true,
       canCreateNew: false,
       canDelete: false,
       firstOnPerPage: true
@@ -243,7 +244,7 @@ export default {
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <template v-if="__checkConditionRowActions(props.row)">
-            <a class="btn edit" @click="__edit(props.row.id)">
+            <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
               <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
               <icon name="edit" v-else></icon>
             </a>

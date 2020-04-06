@@ -33,6 +33,7 @@ export default {
       items: [],
       confirm: {},
       config: componentConfig,
+      canEdit: true,
       canCreateNew: false,
       canDelete: false
     }
@@ -53,6 +54,10 @@ export default {
         }).catch(() => {
           this.$log.warn('Delete')
         })
+      }
+      // Not edit
+      if (this.config.laravel) {
+        this.canEdit =false
       }
       // Search Options
       if (this.config.table.searchOptions.enabled) {
@@ -171,7 +176,7 @@ export default {
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <template v-if="__checkConditionRowActions(props.row)">
-            <a class="btn edit" @click="__edit(props.row.id)">
+            <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
               <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
               <icon name="edit" v-else></icon>
             </a>
