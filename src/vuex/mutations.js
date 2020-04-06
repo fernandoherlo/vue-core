@@ -131,7 +131,8 @@ export default {
     // Degub
     EventBus.$log.debug('MUTATIONS')
     var clone = Object.assign({}, item)
-    stateEl.push(clone)
+    stateEl.push(...clone)
+
     // Return
     return stateEl
   },

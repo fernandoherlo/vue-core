@@ -94,8 +94,6 @@ export default {
           id_parent: this.itemIDParent
         }
         this.$store.dispatch('deleteByParent' + this.config.coreExtendVuex, item_payload).then(() => {
-          // Force
-          this.$forceUpdate()
           // Associate
           if (this.config.coreVuexAssociate) {
             if (Array.isArray(this.config.coreVuexAssociate)) {
