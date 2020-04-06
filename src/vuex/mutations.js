@@ -75,6 +75,8 @@ export default {
       return relateds.length > 0
     })
 
+    EventBus.$log.debug(newStates)
+    
     Vue.set(state, 'allByParent', ...newStates);
 
   },
