@@ -66,13 +66,16 @@ export default {
     EventBus.$log.debug(state)
     EventBus.$log.debug(id_parent)
     EventBus.$log.debug(storeRelated)
-    
-    state.allByParent = state.all.filter( function(item) {
+
+    let newStates = state.all.filter( function(item) {
       let relateds = item[storeRelated].filter( function(related) {
         return related.id === id_parent
       })
       return relateds.length > 0
     })
+
+    EventBus.set(state, 'allByParent', ...newStates);
+
   },
   getItem (state, id) {
     // Degub
