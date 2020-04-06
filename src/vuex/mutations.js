@@ -62,6 +62,11 @@ export default {
   getAllByParentLaravel (state, id_parent, storeRelated) {
     // Degub
     EventBus.$log.debug('MUTATIONS')
+
+    EventBus.$log.debug(state)
+    EventBus.$log.debug(id_parent)
+    EventBus.$log.debug(storeRelated)
+    
     state.allByParent = state.all.filter( function(item) {
       let relateds = item[storeRelated].filter( function(related) {
         return related.id === id_parent
