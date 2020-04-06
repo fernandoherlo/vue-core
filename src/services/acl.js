@@ -28,8 +28,6 @@ let acl = new Vue({
     can (component, permission) {
       // Degub
       this.$log.debug('ACL', component, permission)
-      // eslint-disable-next-line no-console
-      console.trace('TRACE')
       // Can
       let canPromise = new Promise((resolve, reject) => {
         this.$auth.getUserInfo('https://dmenta.io/app_metadata').then((app_metadata) => {
