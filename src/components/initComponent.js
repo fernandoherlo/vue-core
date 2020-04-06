@@ -40,7 +40,7 @@ export const initComponent = function (component)
     // Name bottoms
     buttons: Object.assign({},
       buttonsName,
-      component.buttonsName
+      component.componentButtonsName
     ),
     // Table
     table: Object.assign({},

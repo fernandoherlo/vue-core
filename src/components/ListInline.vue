@@ -33,7 +33,8 @@ export default {
       items: [],
       confirm: {},
       config: componentConfig,
-      canEdit: true,
+      canEdit: false,
+      canAssign: true,
       canCreateNew: false,
       canDelete: false
     }
@@ -57,7 +58,7 @@ export default {
       }
       // Not edit
       if (this.config.laravel) {
-        this.canEdit =false
+        this.canEdit = true
       }
       // Search Options
       if (this.config.table.searchOptions.enabled) {
@@ -81,6 +82,11 @@ export default {
       // Degub
       this.$log.debug('LISTINLINE')
       this.$router.push({name: this.config.coreExtendScope + '-new', params: { id_parent: this.itemIDParent }})
+    },
+    __assign () {
+      // Degub
+      this.$log.debug('LISTINLINE')
+      this.$router.push({name: this.config.coreExtendScope + '-assign', params: { id_parent: this.itemIDParent }})
     },
     __edit (id) {
       // Degub
@@ -202,6 +208,10 @@ export default {
     <div class="actions">
       <a class="btn new" @click="__newItem()" v-if="canCreateNew">
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
+        <icon name="plus-circle" v-else></icon>
+      </a>
+      <a class="btn new" @click="__assign()" v-if="canAssign">
+        <span v-html="config.buttons.assignName" :title="config.buttons.assignName" v-if="config.buttons.assignName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
     </div>

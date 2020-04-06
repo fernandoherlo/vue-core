@@ -3,6 +3,7 @@ export const buttonsName = {
   printName: '',
   newName: 'Nuevo',
   editName: '',
+  assignName: '',
   deleteName: '',
   askName: '¿Confirmar?',
   cancelName: '',
