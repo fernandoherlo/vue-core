@@ -76,8 +76,8 @@ export default {
     })
 
     EventBus.$log.debug(newStates)
-    
-    Vue.set(state, 'allByParent', ...newStates);
+
+    Vue.set(state, 'allByParent', newStates);
 
   },
   getItem (state, id) {
