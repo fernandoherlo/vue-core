@@ -34,8 +34,8 @@ export default {
       ['delete' + options.mTypeName] ({ commit }, item) {
         return self.deleteItem(commit, options, item)
       },
-      ['deleteByParent' + options.mTypeName] ({ commit }, item, id_parent) {
-        return self.deleteItem(commit, options, item, id_parent)
+      ['deleteByParent' + options.mTypeName] ({ commit }, item_payload) {
+        return self.deleteItem(commit, options, item_payload.item, item_payload.id_parent)
       },
       ['clear' + options.mTypeName] ({ commit }) {
         return self.clearItem(commit, options)
@@ -144,9 +144,6 @@ export default {
         commit('DELETE_' + options.mTypeName, { item })
         resolve()
       }
-      EventBus.$log.debug(item)
-      EventBus.$log.debug(id_parent)
-      EventBus.$log.debug(options)
       if (id_parent && options.laravel) {
         EventBus.$emit('apiDelete', options.url, item, _callback, null, id_parent)
       } else {
