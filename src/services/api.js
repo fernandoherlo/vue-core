@@ -115,6 +115,10 @@ let api = new Vue({
       if (id_parent) {
         options.url = options.url + '/' + id_parent
       }
+
+      this.$log.info(id_parent)
+      this.$log.info(options)
+
       this.$http.axios(options).then((response) => {
         // CallBack
         _callback(response.data)
