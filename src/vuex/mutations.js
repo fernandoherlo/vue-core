@@ -63,6 +63,7 @@ export default {
     // Degub
     EventBus.$log.debug('MUTATIONS')
     state.allByParent = state.all.filter( function(item) {
+      EventBus.$log.warning(item[storeRelated])
       return item[storeRelated].forEach( function(related) {
         return related.id === id_parent
       })
