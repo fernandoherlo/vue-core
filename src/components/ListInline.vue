@@ -188,7 +188,7 @@ export default {
             </a>
             <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
               <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
-              <icon name="trash-alt" v-else></icon>
+              <icon name="minus-circle" v-else></icon>
             </a>
             <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
               <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
