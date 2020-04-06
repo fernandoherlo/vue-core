@@ -34,6 +34,9 @@ export default {
       ['delete' + options.mTypeName] ({ commit }, item) {
         return self.deleteItem(commit, options, item)
       },
+      ['deleteByParent' + options.mTypeName] ({ commit }, item, id_parent) {
+        return self.deleteItem(commit, options, item, id_parent)
+      },
       ['clear' + options.mTypeName] ({ commit }) {
         return self.clearItem(commit, options)
       }
@@ -132,7 +135,7 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  deleteItem (commit, options, item) {
+  deleteItem (commit, options, item, id_parent) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
@@ -141,7 +144,11 @@ export default {
         commit('DELETE_' + options.mTypeName, { item })
         resolve()
       }
-      EventBus.$emit('apiDelete', options.url, item, _callback)
+      if (id_parent) {
+        EventBus.$emit('apiDelete', options.url, item, _callback, null, id_parent)
+      } else {
+        EventBus.$emit('apiDelete', options.url, item, _callback)
+      }
     })
   },
   /*

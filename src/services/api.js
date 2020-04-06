@@ -102,7 +102,7 @@ let api = new Vue({
     },
 
     // DELETE
-    delete (url, item, _callback, wait) {
+    delete (url, item, _callback, wait, id_parent) {
       // Degub
       this.$log.debug('API', url)
       if (wait) {
@@ -111,6 +111,9 @@ let api = new Vue({
       var options = {
         url: url + '/' + item.id,
         method: 'DELETE'
+      }
+      if (id_parent) {
+        options.url = options.url + '/' + id_parent
       }
       this.$http.axios(options).then((response) => {
         // CallBack

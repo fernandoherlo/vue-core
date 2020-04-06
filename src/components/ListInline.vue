@@ -89,7 +89,7 @@ export default {
       this.confirm = {}
       // Delete
       this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {
-        this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex]).then(() => {
+        this.$store.dispatch('deleteByParent' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex], this.itemIDParent).then(() => {
           // Associate
           if (this.config.coreVuexAssociate) {
             if (Array.isArray(this.config.coreVuexAssociate)) {
