@@ -16,10 +16,10 @@ export default {
       this.$log.debug('EVENTS -> apiSave', url)
       this.$api.save(url, item, callback)
     })
-    this.$EventBus.$on('apiDelete', (url, item, callback) => {
+    this.$EventBus.$on('apiDelete', (url, item, callback, wait, id_parent) => {
       // Degub
       this.$log.debug('EVENTS -> apiDelete', url)
-      this.$api.delete(url, item, callback)
+      this.$api.delete(url, item, callback, wait, id_parent)
     })
   }
 }
