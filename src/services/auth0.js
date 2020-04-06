@@ -5,6 +5,7 @@
 |
 */
 import auth0 from 'auth0-js'
+import jwt_decode from 'jwt-decode'
 
 /*
 |--------------------------------------------------------------------------
@@ -60,9 +61,12 @@ export default {
           // Degub
           this.$log.debug('AUTH0')
           let userPromise = new Promise((resolve) => {
-            this.verifyAuthentication((data) => {
-              resolve(data[param])
-            })
+            // this.verifyAuthentication((data) => {
+            //   resolve(data[param])
+            // })
+
+            var data = jwt_decode(localStorage.getItem('id_token'))
+            resolve(data[param])
 
             // webAuth.client.userInfo(localStorage.getItem('access_token'), function(err, data) {
             //   resolve(data[param])

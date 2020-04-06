@@ -29,6 +29,7 @@
     "bootstrap-vue": "^2.9.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
+    "jwt-decode": "^2.2.0",
     "vee-validate": "2.2.15",
     "vue": "^2.6.11",
     "vue-awesome": "^4.0.2",
