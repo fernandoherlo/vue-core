@@ -16,7 +16,7 @@ function initPlugin(vm, componentObject, store, acl, routes, menu, initialGetter
   vm.$acl.addComponent(componentObject.coreExtendScopePl, acl)
 
   // Degub
-  this.$log.warn(routes)
+  vm.$log.warn(routes)
 
   // ADD routes
   vm.$router.addRoutes(routes)
