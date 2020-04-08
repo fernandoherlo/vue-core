@@ -241,7 +241,7 @@ export default {
       </template>
     </div>
     <div class="form" v-if="itemVuex">
-      <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault"></div>
+      <div :is="config.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault" v-bind:key="config.coreExtendScopePl"></div>
     </div>
   </div>
 </template>
