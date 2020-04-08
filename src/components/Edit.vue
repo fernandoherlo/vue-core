@@ -112,6 +112,10 @@ export default {
       // Degub
       this.$log.debug('EDIT')
     },
+    __precreated () {
+      // Degub
+      this.$log.debug('EDIT')
+    },
     __update () {
       // Degub
       this.$log.debug('EDIT')
