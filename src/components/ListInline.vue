@@ -6,7 +6,6 @@
 |
 */
 import CoreComponent from '@/components/Core'
-import componentConfig from '@/components/config'
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +26,12 @@ export default {
   components: {
     VueGoodTable,
   },
+  props: ['config'],
   data () {
     return {
       itemIDParent: 0,
       items: [],
       confirm: {},
-      config: componentConfig,
       canEdit: false,
       canAssign: true,
       canCreateNew: false,
