@@ -28,6 +28,9 @@ export default {
   created () {
     // Degub
     this.$log.debug('FORM')
+    // pre-Created children
+    this.__precreated()
+    // Tick
     this.$nextTick(() => {
       if (this.$refs.firstFocusForm) {
         this.$refs.firstFocusForm.focus()
@@ -39,6 +42,10 @@ export default {
   },
   methods: {
     __created () {
+      // Degub
+      this.$log.debug('FORM')
+    },
+    __precreated () {
       // Degub
       this.$log.debug('FORM')
     },
