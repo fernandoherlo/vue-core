@@ -42,6 +42,8 @@ export default {
   created() {
     // Degub
     this.$log.debug('EDIT')
+    // pre-Created children
+    this.__precreated()
     // Component
     Vue.component(this.config.formName + '-form', this.Form)
     // ACL
