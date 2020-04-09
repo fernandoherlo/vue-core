@@ -54,10 +54,11 @@ export default {
         }).catch(() => {
           this.$log.warn('Delete')
         })
-      }
-      // Not edit
-      if (this.config.laravel) {
-        this.canEdit = true
+        this.$acl.can(this.config.coreExtendScopePl, 'Update').then(() => {
+          this.canEdit = true
+        }).catch(() => {
+          this.$log.warn('Edit')
+        })
       }
       // Search Options
       if (this.config.table.searchOptions.enabled) {
