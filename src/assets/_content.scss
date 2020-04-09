@@ -52,8 +52,17 @@ main {
   margin-top: -30px;
   background: $secondary;
   .navbar-nav {
-    margin-top: 30px;
     .nav-item {
+      .nav-sep {
+        margin-top: 30px;
+        border-bottom: 1px solid rgba($white, 0.2);
+        display: block;
+        color: rgba($white, 0.45);
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        padding-bottom: 0.3rem;
+        padding-left: 0.5rem;
+      }
       .nav-link {
         padding: 0.6rem 2rem;
         font-size: 14px;
