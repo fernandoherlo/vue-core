@@ -9,6 +9,7 @@
   & > .header {
     float: left;
     h2 {
+      font-family: $font-family-monospace;
       padding-top: 5px;
       font-size: 26px;
     }
@@ -726,6 +727,7 @@
     h3 {
       text-transform: uppercase;
       font-size: 11px;
+      font-family: $font-family-monospace;
       font-weight: bold;
       color: $gray-400;
       margin-bottom: 20px;
