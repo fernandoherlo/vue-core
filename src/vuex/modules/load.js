@@ -107,7 +107,7 @@ const mutations = {
   ['RECEIVE_LOAD_END'] (state, msg) {
     // Degub
     EventBus.$log.debug('mu -> RECEIVE_LOAD_END', msg)
-    state.msg += '<small>' + msg + ' <strong>(' + state.now + '/' + state.count + ')</strong></small>'
+    state.msg += '<small class="end">' + msg + '</small>'
   }
 }
 
