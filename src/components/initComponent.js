@@ -64,6 +64,7 @@ export const initComponent = function (component)
   let options = {
     laravel: component.componentLaravel,
     storeRelated: component.componentStoreRelatedParent,
+    idRelated: component.componentIdRelatedParent,
     displayName: component.displayName,
     url: component.componentUrl +  '/' + component.componentNamePl,
     mTypeName: component.componentName,

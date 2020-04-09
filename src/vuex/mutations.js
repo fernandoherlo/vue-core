@@ -23,8 +23,8 @@ export default {
       ['GET_BY_PARENT_' + options.mTypeNamePl] (state, { id_parent }) {
         self.getAllByParent(state, id_parent)
       },
-      ['GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl] (state, { id_parent, storeRelated }) {
-        self.getAllByParentLaravel(state, id_parent, storeRelated)
+      ['GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl] (state, { id_parent, storeRelated, idRelated }) {
+        self.getAllByParentLaravel(state, id_parent, storeRelated, idRelated)
       },
       ['GET_' + options.mTypeName] (state, { id }) {
         self.getItem(state, id)
@@ -60,16 +60,26 @@ export default {
     EventBus.$log.debug('MUTATIONS')
     state.allByParent = state.all.filter(item => item.id_parent === id_parent)
   },
-  getAllByParentLaravel (state, id_parent, storeRelated) {
+  getAllByParentLaravel (state, id_parent, storeRelated, idRelated) {
     // Degub
     EventBus.$log.debug('MUTATIONS')
 
-    let newStates = state.all.filter( function(item) {
-      let relateds = item[storeRelated].filter( function(related) {
-        return related.id === id_parent
+    let newStates = null
+
+    if (storeRelated) { 
+      newStates = state.all.filter( function(item) {
+        let relateds = item[storeRelated].filter( function(related) {
+          return related.id === id_parent
+        })
+        return relateds.length > 0
       })
-      return relateds.length > 0
-    })
+    }
+    if (idRelated) { 
+      newStates = state.all.filter( function(item) {
+        return item[idRelated] === id_parent
+      })
+    }
+
     Vue.set(state, 'allByParent', newStates)
   },
   getItem (state, id) {

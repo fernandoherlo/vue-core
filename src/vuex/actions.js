@@ -73,7 +73,8 @@ export default {
     return new Promise((resolve/*, reject*/) => {
       if (options.laravel) {
         let storeRelated = options.storeRelated
-        commit('GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl, { id_parent, storeRelated })
+        let idRelated = options.idRelated
+        commit('GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl, { id_parent, storeRelated, idRelated })
       } else {
         commit('GET_BY_PARENT_' + options.mTypeNamePl, { id_parent })
       }
