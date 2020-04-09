@@ -4,6 +4,11 @@
 |--------------------------------------------------------------------------
 |
 */
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin-top: 56px;
 }
@@ -11,6 +16,10 @@ body {
 .content {
   padding-top: 30px;
 }
+main {
+  padding-bottom: 30px;
+}
+
 .only-print {
   display: none;
 }
@@ -27,9 +36,42 @@ body {
 .container-fluid {
   max-width: 1440px;
 }
+.container-fluid-100 {
+  max-width: none;
+}
 
-main {
-  padding-bottom: 30px;
+
+/*
+|--------------------------------------------------------------------------
+| Sidebar
+|--------------------------------------------------------------------------
+|
+*/
+.sidebar {
+  padding: 0;
+  margin-top: -30px;
+  background: $secondary;
+  .navbar-nav {
+    margin-top: 30px;
+    position: fixed;
+    .nav-item {
+      .nav-link {
+        padding: 0.6rem 2rem;
+        font-size: 14px;
+        // font-weight: bold;
+        &.router-link-active {
+          color: $white;
+        }
+        &:hover {
+          color: $white; 
+        }
+        .fa-icon {
+          width: 30px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
 }
 
 /*
