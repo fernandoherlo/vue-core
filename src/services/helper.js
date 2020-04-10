@@ -42,6 +42,16 @@ let methodsHelper = {
     var num = number.toFixed(Math.max(0, ~~n));
     return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ',')) + y;
   },
+  toTimeFromMs (s) {
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
+
+    return hrs + 'h ' + mins + '\' ' + secs + '"';
+  },
   // Parse ID
   getID (ID) {
     // Is number
