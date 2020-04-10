@@ -54,7 +54,7 @@
 |--------------------------------------------------------------------------
 |
 */
-@include respond-between(xs, md) {
+@include respond-between(xs, lg) {
   .menu-app {
     display: none !important;
   }
@@ -81,6 +81,8 @@
       }
     }
   }
+}
+@include respond-between(xs, md) {
   .navbar.foot {
     display: flex;
     padding: 0;
