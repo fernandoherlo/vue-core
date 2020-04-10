@@ -59,12 +59,8 @@
     display: none !important;
   }
   .navbar.main {
-    // position: static;
-    .navbar-brand {
-      display: none;
-    }
     .navbar-toggler {
-      padding: 8px 10px 12px;
+      padding: 7px 10px 11px;
       border: 0;
       outline: none;
       .fa-icon {
@@ -83,6 +79,11 @@
   }
 }
 @include respond-between(xs, md) {
+  .navbar.main {
+    .navbar-brand {
+      display: none;
+    }
+  }
   .navbar.foot {
     display: flex;
     padding: 0;
