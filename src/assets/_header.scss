@@ -56,7 +56,7 @@
 */
 @include respond-between(xs, md) {
   .menu-app {
-    display: none;
+    display: none !important;
   }
   .navbar.main {
     // position: static;
