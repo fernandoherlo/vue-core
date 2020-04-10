@@ -42,15 +42,17 @@ let methodsHelper = {
     var num = number.toFixed(Math.max(0, ~~n));
     return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ',')) + y;
   },
-  toTimeFromMs (s) {
-    var ms = s % 1000;
-    s = (s - ms) / 1000;
-    var secs = s % 60;
-    s = (s - secs) / 60;
-    var mins = s % 60;
-    var hrs = (s - mins) / 60;
+  toTimeFromMs (duration) {
+    // var milliseconds = parseInt((duration % 1000) / 100)
+    var seconds = Math.floor((duration / 1000) % 60)
+    var minutes = Math.floor((duration / (1000 * 60)) % 60)
+    var hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
 
-    return hrs + 'h ' + mins + '\' ' + secs + '"';
+    hours = (hours < 10) ? "0" + hours : hours
+    minutes = (minutes < 10) ? "0" + minutes : minutes
+    seconds = (seconds < 10) ? "0" + seconds : seconds
+
+    return hours + 'h ' + minutes + '\' ' + seconds + '"'
   },
   // Parse ID
   getID (ID) {
