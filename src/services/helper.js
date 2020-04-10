@@ -42,17 +42,21 @@ let methodsHelper = {
     var num = number.toFixed(Math.max(0, ~~n));
     return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ',')) + y;
   },
-  toTimeFromMs (duration) {
-    // var milliseconds = parseInt((duration % 1000) / 100)
-    var seconds = Math.floor((duration / 1000) % 60)
-    var minutes = Math.floor((duration / (1000 * 60)) % 60)
-    var hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+  toTimeFromMs (millisec) {
+    var seconds = (millisec / 1000).toFixed(1)
+    var minutes = (millisec / (1000 * 60)).toFixed(1)
+    var hours = (millisec / (1000 * 60 * 60)).toFixed(1)
+    var days = (millisec / (1000 * 60 * 60 * 24)).toFixed(1)
 
-    hours = (hours < 10) ? "0" + hours : hours
-    minutes = (minutes < 10) ? "0" + minutes : minutes
-    seconds = (seconds < 10) ? "0" + seconds : seconds
-
-    return hours + 'h ' + minutes + '\' ' + seconds + '"'
+    if (seconds < 60) {
+      return seconds + '"'
+    } else if (minutes < 60) {
+      return minutes + "'"
+    } else if (hours < 24) {
+      return hours + "h"
+    } else {
+      return days + "d"
+    }
   },
   // Parse ID
   getID (ID) {
