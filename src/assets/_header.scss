@@ -54,7 +54,7 @@
 |--------------------------------------------------------------------------
 |
 */
-@include respond-between(xs, sm) {
+@include respond-between(xs, md) {
   .menu-app {
     display: none;
   }
@@ -66,6 +66,7 @@
     .navbar-toggler {
       padding: 8px 10px 12px;
       border: 0;
+      outline: none;
       .fa-icon {
         color: $secondary;
       }
