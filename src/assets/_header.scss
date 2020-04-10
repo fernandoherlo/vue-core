@@ -55,6 +55,9 @@
 |
 */
 @include respond-between(xs, sm) {
+  .menu-app {
+    display: none;
+  }
   .navbar.main {
     // position: static;
     .navbar-brand {
@@ -69,10 +72,11 @@
     }
     .navbar-nav {
       margin: 1rem -1rem 0 !important;
+      overflow-y: auto;
       a {
-        font-size: 20px;
+        font-size: 16px;
         border-top: 1px solid rgba(#fff, 0.2);
-        padding: 1rem !important;
+        padding: 0.5rem 1rem !important;
       }
     }
   }
