@@ -30,6 +30,15 @@ let api = new Vue({
       }, (error) => {
         this.$log.info('SERVICES -> API -> get()')
         this.$log.error(error)
+        // Notify
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'alert',
+            title: 'Error',
+            text: 'Error on API'
+          })
+        }
       })
     },
 
@@ -65,6 +74,15 @@ let api = new Vue({
       }, (error) => {
         this.$log.info('SERVICES -> API -> update()')
         this.$log.error(error)
+        // Notify
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'alert',
+            title: 'Error',
+            text: 'Error on API'
+          })
+        }
       })
     },
 
@@ -98,6 +116,15 @@ let api = new Vue({
       }, (error) => {
         this.$log.info('SERVICES -> API -> save()')
         this.$log.error(error)
+        // Notify
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'alert',
+            title: 'Error',
+            text: 'Error on API'
+          })
+        }
       })
     },
 
@@ -130,6 +157,15 @@ let api = new Vue({
       }, (error) => {
         this.$log.info('SERVICES -> API -> delete()')
         this.$log.error(error)
+        // Notify
+        if (this.$notify){
+          this.$notify({
+            group: 'global',
+            type: 'alert',
+            title: 'Error',
+            text: 'Error on API'
+          })
+        }
       })
     }
   }
