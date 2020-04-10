@@ -54,7 +54,8 @@ main {
   .navbar-nav {
     .nav-item {
       .nav-sep {
-        margin-top: 30px;
+        margin-top: 20px;
+        margin-bottom: 4px;
         border-bottom: 1px solid rgba($white, 0.2);
         display: block;
         color: rgba($white, 0.45);
@@ -64,7 +65,7 @@ main {
         padding-left: 0.5rem;
       }
       .nav-link {
-        padding: 0.6rem 2rem;
+        padding: 0.2rem 1.4rem;
         font-size: 14px;
         // font-weight: bold;
         &.router-link-active {
