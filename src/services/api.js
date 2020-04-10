@@ -34,7 +34,7 @@ let api = new Vue({
         if (this.$notify){
           this.$notify({
             group: 'global',
-            type: 'alert',
+            type: 'error',
             title: 'Error',
             text: 'Error on API'
           })
@@ -78,7 +78,7 @@ let api = new Vue({
         if (this.$notify){
           this.$notify({
             group: 'global',
-            type: 'alert',
+            type: 'error',
             title: 'Error',
             text: 'Error on API'
           })
@@ -120,7 +120,7 @@ let api = new Vue({
         if (this.$notify){
           this.$notify({
             group: 'global',
-            type: 'alert',
+            type: 'error',
             title: 'Error',
             text: 'Error on API'
           })
@@ -161,7 +161,7 @@ let api = new Vue({
         if (this.$notify){
           this.$notify({
             group: 'global',
-            type: 'alert',
+            type: 'error',
             title: 'Error',
             text: 'Error on API'
           })
