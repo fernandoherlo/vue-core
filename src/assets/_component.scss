@@ -130,6 +130,9 @@
       font-weight: bold;
       color: $gray-400;
     }
+    .form-text.text-muted {
+      min-height: 16px;
+    }
     fieldset {
       padding: 20px;
       background: rgba(#fff, 0.4);
