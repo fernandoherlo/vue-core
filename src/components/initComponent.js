@@ -23,6 +23,7 @@ export const initComponent = function (component)
   let componentObject = {
     laravel: component.componentLaravel,
     inline: component.componentInline,
+    urlApi: component.componentUrl,
     coreExtendVuex: component.componentName,
     coreExtendVuexPl: component.componentNamePl,
     coreExtendScope: component.componentName,
