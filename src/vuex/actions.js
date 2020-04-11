@@ -121,11 +121,15 @@ export default {
   saveItem (commit, options, item) {
     // Degub
     EventBus.$log.debug('ACTIONS')
-    return new Promise((resolve/*, reject*/) => {
+    return new Promise((resolve, reject) => {
       var _callback = itemApi => {
-        commit('SAVE_' + options.mTypeName, { itemApi })
-        // Param to callback
-        resolve(itemApi)
+        if (itemApi) {
+          commit('SAVE_' + options.mTypeName, { itemApi })
+          // Param to callback
+          resolve(itemApi)
+        } else {
+          reject(itemApi)
+        }
       }
       EventBus.$emit('apiSave', options.url, item, _callback)
     })

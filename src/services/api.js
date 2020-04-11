@@ -116,6 +116,8 @@ let api = new Vue({
       }, (error) => {
         this.$log.info('SERVICES -> API -> save()')
         this.$log.error(error)
+        // CallBack
+        _callback(null)
         // Notify
         if (this.$notify){
           this.$notify({
