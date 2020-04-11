@@ -67,6 +67,8 @@ export default {
         this.$refs.VueGoodTable.perPage = this.$root.$children[0].paginateNum
       }
     })
+    // Created children
+    this.__created()
   },
   computed: {
     itemsVuex () {
@@ -74,6 +76,10 @@ export default {
     }
   },
   methods: {
+    __created () {
+      // Degub
+      this.$log.debug('EDIT')
+    },
     __refresh () {
       // Degub
       this.$log.debug('LIST')
