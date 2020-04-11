@@ -80,6 +80,9 @@ export default {
         {{ textValue }}
       </div>
     </template>
+    <small class="form-text text-muted" v-if="field.help">
+      {{ field.help }}
+    </small>
     <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
   </div>
 </template>
