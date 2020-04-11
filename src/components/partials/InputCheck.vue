@@ -32,9 +32,7 @@ export default {
     <template v-else>
       <input v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" class="form-control" type="checkbox" v-model="item[field.field]" :disabled="disabledCondition">
     </template>
-    <small class="form-text text-muted" v-if="field.help">
-      {{ field.help }}
-    </small>
+    <small class="form-text text-muted"><template v-if="field.help">{{ field.help }}</template></small>
     <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
   </div>
 </template>
