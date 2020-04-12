@@ -26,8 +26,6 @@ import List from '@/components/views/List'
 import ListInline from '@/components/views/ListInline'
 import New from '@/components/views/New'
 
-import initPlugin from '@/components/init'
-import { addPlugin } from '@/components/add'
 import { createPlugin } from '@/components/create'
 
 // Partials
@@ -39,11 +37,6 @@ import Select from '@/components/partials/Select'
 import Textarea from '@/components/partials/Textarea'
 import DatePicker from '@/components/partials/DatePicker'
 import Dropbox from '@/components/partials/Dropbox'
-// Config
-import { buttonsName } from '@/config/button'
-import { globalTableConfig } from '@/config/table'
-import { baseTableColumns } from '@/config/table'
-
 
 export {
   auth,
@@ -72,10 +65,5 @@ export {
   Textarea,
   DatePicker,
   Dropbox,
-  buttonsName,
-  globalTableConfig,
-  baseTableColumns,
-  addPlugin,
-  createPlugin,
-  initPlugin
+  createPlugin
 }

@@ -44,12 +44,12 @@ export default {
     this.$nextTick(() => {
       // ACL
       if (this.$auth.authenticated) {
-        this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
+        this.$acl.can(this.config.options.coreExtendScopePl, 'Create').then(() => {
           this.canCreateNew = true
         }).catch(() => {
           this.$log.warn('Create')
         })
-        this.$acl.can(this.config.coreExtendScopePl, 'Delete').then(() => {
+        this.$acl.can(this.config.options.coreExtendScopePl, 'Delete').then(() => {
           this.canDelete = true
         }).catch(() => {
           this.$log.warn('Delete')
@@ -72,7 +72,7 @@ export default {
   },
   computed: {
     itemsVuex () {
-      return this.$store.getters['all' + this.config.coreExtendVuexPl]
+      return this.$store.getters['all' + this.config.options.coreExtendVuexPl]
     }
   },
   methods: {
@@ -83,11 +83,11 @@ export default {
     __refresh () {
       // Degub
       this.$log.debug('LIST')
-      this.$store.dispatch('getAll' + this.config.coreExtendVuexPl).then(() => {
+      this.$store.dispatch('getAll' + this.config.options.coreExtendVuexPl).then(() => {
         // Associate
-        if (this.config.coreVuexAssociate) {
-          if (Array.isArray(this.config.coreVuexAssociate)) {
-            this.config.coreVuexAssociate.forEach((associate) => {
+        if (this.config.options.coreVuexAssociate) {
+          if (Array.isArray(this.config.options.coreVuexAssociate)) {
+            this.config.options.coreVuexAssociate.forEach((associate) => {
               this.$store.dispatch('getAll' + associate)
             })
           } 
@@ -97,12 +97,12 @@ export default {
     __newItem () {
       // Degub
       this.$log.debug('LIST')
-      this.$router.push({name: this.config.coreExtendScope + '-new'})
+      this.$router.push({name: this.config.options.coreExtendScope + '-new'})
     },
     __edit (id) {
       // Degub
       this.$log.debug('LIST')
-      this.$router.push({name: this.config.coreExtendScope, params: { id: id }})
+      this.$router.push({name: this.config.options.coreExtendScope, params: { id: id }})
     },
     __confirmDelete (id) {
       // Degub
@@ -110,12 +110,12 @@ export default {
       // Reset
       this.confirm = {}
       // Delete
-      this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {
-        this.$store.dispatch('delete' + this.config.coreExtendVuex, this.$store.getters[this.config.coreExtendVuex]).then(() => {
+      this.$store.dispatch('get' + this.config.options.coreExtendVuex, id).then(() => {
+        this.$store.dispatch('delete' + this.config.options.coreExtendVuex, this.$store.getters[this.config.options.coreExtendVuex]).then(() => {
           // Associate
-          if (this.config.coreVuexAssociate) {
-            if (Array.isArray(this.config.coreVuexAssociate)) {
-              this.config.coreVuexAssociate.forEach((associate) => {
+          if (this.config.options.coreVuexAssociate) {
+            if (Array.isArray(this.config.options.coreVuexAssociate)) {
+              this.config.options.coreVuexAssociate.forEach((associate) => {
                 this.$store.dispatch('getAll' + associate)
               })
             } 
@@ -161,8 +161,8 @@ export default {
       return false
     },
     __checkConditionRowActions (row) {
-      if (this.config.conditionRowActions) {
-        return this.config.conditionRowActions(row)
+      if (this.config.options.conditionRowActions) {
+        return this.config.options.conditionRowActions(row)
       } else {
         return true;
       }
@@ -200,28 +200,28 @@ export default {
 </script>
 
 <template>
-  <div class="List" :class="config.coreExtendScopePl" ref="listdefault">
+  <div class="List" :class="config.options.coreExtendScopePl" ref="listdefault">
     <div class="header">
-      <h2 class="hidden-print">{{ config.displayName }}</h2>
-      <h2 class="only-print">{{ config.displayNamePrint }}</h2>
+      <h2 class="hidden-print">{{ config.options.displayName }}</h2>
+      <h2 class="only-print">{{ config.options.displayNamePrint }}</h2>
     </div>
-    <template v-if="__checkComponentExists(config.coreExtendScopePl + '-filters')">
+    <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-filters')">
       <div class="filters">
         <span class="filter-icon">
           <b-btn id="popoverFilter" variant="outline-primary">
             <icon name="filter"></icon>
           </b-btn>
         </span>
-        <div :is="config.coreExtendScopePl + '-filters'" ref="filtersdefault"></div>
+        <div :is="config.options.coreExtendScopePl + '-filters'" ref="filtersdefault"></div>
       </div>
     </template>
     <div class="actions" id="popoverContent">
       <a class="btn new" @click="__newItem()" v-if="canCreateNew">
-        <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
+        <span v-html="config.options.buttons.newName" :title="config.options.buttons.newName" v-if="config.options.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
       <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
-        <div :is="config.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
+        <div :is="config.options.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
       </template>
       <span class="action-icon">
         <b-btn id="popoverAction" variant="outline-primary">
@@ -231,11 +231,11 @@ export default {
       <b-popover target="popoverAction" placement="bottomleft" container="popoverContent">
         <div class="action-wrap">
           <a class="btn print" @click="$helper.print()">
-            <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
+            <span v-html="config.options.buttons.printName" :title="config.options.buttons.printName" v-if="config.options.buttons.printName"></span>
             <icon name="print" v-else></icon>
           </a>
           <a class="btn refresh" @click="__refresh()">
-            <span v-html="config.buttons.refreshName" :title="config.buttons.refreshName" v-if="config.buttons.refreshName"></span>
+            <span v-html="config.options.buttons.refreshName" :title="config.options.buttons.refreshName" v-if="config.options.buttons.refreshName"></span>
             <icon name="sync-alt" v-else></icon>
           </a>
         </div>
@@ -243,32 +243,32 @@ export default {
     </div>
     <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
       <div slot="selected-row-actions">
-        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-list-actions')">
-          <div :is="config.coreExtendScopePl + '-list-actions'" ref="rowactionsdefault"></div>
+        <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-list-actions')">
+          <div :is="config.options.coreExtendScopePl + '-list-actions'" ref="rowactionsdefault"></div>
         </template>
       </div>
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <template v-if="__checkConditionRowActions(props.row)">
             <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
-              <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
+              <span v-html="config.options.buttons.editName" :title="config.options.buttons.editName" v-if="config.options.buttons.editName"></span>
               <icon name="edit" v-else></icon>
             </a>
             <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
-              <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
+              <span v-html="config.options.buttons.deleteName" :title="config.options.buttons.deleteName" v-if="config.options.buttons.deleteName"></span>
               <icon name="trash-alt" v-else></icon>
             </a>
             <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
-              <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
+              <span v-html="config.options.buttons.askName" :title="config.options.buttons.askName" v-if="config.options.buttons.askName"></span>
               <icon name="check-circle" v-else></icon>
             </a>
             <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
-              <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
+              <span v-html="config.options.buttons.cancelName" :title="config.options.buttons.cancelName" v-if="config.options.buttons.cancelName"></span>
               <icon name="ban" v-else></icon>
             </a>
           </template>
-          <template v-if="__checkComponentExists(config.coreExtendScopePl + '-actions')">
-            <div :is="config.coreExtendScopePl + '-actions'" ref="actionsdefault" :props="props"></div>
+          <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-actions')">
+            <div :is="config.options.coreExtendScopePl + '-actions'" ref="actionsdefault" :props="props"></div>
           </template>
         </span>
         <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">
