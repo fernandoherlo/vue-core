@@ -13,32 +13,32 @@ import { EventBus } from '@/services/event-bus';
 |
 */
 export default {
-  core (options) { //mTypeNamePl, mTypeName, url, displayName
+  core (config) { //mTypeNamePl, mTypeName, url, displayName
     var self = this
     return {
-      ['getAll' + options.mTypeNamePl] ({ commit }) {
-        return self.getBaseAll(commit, options)
+      ['getAll' + config.options.mTypeNamePl] ({ commit }) {
+        return self.getBaseAll(commit, config.options)
       },
-      ['getByParent' + options.mTypeNamePl] ({ commit }, id_parent) {
-        return self.getByParent(commit, options, id_parent)
+      ['getByParent' + config.options.mTypeNamePl] ({ commit }, id_parent) {
+        return self.getByParent(commit, config, id_parent)
       },
-      ['get' + options.mTypeName] ({ commit }, id) {
-        return self.getItem(commit, options, id)
+      ['get' + config.options.mTypeName] ({ commit }, id) {
+        return self.getItem(commit, config, id)
       },
-      ['update' + options.mTypeName] ({ commit }, item) {
-        return self.updateItem(commit, options, item)
+      ['update' + config.options.mTypeName] ({ commit }, item) {
+        return self.updateItem(commit, config, item)
       },
-      ['save' + options.mTypeName] ({ commit }, item) {
-        return self.saveItem(commit, options, item)
+      ['save' + config.options.mTypeName] ({ commit }, item) {
+        return self.saveItem(commit, config, item)
       },
-      ['delete' + options.mTypeName] ({ commit }, item) {
-        return self.deleteItem(commit, options, item)
+      ['delete' + config.options.mTypeName] ({ commit }, item) {
+        return self.deleteItem(commit, config, item)
       },
-      ['deleteByParent' + options.mTypeName] ({ commit }, item_payload) {
-        return self.deleteItem(commit, options, item_payload.item, item_payload.id_parent)
+      ['deleteByParent' + config.options.mTypeName] ({ commit }, item_payload) {
+        return self.deleteItem(commit, config, item_payload.item, item_payload.id_parent)
       },
-      ['clear' + options.mTypeName] ({ commit }) {
-        return self.clearItem(commit, options)
+      ['clear' + config.options.mTypeName] ({ commit }) {
+        return self.clearItem(commit, config)
       }
     }
   },
@@ -49,16 +49,16 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  getBaseAll (commit, options) {
+  getBaseAll (commit, config) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       var _callback = items => {
-        commit('RECEIVE_' +  options.mTypeNamePl, { items })
-        commit('RECEIVE_LOAD_PARTIAL',  options.displayName)
+        commit('RECEIVE_' +  config.options.mTypeNamePl, { items })
+        commit('RECEIVE_LOAD_PARTIAL',  config.options.displayName)
         resolve()
       }
-      EventBus.$emit('apiGet', options.url, _callback)
+      EventBus.$emit('apiGet', config.options.url, _callback)
     })
   },
   /*
@@ -67,16 +67,16 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  getByParent (commit, options, id_parent) {
+  getByParent (commit, config, id_parent) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
-      if (options.laravel) {
-        let storeRelated = options.storeRelated
-        let idRelated = options.idRelated
-        commit('GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl, { id_parent, storeRelated, idRelated })
+      if (config.options.laravel) {
+        let storeRelated = config.options.storeRelated
+        let idRelated = config.options.idRelated
+        commit('GET_BY_PARENT_LARAVEL_' + config.options.mTypeNamePl, { id_parent, storeRelated, idRelated })
       } else {
-        commit('GET_BY_PARENT_' + options.mTypeNamePl, { id_parent })
+        commit('GET_BY_PARENT_' + config.options.mTypeNamePl, { id_parent })
       }
       resolve()
     })
@@ -87,11 +87,11 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  getItem (commit, options, id) {
+  getItem (commit, config, id) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
-      commit('GET_' + options.mTypeName, { id })
+      commit('GET_' + config.options.mTypeName, { id })
       resolve()
     })
   },
@@ -101,15 +101,15 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  updateItem (commit, options, item) {
+  updateItem (commit, config, item) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       var _callback = itemApi => {
-        commit('UPDATE_' + options.mTypeName, { itemApi })
+        commit('UPDATE_' + config.options.mTypeName, { itemApi })
         resolve()
       }
-      EventBus.$emit('apiUpdate', options.url, item, _callback)
+      EventBus.$emit('apiUpdate', config.options.url, item, _callback)
     })
   },
   /*
@@ -118,20 +118,20 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  saveItem (commit, options, item) {
+  saveItem (commit, config, item) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve, reject) => {
       var _callback = itemApi => {
         if (itemApi) {
-          commit('SAVE_' + options.mTypeName, { itemApi })
+          commit('SAVE_' + config.options.mTypeName, { itemApi })
           // Param to callback
           resolve(itemApi)
         } else {
           reject(itemApi)
         }
       }
-      EventBus.$emit('apiSave', options.url, item, _callback)
+      EventBus.$emit('apiSave', config.options.url, item, _callback)
     })
   },
   /*
@@ -140,19 +140,19 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  deleteItem (commit, options, item, id_parent) {
+  deleteItem (commit, config, item, id_parent) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
       // eslint-disable-next-line no-unused-vars
       var _callback = itemApi => {
-        commit('DELETE_' + options.mTypeName, { item })
+        commit('DELETE_' + config.options.mTypeName, { item })
         resolve()
       }
-      if (id_parent && options.laravel) {
-        EventBus.$emit('apiDelete', options.url, item, _callback, null, id_parent)
+      if (id_parent && config.options.laravel) {
+        EventBus.$emit('apiDelete', config.options.url, item, _callback, null, id_parent)
       } else {
-        EventBus.$emit('apiDelete', options.url, item, _callback)
+        EventBus.$emit('apiDelete', config.options.url, item, _callback)
       }
     })
   },
@@ -162,11 +162,11 @@ export default {
   |--------------------------------------------------------------------------
   |
   */
-  clearItem (commit, options) {
+  clearItem (commit, config) {
     // Degub
     EventBus.$log.debug('ACTIONS')
     return new Promise((resolve/*, reject*/) => {
-      commit('CLEAR_' + options.mTypeName)
+      commit('CLEAR_' + config.options.mTypeName)
       resolve()
     })
   },

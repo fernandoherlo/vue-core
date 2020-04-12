@@ -14,31 +14,31 @@ import { EventBus } from '@/services/event-bus';
 |
 */
 export default {
-  core (state, options) { // mTypeNamePl, mTypeName
+  core (state, config) { // mTypeNamePl, mTypeName
     var self = this
     return {
-      ['RECEIVE_' + options.mTypeNamePl] (state, { items }) {
+      ['RECEIVE_' + config.options.mTypeNamePl] (state, { items }) {
         self.getAll(state, items)
       },
-      ['GET_BY_PARENT_' + options.mTypeNamePl] (state, { id_parent }) {
+      ['GET_BY_PARENT_' + config.options.mTypeNamePl] (state, { id_parent }) {
         self.getAllByParent(state, id_parent)
       },
-      ['GET_BY_PARENT_LARAVEL_' + options.mTypeNamePl] (state, { id_parent, storeRelated, idRelated }) {
+      ['GET_BY_PARENT_LARAVEL_' + config.options.mTypeNamePl] (state, { id_parent, storeRelated, idRelated }) {
         self.getAllByParentLaravel(state, id_parent, storeRelated, idRelated)
       },
-      ['GET_' + options.mTypeName] (state, { id }) {
+      ['GET_' + config.options.mTypeName] (state, { id }) {
         self.getItem(state, id)
       },
-      ['UPDATE_' + options.mTypeName] (state, { itemApi }) {
+      ['UPDATE_' + config.options.mTypeName] (state, { itemApi }) {
         self.updateItem(state, itemApi)
       },
-      ['SAVE_' + options.mTypeName] (state, { itemApi }) {
+      ['SAVE_' + config.options.mTypeName] (state, { itemApi }) {
         self.saveItem(state, itemApi)
       },
-      ['DELETE_' + options.mTypeName] (state, { item }) {
+      ['DELETE_' + config.options.mTypeName] (state, { item }) {
         self.deleteItem(state, item)
       },
-      ['CLEAR_' + options.mTypeName] (state) {
+      ['CLEAR_' + config.options.mTypeName] (state) {
         self.clearItem(state)
       }
     }

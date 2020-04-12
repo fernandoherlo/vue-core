@@ -4,24 +4,17 @@
 |--------------------------------------------------------------------------
 |
 */
-function initPlugin(vm, componentObject, store, acl, routes, menu, initialGetters) {
+function initPlugin(vm, configPlugin, store, acl, initialGetters) {
   
   // Vuex
-  vm.$store.registerModule(componentObject.coreExtendScopePl + 'Vuex', store)
-  initialGetters.push('getAll' + componentObject.coreExtendVuexPl)
-
-  // Menu
-  menu.push({
-    name: componentObject.displayName,
-    scope: componentObject.coreExtendScopePl,
-    type: componentObject.typeMenu,
-  })
+  vm.$store.registerModule(configPlugin.options.coreExtendScopePl + 'Vuex', store)
+  initialGetters.push('getAll' + configPlugin.options.coreExtendVuexPl)
 
   // Acl
-  vm.$acl.addComponent(componentObject.coreExtendScopePl, acl)
+  vm.$acl.addComponent(configPlugin.options.coreExtendScopePl, acl)
 
   // ADD routes
-  vm.$router.addRoutes(routes)
+  vm.$router.addRoutes(configPlugin.routes)
 }
 
 export default initPlugin

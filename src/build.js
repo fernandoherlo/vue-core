@@ -28,6 +28,7 @@ import New from '@/components/views/New'
 
 import initPlugin from '@/components/init'
 import { addPlugin } from '@/components/add'
+import { createPlugin } from '@/components/create'
 
 // Partials
 import InputText from '@/components/partials/InputText'
@@ -75,5 +76,6 @@ export {
   globalTableConfig,
   baseTableColumns,
   addPlugin,
+  createPlugin,
   initPlugin
 }

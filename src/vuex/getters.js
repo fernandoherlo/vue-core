@@ -5,12 +5,12 @@
 |
 */
 export default {
-  core (state, options) { // mTypeNamePl, mTypeName
+  core (state, config) { // mTypeNamePl, mTypeName
     return {
-      ['all' + options.mTypeNamePl]: state => state.all,
-      ['allByParent' + options.mTypeNamePl]: state => state.allByParent,
-      [options.mTypeName]: state => state.item,
-      ['clone' + options.mTypeName]: state => state.clone
+      ['all' + config.options.mTypeNamePl]: state => state.all,
+      ['allByParent' + config.options.mTypeNamePl]: state => state.allByParent,
+      [config.options.mTypeName]: state => state.item,
+      ['clone' + config.options.mTypeName]: state => state.clone
     }
   }
 }
