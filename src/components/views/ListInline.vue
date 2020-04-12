@@ -5,7 +5,7 @@
 |--------------------------------------------------------------------------
 |
 */
-import CoreComponent from '@/components/Core'
+import CoreComponent from '@/components/views/Core'
 
 /*
 |--------------------------------------------------------------------------
@@ -217,5 +217,5 @@ export default {
     </div>
   </div>
 </template>
-<style lang="sass">
+<style lang="scss">
 </style>

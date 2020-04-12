@@ -13,8 +13,8 @@ import Vue from 'vue'
 |--------------------------------------------------------------------------
 |
 */
-import CoreComponent from '@/components/Core'
-import Form from '@/components/Form'
+import CoreComponent from '@/components/views/Core'
+import Form from '@/components/views/Form'
 import componentConfig from '@/components/config'
 
 /*
@@ -246,5 +246,5 @@ export default {
   </div>
 </template>
 
-<style lang="sass">
+<style lang="scss">
 </style>

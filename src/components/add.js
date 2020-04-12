@@ -18,7 +18,7 @@ import { baseTableColumns } from '@/config/table'
 |--------------------------------------------------------------------------
 |
 */
-export const initComponent = function (component)
+export const addPlugin = function (component)
 {
   let componentObject = {
     laravel: component.componentLaravel,

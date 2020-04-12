@@ -1,3 +1,9 @@
+/*
+|--------------------------------------------------------------------------
+| Init
+|--------------------------------------------------------------------------
+|
+*/
 function initPlugin(vm, componentObject, store, acl, routes, menu, initialGetters) {
   
   // Vuex
@@ -13,9 +19,6 @@ function initPlugin(vm, componentObject, store, acl, routes, menu, initialGetter
 
   // Acl
   vm.$acl.addComponent(componentObject.coreExtendScopePl, acl)
-
-  // Degub
-  vm.$log.warn(routes)
 
   // ADD routes
   vm.$router.addRoutes(routes)

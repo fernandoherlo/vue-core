@@ -5,7 +5,7 @@
 |--------------------------------------------------------------------------
 |
 */
-import CoreComponent from '@/components/Core'
+import CoreComponent from '@/components/views/Core'
 import componentConfig from '@/components/config'
 
 /*
@@ -282,7 +282,5 @@ export default {
   </div>
 </template>
 
-<style lang="sass">
-.highlight
-  background: yellow
+<style lang="scss">
 </style>

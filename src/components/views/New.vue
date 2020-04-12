@@ -5,7 +5,7 @@
 |--------------------------------------------------------------------------
 |
 */
-import CoreComponentEdit from '@/components/Edit'
+import CoreComponentEdit from '@/components/views/Edit'
 import componentConfig from '@/components/config'
 
 /*

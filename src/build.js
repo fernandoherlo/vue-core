@@ -19,14 +19,15 @@ import Events from '@/mixins/events'
 // Views
 import Callback from '@/views/Callback'
 // Core
-import Core from '@/components/Core'
-import Edit from '@/components/Edit'
-import Form from '@/components/Form'
-import List from '@/components/List'
-import ListInline from '@/components/ListInline'
-import New from '@/components/New'
-import initPlugin from '@/components/initPlugin'
-import { initComponent } from '@/components/initComponent'
+import Core from '@/components/views/Core'
+import Edit from '@/components/views/Edit'
+import Form from '@/components/views/Form'
+import List from '@/components/views/List'
+import ListInline from '@/components/views/ListInline'
+import New from '@/components/views/New'
+
+import initPlugin from '@/components/init'
+import { addPlugin } from '@/components/add'
 
 // Partials
 import InputText from '@/components/partials/InputText'
@@ -73,6 +74,6 @@ export {
   buttonsName,
   globalTableConfig,
   baseTableColumns,
-  initComponent,
+  addPlugin,
   initPlugin
 }
