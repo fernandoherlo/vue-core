@@ -106,7 +106,7 @@ export default {
           })
           this.$refs.formdefault.$validator.validate()
         })
-      }, 400)
+      }, 200)
     },
     __created () {
       // Degub
