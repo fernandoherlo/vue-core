@@ -8,9 +8,9 @@ import VuexGetters from '@/vuex/getters'
 import VuexActions from '@/vuex/actions'
 import VuexMutations from '@/vuex/mutations'
 
-import { buttonsName } from '@/config/button'
+import { globalButtonsName } from '@/config/button'
 import { globalTableConfig } from '@/config/table'
-import { baseTableColumns } from '@/config/table'
+import { globalTableColumns } from '@/config/table'
 
 /*
 |--------------------------------------------------------------------------
@@ -18,25 +18,25 @@ import { baseTableColumns } from '@/config/table'
 |--------------------------------------------------------------------------
 |
 */
-export const createPlugin = function (config)
+export const createPlugin = function (options, table, form, buttons, menu_links, routes)
 {
-  config = Object.assign({
-      // Name bottoms
-      buttons: Object.assign({},
-        buttonsName,
-        config.buttons
-      ),
-      // Table
-      table: Object.assign({},
-        globalTableConfig,
-        {
-          columns: config.table.columns.concat([baseTableColumns])
-        },
-        config.table.options
-      )
-    },
-    config
-  )
+  let config = {
+    options: options,
+    table: Object.assign({},
+      globalTableConfig,
+      {
+        columns: table.columns.concat([globalTableColumns])
+      },
+      table.options
+    ),
+    form: form,
+    buttons: Object.assign({},
+      globalButtonsName,
+      buttons
+    ),
+    menu_links: menu_links,
+    routes: routes
+  }
 
   /*
   |--------------------------------------------------------------------------

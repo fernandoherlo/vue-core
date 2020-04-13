@@ -27,7 +27,7 @@ export const globalTableConfig = {
   }
 }
 
-export const baseTableColumns = {
+export const globalTableColumns = {
   label: 'Acciones',
   field: 'id',
   type: 'number',

@@ -1,4 +1,4 @@
-export const buttonsName = {
+export const globalButtonsName = {
   refreshName: '',
   printName: '',
   newName: 'Nuevo',
