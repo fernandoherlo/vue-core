@@ -208,15 +208,15 @@ export default {
     </div>
     <div class="actions" id="popoverContent">
       <a class="btn back" @click="__back()" tabindex="0">
-        <span v-html="config.options.buttons.backName" :title="config.options.buttons.backName" v-if="config.options.buttons.backName"></span>
+        <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
         <icon name="arrow-left" v-else></icon>
       </a>
       <a v-if="!isNew && canUpdate" class="btn update" :class="{ disabled: updateDisable }" @click="__update()" tabindex="0">
-        <span v-html="config.options.buttons.updateName" :title="config.options.buttons.updateName" v-if="config.options.buttons.updateName"></span>
+        <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
         <icon name="save" v-else></icon>
       </a>
       <a v-if="isNew && canCreateNew" class="btn save" :class="{ disabled: saveDisable }" @click="__save()" tabindex="0">
-        <span v-html="config.options.buttons.saveName" :title="config.options.buttons.saveName" v-if="config.options.buttons.saveName"></span>
+        <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
         <icon name="save" v-else></icon>
       </a>
       <span class="action-icon">
@@ -227,7 +227,7 @@ export default {
       <b-popover ref="popover" target="popoverAction" placement="bottomleft" container="popoverContent">
         <div class="action-wrap">
           <a class="btn print" @click="$helper.print()">
-            <span v-html="config.options.buttons.printName" :title="config.options.buttons.printName" v-if="config.options.buttons.printName"></span>
+            <span v-html="config.buttons.printName" :title="config.buttons.printName" v-if="config.buttons.printName"></span>
             <icon name="print" v-else></icon>
           </a>
           <template v-if="__checkComponentExists(config.options.name + '-edit-btns')">

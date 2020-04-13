@@ -183,19 +183,19 @@ export default {
         <span v-if="props.column.thClass === 'actions'">
           <template v-if="__checkConditionRowActions(props.row)">
             <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
-              <span v-html="config.options.buttons.editName" :title="config.options.buttons.editName" v-if="config.options.buttons.editName"></span>
+              <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
               <icon name="edit" v-else></icon>
             </a>
             <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
-              <span v-html="config.options.buttons.deleteName" :title="config.options.buttons.deleteName" v-if="config.options.buttons.deleteName"></span>
+              <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
               <icon name="minus-circle" v-else></icon>
             </a>
             <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
-              <span v-html="config.options.buttons.askName" :title="config.options.buttons.askName" v-if="config.options.buttons.askName"></span>
+              <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
               <icon name="check-circle" v-else></icon>
             </a>
             <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
-              <span v-html="config.options.buttons.cancelName" :title="config.options.buttons.cancelName" v-if="config.options.buttons.cancelName"></span>
+              <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
               <icon name="ban" v-else></icon>
             </a>
           </template>
@@ -207,11 +207,11 @@ export default {
     </vue-good-table>
     <div class="actions">
       <a class="btn new" @click="__newItem()" v-if="canCreateNew">
-        <span v-html="config.options.buttons.newName" :title="config.options.buttons.newName" v-if="config.options.buttons.newName"></span>
+        <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
       <a class="btn assign" @click="__assign()" v-if="canAssign">
-        <span v-html="config.options.buttons.assignName" :title="config.options.buttons.assignName" v-if="config.options.buttons.assignName"></span>
+        <span v-html="config.buttons.assignName" :title="config.buttons.assignName" v-if="config.buttons.assignName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
     </div>
