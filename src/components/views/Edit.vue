@@ -48,12 +48,12 @@ export default {
     Vue.component(this.config.form.formName + '-form', this.Form)
     // ACL
     if (this.$auth.authenticated) {
-      this.$acl.can(this.config.options.coreExtendScopePl, 'Create').then(() => {
+      this.$acl.can(this.config.options.name, 'Create').then(() => {
         this.canCreateNew = true
       }).catch(() => {
         this.$log.warn('Create')
       })
-      this.$acl.can(this.config.options.coreExtendScopePl, 'Update').then(() => {
+      this.$acl.can(this.config.options.name, 'Update').then(() => {
         this.canUpdate = true
       }).catch(() => {
         this.$log.warn('Update')
@@ -62,9 +62,9 @@ export default {
     // Data
     if (!this.isNew) {
       this.itemID = this.$helper.getID(this.$route.params.id)
-      this.$store.dispatch('get' + this.config.options.coreExtendVuex, this.itemID)
+      this.$store.dispatch('get' + this.config.options.nameSingle, this.itemID)
     } else {
-      this.$store.dispatch('clear' + this.config.options.coreExtendVuex)
+      this.$store.dispatch('clear' + this.config.options.nameSingle)
     }
     // Inline
     if (this.config.options.inline) {
@@ -77,20 +77,20 @@ export default {
   },
   computed: {
     itemsVuex () {
-      return this.$store.getters['all' + this.config.options.coreExtendVuexPl]
+      return this.$store.getters['all' + this.config.options.name]
     },
     itemVuex () {
-      return this.$store.getters['clone' + this.config.options.coreExtendVuex]
+      return this.$store.getters['clone' + this.config.options.nameSingle]
     }
   },
   watch: {
     itemsVuex: function () {
       if (this.itemID){
-        this.$store.dispatch('get' + this.config.options.coreExtendVuex, this.itemID)
+        this.$store.dispatch('get' + this.config.options.nameSingle, this.itemID)
       }
     },
     itemVuex: function (itemValue) {
-      this.$EventBus.$emit('loadItemVuex' + this.config.options.coreExtendScope, itemValue)
+      this.$EventBus.$emit('loadItemVuex' + this.config.options.nameSingle, itemValue)
     }
   },
   methods: {
@@ -122,12 +122,12 @@ export default {
       this.updateDisable = true
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
-          this.$store.dispatch('update' + this.config.options.coreExtendVuex, this.itemVuex).then(() => {
+          this.$store.dispatch('update' + this.config.options.nameSingle, this.itemVuex).then(() => {
             this.updateDisable = false
             // Associate
-            if (this.config.options.coreVuexAssociate) {
-              if (Array.isArray(this.config.options.coreVuexAssociate)) {
-                this.config.options.coreVuexAssociate.forEach((associate) => {
+            if (this.config.options.storesReloadOnCRUD) {
+              if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+                this.config.options.storesReloadOnCRUD.forEach((associate) => {
                   this.$store.dispatch('getAll' + associate)
                 })
               } 
@@ -151,12 +151,12 @@ export default {
           if (this.config.options.inline) {
             this.itemVuex.id_parent = this.itemIDParent
           }
-          this.$store.dispatch('save' + this.config.options.coreExtendVuex, this.itemVuex).then((itemApi) => {
+          this.$store.dispatch('save' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
             // this.saveDisable = false
             // Associate
-            if (this.config.options.coreVuexAssociate) {
-              if (Array.isArray(this.config.options.coreVuexAssociate)) {
-                this.config.options.coreVuexAssociate.forEach((associate) => {
+            if (this.config.options.storesReloadOnCRUD) {
+              if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+                this.config.options.storesReloadOnCRUD.forEach((associate) => {
                   this.$store.dispatch('getAll' + associate)
                 })
               } 
@@ -165,7 +165,7 @@ export default {
               if (this.config.options.backOnSave) {
                 this.__back()
               } else {
-                this.$router.replace({name: this.config.options.coreExtendScope, params: { id: itemApi.id }})
+                this.$router.replace({name: this.config.options.nameSingle, params: { id: itemApi.id }})
               }
             })
           })
@@ -183,9 +183,9 @@ export default {
       // Degub
       this.$log.debug('EDIT')
       if (this.config.options.inline) {
-        this.$router.replace({name: this.config.options.coreExtendScopeParent, params: { id: this.itemIDParent }})
+        this.$router.replace({name: this.config.options.nameSingleParent, params: { id: this.itemIDParent }})
       } else {
-        this.$router.replace({name: this.config.options.coreExtendScopePl })
+        this.$router.replace({name: this.config.options.name })
       }
     },
     __checkComponentExists (name) {
@@ -201,7 +201,7 @@ export default {
 </script>
 
 <template>
-  <div class="Edit" :class="config.options.coreExtendScopePl">
+  <div class="Edit" :class="config.options.name">
     <div class="header" v-if="itemVuex">
       <h2 class="hidden-print">{{ config.options.displayName }}: <span v-if="!isNew">{{ itemVuex[config.form.fieldID] }}</span></h2>
       <h2 class="only-print">{{ config.options.displayNamePrint }}: <span v-if="!isNew">{{ itemVuex[config.form.fieldID] }}</span></h2>
@@ -230,18 +230,18 @@ export default {
             <span v-html="config.options.buttons.printName" :title="config.options.buttons.printName" v-if="config.options.buttons.printName"></span>
             <icon name="print" v-else></icon>
           </a>
-          <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-edit-btns')">
-            <div :is="config.options.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefault"></div>
+          <template v-if="__checkComponentExists(config.options.name + '-edit-btns')">
+            <div :is="config.options.name + '-edit-btns'" ref="editbtnsdefault"></div>
           </template>
         </div>
       </b-popover>
       <!-- Bootstrap-vue new version no ref buttons, only when show popover. now use this ref  -->
-      <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-edit-btns')">
-        <div :is="config.options.coreExtendScopePl + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none"></div>
+      <template v-if="__checkComponentExists(config.options.name + '-edit-btns')">
+        <div :is="config.options.name + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none"></div>
       </template>
     </div>
     <div class="form" v-if="itemVuex">
-      <div :is="config.form.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault" v-bind:key="config.options.coreExtendScopePl"></div>
+      <div :is="config.form.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault" v-bind:key="config.options.name"></div>
     </div>
   </div>
 </template>

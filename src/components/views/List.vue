@@ -44,12 +44,12 @@ export default {
     this.$nextTick(() => {
       // ACL
       if (this.$auth.authenticated) {
-        this.$acl.can(this.config.options.coreExtendScopePl, 'Create').then(() => {
+        this.$acl.can(this.config.options.name, 'Create').then(() => {
           this.canCreateNew = true
         }).catch(() => {
           this.$log.warn('Create')
         })
-        this.$acl.can(this.config.options.coreExtendScopePl, 'Delete').then(() => {
+        this.$acl.can(this.config.options.name, 'Delete').then(() => {
           this.canDelete = true
         }).catch(() => {
           this.$log.warn('Delete')
@@ -72,7 +72,7 @@ export default {
   },
   computed: {
     itemsVuex () {
-      return this.$store.getters['all' + this.config.options.coreExtendVuexPl]
+      return this.$store.getters['all' + this.config.options.name]
     }
   },
   methods: {
@@ -83,11 +83,11 @@ export default {
     __refresh () {
       // Degub
       this.$log.debug('LIST')
-      this.$store.dispatch('getAll' + this.config.options.coreExtendVuexPl).then(() => {
+      this.$store.dispatch('getAll' + this.config.options.name).then(() => {
         // Associate
-        if (this.config.options.coreVuexAssociate) {
-          if (Array.isArray(this.config.options.coreVuexAssociate)) {
-            this.config.options.coreVuexAssociate.forEach((associate) => {
+        if (this.config.options.storesReloadOnCRUD) {
+          if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+            this.config.options.storesReloadOnCRUD.forEach((associate) => {
               this.$store.dispatch('getAll' + associate)
             })
           } 
@@ -97,12 +97,12 @@ export default {
     __newItem () {
       // Degub
       this.$log.debug('LIST')
-      this.$router.push({name: this.config.options.coreExtendScope + '-new'})
+      this.$router.push({name: this.config.options.nameSingle + '-new'})
     },
     __edit (id) {
       // Degub
       this.$log.debug('LIST')
-      this.$router.push({name: this.config.options.coreExtendScope, params: { id: id }})
+      this.$router.push({name: this.config.options.nameSingle, params: { id: id }})
     },
     __confirmDelete (id) {
       // Degub
@@ -110,12 +110,12 @@ export default {
       // Reset
       this.confirm = {}
       // Delete
-      this.$store.dispatch('get' + this.config.options.coreExtendVuex, id).then(() => {
-        this.$store.dispatch('delete' + this.config.options.coreExtendVuex, this.$store.getters[this.config.options.coreExtendVuex]).then(() => {
+      this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
+        this.$store.dispatch('delete' + this.config.options.nameSingle, this.$store.getters[this.config.options.nameSingle]).then(() => {
           // Associate
-          if (this.config.options.coreVuexAssociate) {
-            if (Array.isArray(this.config.options.coreVuexAssociate)) {
-              this.config.options.coreVuexAssociate.forEach((associate) => {
+          if (this.config.options.storesReloadOnCRUD) {
+            if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+              this.config.options.storesReloadOnCRUD.forEach((associate) => {
                 this.$store.dispatch('getAll' + associate)
               })
             } 
@@ -200,19 +200,19 @@ export default {
 </script>
 
 <template>
-  <div class="List" :class="config.options.coreExtendScopePl" ref="listdefault">
+  <div class="List" :class="config.options.name" ref="listdefault">
     <div class="header">
       <h2 class="hidden-print">{{ config.options.displayName }}</h2>
       <h2 class="only-print">{{ config.options.displayNamePrint }}</h2>
     </div>
-    <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-filters')">
+    <template v-if="__checkComponentExists(config.options.name + '-filters')">
       <div class="filters">
         <span class="filter-icon">
           <b-btn id="popoverFilter" variant="outline-primary">
             <icon name="filter"></icon>
           </b-btn>
         </span>
-        <div :is="config.options.coreExtendScopePl + '-filters'" ref="filtersdefault"></div>
+        <div :is="config.options.name + '-filters'" ref="filtersdefault"></div>
       </div>
     </template>
     <div class="actions" id="popoverContent">
@@ -220,8 +220,8 @@ export default {
         <span v-html="config.options.buttons.newName" :title="config.options.buttons.newName" v-if="config.options.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
-      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
-        <div :is="config.options.coreExtendScopePl + '-btns'" ref="btnsdefault"></div>
+      <template v-if="__checkComponentExists(config.name + '-btns')">
+        <div :is="config.options.name + '-btns'" ref="btnsdefault"></div>
       </template>
       <span class="action-icon">
         <b-btn id="popoverAction" variant="outline-primary">
@@ -243,8 +243,8 @@ export default {
     </div>
     <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
       <div slot="selected-row-actions">
-        <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-list-actions')">
-          <div :is="config.options.coreExtendScopePl + '-list-actions'" ref="rowactionsdefault"></div>
+        <template v-if="__checkComponentExists(config.options.name + '-list-actions')">
+          <div :is="config.options.name + '-list-actions'" ref="rowactionsdefault"></div>
         </template>
       </div>
       <template slot="table-row" slot-scope="props">
@@ -267,8 +267,8 @@ export default {
               <icon name="ban" v-else></icon>
             </a>
           </template>
-          <template v-if="__checkComponentExists(config.options.coreExtendScopePl + '-actions')">
-            <div :is="config.options.coreExtendScopePl + '-actions'" ref="actionsdefault" :props="props"></div>
+          <template v-if="__checkComponentExists(config.options.name + '-actions')">
+            <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props"></div>
           </template>
         </span>
         <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">

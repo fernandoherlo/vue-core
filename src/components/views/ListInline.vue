@@ -44,17 +44,17 @@ export default {
     this.$nextTick(() => {
       // ACL
       if (this.$auth.authenticated) {
-        this.$acl.can(this.config.coreExtendScopePl, 'Create').then(() => {
+        this.$acl.can(this.config.options.name, 'Create').then(() => {
           this.canCreateNew = true
         }).catch(() => {
           this.$log.warn('Create')
         })
-        this.$acl.can(this.config.coreExtendScopePl, 'Delete').then(() => {
+        this.$acl.can(this.config.options.name, 'Delete').then(() => {
           this.canDelete = true
         }).catch(() => {
           this.$log.warn('Delete')
         })
-        this.$acl.can(this.config.coreExtendScopePl, 'Update').then(() => {
+        this.$acl.can(this.config.options.name, 'Update').then(() => {
           this.canEdit = true
         }).catch(() => {
           this.$log.warn('Edit')
@@ -70,28 +70,28 @@ export default {
     })
     // Data
     this.itemIDParent = this.$helper.getID(this.$route.params.id)
-    this.$store.dispatch('getByParent' + this.config.coreExtendVuexPl, this.itemIDParent)
+    this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
   },
   computed: {
     itemsVuex () {
-      return this.$store.getters['allByParent' + this.config.coreExtendVuexPl]
+      return this.$store.getters['allByParent' + this.config.options.name]
     }
   },
   methods: {
     __newItem () {
       // Degub
       this.$log.debug('LISTINLINE')
-      this.$router.push({name: this.config.coreExtendScope + '-new', params: { id_parent: this.itemIDParent }})
+      this.$router.push({name: this.config.options.nameSingle + '-new', params: { id_parent: this.itemIDParent }})
     },
     __assign () {
       // Degub
       this.$log.debug('LISTINLINE')
-      this.$router.push({name: this.config.coreExtendScope + '-assign', params: { id_parent: this.itemIDParent }})
+      this.$router.push({name: this.config.options.nameSingle + '-assign', params: { id_parent: this.itemIDParent }})
     },
     __edit (id) {
       // Degub
       this.$log.debug('LISTINLINE')
-      this.$router.push({name: this.config.coreExtendScope, params: { id: id, id_parent: this.itemIDParent }})
+      this.$router.push({name: this.config.options.nameSingle, params: { id: id, id_parent: this.itemIDParent }})
     },
     __confirmDelete (id) {
       // Degub
@@ -99,16 +99,16 @@ export default {
       // Reset
       this.confirm = {}
       // Delete
-      this.$store.dispatch('get' + this.config.coreExtendVuex, id).then(() => {
+      this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
         let item_payload = {
-          item: this.$store.getters[this.config.coreExtendVuex],
+          item: this.$store.getters[this.config.options.nameSingle],
           id_parent: this.itemIDParent
         }
-        this.$store.dispatch('deleteByParent' + this.config.coreExtendVuex, item_payload).then(() => {
+        this.$store.dispatch('deleteByParent' + this.config.options.nameSingle, item_payload).then(() => {
           // Associate
-          if (this.config.coreVuexAssociate) {
-            if (Array.isArray(this.config.coreVuexAssociate)) {
-              this.config.coreVuexAssociate.forEach((associate) => {
+          if (this.config.options.storesReloadOnCRUD) {
+            if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+              this.config.options.storesReloadOnCRUD.forEach((associate) => {
                 this.$store.dispatch('getAll' + associate)
               })
             } 
@@ -139,8 +139,8 @@ export default {
       return false
     },
     __checkConditionRowActions (row) {
-      if (this.config.conditionRowActions) {
-        return this.config.conditionRowActions(row)
+      if (this.config.options.conditionRowActions) {
+        return this.config.options.conditionRowActions(row)
       } else {
         return true;
       }
@@ -163,39 +163,39 @@ export default {
 </script>
 
 <template>
-  <div class="List Inline" :class="config.coreExtendScopePl">
+  <div class="List Inline" :class="config.options.name">
     <div class="header">
-      <h3 class="hidden-print">{{ config.displayName }}</h3>
-      <h3 class="only-print">{{ config.displayNamePrint }}</h3>
+      <h3 class="hidden-print">{{ config.options.displayName }}</h3>
+      <h3 class="only-print">{{ config.options.displayNamePrint }}</h3>
     </div>
     <div class="actions">
-      <template v-if="__checkComponentExists(config.coreExtendScopePl + '-btns')">
-        <div :is="config.coreExtendScopePl + '-btns'" ref="btnsinline"></div>
+      <template v-if="__checkComponentExists(config.options.name + '-btns')">
+        <div :is="config.options.name + '-btns'" ref="btnsinline"></div>
       </template>
     </div>
     <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">
-        <template v-if="__checkComponentExists(config.coreExtendScopePl + '-row-actions')">
-          <div :is="config.coreExtendScopePl + '-row-actions'" ref="rowactionsinline"></div>
+        <template v-if="__checkComponentExists(config.options.name + '-row-actions')">
+          <div :is="config.options.name + '-row-actions'" ref="rowactionsinline"></div>
         </template>
       </div>
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <template v-if="__checkConditionRowActions(props.row)">
             <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
-              <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
+              <span v-html="config.options.buttons.editName" :title="config.options.buttons.editName" v-if="config.options.buttons.editName"></span>
               <icon name="edit" v-else></icon>
             </a>
             <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
-              <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
+              <span v-html="config.options.buttons.deleteName" :title="config.options.buttons.deleteName" v-if="config.options.buttons.deleteName"></span>
               <icon name="minus-circle" v-else></icon>
             </a>
             <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
-              <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
+              <span v-html="config.options.buttons.askName" :title="config.options.buttons.askName" v-if="config.options.buttons.askName"></span>
               <icon name="check-circle" v-else></icon>
             </a>
             <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
-              <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
+              <span v-html="config.options.buttons.cancelName" :title="config.options.buttons.cancelName" v-if="config.options.buttons.cancelName"></span>
               <icon name="ban" v-else></icon>
             </a>
           </template>
@@ -207,11 +207,11 @@ export default {
     </vue-good-table>
     <div class="actions">
       <a class="btn new" @click="__newItem()" v-if="canCreateNew">
-        <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
+        <span v-html="config.options.buttons.newName" :title="config.options.buttons.newName" v-if="config.options.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
       <a class="btn assign" @click="__assign()" v-if="canAssign">
-        <span v-html="config.buttons.assignName" :title="config.buttons.assignName" v-if="config.buttons.assignName"></span>
+        <span v-html="config.options.buttons.assignName" :title="config.options.buttons.assignName" v-if="config.options.buttons.assignName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
     </div>

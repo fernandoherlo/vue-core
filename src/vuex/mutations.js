@@ -17,28 +17,28 @@ export default {
   core (state, config) { // mTypeNamePl, mTypeName
     var self = this
     return {
-      ['RECEIVE_' + config.options.mTypeNamePl] (state, { items }) {
+      ['RECEIVE_' + config.options.name] (state, { items }) {
         self.getAll(state, items)
       },
-      ['GET_BY_PARENT_' + config.options.mTypeNamePl] (state, { id_parent }) {
+      ['GET_BY_PARENT_' + config.options.name] (state, { id_parent }) {
         self.getAllByParent(state, id_parent)
       },
-      ['GET_BY_PARENT_LARAVEL_' + config.options.mTypeNamePl] (state, { id_parent, storeRelated, idRelated }) {
-        self.getAllByParentLaravel(state, id_parent, storeRelated, idRelated)
+      ['GET_BY_PARENT_LARAVEL_' + config.options.name] (state, { id_parent, dataRelatedLaravel, dataIdRelated }) {
+        self.getAllByParentLaravel(state, id_parent, dataRelatedLaravel, dataIdRelated)
       },
-      ['GET_' + config.options.mTypeName] (state, { id }) {
+      ['GET_' + config.options.nameSingle] (state, { id }) {
         self.getItem(state, id)
       },
-      ['UPDATE_' + config.options.mTypeName] (state, { itemApi }) {
+      ['UPDATE_' + config.options.nameSingle] (state, { itemApi }) {
         self.updateItem(state, itemApi)
       },
-      ['SAVE_' + config.options.mTypeName] (state, { itemApi }) {
+      ['SAVE_' + config.options.nameSingle] (state, { itemApi }) {
         self.saveItem(state, itemApi)
       },
-      ['DELETE_' + config.options.mTypeName] (state, { item }) {
+      ['DELETE_' + config.options.nameSingle] (state, { item }) {
         self.deleteItem(state, item)
       },
-      ['CLEAR_' + config.options.mTypeName] (state) {
+      ['CLEAR_' + config.options.nameSingle] (state) {
         self.clearItem(state)
       }
     }
@@ -60,23 +60,23 @@ export default {
     EventBus.$log.debug('MUTATIONS')
     state.allByParent = state.all.filter(item => item.id_parent === id_parent)
   },
-  getAllByParentLaravel (state, id_parent, storeRelated, idRelated) {
+  getAllByParentLaravel (state, id_parent, dataRelatedLaravel, dataIdRelated) {
     // Degub
     EventBus.$log.debug('MUTATIONS')
 
     let newStates = null
 
-    if (storeRelated) { 
+    if (dataRelatedLaravel) { 
       newStates = state.all.filter( function(item) {
-        let relateds = item[storeRelated].filter( function(related) {
+        let relateds = item[dataRelatedLaravel].filter( function(related) {
           return related.id === id_parent
         })
         return relateds.length > 0
       })
     }
-    if (idRelated) { 
+    if (dataIdRelated) { 
       newStates = state.all.filter( function(item) {
-        return item[idRelated] === id_parent
+        return item[dataIdRelated] === id_parent
       })
     }
 
