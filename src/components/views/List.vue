@@ -76,9 +76,6 @@ export default {
       return this.$store.getters['all' + this.config.options.name]
     },
     itemsVuexPreFilter () {
-      // Degub
-      this.$log.debug('LIST')
-      this.$log.debug(this.vuexPreFilter)
       if ( ! this.vuexPreFilter) {
         return this.itemsVuex
       } else {
@@ -108,12 +105,20 @@ export default {
     __newItem () {
       // Degub
       this.$log.debug('LIST')
-      this.$router.push({name: this.config.options.nameSingle + '-new'})
+      if (this.config.options.nameSingleOverride) {
+        this.$router.push({name: this.config.options.nameSingleOverride + '-new'})
+      } else {
+        this.$router.push({name: this.config.options.nameSingle + '-new'})
+      }
     },
     __edit (id) {
       // Degub
       this.$log.debug('LIST')
-      this.$router.push({name: this.config.options.nameSingle, params: { id: id }})
+      if (this.config.options.nameSingleOverride) {
+        this.$router.push({name: this.config.options.nameSingleOverride, params: { id: id }})
+      } else {
+        this.$router.push({name: this.config.options.nameSingle, params: { id: id }})
+      }
     },
     __confirmDelete (id) {
       // Degub

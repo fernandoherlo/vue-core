@@ -185,7 +185,11 @@ export default {
       if (this.config.options.inline) {
         this.$router.replace({name: this.config.options.nameSingleParent, params: { id: this.itemIDParent }})
       } else {
-        this.$router.replace({name: this.config.options.name })
+        if (this.config.options.nameOverride) {
+          this.$router.replace({name: this.config.options.nameOverride })
+        } else {
+          this.$router.replace({name: this.config.options.name })
+        }
       }
     },
     __checkComponentExists (name) {
