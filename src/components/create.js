@@ -21,21 +21,21 @@ import { globalTableColumns } from '@/config/table'
 export const createPlugin = function (options, table, form, buttons, menu_links, routes)
 {
   let config = {
-    options: options,
-    table: Object.assign({},
+    'options': options,
+    'table': Object.assign({},
       globalTableConfig,
       {
         columns: table.columns.concat([globalTableColumns])
       },
       table.options
     ),
-    form: form,
-    buttons: Object.assign({},
+    'form': form,
+    'buttons': Object.assign({},
       globalButtonsName,
       buttons
     ),
-    menu_links: menu_links,
-    routes: routes
+    'menu_links': menu_links,
+    'routes': routes
   }
 
   /*
