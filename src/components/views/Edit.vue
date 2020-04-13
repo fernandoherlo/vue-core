@@ -183,7 +183,7 @@ export default {
       // Degub
       this.$log.debug('EDIT')
       if (this.config.options.inline) {
-        this.$router.replace({name: this.config.options.nameSingleParent, params: { id: this.itemIDParent }})
+        this.$router.replace({name: this.config.options.nameSinglePluginBack, params: { id: this.itemIDParent }})
       } else {
         if (this.config.options.nameOverride) {
           this.$router.replace({name: this.config.options.nameOverride })
