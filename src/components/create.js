@@ -24,15 +24,15 @@ export const createPlugin = function (config)
       // Name bottoms
       buttons: Object.assign({},
         buttonsName,
-        config.options.componentButtonsName
+        config.buttons
       ),
       // Table
       table: Object.assign({},
         globalTableConfig,
         {
-          columns: config.table.columnsTable.concat([baseTableColumns])
+          columns: config.table.columns.concat([baseTableColumns])
         },
-        config.table.optionsTable
+        config.table.options
       )
     },
     config
