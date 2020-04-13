@@ -17,7 +17,7 @@ export default {
     var self = this
     return {
       ['getAll' + config.options.name] ({ commit }) {
-        return self.getBaseAll(commit, config.options)
+        return self.getBaseAll(commit, config)
       },
       ['getByParent' + config.options.name] ({ commit }, id_parent) {
         return self.getByParent(commit, config, id_parent)
