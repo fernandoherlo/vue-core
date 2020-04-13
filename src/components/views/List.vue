@@ -76,6 +76,9 @@ export default {
       return this.$store.getters['all' + this.config.options.name]
     },
     itemsVuexPreFilter () {
+      // Degub
+      this.$log.debug('LIST')
+      this.$log.debug(this.vuexPreFilter)
       if ( ! this.vuexPreFilter) {
         return this.itemsVuex
       } else {
