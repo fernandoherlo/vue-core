@@ -142,7 +142,7 @@ let api = new Vue({
         method: 'DELETE'
       }
       if (id_parent) {
-        options.dataUrl = options.dataUrl + '/' + id_parent
+        options.url = options.url + '/' + id_parent
       }
       this.$http.axios(options).then((response) => {
         // CallBack
