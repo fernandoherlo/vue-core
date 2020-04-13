@@ -73,6 +73,13 @@ export default {
   computed: {
     itemsVuex () {
       return this.$store.getters['all' + this.config.options.name]
+    },
+    itemsVuexPreFilter () {
+      if ( ! this.vuexPreFilter) {
+        return this.itemsVuex
+      } else {
+        return this.itemsVuex.filter(this.vuexPreFilter)
+      }
     }
   },
   methods: {
@@ -241,7 +248,7 @@ export default {
         </div>
       </b-popover>
     </div>
-    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.options.name + '-list-actions')">
           <div :is="config.options.name + '-list-actions'" ref="rowactionsdefault"></div>
