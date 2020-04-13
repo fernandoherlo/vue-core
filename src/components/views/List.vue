@@ -35,7 +35,8 @@ export default {
       canEdit: true,
       canCreateNew: false,
       canDelete: false,
-      firstOnPerPage: true
+      firstOnPerPage: true,
+      vuexPreFilter: null,
     }
   },
   created () {
@@ -85,7 +86,7 @@ export default {
   methods: {
     __created () {
       // Degub
-      this.$log.debug('EDIT')
+      this.$log.debug('LIST')
     },
     __refresh () {
       // Degub
