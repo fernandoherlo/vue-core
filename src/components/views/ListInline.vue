@@ -71,6 +71,8 @@ export default {
     // Data
     this.itemIDParent = this.$helper.getID(this.$route.params.id)
     this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
+    // Created children
+    this.__created()
   },
   computed: {
     itemsVuex () {
@@ -78,6 +80,10 @@ export default {
     }
   },
   methods: {
+    __created () {
+      // Degub
+      this.$log.debug('LIST')
+    },
     __newItem () {
       // Degub
       this.$log.debug('LISTINLINE')
