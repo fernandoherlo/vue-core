@@ -58,7 +58,9 @@ export default {
   getAllByParent (state, id_parent) {
     // Degub
     EventBus.$log.debug('MUTATIONS')
-    state.allByParent = state.all.filter(item => item.id_parent === id_parent)
+    let newStates = state.all.filter(item => item.id_parent === id_parent)
+
+    Vue.set(state, 'allByParent', newStates)
   },
   getAllByParentLaravel (state, id_parent, dataRelatedLaravel, dataIdRelated) {
     // Degub
