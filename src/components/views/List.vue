@@ -236,7 +236,7 @@ export default {
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
-      <template v-if="__checkComponentExists(config.name + '-btns')">
+      <template v-if="__checkComponentExists(config.options.name + '-btns')">
         <div :is="config.options.name + '-btns'" ref="btnsdefault"></div>
       </template>
       <span class="action-icon">
