@@ -27,6 +27,7 @@ import ListInline from '@/components/views/ListInline'
 import New from '@/components/views/New'
 
 import { createPlugin } from '@/components/create'
+import { globalTableConfig } from '@/config/table'
 
 // Partials
 import InputText from '@/components/partials/InputText'
@@ -65,5 +66,6 @@ export {
   Textarea,
   DatePicker,
   Dropbox,
-  createPlugin
+  createPlugin,
+  globalTableConfig
 }
