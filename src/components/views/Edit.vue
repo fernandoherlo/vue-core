@@ -245,7 +245,7 @@ export default {
       </template>
     </div>
     <div class="form" v-if="itemVuex">
-      <div :is="config.form.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" ref="formdefault" v-bind:key="config.options.name"></div>
+      <div :is="config.form.formName + '-form'" :item="itemVuex" :extrasForm="extrasForm" :is-new="isNew" :itemIDParent="itemIDParent" ref="formdefault" v-bind:key="config.options.name"></div>
     </div>
   </div>
 </template>
