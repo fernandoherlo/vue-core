@@ -206,6 +206,11 @@ export default {
 
 <template>
   <div class="Edit" :class="config.options.name">
+
+    <template v-if="config.options.hasSubMenu">
+      <div :is="config.options.hasSubMenu" class="submenu-core"></div>
+    </template>
+    
     <div class="header" v-if="itemVuex">
       <h2 class="hidden-print">{{ config.options.displayName }}: <span v-if="!isNew">{{ itemVuex[config.form.fieldID] }}</span></h2>
       <h2 class="only-print">{{ config.options.displayNamePrint }}: <span v-if="!isNew">{{ itemVuex[config.form.fieldID] }}</span></h2>

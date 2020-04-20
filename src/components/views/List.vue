@@ -217,6 +217,11 @@ export default {
 
 <template>
   <div class="List" :class="config.options.name" ref="listdefault">
+
+    <template v-if="config.options.hasSubMenu">
+      <div :is="config.options.hasSubMenu" class="submenu-core"></div>
+    </template>
+  
     <div class="header">
       <h2 class="hidden-print">{{ config.options.displayName }}</h2>
       <h2 class="only-print">{{ config.options.displayNamePrint }}</h2>
