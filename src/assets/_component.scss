@@ -6,6 +6,16 @@
 */
 .List,
 .Edit {
+  & > .submenu-core {
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    background-color: $gray-100;
+    border-radius: $border-radius;
+    .btn {
+      font-size: 11px;
+      line-height: 1.1;
+    }
+  }
   & > .header {
     float: left;
     h2 {
