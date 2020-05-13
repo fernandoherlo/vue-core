@@ -4,9 +4,9 @@
 |--------------------------------------------------------------------------
 |
 */
-import { VuexGetters } from '@fernandoherlo/vue-core-store'
-import { VuexActions } from '@fernandoherlo/vue-core-store'
-import { VuexMutations } from '@fernandoherlo/vue-core-store'
+// import { VuexGetters } from '@fernandoherlo/vue-core-store'
+// import { VuexActions } from '@fernandoherlo/vue-core-store'
+// import { VuexMutations } from '@fernandoherlo/vue-core-store'
 
 import { globalButtonsName } from '@/config/button'
 import { globalTableConfig } from '@/config/table'
@@ -18,7 +18,7 @@ import { globalTableColumns } from '@/config/table'
 |--------------------------------------------------------------------------
 |
 */
-export const createPlugin = function (options, table, form, buttons, menu_links, routes)
+export const createPlugin = function (options, table, form, buttons, menu_links, routes, VuexGetters, VuexActions, VuexMutations)
 {
   let config = {
     'options': options,
