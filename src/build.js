@@ -2,12 +2,6 @@
  * @name VueJS VueCore (vue-core)
  * @description Library for Vue.js 2.0
  */
- // Services
-import auth from '@/services/auth'
-import http from '@/services/http'
-import api from '@/services/api'
-import acl from '@/services/acl'
-import helper from '@/services/helper'
 // Views
 import Callback from '@/views/Callback'
 
@@ -33,11 +27,6 @@ import DatePicker from '@/components/partials/DatePicker'
 import Dropbox from '@/components/partials/Dropbox'
 
 export {
-  auth,
-  http,
-  api,
-  acl,
-  helper,
   Callback,
   Core,
   Edit,
