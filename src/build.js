@@ -10,6 +10,7 @@ import acl from '@/services/acl'
 import helper from '@/services/helper'
 // Views
 import Callback from '@/views/Callback'
+
 // Core
 import Core from '@/components/views/Core'
 import Edit from '@/components/views/Edit'
