@@ -8,7 +8,6 @@ import http from '@/services/http'
 import api from '@/services/api'
 import acl from '@/services/acl'
 import helper from '@/services/helper'
-import { EventBus } from '@/services/event-bus.js';
 // Views
 import Callback from '@/views/Callback'
 // Core
@@ -38,7 +37,6 @@ export {
   api,
   acl,
   helper,
-  EventBus,
   Callback,
   Core,
   Edit,
