@@ -23,6 +23,7 @@ import Core from '@/components/views/Core'
 import Edit from '@/components/views/Edit'
 import Form from '@/components/views/Form'
 import List from '@/components/views/List'
+import ListOP from '@/components/views/ListOP'
 import ListInline from '@/components/views/ListInline'
 import New from '@/components/views/New'
 
@@ -56,6 +57,7 @@ export {
   Edit,
   Form,
   List,
+  ListOP,
   ListInline,
   New,
   InputText,
