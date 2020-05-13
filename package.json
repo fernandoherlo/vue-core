@@ -24,7 +24,7 @@
   },
   "main": "./dist/vue-core.common.js",
   "dependencies": {
-    "@fernandoherlo/vue-core-store": "^0.2.9",
+    "@fernandoherlo/vue-core-store": "^0.2.10",
     "auth0-js": "^9.13.2",
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.14.0",
