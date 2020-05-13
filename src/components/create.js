@@ -4,9 +4,9 @@
 |--------------------------------------------------------------------------
 |
 */
-import VuexGetters from '@/vuex/getters'
-import VuexActions from '@/vuex/actions'
-import VuexMutations from '@/vuex/mutations'
+import { VuexGetters } from '@fernandoherlo/vue-core-store'
+import { VuexActions } from '@fernandoherlo/vue-core-store'
+import { VuexMutations } from '@fernandoherlo/vue-core-store'
 
 import { globalButtonsName } from '@/config/button'
 import { globalTableConfig } from '@/config/table'

@@ -9,11 +9,6 @@ import api from '@/services/api'
 import acl from '@/services/acl'
 import helper from '@/services/helper'
 import { EventBus } from '@/services/event-bus.js';
-// Vuex
-import VuexLoad from '@/vuex/modules/load'
-import VuexGetters from '@/vuex/getters'
-import VuexActions from '@/vuex/actions'
-import VuexMutations from '@/vuex/mutations'
 // Views
 import Callback from '@/views/Callback'
 // Core
@@ -44,10 +39,6 @@ export {
   acl,
   helper,
   EventBus,
-  VuexLoad,
-  VuexGetters,
-  VuexActions,
-  VuexMutations,
   Callback,
   Core,
   Edit,
