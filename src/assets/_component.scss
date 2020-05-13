@@ -517,10 +517,12 @@
         width: 205px !important;
         text-align: right;
 
-        &.sorting {
+        &.sorting,
+        &.sorting-asc,
+        &.sorting-desc {
           cursor: auto;
           &:after {
-            display: none;
+            display: none !important;
           }
         }
 
