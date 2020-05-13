@@ -9,7 +9,7 @@
   & > .submenu-core {
     text-transform: uppercase;
     margin-bottom: 35px;
-    background-color: $gray-300;
+    background-color: $gray-200;
     border-radius: $border-radius;
     .btn {
       font-size: 11px;
@@ -517,6 +517,13 @@
         width: 205px !important;
         text-align: right;
 
+        &.sorting {
+          cursor: auto;
+          &:after {
+            display: none;
+          }
+        }
+
         .btn {
           padding: 0.32rem 0.6rem 0.42rem;
           position: relative;
@@ -631,7 +638,7 @@
       th.id,
       td.id {
         font-weight: bold;
-        width: 40px !important;
+        width: 52px !important;
       }
       td.id {
         font-size: 12px;

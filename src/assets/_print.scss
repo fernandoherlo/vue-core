@@ -213,6 +213,11 @@
         thead th {
           color: $body-color;
         }
+        th.sorting {
+          &:after {
+            display: none;
+          }
+        }
       }
     }
     .actions {
