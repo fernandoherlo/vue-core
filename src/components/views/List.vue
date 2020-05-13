@@ -214,6 +214,11 @@ export default {
         this.$root.$children[0].paginateNum = params.currentPerPage
       }
       this.firstOnPerPage = false
+    },
+    __onSearch(params) {
+      // params.searchTerm - term being searched for
+      // params.rowCount - number of rows that match search
+      this.$log.debug(params.rowCount)
     }
   }
 }
@@ -266,7 +271,7 @@ export default {
         </div>
       </b-popover>
     </div>
-    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged" @on-search="__onSearch">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.options.name + '-list-actions')">
           <div :is="config.options.name + '-list-actions'" ref="rowactionsdefault"></div>
