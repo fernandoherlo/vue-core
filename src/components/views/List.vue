@@ -218,6 +218,7 @@ export default {
     __onSearch(params) {
       // params.searchTerm - term being searched for
       // params.rowCount - number of rows that match search
+      // https://www.the-art-of-web.com/javascript/search-highlight/
       this.$log.debug(params.rowCount)
     }
   }

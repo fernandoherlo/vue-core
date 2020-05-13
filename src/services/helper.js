@@ -98,14 +98,10 @@ let methodsHelper = {
     return (str+'').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
   },
   search ( haystack, needle ) {
-    // return haystack.toString().replace(
-    //   new RegExp('(' + this.pregQuote(needle) + ')', 'ig'),
-    //   '<span class="highlight">$1</span>'
-    // )
-    var iQuery = new RegExp(needle, "ig")
-    return haystack.toString().replace(iQuery, function(matchedTxt/*,a,b*/){
-        return ('<span class=\'highlight\'>' + matchedTxt + '</span>')
-    })
+    return haystack.toString().replace(
+      new RegExp('(' + this.pregQuote(needle) + ')', 'ig'),
+      '<span class="highlight">$1</span>'
+    )
   },
   print () {
     window.print()
