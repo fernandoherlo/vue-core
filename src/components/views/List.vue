@@ -273,46 +273,44 @@ export default {
         </div>
       </b-popover>
     </div>
-    <div id="hilitorS">
-      <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged" @on-search="__onSearch">
-        <div slot="selected-row-actions">
-          <template v-if="__checkComponentExists(config.options.name + '-list-actions')">
-            <div :is="config.options.name + '-list-actions'" ref="rowactionsdefault"></div>
-          </template>
-        </div>
-        <template slot="table-row" slot-scope="props">
-          <span v-if="props.column.thClass === 'actions'">
-            <template v-if="__checkConditionRowActions(props.row)">
-              <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
-                <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
-                <icon name="edit" v-else></icon>
-              </a>
-              <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
-                <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
-                <icon name="trash-alt" v-else></icon>
-              </a>
-              <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
-                <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
-                <icon name="check-circle" v-else></icon>
-              </a>
-              <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
-                <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
-                <icon name="ban" v-else></icon>
-              </a>
-            </template>
-            <template v-if="__checkComponentExists(config.options.name + '-actions')">
-              <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props"></div>
-            </template>
-          </span>
-          <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">
-            {{ props.formattedRow[props.column.field] }} 
-          </span>
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged" @on-search="__onSearch">
+      <div slot="selected-row-actions">
+        <template v-if="__checkComponentExists(config.options.name + '-list-actions')">
+          <div :is="config.options.name + '-list-actions'" ref="rowactionsdefault"></div>
         </template>
-        <div slot="emptystate">
-          {{ config.table.noDataText }}
-        </div>
-      </vue-good-table>
-    </div>
+      </div>
+      <template slot="table-row" slot-scope="props">
+        <span v-if="props.column.thClass === 'actions'">
+          <template v-if="__checkConditionRowActions(props.row)">
+            <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
+              <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
+              <icon name="edit" v-else></icon>
+            </a>
+            <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
+              <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
+              <icon name="trash-alt" v-else></icon>
+            </a>
+            <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
+              <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
+              <icon name="check-circle" v-else></icon>
+            </a>
+            <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
+              <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
+              <icon name="ban" v-else></icon>
+            </a>
+          </template>
+          <template v-if="__checkComponentExists(config.options.name + '-actions')">
+            <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props"></div>
+          </template>
+        </span>
+        <span v-else v-html="__highlight(props.formattedRow[props.column.field], props)">
+          {{ props.formattedRow[props.column.field] }} 
+        </span>
+      </template>
+      <div slot="emptystate">
+        {{ config.table.noDataText }}
+      </div>
+    </vue-good-table>
   </div>
 </template>
 

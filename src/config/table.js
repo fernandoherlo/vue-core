@@ -33,5 +33,6 @@ export const globalTableColumns = {
   type: 'number',
   thClass: 'actions',
   tdClass: 'actions',
-  sortable: false
+  sortable: false,
+  globalSearchDisabled: true
 }
