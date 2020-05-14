@@ -218,15 +218,7 @@ export default {
     __onSearch(params) {
       // params.searchTerm - term being searched for
       // params.rowCount - number of rows that match search
-      // https://www.the-art-of-web.com/javascript/search-highlight/
-      if (this.$refs.VueGoodTable.searchOptions.skipHighlight) {
-        var myHilitor;
-        /* eslint-disable no-undef */
-        myHilitor = new Hilitor('hilitorS');
-        myHilitor.setMatchType('open');
-        myHilitor.remove();
-        myHilitor.apply(params.searchTerm);
-      }
+      this.$EventBus.$emit('search-vgt', params.searchTerm)
     }
   }
 }
