@@ -218,7 +218,9 @@ export default {
     __onSearch(params) {
       // params.searchTerm - term being searched for
       // params.rowCount - number of rows that match search
-      this.$EventBus.$emit('search-vgt', params.searchTerm)
+      if (this.$refs.VueGoodTable.searchOptions.skipHighlight) {
+        this.$EventBus.$emit('search-vgt', params.searchTerm)
+      }
     }
   }
 }
