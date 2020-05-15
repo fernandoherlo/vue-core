@@ -226,14 +226,12 @@ export default {
         var targetSearch = document.querySelector('.vgt-inner-wrap > .vgt-responsive > table > tbody')
         // highlight
         setTimeout(() => {
-          this.$nextTick(() => {
-            /* eslint-disable no-undef */
-            this.myHilitor = new Hilitor( targetSearch )
-            this.myHilitor.setMatchType('open')
-            this.myHilitor.remove()
-            this.myHilitor.apply(params.searchTerm)
-          })
-        }, 10)
+          /* eslint-disable no-undef */
+          this.myHilitor = new Hilitor( targetSearch )
+          this.myHilitor.setMatchType('open')
+          this.myHilitor.remove()
+          this.myHilitor.apply(params.searchTerm)
+        }, 100)
       }
     }
   }
