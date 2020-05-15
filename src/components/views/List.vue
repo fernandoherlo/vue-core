@@ -37,6 +37,7 @@ export default {
       canDelete: false,
       firstOnPerPage: true,
       vuexPreFilter: null,
+      myHilitor: null,
     }
   },
   created () {
@@ -216,10 +217,21 @@ export default {
       this.firstOnPerPage = false
     },
     __onSearch(params) {
-      // params.searchTerm - term being searched for
-      // params.rowCount - number of rows that match search
       if (this.$refs.VueGoodTable.searchOptions.skipHighlight) {
+        // Emit
         this.$EventBus.$emit('search-vgt', params.searchTerm)
+        // Search
+        var targetSearch = document.querySelector('.vgt-inner-wrap > .vgt-responsive > table > tbody')
+        // highlight
+        setTimeout(() => {
+          this.$nextTick(() => {
+            /* eslint-disable no-undef */
+            this.myHilitor = new Hilitor( targetSearch )
+            this.myHilitor.setMatchType('open')
+            this.myHilitor.remove()
+            this.myHilitor.apply(params.searchTerm)
+          })
+        }, 100)
       }
     }
   }
