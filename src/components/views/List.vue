@@ -37,7 +37,6 @@ export default {
       canDelete: false,
       firstOnPerPage: true,
       vuexPreFilter: null,
-      myHilitor: null,
     }
   },
   created () {
@@ -227,10 +226,10 @@ export default {
         // highlight
         setTimeout(() => {
           /* eslint-disable no-undef */
-          this.myHilitor = new Hilitor( targetSearch )
-          this.myHilitor.setMatchType('open')
-          this.myHilitor.remove()
-          this.myHilitor.apply(params.searchTerm)
+          this.$root.$children[0].myHilitor = new Hilitor( targetSearch )
+          this.$root.$children[0].myHilitor.setMatchType('open')
+          this.$root.$children[0].myHilitor.remove()
+          this.$root.$children[0].myHilitor.apply(params.searchTerm)
         }, 100)
       }
     }
