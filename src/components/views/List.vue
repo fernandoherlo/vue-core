@@ -217,6 +217,8 @@ export default {
       this.firstOnPerPage = false
     },
     __onSearch(params) {
+      // Degub
+      this.$log.debug('LIST')
       if (this.$refs.VueGoodTable.searchOptions.skipHighlight) {
         // Emit
         this.$EventBus.$emit('search-vgt', params.searchTerm)
@@ -231,7 +233,7 @@ export default {
             this.myHilitor.remove()
             this.myHilitor.apply(params.searchTerm)
           })
-        }, 100)
+        }, 10)
       }
     }
   }
