@@ -67,6 +67,11 @@ export default {
       if (this.$root.$children[0].paginateNum) {
         this.$refs.VueGoodTable.perPage = this.$root.$children[0].paginateNum
       }
+      // Hilitor & Search
+      var targetSearch = document.querySelector('.vgt-inner-wrap > .vgt-responsive > table > tbody')
+      /* eslint-disable no-undef */
+      this.$app.myHilitor = new Hilitor( targetSearch )
+      this.$app.myHilitor.setMatchType('open')
     })
     // Created children
     this.__created()
@@ -221,15 +226,10 @@ export default {
       if (this.$refs.VueGoodTable.searchOptions.skipHighlight) {
         // Emit
         this.$EventBus.$emit('search-vgt', params.searchTerm)
-        // Search
-        var targetSearch = document.querySelector('.vgt-inner-wrap > .vgt-responsive > table > tbody')
         // highlight
         setTimeout(() => {
-          /* eslint-disable no-undef */
-          this.$root.$children[0].myHilitor = new Hilitor( targetSearch )
-          this.$root.$children[0].myHilitor.setMatchType('open')
-          this.$root.$children[0].myHilitor.apply(params.searchTerm)
-        }, 100)
+          this.$app.myHilitor.apply(params.searchTerm)
+        }, 50)
       }
     }
   }
