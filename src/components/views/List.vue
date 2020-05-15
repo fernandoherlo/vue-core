@@ -68,7 +68,7 @@ export default {
         this.$refs.VueGoodTable.perPage = this.$root.$children[0].paginateNum
       }
       // Hilitor & Search
-      var targetSearch = document.querySelector('.vgt-inner-wrap > .vgt-responsive > table > tbody')
+      var targetSearch = document.querySelector('.vgt-inner-wrap > .vgt-responsive > table')
       /* eslint-disable no-undef */
       this.$app.myHilitor = new Hilitor( targetSearch )
       this.$app.myHilitor.setMatchType('open')
