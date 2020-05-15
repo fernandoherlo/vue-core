@@ -7,7 +7,9 @@ export const globalTableConfig = {
   },
   searchOptions: {
     enabled: true,
-    placeholder: 'Buscar'
+    placeholder: 'Buscar',
+    skipDiacritics: true,
+    skipHighlight: true,
   },
   paginationOptions: {
     enabled: true,
