@@ -228,7 +228,6 @@ export default {
           /* eslint-disable no-undef */
           this.$root.$children[0].myHilitor = new Hilitor( targetSearch )
           this.$root.$children[0].myHilitor.setMatchType('open')
-          this.$root.$children[0].myHilitor.remove()
           this.$root.$children[0].myHilitor.apply(params.searchTerm)
         }, 100)
       }
