@@ -62,7 +62,7 @@ export default {
       }
       // Search Options
       if (this.config.table.searchOptions.enabled) {
-        if (this.$refs.VueGoodTable.$children.length > 0) {
+        if (this.$refs.VueGoodTable) {
           if (this.$refs.VueGoodTable.$children[0].$el) {
             this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].focus()
             this.$refs.VueGoodTable.$children[0].$el.getElementsByTagName('input')[0].select()
