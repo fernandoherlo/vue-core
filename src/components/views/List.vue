@@ -29,6 +29,7 @@ export default {
   },
   data () {
     return {
+      loading: true,
       items: [],
       confirm: {},
       config: componentConfig,
@@ -98,7 +99,9 @@ export default {
     __refresh () {
       // Degub
       this.$log.debug('LIST')
+      this.loading = false
       this.$store.dispatch('getAll' + this.config.options.name).then(() => {
+        this.loading = true
         // Associate
         if (this.config.options.storesReloadOnCRUD) {
           if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
@@ -285,7 +288,7 @@ export default {
         </div>
       </b-popover>
     </div>
-    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged" @on-search="__onSearch">
+    <vue-good-table ref="VueGoodTable" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length && loading" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover" @on-per-page-change="__onPageChanged" @on-search="__onSearch">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.options.name + '-list-actions')">
           <div :is="config.options.name + '-list-actions'" ref="rowactionsdefault"></div>
@@ -323,6 +326,11 @@ export default {
         {{ config.table.noDataText }}
       </div>
     </vue-good-table>
+    <template v-if="!loading">
+      <div class="loading inline">
+        <icon name="circle-notch" scale="1" spin></icon>
+      </div>
+    </template>
   </div>
 </template>
 

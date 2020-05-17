@@ -76,7 +76,7 @@ export default {
     this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
     // Loading
     if (this.config.options.dataLoadOnParentForm) {
-      this.$EventBus.$on('allByParentSet', () => {
+      this.$EventBus.$on('storeAllByParentSet', () => {
         this.loading = true
       })
     } else {
@@ -225,7 +225,7 @@ export default {
     </vue-good-table>
     <template v-if="!loading">
       <div class="loading inline">
-        <icon name="sync" scale="2" spin></icon>
+        <icon name="circle-notch" scale="1" spin></icon>
       </div>
     </template>
     <div class="actions">
