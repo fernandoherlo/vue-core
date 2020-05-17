@@ -29,6 +29,7 @@ export default {
   props: ['config'],
   data () {
     return {
+      loading: false,
       itemIDParent: 0,
       items: [],
       confirm: {},
@@ -73,6 +74,15 @@ export default {
     // Data
     this.itemIDParent = this.$helper.getID(this.$route.params.id)
     this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
+    // Loading
+    if (this.config.options.dataLoadOnParentForm) {
+      this.$EventBus.$on('allByParentSet', () => {
+        this.loading = true
+      })
+    } else {
+      this.loading = true
+    }
+
     // Created children
     this.__created()
   },
@@ -181,7 +191,7 @@ export default {
         <div :is="config.options.name + '-btns'" ref="btnsinline"></div>
       </template>
     </div>
-    <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
+    <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length && loading" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.options.name + '-row-actions')">
           <div :is="config.options.name + '-row-actions'" ref="rowactionsinline"></div>
@@ -213,6 +223,11 @@ export default {
         </span>
       </template>
     </vue-good-table>
+    <template v-if="!loading">
+      <div class="loading inline">
+        <icon name="sync" scale="2" spin></icon>
+      </div>
+    </template>
     <div class="actions">
       <a class="btn new" @click="__newItem()" v-if="canCreateNew">
         <span v-html="config.buttons.newName" :title="config.buttons.newName" v-if="config.buttons.newName"></span>
