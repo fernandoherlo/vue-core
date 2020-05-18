@@ -28,8 +28,10 @@ export default {
   methods: {
     onFileChange (event) {
       var files = event.target.files || event.dataTransfer.files
-      this.item[this.field.field] = files[0]
-      
+      var file = new FormData()
+      file.append('file', files[0])
+      this.item[this.field.field] = file
+
       // var files = event.target.files || event.dataTransfer.files
       // var file = new FormData()
       // file.append('file', files[0])
