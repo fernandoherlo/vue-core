@@ -25,6 +25,7 @@ import Select from '@/components/partials/Select'
 import Textarea from '@/components/partials/Textarea'
 import DatePicker from '@/components/partials/DatePicker'
 import Dropbox from '@/components/partials/Dropbox'
+import File from '@/components/partials/File'
 
 export {
   Callback,
@@ -42,6 +43,7 @@ export {
   Textarea,
   DatePicker,
   Dropbox,
+  File,
   createPlugin,
   globalTableConfig
 }
