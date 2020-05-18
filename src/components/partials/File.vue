@@ -24,6 +24,21 @@ export default {
       required: false,
       default: false
     }
+  },
+  methods: {
+    onFileChange (event) {
+      var files = event.target.files || event.dataTransfer.files
+      this.item[this.field.field] = files[0]
+      
+      // var files = event.target.files || event.dataTransfer.files
+      // var file = new FormData()
+      // file.append('file', files[0])
+      // this.item.upload = file
+      // this.item.file = files[0].name
+      // this.item.name = files[0].name
+      // this.item.upload.append('public_photo', this.item.public_photo)
+      // $('.custom-file-control').attr('data-before', files[0].name)
+    }
   }
 }
 </script>
@@ -31,7 +46,7 @@ export default {
 <template>
 
   <div class="custom-file" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
-    <input type="file" class="custom-file-input" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" :id="field.label" v-validate="field.validate" :disabled="disabledCondition">
+    <input type="file" class="custom-file-input" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" :id="field.label" v-validate="field.validate" :disabled="disabledCondition" v-on:change="onFileChange">
     <label class="custom-file-label" :for="field.label">{{ field.label }}</label>
     <template v-if="valueForPrint">
       <div class="form-control-print">
