@@ -29,10 +29,13 @@ export default {
     onFileChange (event) {
       // Degub
       this.$log.debug('EVENT', event)
-      
+
       var files = event.target.files || event.dataTransfer.files
       var file = new FormData()
       file.append('file', files[0])
+      // Degub
+      this.$log.debug('EVENT', file)
+      
       this.item[this.field.field] = file
 
       // var files = event.target.files || event.dataTransfer.files
