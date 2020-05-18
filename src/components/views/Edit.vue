@@ -151,24 +151,36 @@ export default {
           if (this.config.options.inline) {
             this.itemVuex.id_parent = this.itemIDParent
           }
-          this.$store.dispatch('save' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
-            // this.saveDisable = false
-            // Associate
-            if (this.config.options.storesReloadOnCRUD) {
-              if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
-                this.config.options.storesReloadOnCRUD.forEach((associate) => {
-                  this.$store.dispatch('getAll' + associate)
-                })
-              } 
-            }
-            this.save(itemApi, () => {
-              if (this.config.options.backOnSave) {
-                this.__back()
-              } else {
-                this.$router.replace({name: this.config.options.nameSingle, params: { id: itemApi.id }})
+          // Save
+          let saveCallback = () => {
+            this.$store.dispatch('save' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
+              // this.saveDisable = false
+              // Associate
+              if (this.config.options.storesReloadOnCRUD) {
+                if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+                  this.config.options.storesReloadOnCRUD.forEach((associate) => {
+                    this.$store.dispatch('getAll' + associate)
+                  })
+                } 
               }
+              this.save(itemApi, () => {
+                if (this.config.options.backOnSave) {
+                  this.__back()
+                } else {
+                  this.$router.replace({name: this.config.options.nameSingle, params: { id: itemApi.id }})
+                }
+              })
             })
-          })
+          }
+          // Upload
+          if (this.config.options.uploadPreSave) {
+            this.$store.dispatch('upload' + this.config.options.nameSingle, this.itemVuex).then((/*itemApi*/) => {
+              saveCallback()
+            })
+          } else {
+            saveCallback()
+          }
+
         } else {
           this.saveDisable = false
         }
