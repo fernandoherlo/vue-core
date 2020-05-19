@@ -172,7 +172,7 @@ export default {
               })
             })
           }
-          // Upload
+          // pre-Upload
           if (this.config.options.uploadPreSave) {
             this.$store.dispatch('upload' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
               // prefix

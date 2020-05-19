@@ -27,8 +27,16 @@ export default {
   },
   methods: {
     onFileChange (event) {
+      // Item
       var files = event.target.files || event.dataTransfer.files
+      var file_name = files[0].name
       this.item[this.field.field] = files[0]
+      // Related value
+      if (this.field.relatedSetValue) {
+        this.item[this.field.relatedSetValue] = file_name
+      }
+      // dom value
+      this.$el.getElementsByTagName('label')[0].innerHTML = file_name
     }
   }
 }
