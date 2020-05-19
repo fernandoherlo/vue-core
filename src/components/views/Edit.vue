@@ -177,6 +177,8 @@ export default {
             this.$store.dispatch('upload' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
               // prefix
               this.itemVuex.prefix = itemApi.prefix
+              // name
+              this.itemVuex.file = itemApi.file
               // Save
               saveCallback()
             })
