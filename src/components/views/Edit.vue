@@ -174,10 +174,14 @@ export default {
           }
           // Upload
           if (this.config.options.uploadPreSave) {
-            this.$store.dispatch('upload' + this.config.options.nameSingle, this.itemVuex).then((/*itemApi*/) => {
+            this.$store.dispatch('upload' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
+              // prefix
+              this.itemVuex.prefix = itemApi.prefix
+              // Save
               saveCallback()
             })
           } else {
+            // Save
             saveCallback()
           }
 

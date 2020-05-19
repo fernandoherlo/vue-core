@@ -28,30 +28,7 @@ export default {
   methods: {
     onFileChange (event) {
       var files = event.target.files || event.dataTransfer.files
-      // var form = new FormData()
-
-      // form.append('file', files[0])
-
-      this.item[this.field.field] =  files[0]
-      // this.item['form'] = form
-
-      // FormData
-      // let formData = new FormData(this.$parent.$el.getElementsByTagName('form')[0])
-
-
-      // Degub
-      // this.$log.debug(formData)
-      // Set
-      // this.$set(this.item, 'formData', formData)
-
-      // var files = event.target.files || event.dataTransfer.files
-      // var file = new FormData()
-      // file.append('file', files[0])
-      // this.item.upload = file
-      // this.item.file = files[0].name
-      // this.item.name = files[0].name
-      // this.item.upload.append('public_photo', this.item.public_photo)
-      // $('.custom-file-control').attr('data-before', files[0].name)
+      this.item[this.field.field] = files[0]
     }
   }
 }
