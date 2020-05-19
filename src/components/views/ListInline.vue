@@ -73,7 +73,7 @@ export default {
     })
     // Data
     this.itemIDParent = this.$helper.getID(this.$route.params.id)
-    this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
+    this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent, this.config)
     // Loading
     if (this.config.options.dataLoadOnParentForm) {
       this.$EventBus.$on('storeAllByParentSet', () => {
@@ -129,17 +129,17 @@ export default {
       // Reset
       this.confirm = {}
       // Delete
-      this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
+      this.$store.dispatch('get' + this.config.options.nameSingle, id, this.config).then(() => {
         let item_payload = {
           item: this.$store.getters[this.config.options.nameSingle],
           id_parent: this.itemIDParent
         }
-        this.$store.dispatch('deleteByParent' + this.config.options.nameSingle, item_payload).then(() => {
+        this.$store.dispatch('deleteByParent' + this.config.options.nameSingle, item_payload, this.config).then(() => {
           // Associate
           if (this.config.options.storesReloadOnCRUD) {
             if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
               this.config.options.storesReloadOnCRUD.forEach((associate) => {
-                this.$store.dispatch('getAll' + associate)
+                this.$store.dispatch('getAll' + associate, this.config)
               })
             } 
           }
