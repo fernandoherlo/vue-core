@@ -34,8 +34,13 @@ export default {
 
       // this.item[this.field.field] = form
       // this.item['form'] = form
-
-      this.item.formData = new FormData(this.$parent.$el.getElementsByTagName('form')[0])
+      
+      // FormData
+      let formData = new FormData(this.$parent.$el.getElementsByTagName('form')[0])
+      // Degub
+      this.$log.debug(formData)
+      // Set
+      this.$set(this.item, 'formData', formData)
 
       // var files = event.target.files || event.dataTransfer.files
       // var file = new FormData()
