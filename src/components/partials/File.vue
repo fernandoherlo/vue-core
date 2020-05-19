@@ -26,13 +26,16 @@ export default {
     }
   },
   methods: {
-    onFileChange (event) {
-      var files = event.target.files || event.dataTransfer.files
-      var form = new FormData()
-      form.append('file', files[0])
+    onFileChange (/*event*/) {
+      // var files = event.target.files || event.dataTransfer.files
+      // var form = new FormData()
 
-      this.item[this.field.field] = form
-      this.item['form'] = form
+      // form.append('file', files[0])
+
+      // this.item[this.field.field] = form
+      // this.item['form'] = form
+
+      this.item.formData = new FormData(this.$parent.$el.getElementsByTagName('form')[0])
 
       // var files = event.target.files || event.dataTransfer.files
       // var file = new FormData()
