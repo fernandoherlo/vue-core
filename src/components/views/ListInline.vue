@@ -99,17 +99,29 @@ export default {
     __newItem () {
       // Degub
       this.$log.debug('LISTINLINE')
-      this.$router.push({name: this.config.options.nameSingle + '-new', params: { id_parent: this.itemIDParent }})
+      if (this.config.options.nameSingleOverride) {
+        this.$router.push({name: this.config.options.nameSingleOverride + '-new', params: { id_parent: this.itemIDParent }})
+      } else {
+        this.$router.push({name: this.config.options.nameSingle + '-new', params: { id_parent: this.itemIDParent }})
+      }
     },
     __assign () {
       // Degub
       this.$log.debug('LISTINLINE')
-      this.$router.push({name: this.config.options.nameSingle + '-assign', params: { id_parent: this.itemIDParent }})
+      if (this.config.options.nameSingleOverride) {
+        this.$router.push({name: this.config.options.nameSingleOverride + '-assign', params: { id_parent: this.itemIDParent }})
+      } else {
+        this.$router.push({name: this.config.options.nameSingle + '-assign', params: { id_parent: this.itemIDParent }})
+      }
     },
     __edit (id) {
       // Degub
       this.$log.debug('LISTINLINE')
-      this.$router.push({name: this.config.options.nameSingle, params: { id: id, id_parent: this.itemIDParent }})
+      if (this.config.options.nameSingleOverride) {
+        this.$router.push({name: this.config.options.nameSingleOverride, params: { id: id, id_parent: this.itemIDParent }})
+      } else {
+        this.$router.push({name: this.config.options.nameSingle, params: { id: id, id_parent: this.itemIDParent }})
+      }
     },
     __confirmDelete (id) {
       // Degub
