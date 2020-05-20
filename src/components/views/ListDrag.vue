@@ -42,7 +42,7 @@ export default {
   },
   created () {
     // Degub
-    this.$log.debug('LIST')
+    this.$log.debug('DRAG')
     // pre-Created children
     this.__precreated()
     
@@ -98,15 +98,15 @@ export default {
   methods: {
     __created () {
       // Degub
-      this.$log.debug('LIST')
+      this.$log.debug('DRAG')
     },
     __precreated () {
       // Degub
-      this.$log.debug('EDIT')
+      this.$log.debug('DRAG')
     },
     __update () {
       // Degub
-      this.$log.debug('EDIT')
+      this.$log.debug('DRAG')
       this.updateDisable = true
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
@@ -131,7 +131,7 @@ export default {
     },
     __back () {
       // Degub
-      this.$log.debug('EDIT')
+      this.$log.debug('DRAG')
       if (this.config.options.inline) {
         this.$router.replace({name: this.config.options.nameSinglePluginBack, params: { id: this.itemIDParent }})
       } else {
@@ -141,6 +141,14 @@ export default {
           this.$router.replace({name: this.config.options.name })
         }
       }
+    },
+    __checkComponentExists (name) {
+      // Degub
+      this.$log.debug('DRAG')
+      if (this.$options.components[name]) {
+        return true
+      }
+      return false
     }
   }
 }
