@@ -38,7 +38,6 @@ export default {
       canDelete: false,
       firstOnPerPage: true,
       vuexPreFilter: null,
-      itemsVuexOrder: [],
     }
   },
   created () {
@@ -81,20 +80,18 @@ export default {
     this.__created()
   },
   computed: {
-    itemsVuex () {
-      if (this.config.options.inline) {
-        return this.$store.getters['allByParent' + this.config.options.nameVuex]
-      } else {
-        return this.$store.getters['all' + this.config.options.nameVuex]
+    itemsVuex: {
+      get() {
+        if (this.config.options.inline) {
+          return this.$store.getters['allByParent' + this.config.options.nameVuex]
+        } else {
+          return this.$store.getters['all' + this.config.options.nameVuex]
+        }
+      },
+      set(value) {
+        this.$log.debug(value)
       }
     },
-    itemsVuexPreFilter () {
-      if ( ! this.vuexPreFilter) {
-        return this.itemsVuex
-      } else {
-        return this.itemsVuex.filter(this.vuexPreFilter)
-      }
-    }
   },
   methods: {
     __created () {
@@ -178,15 +175,15 @@ export default {
       </a>
     </div>
 
-    <div class="vgt-wrap" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length && loading">
+    <div class="vgt-wrap" v-if="itemsVuex && itemsVuex.length && loading">
       <div class="vgt-inner-wrap">
         <div class="vgt-responsive">
           <table class="table table-bordered table-hover">
             <thead>
               <th>Elemento</th>
             </thead>
-            <draggable v-model="itemsVuexOrder" tag="tbody">
-              <tr v-for="element in itemsVuexPreFilter" :key="element.id">
+            <draggable v-model="itemsVuex" tag="tbody">
+              <tr v-for="element in itemsVuex" :key="element.id">
                 <template v-if="__checkComponentExists(config.options.name + '-element')">
                   <div :is="config.options.name + '-element'" :element="element"></div>
                 </template>
