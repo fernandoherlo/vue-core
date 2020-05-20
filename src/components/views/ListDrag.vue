@@ -176,15 +176,14 @@ export default {
             <thead>
               <th>Elemento</th>
             </thead>
-            <tbody>
-              <draggable v-model="itemsVuexPreFilter">
-                <transition-group>
-                    <tr v-for="element in itemsVuexPreFilter" :key="element.id">
-                        <th>{{element.name}}</th>
-                    </tr>
-                </transition-group>
-              </draggable>
-            </tbody>
+            <draggable v-model="itemsVuexPreFilter" tag="tbody">
+              <tr v-for="element in itemsVuexPreFilter" :key="element.id">
+                  
+                  <slot name="element" v-bind:element="element">
+                    <th>{{element.name}}</th>
+                  </slot>
+              </tr>
+            </draggable>
           </table>
         </div>
       </div>
