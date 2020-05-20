@@ -178,10 +178,12 @@ export default {
             </thead>
             <draggable v-model="itemsVuexPreFilter" tag="tbody">
               <tr v-for="element in itemsVuexPreFilter" :key="element.id">
-                  
-                  <slot name="element" v-bind:element="element">
-                    <th>{{element.name}}</th>
-                  </slot>
+                <template v-if="__checkComponentExists(config.options.name + '-element')">
+                  <div :is="config.options.name + '-element'" :element="element"></div>
+                </template>
+                <template v-else>
+                  <th>{{element.name}}</th>
+                </template>
               </tr>
             </draggable>
           </table>
