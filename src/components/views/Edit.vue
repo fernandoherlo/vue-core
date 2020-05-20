@@ -151,40 +151,39 @@ export default {
           if (this.config.options.inline) {
             this.itemVuex.id_parent = this.itemIDParent
           }
+
           // Save
-          let saveCallback = () => {
-            this.$store.dispatch('save' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
-              // this.saveDisable = false
-              // Associate
-              if (this.config.options.storesReloadOnCRUD) {
-                if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
-                  this.config.options.storesReloadOnCRUD.forEach((associate) => {
-                    this.$store.dispatch('getAll' + associate)
-                  })
-                } 
+          let saveCallback = (itemApi) => {
+            // Associate
+            if (this.config.options.storesReloadOnCRUD) {
+              if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+                this.config.options.storesReloadOnCRUD.forEach((associate) => {
+                  this.$store.dispatch('getAll' + associate)
+                })
+              } 
+            }
+            this.save(itemApi, () => {
+              if (this.config.options.backOnSave) {
+                this.__back()
+              } else {
+                this.$router.replace({name: this.config.options.nameSingle, params: { id: itemApi.id }})
               }
-              this.save(itemApi, () => {
-                if (this.config.options.backOnSave) {
-                  this.__back()
-                } else {
-                  this.$router.replace({name: this.config.options.nameSingle, params: { id: itemApi.id }})
-                }
-              })
             })
           }
+
           // pre-Upload
           if (this.config.options.uploadPreSave) {
+
             this.$store.dispatch('upload' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
-              // prefix
-              this.itemVuex.prefix = itemApi.prefix
-              // name
-              this.itemVuex.file = itemApi.file
-              // Save
-              saveCallback()
+              saveCallback(itemApi)
             })
+
+          // Save
           } else {
-            // Save
-            saveCallback()
+            
+            this.$store.dispatch('save' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
+              saveCallback(itemApi)
+            })
           }
 
         } else {
