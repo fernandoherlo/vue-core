@@ -61,12 +61,31 @@ export default {
         })
       }
     })
+
+     if (this.config.options.inline) {
+      // Data
+      this.itemIDParent = this.$helper.getID(this.$route.params.id)
+      this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
+      // Loading
+      if (this.config.options.dataLoadOnParentForm) {
+        this.$EventBus.$on('storeAllByParentSet', () => {
+          this.loading = true
+        })
+      } else {
+        this.loading = true
+      }
+    }
+
     // Created children
     this.__created()
   },
   computed: {
     itemsVuex () {
-      return this.$store.getters['all' + this.config.options.nameVuex]
+      if (this.config.options.inline) {
+        return this.$store.getters['allByParent' + this.config.options.nameVuex]
+      } else {
+        return this.$store.getters['all' + this.config.options.nameVuex]
+      }
     },
     itemsVuexPreFilter () {
       if ( ! this.vuexPreFilter) {
