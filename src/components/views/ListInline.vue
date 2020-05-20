@@ -36,7 +36,8 @@ export default {
       canEdit: false,
       canAssign: true,
       canCreateNew: false,
-      canDelete: false
+      canDelete: false,
+      vuexPreFilter: null,
     }
   },
   created () {
@@ -89,6 +90,13 @@ export default {
   computed: {
     itemsVuex () {
       return this.$store.getters['allByParent' + this.config.options.nameVuex]
+    },
+    itemsVuexPreFilter () {
+      if ( ! this.vuexPreFilter) {
+        return this.itemsVuex
+      } else {
+        return this.itemsVuex.filter(this.vuexPreFilter)
+      }
     }
   },
   methods: {
@@ -203,7 +211,7 @@ export default {
         <div :is="config.options.name + '-btns'" ref="btnsinline"></div>
       </template>
     </div>
-    <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuex" v-if="itemsVuex && itemsVuex.length && loading" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
+    <vue-good-table ref="VueGoodTableInline" :columns="config.table.columns" :rows="itemsVuexPreFilter" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length && loading" :lineNumbers="config.table.lineNumbers" @on-selected-rows-change="__selectionChanged" :select-options="config.table.selectOptions" :sort-options="config.table.sortOptions" :search-options="config.table.searchOptions" :pagination-options="config.table.paginationOptions" styleClass="table table-bordered table-hover">
       <div slot="selected-row-actions">
         <template v-if="__checkComponentExists(config.options.name + '-row-actions')">
           <div :is="config.options.name + '-row-actions'" ref="rowactionsinline"></div>
