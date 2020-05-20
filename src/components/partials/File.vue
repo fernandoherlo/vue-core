@@ -29,14 +29,17 @@ export default {
     onFileChange (event) {
       // Item
       var files = event.target.files || event.dataTransfer.files
-      var file_name = files[0].name
-      this.item[this.field.field] = files[0]
-      // Related value
-      if (this.field.relatedSetValue) {
-        this.item[this.field.relatedSetValue] = file_name
+      this.item[this.field.field] = files
+
+      if (this.field.multiple == false) {
+        var file_name = files[0].name
+        // Related value
+        if (this.field.relatedSetValue) {
+          this.item[this.field.relatedSetValue] = file_name
+        }
+        // dom value
+        this.$el.getElementsByTagName('label')[0].innerHTML = file_name
       }
-      // dom value
-      this.$el.getElementsByTagName('label')[0].innerHTML = file_name
     }
   }
 }
@@ -45,7 +48,7 @@ export default {
 <template>
 
   <div class="custom-file" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
-    <input type="file" class="custom-file-input" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" :id="field.label" v-validate="field.validate" :disabled="disabledCondition" v-on:change="onFileChange">
+    <input type="file" class="custom-file-input" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" :id="field.label" v-validate="field.validate" :disabled="disabledCondition" v-on:change="onFileChange" :multiple="field.multiple">
     <label class="custom-file-label" :for="field.label">{{ field.label }}</label>
     <template v-if="valueForPrint">
       <div class="form-control-print">
