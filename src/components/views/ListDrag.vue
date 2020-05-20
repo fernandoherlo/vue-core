@@ -37,7 +37,7 @@ export default {
       canCreateNew: false,
       canDelete: false,
       saveDisable: false,
-      itemsOrder: null,
+      itemsOrder: [],
     }
   },
   created () {
@@ -89,7 +89,7 @@ export default {
         }
       },
       set(value) {
-        this.itemsOrder = null
+        this.itemsOrder = []
         value.forEach( (element, index) => {
            this.itemsOrder.push({
             id: element.id,
