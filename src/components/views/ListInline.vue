@@ -73,7 +73,7 @@ export default {
     })
     // Data
     this.itemIDParent = this.$helper.getID(this.$route.params.id)
-    this.$store.dispatch('getByParent' + this.config.options.nameVuex, this.itemIDParent)
+    this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
     // Loading
     if (this.config.options.dataLoadOnParentForm) {
       this.$EventBus.$on('storeAllByParentSet', () => {
@@ -129,12 +129,12 @@ export default {
       // Reset
       this.confirm = {}
       // Delete
-      this.$store.dispatch('get' + this.config.options.nameSingleVuex, id).then(() => {
+      this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
         let item_payload = {
-          item: this.$store.getters[this.config.options.nameSingleVuex],
+          item: this.$store.getters[this.config.options.nameSingle],
           id_parent: this.itemIDParent
         }
-        this.$store.dispatch('deleteByParent' + this.config.options.nameSingleVuex, item_payload).then(() => {
+        this.$store.dispatch('deleteByParent' + this.config.options.nameSingle, item_payload).then(() => {
           // Associate
           if (this.config.options.storesReloadOnCRUD) {
             if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
