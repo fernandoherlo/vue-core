@@ -29,9 +29,16 @@ export default {
     onFileChange (event) {
       // Item
       var files = event.target.files || event.dataTransfer.files
-      this.item[this.field.field] = files
+      
+      // Multiple
+      if (this.field.multiple) {
 
-      if (this.field.multiple == false) {
+        this.item[this.field.field] = files
+
+      } else {
+
+        this.item[this.field.field] = files[0]
+
         var file_name = files[0].name
         // Related value
         if (this.field.relatedSetValue) {
