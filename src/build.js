@@ -11,6 +11,7 @@ import Edit from '@/components/views/Edit'
 import Form from '@/components/views/Form'
 import List from '@/components/views/List'
 import ListInline from '@/components/views/ListInline'
+import ListDrag from '@/components/views/ListDrag'
 import New from '@/components/views/New'
 
 import { createPlugin } from '@/components/create'
@@ -34,6 +35,7 @@ export {
   Form,
   List,
   ListInline,
+  ListDrag,
   New,
   InputText,
   InputHidden,
