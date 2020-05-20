@@ -180,7 +180,7 @@ export default {
     <div class="vgt-wrap" v-if="itemsVuex && itemsVuex.length && loading">
       <div class="vgt-inner-wrap">
         <div class="vgt-responsive">
-          <table class="table table-bordered table-hover">
+          <table class="table table-bordered table-hover table-drag">
             <thead>
               <th>Elemento</th>
             </thead>
