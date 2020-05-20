@@ -64,7 +64,7 @@ export default {
 
      if (this.config.options.inline) {
       // Data
-      this.itemIDParent = this.$helper.getID(this.$route.params.id)
+      this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
       this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
       // Loading
       if (this.config.options.dataLoadOnParentForm) {
