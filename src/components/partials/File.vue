@@ -29,24 +29,28 @@ export default {
     onFileChange (event) {
       // Item
       var files = event.target.files || event.dataTransfer.files
+      var file_name = ''
       
       // Multiple
       if (this.field.multiple) {
-
+        // files
         this.item[this.field.field] = files
-
+        for (var i = 0, len = files.length; i < len; i++) {
+          file_name = file_name + files[i].name + ', '
+        }
       } else {
-
+        // file
         this.item[this.field.field] = files[0]
-
-        var file_name = files[0].name
+        // name
+        file_name = files[0].name
         // Related value
         if (this.field.relatedSetValue) {
           this.item[this.field.relatedSetValue] = file_name
         }
-        // dom value
-        this.$el.getElementsByTagName('label')[0].innerHTML = file_name
       }
+
+      // dom value
+      this.$el.getElementsByTagName('label')[0].innerHTML = file_name
     }
   }
 }
