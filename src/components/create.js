@@ -69,7 +69,10 @@ export const createPlugin = function (options, table, form, buttons, menu_links,
   |--------------------------------------------------------------------------
   |
   */
-  const getters = VuexGetters.core(state, config)
+  let getters = null
+  if (!config.options.dataOverrideName) {
+    getters = VuexGetters.core(state, config)
+  }
 
   /*
   |--------------------------------------------------------------------------
@@ -85,7 +88,10 @@ export const createPlugin = function (options, table, form, buttons, menu_links,
   |--------------------------------------------------------------------------
   |
   */
-  const mutations = VuexMutations.core(state, config)
+  let mutations = null
+  if (!config.options.dataOverrideName) {
+    mutations = VuexMutations.core(state, config)
+  }
 
   /*
   |--------------------------------------------------------------------------
