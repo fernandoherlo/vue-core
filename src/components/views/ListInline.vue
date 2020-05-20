@@ -131,7 +131,7 @@ export default {
       // Delete
       this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
         let item_payload = {
-          item: this.$store.getters[this.config.options.nameSingle],
+          item: this.$store.getters[this.config.options.nameSingleVuex],
           id_parent: this.itemIDParent
         }
         this.$store.dispatch('deleteByParent' + this.config.options.nameSingle, item_payload).then(() => {
