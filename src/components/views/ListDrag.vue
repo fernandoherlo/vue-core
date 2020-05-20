@@ -38,7 +38,8 @@ export default {
       canCreateNew: false,
       canDelete: false,
       saveDisable: false,
-      itemsOrder: [],
+      itemsVuexClone: [],
+      itemsOrder: []
     }
   },
   created () {
@@ -66,7 +67,10 @@ export default {
      if (this.config.options.inline) {
       // Data
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
-      this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
+      this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent).then( () => {
+        // Clone
+        this.itemsVuexClone = _.orderBy( _.clone(this.itemsVuex), ['order'])
+      })
       // Loading
       if (this.config.options.dataLoadOnParentForm) {
         this.$EventBus.$on('storeAllByParentSet', () => {
@@ -81,24 +85,31 @@ export default {
     this.__created()
   },
   computed: {
-    itemsVuex: {
-      get() {
-        if (this.config.options.inline) {
-          return _.orderBy(this.$store.getters['allByParent' + this.config.options.nameVuex], ['order'])
-        } else {
-          return _.orderBy(this.$store.getters['all' + this.config.options.nameVuex], ['order'])
-        }
-      },
-      set(value) {
-        this.itemsOrder = []
-        value.forEach( (element, index) => {
-           this.itemsOrder.push({
-            id: element.id,
-            order: index+1,
-           })
-        })
+    itemsVuex () {
+      if (this.config.options.inline) {
+        return this.$store.getters['allByParent' + this.config.options.nameVuex]
+      } else {
+        return this.$store.getters['all' + this.config.options.nameVuex]
       }
-    },
+    }
+    // itemsVuex: {
+    //   get() {
+    //     if (this.config.options.inline) {
+    //       return _.orderBy(this.$store.getters['allByParent' + this.config.options.nameVuex], ['order'])
+    //     } else {
+    //       return _.orderBy(this.$store.getters['all' + this.config.options.nameVuex], ['order'])
+    //     }
+    //   },
+    //   set(value) {
+    //     this.itemsOrder = []
+    //     value.forEach( (element, index) => {
+    //        this.itemsOrder.push({
+    //         id: element.id,
+    //         order: index+1,
+    //        })
+    //     })
+    //   }
+    // },
   },
   methods: {
     __created () {
@@ -113,6 +124,14 @@ export default {
       // Degub
       this.$log.debug('DRAG')
       this.saveDisable = true
+
+      this.itemsOrder = []
+      this.itemsVuexClone.forEach( (element, index) => {
+         this.itemsOrder.push({
+          id: element.id,
+          order: index+1,
+         })
+      })
   
       this.$store.dispatch('order' + this.config.options.nameSingle, this.itemsOrder).then(() => {
         this.saveDisable = false
@@ -178,20 +197,20 @@ export default {
       </a>
     </div>
 
-    <div class="vgt-wrap" v-if="itemsVuex && itemsVuex.length && loading">
+    <div class="vgt-wrap" v-if="itemsVuexClone && itemsVuexClone.length && loading">
       <div class="vgt-inner-wrap">
         <div class="vgt-responsive">
           <table class="table table-bordered table-hover table-drag">
             <thead>
               <th>Elemento</th>
             </thead>
-            <draggable v-model="itemsVuex" tag="tbody">
-              <tr v-for="element in itemsVuex" :key="element.id">
+            <draggable v-model="itemsVuexClone" tag="tbody">
+              <tr v-for="element in itemsVuexClone" :key="element.id">
                 <template v-if="__checkComponentExists(config.options.name + '-element')">
                   <div :is="config.options.name + '-element'" :element="element"></div>
                 </template>
                 <template v-else>
-                  <th>{{element.name}}</th>
+                  <td>{{element.name}}</td>
                 </template>
               </tr>
             </draggable>
