@@ -78,84 +78,42 @@ export default {
       // Degub
       this.$log.debug('LIST')
     },
-    __refresh () {
+    __update () {
       // Degub
-      this.$log.debug('LIST')
-      this.loading = false
-      this.$store.dispatch('getAll' + this.config.options.name).then(() => {
-        this.loading = true
-        // Associate
-        if (this.config.options.storesReloadOnCRUD) {
-          if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
-            this.config.options.storesReloadOnCRUD.forEach((associate) => {
-              this.$store.dispatch('getAll' + associate)
-            })
-          } 
+      this.$log.debug('EDIT')
+      this.updateDisable = true
+      this.$validator.validateAll('formDefaultValidate').then(() => {
+        if (this.errors.items.length === 0) {
+          this.$store.dispatch('update' + this.config.options.nameSingle, this.itemVuex).then(() => {
+            this.updateDisable = false
+            // Associate
+            if (this.config.options.storesReloadOnCRUD) {
+              if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+                this.config.options.storesReloadOnCRUD.forEach((associate) => {
+                  this.$store.dispatch('getAll' + associate)
+                })
+              } 
+            }
+            if (this.config.options.backOnUpdate) {
+              this.__back()
+            }
+          })
+        } else {
+          this.updateDisable = false
         }
       })
     },
-    __newItem () {
+    __back () {
       // Degub
-      this.$log.debug('LIST')
-      if (this.config.options.nameSingleOverride) {
-        this.$router.push({name: this.config.options.nameSingleOverride + '-new'})
+      this.$log.debug('EDIT')
+      if (this.config.options.inline) {
+        this.$router.replace({name: this.config.options.nameSinglePluginBack, params: { id: this.itemIDParent }})
       } else {
-        this.$router.push({name: this.config.options.nameSingle + '-new'})
-      }
-    },
-    __edit (id) {
-      // Degub
-      this.$log.debug('LIST')
-      if (this.config.options.nameSingleOverride) {
-        this.$router.push({name: this.config.options.nameSingleOverride, params: { id: id }})
-      } else {
-        this.$router.push({name: this.config.options.nameSingle, params: { id: id }})
-      }
-    },
-    __confirmDelete (id) {
-      // Degub
-      this.$log.debug('LIST')
-      // Reset
-      this.confirm = {}
-      // Delete
-      this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
-        this.$store.dispatch('delete' + this.config.options.nameSingle, this.$store.getters[this.config.options.nameSingleVuex], this.config).then(() => {
-          // Associate
-          if (this.config.options.storesReloadOnCRUD) {
-            if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
-              this.config.options.storesReloadOnCRUD.forEach((associate) => {
-                this.$store.dispatch('getAll' + associate)
-              })
-            } 
-          }
-        })
-      })
-    },
-    __cancelDelete (id) {
-      // Degub
-      this.$log.debug('LIST')
-      // Confirm false
-      this.$set(this.confirm, id, false)
-    },
-    __delete (id) {
-      // Degub
-      this.$log.debug('LIST')
-      // Reset
-      this.confirm = {}
-      // Confirm
-      this.$set(this.confirm, id, true)
-    },
-    __checkComponentExists (name) {
-      if (this.$options.components[name]) {
-        return true
-      }
-      return false
-    },
-    __checkConditionRowActions (row) {
-      if (this.config.options.conditionRowActions) {
-        return this.config.options.conditionRowActions(row)
-      } else {
-        return true;
+        if (this.config.options.nameOverride) {
+          this.$router.replace({name: this.config.options.nameOverride })
+        } else {
+          this.$router.replace({name: this.config.options.name })
+        }
       }
     }
   }
@@ -172,6 +130,17 @@ export default {
     <div class="header">
       <h2 class="hidden-print">{{ config.options.displayName }}</h2>
       <h2 class="only-print">{{ config.options.displayNamePrint }}</h2>
+    </div>
+
+    <div class="actions" id="popoverContent">
+     <a class="btn back" @click="__back()" tabindex="0">
+        <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
+        <icon name="arrow-left" v-else></icon>
+      </a>
+      <a v-if="canUpdate" class="btn update" :class="{ disabled: updateDisable }" @click="__update()" tabindex="0">
+        <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
+        <icon name="save" v-else></icon>
+      </a>
     </div>
 
     <div class="vgt-wrap" v-if="itemsVuexPreFilter && itemsVuexPreFilter.length && loading">
