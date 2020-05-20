@@ -43,6 +43,9 @@ export default {
   created () {
     // Degub
     this.$log.debug('LIST')
+    // pre-Created children
+    this.__precreated()
+    
     this.$nextTick(() => {
       // ACL
       if (this.$auth.authenticated) {
@@ -77,6 +80,10 @@ export default {
     __created () {
       // Degub
       this.$log.debug('LIST')
+    },
+    __precreated () {
+      // Degub
+      this.$log.debug('EDIT')
     },
     __update () {
       // Degub
