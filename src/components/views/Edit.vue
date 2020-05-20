@@ -62,9 +62,9 @@ export default {
     // Data
     if (!this.isNew) {
       this.itemID = this.$helper.getID(this.$route.params.id)
-      this.$store.dispatch('get' + this.config.options.nameSingle, this.itemID)
+      this.$store.dispatch('get' + this.config.options.nameSingleVuex, this.itemID)
     } else {
-      this.$store.dispatch('clear' + this.config.options.nameSingle)
+      this.$store.dispatch('clear' + this.config.options.nameSingleVuex)
     }
     // Inline
     if (this.config.options.inline) {
@@ -77,16 +77,16 @@ export default {
   },
   computed: {
     itemsVuex () {
-      return this.$store.getters['all' + this.config.options.name]
+      return this.$store.getters['all' + this.config.options.nameVuex]
     },
     itemVuex () {
-      return this.$store.getters['clone' + this.config.options.nameSingle]
+      return this.$store.getters['clone' + this.config.options.nameSingleVuex]
     }
   },
   watch: {
     itemsVuex: function () {
       if (this.itemID){
-        this.$store.dispatch('get' + this.config.options.nameSingle, this.itemID)
+        this.$store.dispatch('get' + this.config.options.nameSingleVuex, this.itemID)
       }
     },
     itemVuex: function (itemValue) {
@@ -122,7 +122,7 @@ export default {
       this.updateDisable = true
       this.$validator.validateAll('formDefaultValidate').then(() => {
         if (this.errors.items.length === 0) {
-          this.$store.dispatch('update' + this.config.options.nameSingle, this.itemVuex).then(() => {
+          this.$store.dispatch('update' + this.config.options.nameSingleVuex, this.itemVuex).then(() => {
             this.updateDisable = false
             // Associate
             if (this.config.options.storesReloadOnCRUD) {
@@ -153,7 +153,7 @@ export default {
           }
           // Save
           let saveCallback = () => {
-            this.$store.dispatch('save' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
+            this.$store.dispatch('save' + this.config.options.nameSingleVuex, this.itemVuex).then((itemApi) => {
               // this.saveDisable = false
               // Associate
               if (this.config.options.storesReloadOnCRUD) {
@@ -174,7 +174,7 @@ export default {
           }
           // pre-Upload
           if (this.config.options.uploadPreSave) {
-            this.$store.dispatch('upload' + this.config.options.nameSingle, this.itemVuex).then((itemApi) => {
+            this.$store.dispatch('upload' + this.config.options.nameSingleVuex, this.itemVuex).then((itemApi) => {
               // prefix
               this.itemVuex.prefix = itemApi.prefix
               // name

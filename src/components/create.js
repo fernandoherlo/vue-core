@@ -38,6 +38,15 @@ export const createPlugin = function (options, table, form, buttons, menu_links,
     'routes': routes
   }
 
+  // Override
+  if (config.options.dataOverrideName) {
+    config.options.nameVuex = config.options.dataOverrideName
+    config.options.nameSingleVuex = config.options.dataOverrideName + '-single'
+  } else {
+    config.options.nameVuex = config.options.name
+    config.options.nameSingleVuex =  config.options.nameSingle
+  }
+
   /*
   |--------------------------------------------------------------------------
   | State

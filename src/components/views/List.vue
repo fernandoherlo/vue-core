@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     itemsVuex () {
-      return this.$store.getters['all' + this.config.options.name]
+      return this.$store.getters['all' + this.config.options.nameVuex]
     },
     itemsVuexPreFilter () {
       if ( ! this.vuexPreFilter) {
@@ -100,7 +100,7 @@ export default {
       // Degub
       this.$log.debug('LIST')
       this.loading = false
-      this.$store.dispatch('getAll' + this.config.options.name).then(() => {
+      this.$store.dispatch('getAll' + this.config.options.nameVuex).then(() => {
         this.loading = true
         // Associate
         if (this.config.options.storesReloadOnCRUD) {
@@ -136,8 +136,8 @@ export default {
       // Reset
       this.confirm = {}
       // Delete
-      this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
-        this.$store.dispatch('delete' + this.config.options.nameSingle, this.$store.getters[this.config.options.nameSingle], this.config).then(() => {
+      this.$store.dispatch('get' + this.config.options.nameSingleVuex, id).then(() => {
+        this.$store.dispatch('delete' + this.config.options.nameSingleVuex, this.$store.getters[this.config.options.nameSingleVuex], this.config).then(() => {
           // Associate
           if (this.config.options.storesReloadOnCRUD) {
             if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
