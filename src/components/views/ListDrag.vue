@@ -36,8 +36,8 @@ export default {
       canEdit: true,
       canCreateNew: false,
       canDelete: false,
-      firstOnPerPage: true,
-      vuexPreFilter: null,
+      saveDisable: false,
+      itemsOrder: null,
     }
   },
   created () {
@@ -89,7 +89,7 @@ export default {
         }
       },
       set(value) {
-        this.$log.debug(value)
+        this.itemsOrder = value
       }
     },
   },
@@ -102,30 +102,26 @@ export default {
       // Degub
       this.$log.debug('DRAG')
     },
-    __update () {
+    __save () {
       // Degub
       this.$log.debug('DRAG')
-      this.updateDisable = true
-      this.$validator.validateAll('formDefaultValidate').then(() => {
-        if (this.errors.items.length === 0) {
-          this.$store.dispatch('update' + this.config.options.nameSingle, this.itemVuex).then(() => {
-            this.updateDisable = false
-            // Associate
-            if (this.config.options.storesReloadOnCRUD) {
-              if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
-                this.config.options.storesReloadOnCRUD.forEach((associate) => {
-                  this.$store.dispatch('getAll' + associate)
-                })
-              } 
-            }
-            if (this.config.options.backOnUpdate) {
-              this.__back()
-            }
-          })
-        } else {
-          this.updateDisable = false
+      this.saveDisable = true
+  
+      this.$store.dispatch('order' + this.config.options.nameSingle, this.itemsOrder).then(() => {
+        this.saveDisable = false
+        // Associate
+        if (this.config.options.storesReloadOnCRUD) {
+          if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
+            this.config.options.storesReloadOnCRUD.forEach((associate) => {
+              this.$store.dispatch('getAll' + associate)
+            })
+          } 
+        }
+        if (this.config.options.backOnUpdate) {
+          this.__back()
         }
       })
+
     },
     __back () {
       // Degub
@@ -169,8 +165,8 @@ export default {
         <span v-html="config.buttons.backName" :title="config.buttons.backName" v-if="config.buttons.backName"></span>
         <icon name="arrow-left" v-else></icon>
       </a>
-      <a v-if="canUpdate" class="btn update" :class="{ disabled: updateDisable }" @click="__update()" tabindex="0">
-        <span v-html="config.buttons.updateName" :title="config.buttons.updateName" v-if="config.buttons.updateName"></span>
+      <a v-if="canCreateNew" class="btn save" :class="{ disabled: saveDisable }" @click="__save()" tabindex="0">
+        <span v-html="config.buttons.saveName" :title="config.buttons.saveName" v-if="config.buttons.saveName"></span>
         <icon name="save" v-else></icon>
       </a>
     </div>
