@@ -15,6 +15,7 @@ import componentConfig from '@/components/config'
 |
 */
 import draggable from 'vuedraggable'
+import _ from 'lodash'
 
 /*
 |--------------------------------------------------------------------------
@@ -83,9 +84,9 @@ export default {
     itemsVuex: {
       get() {
         if (this.config.options.inline) {
-          return this.$store.getters['allByParent' + this.config.options.nameVuex]
+          return _.orderBy(this.$store.getters['allByParent' + this.config.options.nameVuex], ['order'])
         } else {
-          return this.$store.getters['all' + this.config.options.nameVuex]
+          return _.orderBy(this.$store.getters['all' + this.config.options.nameVuex], ['order'])
         }
       },
       set(value) {
