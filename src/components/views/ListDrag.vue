@@ -38,6 +38,7 @@ export default {
       canDelete: false,
       firstOnPerPage: true,
       vuexPreFilter: null,
+      itemsVuexOrder: [],
     }
   },
   created () {
@@ -184,7 +185,7 @@ export default {
             <thead>
               <th>Elemento</th>
             </thead>
-            <draggable v-model="itemsVuexPreFilter" tag="tbody">
+            <draggable v-model="itemsVuexOrder" tag="tbody">
               <tr v-for="element in itemsVuexPreFilter" :key="element.id">
                 <template v-if="__checkComponentExists(config.options.name + '-element')">
                   <div :is="config.options.name + '-element'" :element="element"></div>
