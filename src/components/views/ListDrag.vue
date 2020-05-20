@@ -89,7 +89,13 @@ export default {
         }
       },
       set(value) {
-        this.itemsOrder = value
+        this.itemsOrder = null
+        value.forEach( (element, index) => {
+           this.itemsOrder.push({
+            id: element.id,
+            order: index+1,
+           })
+        })
       }
     },
   },
