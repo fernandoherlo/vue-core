@@ -68,8 +68,17 @@ export default {
       // Data
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
       this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent).then( () => {
+
         // Clone
-        this.itemsVuexClone = _.orderBy( _.clone(this.itemsVuex), ['order'])
+        let dataClone = []
+        if (this.config.options.inline) {
+          dataClone = this.$store.getters['allByParent' + this.config.options.nameVuex]
+        } else {
+          dataClone = this.$store.getters['all' + this.config.options.nameVuex]
+        }
+        // Clone
+        this.itemsVuexClone = _.orderBy( _.clone(dataClone), ['order'])
+
       })
       // Loading
       if (this.config.options.dataLoadOnParentForm) {
@@ -85,13 +94,13 @@ export default {
     this.__created()
   },
   computed: {
-    itemsVuex () {
-      if (this.config.options.inline) {
-        return this.$store.getters['allByParent' + this.config.options.nameVuex]
-      } else {
-        return this.$store.getters['all' + this.config.options.nameVuex]
-      }
-    }
+    // itemsVuex () {
+    //   if (this.config.options.inline) {
+    //     return this.$store.getters['allByParent' + this.config.options.nameVuex]
+    //   } else {
+    //     return this.$store.getters['all' + this.config.options.nameVuex]
+    //   }
+    // }
     // itemsVuex: {
     //   get() {
     //     if (this.config.options.inline) {
