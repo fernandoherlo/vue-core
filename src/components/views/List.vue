@@ -137,7 +137,7 @@ export default {
       this.confirm = {}
       // Delete
       this.$store.dispatch('get' + this.config.options.nameSingle, id).then(() => {
-        this.$store.dispatch('delete' + this.config.options.nameSingle, this.$store.getters[this.config.options.nameSingle], this.config).then(() => {
+        this.$store.dispatch('delete' + this.config.options.nameSingle, this.$store.getters[this.config.options.nameSingleVuex], this.config).then(() => {
           // Associate
           if (this.config.options.storesReloadOnCRUD) {
             if (Array.isArray(this.config.options.storesReloadOnCRUD)) {
