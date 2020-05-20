@@ -93,33 +93,6 @@ export default {
     // Created children
     this.__created()
   },
-  computed: {
-    // itemsVuex () {
-    //   if (this.config.options.inline) {
-    //     return this.$store.getters['allByParent' + this.config.options.nameVuex]
-    //   } else {
-    //     return this.$store.getters['all' + this.config.options.nameVuex]
-    //   }
-    // }
-    // itemsVuex: {
-    //   get() {
-    //     if (this.config.options.inline) {
-    //       return _.orderBy(this.$store.getters['allByParent' + this.config.options.nameVuex], ['order'])
-    //     } else {
-    //       return _.orderBy(this.$store.getters['all' + this.config.options.nameVuex], ['order'])
-    //     }
-    //   },
-    //   set(value) {
-    //     this.itemsOrder = []
-    //     value.forEach( (element, index) => {
-    //        this.itemsOrder.push({
-    //         id: element.id,
-    //         order: index+1,
-    //        })
-    //     })
-    //   }
-    // },
-  },
   methods: {
     __created () {
       // Degub
