@@ -237,6 +237,9 @@ export default {
               <icon name="ban" v-else></icon>
             </a>
           </template>
+          <template v-if="__checkComponentExists(config.options.name + '-actions')">
+            <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props"></div>
+          </template>
         </span>
         <span v-else v-html="props.formattedRow[props.column.field]">
           {{ props.formattedRow[props.column.field] }}
