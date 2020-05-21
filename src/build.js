@@ -22,6 +22,7 @@ import InputText from '@/components/partials/InputText'
 import InputHidden from '@/components/partials/InputHidden'
 import InputPassword from '@/components/partials/InputPassword'
 import InputCheck from '@/components/partials/InputCheck'
+import Switch from '@/components/partials/Switch'
 import Select from '@/components/partials/Select'
 import Textarea from '@/components/partials/Textarea'
 import DatePicker from '@/components/partials/DatePicker'
@@ -41,6 +42,7 @@ export {
   InputHidden,
   InputPassword,
   InputCheck,
+  Switch,
   Select,
   Textarea,
   DatePicker,
