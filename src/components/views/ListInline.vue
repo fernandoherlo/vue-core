@@ -261,7 +261,7 @@ export default {
         <icon name="plus-circle" v-else></icon>
       </a>
       <template v-if="__checkComponentExists(config.options.name + '-actions-footer')">
-        <div :is="config.options.name + '-actions-footer'" ref="actionfootersinline"></div>
+        <div :is="config.options.name + '-actions-footer'" :idparent="itemIDParent" ref="actionfootersinline"></div>
       </template>
     </div>
   </div>
