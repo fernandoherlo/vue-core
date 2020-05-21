@@ -219,6 +219,9 @@ export default {
       </div>
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
+          <template v-if="__checkComponentExists(config.options.name + '-actions')">
+            <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props"></div>
+          </template>
           <template v-if="__checkConditionRowActions(props.row)">
             <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
               <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
@@ -236,9 +239,6 @@ export default {
               <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
               <icon name="ban" v-else></icon>
             </a>
-          </template>
-          <template v-if="__checkComponentExists(config.options.name + '-actions')">
-            <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props"></div>
           </template>
         </span>
         <span v-else v-html="props.formattedRow[props.column.field]">
