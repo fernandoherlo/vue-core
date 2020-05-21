@@ -106,12 +106,17 @@ export default {
          })
       })
 
+      // Data
       let IDParentOrder = null
       if (this.config.options.inline) {
         IDParentOrder = this.itemIDParent
       }
-  
-      this.$store.dispatch('order' + this.config.options.nameSingle, this.itemsOrder, IDParentOrder).then(() => {
+      let item_payload = {
+        'item': this.itemsOrder,
+        'id_parent': IDParentOrder,
+      }
+      // order
+      this.$store.dispatch('order' + this.config.options.nameSingle, item_payload).then(() => {
         this.saveDisable = false
         // Associate
         if (this.config.options.storesReloadOnCRUD) {
