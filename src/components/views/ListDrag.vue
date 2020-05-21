@@ -64,22 +64,22 @@ export default {
       }
     })
 
-
     let dataClone = []
-
     if (this.config.options.inline) {
       // Data
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
       this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent).then( () => {
         dataClone = this.$store.getters['allByParent' + this.config.options.nameVuex]
+        // Clone
+        this.itemsVuexClone = _.orderBy( _.clone(dataClone), ['order'])
         this.loading = true
       })
     } else {
       // Clone
       dataClone = this.$store.getters['all' + this.config.options.nameVuex]
+      // Clone
+      this.itemsVuexClone = _.orderBy( _.clone(dataClone), ['order'])
     }
-    // Clone
-    this.itemsVuexClone = _.orderBy( _.clone(dataClone), ['order'])
 
     // Created children
     this.__created()
