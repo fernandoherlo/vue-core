@@ -163,10 +163,12 @@ export default {
               } 
             }
             this.save(itemApi, () => {
-              if (this.config.options.backOnSave) {
-                this.__back()
-              } else {
-                this.$router.replace({name: this.config.options.nameSingle, params: { id: itemApi.id }})
+              if (!this.config.options.noBackOnSave) {
+                if (this.config.options.backOnSave) {
+                  this.__back()
+                } else {
+                  this.$router.replace({name: this.config.options.nameSingle, params: { id: itemApi.id }})
+                }
               }
             })
           }
