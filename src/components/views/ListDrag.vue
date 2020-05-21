@@ -183,7 +183,8 @@ export default {
     <div class="vgt-wrap" v-if="itemsVuexClone && itemsVuexClone.length && loading">
       <div class="vgt-inner-wrap">
         <div class="vgt-responsive">
-          <table class="table table-bordered table-hover table-drag">
+
+          <table class="table table-bordered table-hover table-drag" v-if="config.options.dragTable">
             <thead>
               <th>Elemento</th>
             </thead>
@@ -198,6 +199,19 @@ export default {
               </tr>
             </draggable>
           </table>
+          <div class="block-drag" v-else>
+            <draggable v-model="itemsVuexClone" tag="ul">
+              <li v-for="element in itemsVuexClone" :key="element.id">
+                <template v-if="__checkComponentExists(config.options.name + '-element')">
+                  <div :is="config.options.name + '-element'" :element="element"></div>
+                </template>
+                <template v-else>
+                  <span>{{element.name}}</span>
+                </template>
+              </li>
+            </draggable>
+          </div>
+
         </div>
       </div>
     </div>
