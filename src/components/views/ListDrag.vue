@@ -64,31 +64,22 @@ export default {
       }
     })
 
-     if (this.config.options.inline) {
+
+    let dataClone = []
+
+    if (this.config.options.inline) {
       // Data
       this.itemIDParent = this.$helper.getID(this.$route.params.id_parent)
       this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent).then( () => {
-
-        // Clone
-        let dataClone = []
-        if (this.config.options.inline) {
-          dataClone = this.$store.getters['allByParent' + this.config.options.nameVuex]
-        } else {
-          dataClone = this.$store.getters['all' + this.config.options.nameVuex]
-        }
-        // Clone
-        this.itemsVuexClone = _.orderBy( _.clone(dataClone), ['order'])
-
-      })
-      // Loading
-      if (this.config.options.dataLoadOnParentForm) {
-        this.$EventBus.$on('storeAllByParentSet', () => {
-          this.loading = true
-        })
-      } else {
+        dataClone = this.$store.getters['allByParent' + this.config.options.nameVuex]
         this.loading = true
-      }
+      })
+    } else {
+      // Clone
+      dataClone = this.$store.getters['all' + this.config.options.nameVuex]
     }
+    // Clone
+    this.itemsVuexClone = _.orderBy( _.clone(dataClone), ['order'])
 
     // Created children
     this.__created()
@@ -114,8 +105,13 @@ export default {
           order: index+1,
          })
       })
+
+      let IDParentOrder = null
+      if (this.config.options.inline) {
+        IDParentOrder = this.itemIDParent
+      }
   
-      this.$store.dispatch('order' + this.config.options.nameSingle, this.itemsOrder).then(() => {
+      this.$store.dispatch('order' + this.config.options.nameSingle, this.itemsOrder, IDParentOrder).then(() => {
         this.saveDisable = false
         // Associate
         if (this.config.options.storesReloadOnCRUD) {
