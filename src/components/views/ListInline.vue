@@ -260,6 +260,9 @@ export default {
         <span v-html="config.buttons.assignName" :title="config.buttons.assignName" v-if="config.buttons.assignName"></span>
         <icon name="plus-circle" v-else></icon>
       </a>
+      <template v-if="__checkComponentExists(config.options.name + '-actions-footer')">
+        <div :is="config.options.name + '-actions-footer'" ref="actionfootersinline"></div>
+      </template>
     </div>
   </div>
 </template>
