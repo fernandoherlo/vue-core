@@ -26,7 +26,7 @@ export default {
   components: {
     VueGoodTable,
   },
-  props: ['config'],
+  props: ['config','itemParent'],
   data () {
     return {
       loading: false,
@@ -220,7 +220,7 @@ export default {
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.thClass === 'actions'">
           <template v-if="__checkComponentExists(config.options.name + '-actions')">
-            <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props"></div>
+            <div :is="config.options.name + '-actions'" ref="actionsdefault" :props="props" :itemParent="itemParent"></div>
           </template>
           <template v-if="__checkConditionRowActions(props.row)">
             <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
