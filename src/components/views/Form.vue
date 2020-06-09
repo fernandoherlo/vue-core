@@ -25,6 +25,11 @@ export default {
       required: false
     }
   },
+  data () {
+    return {
+      tabIndex: 0,
+    }
+  },
   created () {
     // Degub
     this.$log.debug('FORM')
@@ -32,9 +37,14 @@ export default {
     this.__precreated()
     // Tick
     this.$nextTick(() => {
+      // Focus
       if (this.$refs.firstFocusForm) {
         this.$refs.firstFocusForm.focus()
         this.$refs.firstFocusForm.select()
+      }
+      // Tab
+      if (this.$route.hash) {
+        this.tabIndex = this.$route.hash.replace('#', '')
       }
     })
     // Created children
