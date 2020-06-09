@@ -77,7 +77,7 @@ export default {
     this.$store.dispatch('getByParent' + this.config.options.name, this.itemIDParent)
     // Loading
     if (this.config.options.dataLoadOnParentForm) {
-      this.$EventBus.$on('storeAllByParentSet', () => {
+      this.$EventBus.$on('storeAllByParentSet' + this.config.options.nameVuex, () => {
         this.loading = true
       })
     } else {
