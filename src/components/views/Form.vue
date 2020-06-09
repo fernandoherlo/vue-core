@@ -44,7 +44,7 @@ export default {
       }
       // Tab
       if (this.$route.hash) {
-        this.tabIndex = this.$route.hash.replace('#', '')
+        this.tabIndex = parseInt(this.$route.hash.replace('#', ''))
       }
     })
     // Created children
