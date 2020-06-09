@@ -202,7 +202,11 @@ export default {
       // Degub
       this.$log.debug('EDIT')
       if (this.config.options.inline) {
-        this.$router.replace({name: this.config.options.nameSinglePluginBack, params: { id: this.itemIDParent }})
+        if (this.config.options.tabIndexPluginBack) {
+          this.$router.replace({name: this.config.options.nameSinglePluginBack, hash: '#' + this.config.options.tabIndexPluginBack, params: { id: this.itemIDParent }})
+        } else {
+          this.$router.replace({name: this.config.options.nameSinglePluginBack, params: { id: this.itemIDParent }})
+        }
       } else {
         if (this.config.options.nameOverride) {
           this.$router.replace({name: this.config.options.nameOverride })
