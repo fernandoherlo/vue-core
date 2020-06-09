@@ -302,19 +302,19 @@ export default {
           <template v-if="__checkConditionRowActions(props.row)">
             <a class="btn edit" @click="__edit(props.row.id)" v-if="canEdit">
               <span v-html="config.buttons.editName" :title="config.buttons.editName" v-if="config.buttons.editName"></span>
-              <icon name="edit" v-else></icon>
+              <icon name="edit" scale="0.8" v-else></icon>
             </a>
             <a class="btn delete" @click="__delete(props.row.id)" v-if="!confirm[props.row.id] && canDelete">
               <span v-html="config.buttons.deleteName" :title="config.buttons.deleteName" v-if="config.buttons.deleteName"></span>
-              <icon name="trash-alt" v-else></icon>
+              <icon name="trash-alt" scale="0.8" v-else></icon>
             </a>
             <a class="btn delete ask" @click="__confirmDelete(props.row.id)" v-if="confirm[props.row.id] && canDelete">
               <span v-html="config.buttons.askName" :title="config.buttons.askName" v-if="config.buttons.askName"></span>
-              <icon name="check-circle" v-else></icon>
+              <icon name="check-circle" scale="0.8" v-else></icon>
             </a>
             <a class="btn cancel" @click="__cancelDelete(props.row.id)" v-if="confirm[props.row.id]">
               <span v-html="config.buttons.cancelName" :title="config.buttons.cancelName" v-if="config.buttons.cancelName"></span>
-              <icon name="ban" v-else></icon>
+              <icon name="ban" scale="0.8" v-else></icon>
             </a>
           </template>
         </span>
