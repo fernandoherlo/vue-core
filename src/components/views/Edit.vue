@@ -101,7 +101,7 @@ export default {
       setTimeout(() => {
         // Validate
         this.$nextTick(() => {
-          if ( this.$refs.formdefault.$children[0].tabs.length >= 1 ) {
+          if ( this.$refs.formdefault.$children[0] && this.$refs.formdefault.$children[0].tabs && this.$refs.formdefault.$children[0].tabs.length >= 1 ) {
             this.$refs.formdefault.$children[0].$children[0].$children.forEach(vm => {
               vm.$validator.validate()
             })
