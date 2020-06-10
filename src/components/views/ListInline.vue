@@ -246,6 +246,9 @@ export default {
         </span>
       </template>
     </vue-good-table>
+    <template v-else>
+      <small>{{ config.table.noDataText }}</small>
+    </template>
     <template v-if="!loading">
       <div class="loading inline">
         <icon name="circle-notch" scale="1" spin></icon>
