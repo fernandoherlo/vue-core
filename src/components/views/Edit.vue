@@ -101,9 +101,15 @@ export default {
       setTimeout(() => {
         // Validate
         this.$nextTick(() => {
-          this.$refs.formdefault.$children.forEach(vm => {
-            vm.$validator.validate()
-          })
+          if ( this.$refs.formdefault.$children[0].tabs.length >= 1 ) {
+            this.$refs.formdefault.$children[0].$children[0].$children.forEach(vm => {
+              vm.$validator.validate()
+            })
+          } else {
+            this.$refs.formdefault.$children.forEach(vm => {
+              vm.$validator.validate()
+            })
+          }
           this.$refs.formdefault.$validator.validate()
         })
       }, 200)
