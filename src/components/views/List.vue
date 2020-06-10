@@ -327,7 +327,7 @@ export default {
       </div>
     </vue-good-table>
     <template v-else>
-      <small>{{ config.table.noDataText }}</small>
+      <small class="nodata">{{ config.table.noDataText }}</small>
     </template>
     <template v-if="!loading">
       <div class="loading inline">
