@@ -65,6 +65,7 @@ export default {
   methods: {
     onChange (value) {
       this.item[this.field.field] = value[this.trackBy]
+      this.value = value[this.trackBy]
     }
   }
 }
