@@ -35,6 +35,16 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    labelValue: {
+      type: String,
+      required: false,
+      default: 'name'
+    },
+    trackBy: {
+      type: String,
+      required: false,
+      default: 'id'
     }
   },
   computed: {
@@ -52,7 +62,7 @@ export default {
 
 <template>
   <div class="form-group select" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
-    <multiselect v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="item[field.field]" label="field.label" track-by="id" :showLabels="false" placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
+    <multiselect v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="item[field.field]" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
       <template slot="option" slot-scope="props">
         <div class="option__desc">
           <span class="option__title">
