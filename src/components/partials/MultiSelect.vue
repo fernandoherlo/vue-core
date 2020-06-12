@@ -70,7 +70,15 @@ export default {
   methods: {
     onChange (value) {
       if (value) {
-        this.item[this.field.field] = value[this.trackBy]
+        if (this.multiple && Array.isArray(value)) {
+          let tmpArray = []
+          value.forEach(element => {
+            tmpArray.push(element[this.trackBy])
+          })
+          this.item[this.field.field] = tmpArray
+        } else {
+          this.item[this.field.field] = value[this.trackBy]
+        }
       }
       this.$validator.validate()
     }
