@@ -50,7 +50,12 @@ export default {
       type: String,
       required: false,
       default: 'id'
-    }
+    },
+    multiple: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
   computed: {
     textValue () {
@@ -75,7 +80,7 @@ export default {
 
 <template>
   <div class="form-group select" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
-    <multiselect v-validate="field.validate" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="value" @input="onChange" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
+    <multiselect v-validate="field.validate" :name="field.label" :multiple="multiple" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="value" @input="onChange" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
       <template slot="option" slot-scope="props">
         <div class="option__desc">
           <span class="option__title">
