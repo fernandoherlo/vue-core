@@ -5,6 +5,11 @@ export default {
   components: {
     Multiselect
   },
+  data () {
+    return {
+      value: '',
+    }
+  },
   props: {
     item: {
       type: Object,
@@ -67,7 +72,7 @@ export default {
 
 <template>
   <div class="form-group select" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
-    <multiselect v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" :value="item[field.field]" @input="onChange" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
+    <multiselect v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" :value="value" @input="onChange" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
       <template slot="option" slot-scope="props">
         <div class="option__desc">
           <span class="option__title">
