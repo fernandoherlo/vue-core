@@ -1,0 +1,80 @@
+<script>
+import Multiselect from 'vue-multiselect'
+
+export default {
+  components: {
+    Multiselect
+  },
+  props: {
+    item: {
+      type: Object,
+      required: false
+    },
+    field: {
+      type: Object,
+      required: false
+    },
+    values: {
+      type: Array,
+      required: false
+    },
+    disabledCondition: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    classCss: {
+      type: String,
+      required: false
+    },
+    valueCustom: {
+      type: Function,
+      required: false
+    },
+    valueForPrint: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  computed: {
+    textValue () {
+      var valueSelect = this.values.filter(value => value.id === this.item[this.field.field])[0]
+      if (typeof this.valueCustom === 'function') {
+        return this.valueCustom(valueSelect)
+      } else {
+        return valueSelect.name
+      }
+    },
+  }
+}
+</script>
+
+<template>
+  <div class="form-group select" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
+    <multiselect v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="item[field.field]" label="field.label" track-by="id" :showLabels="false" placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
+      <template slot="option" slot-scope="props">
+        <div class="option__desc">
+          <span class="option__title">
+            <template v-if="typeof valueCustom === 'function'">
+              {{ valueCustom(props.option) }}
+            </template>
+            <template v-else>
+              {{ props.option.name }}
+            </template>
+          </span>
+        </div>
+      </template>
+    </multiselect>
+    <template v-if="valueForPrint">
+      <div class="form-control-print">
+        {{ textValue }}
+      </div>
+    </template>
+    <small class="form-text text-muted"><template v-if="field.help">{{ field.help }}</template></small>
+    <span class="error" v-show="errors.has('formDefaultValidate.' + field.label)">{{ errors.first('formDefaultValidate.' + field.label) }}</span>
+  </div>
+</template>
+
+<style lang="sass" scoped>
+</style>
