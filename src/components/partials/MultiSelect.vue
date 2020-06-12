@@ -56,13 +56,18 @@ export default {
         return valueSelect.name
       }
     },
+  },
+  methods: {
+    onChange (value) {
+      this.item[this.field.field] = value
+    }
   }
 }
 </script>
 
 <template>
   <div class="form-group select" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
-    <multiselect v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="item[field.field]" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
+    <multiselect v-validate="field.validate" data-vv-validate-on="change" :name="field.label" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" @input="onChange" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
       <template slot="option" slot-scope="props">
         <div class="option__desc">
           <span class="option__title">
