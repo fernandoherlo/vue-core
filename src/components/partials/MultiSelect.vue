@@ -51,6 +51,11 @@ export default {
       required: false,
       default: 'id'
     },
+    getDefFieldItem: {
+      type: String,
+      required: false,
+      default: null
+    },
     multiple: {
       type: Boolean,
       required: false,
@@ -68,7 +73,9 @@ export default {
     },
   },
   created () {
-    this.value = this.item
+    if (this.getDefFieldItem) {
+      this.value = this.item[this.getDefFieldItem]
+    }
   },
   computed: {
     textValue () {
