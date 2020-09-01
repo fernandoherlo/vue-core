@@ -68,7 +68,7 @@ export default {
     },
   },
   created () {
-    this.value = this.item[this.field.field]
+    this.value = this.item
   },
   computed: {
     textValue () {
