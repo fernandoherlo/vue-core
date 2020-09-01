@@ -67,9 +67,9 @@ export default {
       default: true
     },
   },
-  // created () {
-  //   this.value = this.item[this.field.field]
-  // },
+  created () {
+    this.value = this.item[this.field.field]
+  },
   computed: {
     textValue () {
       var valueSelect = this.values.filter(value => value.id === this.item[this.field.field])[0]
@@ -102,7 +102,7 @@ export default {
 <template>
   <div class="form-group select" :class="[{ 'form-control-hidden-print': valueForPrint }, classCss]">
     <label v-if="!hideLabelForm">{{ field.label }}</label>
-    <multiselect v-validate="field.validate" :name="field.label" :multiple="multiple" :hideSelected="hideSelected" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="this.item[this.field.field]" @input="onChange" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
+    <multiselect v-validate="field.validate" :name="field.label" :multiple="multiple" :hideSelected="hideSelected" :class="{'has-error': errors.has('formDefaultValidate.' + field.label)}" v-model="value" @input="onChange" :label="labelValue" :track-by="trackBy" :showLabels="false" :placeholder="field.labelDefault" :disabled="disabledCondition" :options="values">
       <template slot="option" slot-scope="props">
         <div class="option__desc">
           <span class="option__title">
