@@ -269,13 +269,13 @@ export default {
             <icon name="print" v-else></icon>
           </a>
           <template v-if="__checkComponentExists(config.options.name + '-edit-btns')">
-            <div :is="config.options.name + '-edit-btns'" ref="editbtnsdefault" :itemID="itemID"></div>
+            <div :is="config.options.name + '-edit-btns'" ref="editbtnsdefault" :item="itemVuex"></div>
           </template>
         </div>
       </b-popover>
       <!-- Bootstrap-vue new version no ref buttons, only when show popover. now use this ref  -->
       <template v-if="__checkComponentExists(config.options.name + '-edit-btns')">
-        <div :is="config.options.name + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none" :itemID="itemID"></div>
+        <div :is="config.options.name + '-edit-btns'" ref="editbtnsdefaultOut" class="hidden-print d-none" :item="itemVuex"></div>
       </template>
     </div>
     <div class="form" v-if="itemVuex">
